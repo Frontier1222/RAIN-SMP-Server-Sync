@@ -14,6 +14,12 @@ const INFESTED_READY_KEY = 'rain:inf30_ready';
 const INFESTED_CAP_EVERY_LOOPS = 4;
 const INFESTED_SYNC_EVERY_LOOPS = 4;
 const INFESTED_STRIP_EVERY_LOOPS = 30;
+const INFESTED_PROJECTILE_CLEANUP_RADIUS = 5;
+const INFESTED_BLOCK_CONTAINER_TYPES = new Set([
+    'minecraft:dispenser',
+    'minecraft:dropper',
+    'minecraft:hopper',
+]);
 
 let infestedCapRot = 0;
 let infestedSyncRot = 0;
@@ -338,20 +344,32 @@ function removeInfestedEffectFromEntity(entity) {
     } catch (e) {}
 }
 
+function stripInfestedPotionsFromContainer(container) {
+    if (!container) return false;
+    let removed = false;
+
+    for (let i = 0; i < container.size; i++) {
+        try {
+            const stack = container.getItem(i);
+            if (!stack || !isInfestedPotionStack(stack)) continue;
+            container.setItem(i, undefined);
+            removed = true;
+        } catch (e) {}
+    }
+
+    return removed;
+}
+
 function stripInfestedPotionsFromPlayer(player, notifyPlayer = false) {
     if (!player) return false;
 
     let removed = false;
 
     try {
-        const inv = player.getComponent('minecraft:inventory')?.container;
-        if (inv) {
-            for (let i = 0; i < inv.size; i++) {
-                const stack = inv.getItem(i);
-                if (!stack || !isInfestedPotionStack(stack)) continue;
-                inv.setItem(i, undefined);
-                removed = true;
-            }
+        const inv = player.getComponent('minecraft:inventory')?.container
+            ?? player.getComponent('inventory')?.container;
+        if (stripInfestedPotionsFromContainer(inv)) {
+            removed = true;
         }
     } catch (e) {}
 
@@ -369,6 +387,20 @@ function stripInfestedPotionsFromPlayer(player, notifyPlayer = false) {
     }
 
     return removed;
+}
+
+function stripInfestedPotionsFromBlock(block) {
+    if (!block) return false;
+    const typeId = String(block.typeId || '').toLowerCase();
+    if (!INFESTED_BLOCK_CONTAINER_TYPES.has(typeId)) return false;
+
+    try {
+        const inv = block.getComponent('minecraft:inventory')?.container
+            ?? block.getComponent('inventory')?.container;
+        return stripInfestedPotionsFromContainer(inv);
+    } catch (e) {
+        return false;
+    }
 }
 
 function getInfestedEffectLoreLine() {
@@ -569,8 +601,14 @@ function maybeClearInfestedReadyOnPotionChange(player, item, beforeItem) {
     }
 }
 
-function applyInfestedEffectNearby(source, radius) {
-    return;
+function sanitizeInfestedEffectNearby(source, radius = INFESTED_PROJECTILE_CLEANUP_RADIUS) {
+    if (!source?.dimension || !source.location) return;
+
+    try {
+        for (const entity of source.dimension.getEntities({ location: source.location, maxDistance: radius })) {
+            removeInfestedEffectFromEntity(entity);
+        }
+    } catch (e) {}
 }
 
 export function capInfestedEffectOnEntity(entity) {
@@ -611,7 +649,7 @@ export function startInfestedPotionRuntime() {
             if (!event.entity?.isValid) return;
 
             const typeId = getEffectAddTypeId(event);
-            if (!typeId || !isInfestedEffectType(typeId)) return;
+            if (!typeId || (!isInfestedEffectType(typeId) && !typeId.toLowerCase().includes('infested'))) return;
 
             system.run(() => removeInfestedEffectFromEntity(event.entity));
         });
@@ -659,6 +697,42 @@ export function startInfestedPotionRuntime() {
             }
 
             maybeClearInfestedReadyOnPotionChange(player, item, beforeItem);
+        });
+    }
+
+    if (world.beforeEvents?.playerInteractWithBlock) {
+        world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
+            const player = event.player;
+            const block = event.block;
+            if (!player || !block) return;
+
+            system.run(() => {
+                if (stripInfestedPotionsFromBlock(block)) {
+                    blockInfestedPotionUse(player);
+                }
+            });
+        });
+    }
+
+    if (world.afterEvents?.playerPlaceBlock) {
+        world.afterEvents.playerPlaceBlock.subscribe((event) => {
+            const block = event.block;
+            if (!block) return;
+            system.run(() => stripInfestedPotionsFromBlock(block));
+        });
+    }
+
+    if (world.afterEvents?.entitySpawn) {
+        world.afterEvents.entitySpawn.subscribe((event) => {
+            const entity = event.entity;
+            if (!entity?.isValid) return;
+
+            const typeId = String(entity.typeId || '').toLowerCase();
+            if (!typeId.includes('potion') && typeId !== 'minecraft:area_effect_cloud') return;
+
+            system.run(() => sanitizeInfestedEffectNearby(entity));
+            system.runTimeout(() => sanitizeInfestedEffectNearby(entity), 2);
+            system.runTimeout(() => sanitizeInfestedEffectNearby(entity), 10);
         });
     }
 
