@@ -1,0 +1,49 @@
+{
+	"format_version": "1.21.70",
+	"minecraft:item": {
+		"description": {
+			"identifier": "ulkd_ess:detector1",
+			"menu_category": {
+				"category": "equipment",
+				"group": "ulkd_ess:itemGroup.name.detectors"
+			}
+		},
+		"components": {
+			"minecraft:max_stack_size": 1,
+			"minecraft:icon": "unlinked.essentials:detector1",
+			"minecraft:durability": {
+				"max_durability": 2000,
+				"damage_chance": {
+					"min": 0,
+					"max": 1
+				}
+			},
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"minecraft:copper_ingot"
+						],
+						"repair_amount": 300
+					}
+				]
+			},
+            "minecraft:custom_components": [
+                "ulkd_ess:no_attack_durability",
+				"ulkd_ess:ore_scanner"
+            ],
+			"minecraft:tags": {
+				"tags": [
+					"ulkd_ess:ore_filter_minecraft:coal_ore",
+					"ulkd_ess:ore_filter_minecraft:deepslate_coal_ore",
+					"ulkd_ess:ore_filter_minecraft:copper_ore",
+					"ulkd_ess:ore_filter_minecraft:deepslate_copper_ore",
+					"ulkd_ess:ore_filter_minecraft:redstone_ore",
+					"ulkd_ess:ore_filter_minecraft:lit_redstone_ore",
+					"ulkd_ess:ore_filter_minecraft:deepslate_redstone_ore",
+					"ulkd_ess:ore_filter_minecraft:lit_deepslate_redstone_ore"
+				]
+			}
+		}
+	}
+}

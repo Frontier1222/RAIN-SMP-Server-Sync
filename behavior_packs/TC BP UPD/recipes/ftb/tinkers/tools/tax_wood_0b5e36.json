@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:tax_wood_0b5e36"},"tags":["smelters_station"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:hand_axe_handle_iron_head_wood_binding_primative"},"ingredients":[{"item":"ftb_tc:binding_string"},{"item":"ftb_tc:part_large_handle_iron"},{"item":"ftb_tc:part_axe_head_wood"}]}}

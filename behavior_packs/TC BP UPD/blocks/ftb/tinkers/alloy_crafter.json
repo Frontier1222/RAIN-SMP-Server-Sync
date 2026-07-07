@@ -1,0 +1,122 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:alloy_crafter",
+      "menu_category": {
+        "category": "items"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": [
+            "minecraft:cardinal_direction"
+          ]
+        }
+      }
+    },
+    "components": {
+      "tag:minecraft:is_pickaxe_item_destructible": {},
+      "tag:metal": {},
+      "minecraft:crafting_table": {
+        "crafting_tags": [
+          "alloy_crafter"
+        ],
+        "table_name": "Alloy Crafter"
+      },
+      "minecraft:collision_box": true,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 30
+      },
+      "minecraft:geometry": "geometry.ftb_tc.ftb_block",
+      "minecraft:material_instances": {
+        "up": {
+          "texture": "alloy_crafter_top",
+          "render_method": "alpha_test"
+        },
+        "down": {
+          "texture": "alloy_crafter_bottom",
+          "render_method": "alpha_test"
+        },
+        "north": {
+          "texture": "alloy_crafter_front",
+          "render_method": "alpha_test"
+        },
+        "south": {
+          "texture": "alloy_crafter_side",
+          "render_method": "alpha_test"
+        },
+        "east": {
+          "texture": "alloy_crafter_side",
+          "render_method": "alpha_test"
+        },
+        "west": {
+          "texture": "alloy_crafter_side",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:light_emission": 10,
+      "minecraft:map_color": "#ff6f17"
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": {
+          "minecraft:light_dampening": 0,
+          "minecraft:light_emission": 1,
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              180,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:light_dampening": 0,
+          "minecraft:light_emission": 1,
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:light_dampening": 0,
+          "minecraft:light_emission": 1,
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              -90,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:light_dampening": 0,
+          "minecraft:light_emission": 1,
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              90,
+              0
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

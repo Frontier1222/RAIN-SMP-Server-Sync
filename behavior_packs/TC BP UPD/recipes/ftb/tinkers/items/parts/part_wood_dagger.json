@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:part_wood_dagger"
+    },
+    "tags": [
+      "part_builder"
+    ],
+    "key": {
+      "B": {
+        "item": "ftb_tc:pattern_dagger"
+      },
+      "P": {
+        "tag": "minecraft:planks"
+      }
+    },
+    "pattern": [
+      "   ",
+      " B ",
+      " P "
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:part_dagger_blade_wood",
+      "count": 1
+    }
+  }
+}

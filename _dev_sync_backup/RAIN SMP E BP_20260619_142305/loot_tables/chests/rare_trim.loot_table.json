@@ -1,0 +1,16 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                { "type": "item", "name": "minecraft:vex_armor_trim_smithing_template" },
+                { "type": "item", "name": "minecraft:rib_armor_trim_smithing_template" },
+                { "type": "item", "name": "minecraft:snout_armor_trim_smithing_template" },
+                { "type": "item", "name": "minecraft:eye_armor_trim_smithing_template" },
+                { "type": "item", "name": "minecraft:ward_armor_trim_smithing_template" },
+                { "type": "item", "name": "minecraft:tide_armor_trim_smithing_template" },
+                { "type": "item", "name": "minecraft:flow_armor_trim_smithing_template" }
+            ]
+        }
+    ]
+}

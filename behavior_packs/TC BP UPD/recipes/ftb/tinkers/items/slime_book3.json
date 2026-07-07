@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:gadgetry3"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["Xx"],
+    "key": {
+      "X": {
+        "item": "minecraft:book"
+      },
+      "x": {
+        "item": "ftb_tc:sky_slime_ball"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:gadgetry",
+      "count": 1
+    }
+  }
+}

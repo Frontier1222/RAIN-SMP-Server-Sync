@@ -1,0 +1,349 @@
+{
+  "texture_data": {
+    "unlinked.essentials.paxel_wooden": {
+      "textures": [
+        "textures/unlinked/essentials/wood_paxel"
+      ]
+    },
+    "unlinked.essentials.paxel_stone": {
+      "textures": [
+        "textures/unlinked/essentials/stone_paxel"
+      ]
+    },
+    "unlinked.essentials.paxel_copper": {
+      "textures": [
+        "textures/unlinked/essentials/copper_paxel"
+      ]
+    },
+    "unlinked.essentials:circle": {
+      "textures": [
+        "textures/unlinked/essentials/circle"
+      ]
+    },
+    "unlinked.essentials.bribe": {
+      "textures": [
+        "textures/unlinked/essentials/bribe"
+      ]
+    },
+    "unlinked.essentials.clear_checkpoints": {
+      "textures": [
+        "textures/unlinked/essentials/clear_checkpoints"
+      ]
+    },
+    "unlinked.essentials:flashlight": {
+      "textures": [
+        "textures/unlinked/essentials/flashlight"
+      ]
+    },
+    "unlinked.essentials.paxel_iron": {
+      "textures": [
+        "textures/unlinked/essentials/iron_paxel"
+      ]
+    },
+    "unlinked.essentials.paxel_golden": {
+      "textures": [
+        "textures/unlinked/essentials/gold_paxel"
+      ]
+    },
+    "unlinked.essentials.paxel_diamond": {
+      "textures": [
+        "textures/unlinked/essentials/diamond_paxel"
+      ]
+    },
+    "unlinked.essentials.paxel_netherite": {
+      "textures": [
+        "textures/unlinked/essentials/netherite_paxel"
+      ]
+    },
+    "unlinked.essentials:bucket_empty": {
+      "textures": [
+        "textures/unlinked/essentials/bucket_empty"
+      ]
+    },
+    "unlinked.essentials:bucket_water": {
+      "textures": [
+        "textures/unlinked/essentials/bucket_water"
+      ]
+    },
+    "unlinked.essentials:bucket_lava": {
+      "textures": [
+        "textures/unlinked/essentials/bucket_lava"
+      ]
+    },
+    "unlinked.essentials:satchel": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel"
+      ]
+    },
+    "unlinked.essentials:satchel_white": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_white"
+      ]
+    },
+    "unlinked.essentials:satchel_orange": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_orange"
+      ]
+    },
+    "unlinked.essentials:satchel_magenta": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_magenta"
+      ]
+    },
+    "unlinked.essentials:satchel_light_blue": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_light_blue"
+      ]
+    },
+    "unlinked.essentials:satchel_yellow": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_yellow"
+      ]
+    },
+    "unlinked.essentials:satchel_lime": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_lime"
+      ]
+    },
+    "unlinked.essentials:satchel_pink": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_pink"
+      ]
+    },
+    "unlinked.essentials:satchel_gray": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_gray"
+      ]
+    },
+    "unlinked.essentials:satchel_light_gray": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_light_gray"
+      ]
+    },
+    "unlinked.essentials:satchel_cyan": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_cyan"
+      ]
+    },
+    "unlinked.essentials:satchel_purple": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_purple"
+      ]
+    },
+    "unlinked.essentials:satchel_blue": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_blue"
+      ]
+    },
+    "unlinked.essentials:satchel_brown": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_brown"
+      ]
+    },
+    "unlinked.essentials:satchel_green": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_green"
+      ]
+    },
+    "unlinked.essentials:satchel_red": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_red"
+      ]
+    },
+    "unlinked.essentials:satchel_black": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.satchel_black"
+      ]
+    },
+    "unlinked.essentials:sorting_stick": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.sorting_stick"
+      ]
+    },
+    "unlinked.essentials:hover": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.hover"
+      ]
+    },
+    "unlinked.essentials:sleeping_bag": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.sleeping_bag"
+      ]
+    },
+    "unlinked.essentials:anvil": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.anvil"
+      ]
+    },
+    "unlinked.essentials:oxidant": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.oxidant"
+      ]
+    },
+    "unlinked.essentials:sponge": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.sponge"
+      ]
+    },
+    "unlinked.essentials:measuring_tape": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.measuring_tape"
+      ]
+    },
+    "unlinked.essentials:capture_cube_empty": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.capture_cube_empty"
+      ]
+    },
+    "unlinked.essentials:capture_cube": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.capture_cube"
+      ]
+    },
+    "unlinked.essentials:air_bladder": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.air_bladder"
+      ]
+    },
+    "unlinked.essentials:large_air_bladder": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.large_air_bladder"
+      ]
+    },
+    "unlinked.essentials:incinerator": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.incinerator"
+      ]
+    },
+    "unlinked.essentials:guidebook_icon": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.guidebook_icon"
+      ]
+    },
+    "unlinked.essentials:admin_remote": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.admin_remote"
+      ]
+    },
+    "unlinked.essentials:remote": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.remote"
+      ]
+    },
+    "unlinked.essentials:player_teleporter": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.player_teleporter"
+      ]
+    },
+    "unlinked.essentials:checkpoint": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.checkpoint"
+      ]
+    },
+    "unlinked.essentials:mining_helmet": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.mining_helmet"
+      ]
+    },
+    "unlinked.essentials:ender_chest": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.ender_chest"
+      ]
+    },
+    "unlinked.essentials:furnace": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.furnace"
+      ]
+    },
+    "unlinked.essentials:crafting_table": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.crafting_table"
+      ]
+    },
+    "unlinked.essentials:detector1": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.detector1"
+      ]
+    },
+    "unlinked.essentials:detector2": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.detector2"
+      ]
+    },
+    "unlinked.essentials:detector3": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.detector3"
+      ]
+    },
+    "unlinked.essentials:detector4": {
+      "textures": [
+        "textures/unlinked/essentials/essentials.detector4"
+      ]
+    },
+    "unlinked.essentials:magnet": {
+      "textures": [
+        "textures/unlinked/essentials/magnet"
+      ]
+    },
+    "unlinked.essentials:xp_satchel": {
+      "textures": [
+        "textures/unlinked/essentials/xp_satchel"
+      ]
+    },
+    "unlinked.essentials:gift": {
+      "textures": [
+        "textures/unlinked/essentials/gift"
+      ]
+    },
+    "unlinked.essentials:chest_key": {
+      "textures": [
+        "textures/unlinked/essentials/chest_key"
+      ]
+    },
+    "unlinked.essentials:portable_boat": {
+      "textures": [
+        "textures/unlinked/essentials/bloater"
+      ]
+    },
+    "unlinked.essentials:disenchanter": {
+      "textures": [
+        "textures/unlinked/essentials/disenchanter"
+      ]
+    },
+    "unlinked.essentials.scythe_wooden": {
+      "textures": [
+        "textures/unlinked/essentials/wood_scythe"
+      ]
+    },
+    "unlinked.essentials.scythe_stone": {
+      "textures": [
+        "textures/unlinked/essentials/stone_scythe"
+      ]
+    },
+    "unlinked.essentials.scythe_iron": {
+      "textures": [
+        "textures/unlinked/essentials/iron_scythe"
+      ]
+    },
+    "unlinked.essentials.scythe_copper": {
+      "textures": [
+        "textures/unlinked/essentials/copper_scythe"
+      ]
+    },
+    "unlinked.essentials.scythe_golden": {
+      "textures": [
+        "textures/unlinked/essentials/gold_scythe"
+      ]
+    },
+    "unlinked.essentials.scythe_diamond": {
+      "textures": [
+        "textures/unlinked/essentials/diamond_scythe"
+      ]
+    },
+    "unlinked.essentials.scythe_netherite": {
+      "textures": [
+        "textures/unlinked/essentials/netherite_scythe"
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:single_block_feature": {
+    "description": {
+      "identifier": "ftb_tc:iron_berry_bush"
+    },
+    "places_block": "ftb_tc:iron_berry_bush_full",
+    "enforce_survivability_rules": false,
+    "enforce_placement_rules": false,
+    "may_replace": [
+      "minecraft:air"
+    ]
+  }
+}

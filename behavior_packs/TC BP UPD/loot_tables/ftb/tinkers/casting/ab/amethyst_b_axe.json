@@ -1,0 +1,14 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "ftb_tc:part_axe_head_amethyst_bronze",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

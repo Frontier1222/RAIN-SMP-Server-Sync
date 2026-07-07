@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:tsh_bone_59a686"},"tags":["smelters_station"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:shoel_handle_bone_head_bone_binding_primative"},"ingredients":[{"item":"ftb_tc:part_large_handle_bone"},{"item":"ftb_tc:part_shoel_head_bone"},{"item":"ftb_tc:binding_string"}]}}

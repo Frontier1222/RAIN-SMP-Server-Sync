@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "RAIN SMP Server",
+			"path": "."
+		}
+	],
+	"settings": {
+		"sftp.printDebugLog": true,
+		"files.exclude": {
+			"**/.git": true,
+			"**/.DS_Store": true,
+			"**/Thumbs.db": true
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"natizyskunk.sftp"
+		]
+	}
+}

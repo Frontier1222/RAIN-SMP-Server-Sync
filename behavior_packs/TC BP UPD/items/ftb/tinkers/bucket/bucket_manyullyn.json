@@ -1,0 +1,20 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ftb_tc:bucket_manyullyn"
+    },
+    "components": {
+      "ftb_tc:fluid_storage": {
+        "fluid": "ftb_tc:manyullyn",
+        "amount": 1000,
+        "seared_tank": false,
+        "return_item": "minecraft:bucket"
+      },
+      "minecraft:max_stack_size": {
+        "value": 1
+      },
+      "minecraft:icon": "bucket_manyullyn"
+    }
+  }
+}

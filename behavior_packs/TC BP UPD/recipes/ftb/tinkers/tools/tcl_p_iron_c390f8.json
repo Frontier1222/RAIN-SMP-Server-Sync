@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:tcl_p_iron_c390f8"},"tags":["smelters_anvil"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:cleaver_head_pig_iron_guard_slimesteel"},"ingredients":[{"item":"ftb_tc:part_cleaver_head_pig_iron"},{"item":"ftb_tc:part_cleaver_guard_slimesteel"}]}}

@@ -1,0 +1,166 @@
+{
+  "namespace": "server_form",
+
+  "main_screen_content": {
+    "type": "panel",
+    "size": ["100%", "100%"],
+    "controls": [
+      {
+        "server_form_factory": {
+          "type": "factory",
+          "control_ids": {
+            "long_form": "@server_form.long_form",
+            "custom_form": "@server_form.custom_form"
+          }
+        }
+      }
+    ]
+  },
+  "third_party_server_screen@common.base_screen": {
+    "type": "screen",
+    "size": ["100%", "100%"],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$screen_content": "server_form.main_screen_content",
+    "$screen_animations|default": [
+      "@server_form.screen_exit_animation_pop_offset",
+      "@server_form.screen_entrance_animation_push_offset",
+      "@server_form.screen_exit_animation_pop_fade",
+      "@server_form.screen_entrance_animation_push_fade"
+    ],
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ]
+  },  
+  "long_form": {
+    "type": "panel",
+    "size": ["100%", "100%"],
+    "$action": "bd.action:",
+    "$gui": "bd.gui:",
+    "$sub": "bd.sub:",
+    "$main": "bd.main:",
+    "$main_legacy": "§m§a§i§n",
+    "controls": [
+      {
+        "long_form@common_dialogs.main_panel_no_buttons": {
+          "$title_panel": "common_dialogs.standard_title_label",
+          "$title_size": ["100% - 14px", 10],
+          "size": [225, 200],
+          "$text_name": "#title_text",
+          "$title_text_binding_type": "none",
+          "$child_control": "server_form.long_form_panel",
+          "layer": 2,
+          "bindings": [
+            {
+              "binding_name": "#title_text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "((#title_text - $action - $gui - $sub - '§c§h§e§s§t' - $main - $main_legacy) = #title_text)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "action@bd_action.root_panel": {}
+      },
+      {
+        "gui@bd_gui.root_panel": {}
+      },
+      {
+        "sub@bd_sub.root_panel": {}
+      },
+      {
+        "main@bd_main.root_panel": {}
+      },
+      {
+        "chest_ui@container.main_panel": {
+          "bindings": [
+            {
+              "binding_name": "#title_text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#title_text - '§c§h§e§s§t') = #title_text))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "custom_form": {
+    "type": "panel",
+    "size": ["100%", "100%"],
+    "$modal": "bd.modal:",
+    "controls": [
+      {
+        "custom_form@common_dialogs.main_panel_no_buttons": {
+          "$title_panel": "common_dialogs.standard_title_label",
+          "$title_size": ["100% - 14px", 10],
+          "size": [225, 200],
+          "$text_name": "#title_text",
+          "$title_text_binding_type": "none",
+          "$child_control": "server_form.custom_form_panel",
+          "layer": 2,
+          "bindings": [
+            {
+              "binding_name": "#title_text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "((#title_text - $modal) = #title_text)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "modal@bd_modal.root_panel": {}
+      }
+    ]
+  },
+
+  "screen_entrance_animation_push_fade": {
+    "anim_type": "alpha",
+    "easing": "in_cubic",
+    "duration": 0.2,
+    "from": 0,
+    "to": 1.0,
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+  "screen_exit_animation_pop_fade": {
+    "anim_type": "alpha",
+    "easing": "out_quart",
+    "duration": 0.2,
+    "from": 1.0,
+    "to": 0,
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+  "screen_entrance_animation_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_back",
+    "duration": 0.3,
+    "from": [0, 15],
+    "to": [0, 0],
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+  "screen_exit_animation_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.3,
+    "from": [0, 0],
+    "to": [0, 15],
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  }
+}

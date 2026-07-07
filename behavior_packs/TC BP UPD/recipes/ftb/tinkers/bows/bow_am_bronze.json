@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:bow_amethyst_bronze"
+    },
+    "tags": ["smelters_station"],
+    "pattern": [" #X", "# X", " #X"],
+    "key": {
+      "#": {
+        "item": "ftb_tc:part_large_handle_amethyst_bronze"
+      },
+      "X": {
+        "item": "minecraft:string"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:bow_amethyst_bronze",
+      "count": 1
+    }
+  }
+}

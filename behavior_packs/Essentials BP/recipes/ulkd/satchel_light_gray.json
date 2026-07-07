@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ulkd_ess:satchel_light_gray"
+    },
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "minecraft:light_gray_dye"
+      },
+      {
+        "item": "ulkd_ess:satchel"
+      }
+    ],
+    "result": {
+      "item": "ulkd_ess:satchel_light_gray"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:light_gray_dye"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

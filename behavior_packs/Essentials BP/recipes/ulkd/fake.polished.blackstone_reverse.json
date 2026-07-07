@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ulkd_ess:fake.polished.blackstone_reverse"
+    },
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "ulkd_ess:fake.polished.blackstone",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "minecraft:polished_blackstone",
+      "count": 5
+    },
+    "unlock": [
+      {
+        "item": "ulkd_ess:fake.polished.blackstone"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

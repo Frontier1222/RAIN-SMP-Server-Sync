@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:fake.oak.planks"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:oak_planks"
+      }
+    },
+    "pattern": [
+      "X X",
+      " X ",
+      "X X"
+    ],
+    "result": {
+      "item": "ulkd_ess:fake.oak.planks",
+      "count": 2
+    },
+    "unlock": [
+      {
+        "item": "minecraft:oak_planks"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

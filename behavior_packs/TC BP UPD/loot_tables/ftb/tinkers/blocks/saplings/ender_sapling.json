@@ -1,0 +1,14 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "ftb_tc:ender_sapling",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

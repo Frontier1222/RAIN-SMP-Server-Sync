@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ulkd_ess:fake.magenta.concrete_reverse"
+    },
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "ulkd_ess:fake.magenta.concrete",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "minecraft:magenta_concrete",
+      "count": 5
+    },
+    "unlock": [
+      {
+        "item": "ulkd_ess:fake.magenta.concrete"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

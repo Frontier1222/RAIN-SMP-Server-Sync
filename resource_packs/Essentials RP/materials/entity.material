@@ -1,0 +1,25 @@
+{
+    "materials": {
+        "version": "1.0.0",
+        "unlinked_waypoint:entity_alphablend": {
+            // "+states": [
+            //     "DisableDepthWrite",
+            //     "DisableCulling"
+            // ],
+            // "-defines": [
+            //     "FANCY"
+            // ],
+            // "+defines": [
+            //     "USE_EMISSIVE"
+            // ],
+            // "backFace": {
+            //     "stencilFunc": "NotEqual"
+            // },
+            // "frontFace": {
+            //     "stencilFunc": "NotEqual"
+            // },
+            // "stencilRef": 7,
+            "depthFunc": "Always"
+        }
+    }
+}

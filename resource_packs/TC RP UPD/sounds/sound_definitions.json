@@ -1,0 +1,11 @@
+{
+	"ftb_tc.slime_sling": {
+		"category": "neutral",
+		"sounds": [
+			{
+				"name": "sounds/ftb/tinkers/slime_sling",
+				"volume": 1.0
+			}
+		]
+	}
+}

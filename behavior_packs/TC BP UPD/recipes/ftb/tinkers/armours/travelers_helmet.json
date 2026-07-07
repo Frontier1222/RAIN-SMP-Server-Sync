@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:travelers_helmet"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["x x", "gxg", "X X"],
+    "key": {
+      "X": {
+        "item": "minecraft:copper_ingot"
+      },
+      "x": {
+        "item": "minecraft:leather"
+      },
+      "g": {
+        "item": "minecraft:glass_pane"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:travelers_helmet"
+    }
+  }
+}

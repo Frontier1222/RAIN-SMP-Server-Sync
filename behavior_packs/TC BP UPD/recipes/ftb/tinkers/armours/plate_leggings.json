@@ -1,0 +1,24 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:plate_leggings"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["xxx", "x x", "X X"],
+    "key": {
+      "x": {
+        "item": "ftb_tc:cobalt_ingot"
+      },
+      "X": {
+        "item": "minecraft:chain"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:plate_leggings"
+    }
+  }
+}

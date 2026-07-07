@@ -1,0 +1,18 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "ftb_tc:earth_slime_grass_seeds",
+                    "weight": 1
+                },
+                {
+                    "type": "empty",
+                    "weight": 7
+                }
+            ]
+        }
+    ]
+}

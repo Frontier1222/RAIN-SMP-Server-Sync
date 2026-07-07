@@ -1,0 +1,38 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:waxed_copper2"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:honeycomb"
+      },
+      "Y": {
+        "item": "minecraft:copper_block"
+      }
+    },
+    "pattern": [
+      "YX"
+    ],
+    "result": [
+      {
+        "item": "minecraft:waxed_copper",
+        "count": 1
+      },
+      {
+        "item": "minecraft:bucket",
+        "count": 1
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:honeycomb"
+      }
+    ]
+  }
+}

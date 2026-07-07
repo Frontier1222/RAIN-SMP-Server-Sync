@@ -1,0 +1,230 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.particle": {
+            "states": {
+                "default": {
+                    "animations": [
+                        "default_particle_animation"
+                    ]
+                }
+            }
+        },
+        "controller.animation.snowgolem.particle": {
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "fire_resistance": "v.variant = 1;"
+                        },
+                        {
+                            "instant_health": "v.variant = 2;"
+                        },
+                        {
+                            "instant_damage": "v.variant = 3;"
+                        },
+                        {
+                            "invisbility": "v.variant = 4;"
+                        },
+                        {
+                            "jump_boost": "v.variant = 5;"
+                        },
+                        {
+                            "night_vision": "v.variant = 6;"
+                        },
+                        {
+                            "poison": "v.variant = 7;"
+                        },
+                        {
+                            "regeneration": "v.variant = 8;"
+                        },
+                        {
+                            "resistance": "v.variant = 9;"
+                        },
+                        {
+                            "slow_falling": "v.variant = 10;"
+                        },
+                        {
+                            "slowness": "v.variant = 11;"
+                        },
+                        {
+                            "speed": "v.variant = 12;"
+                        },
+                        {
+                            "strength": "v.variant = 13;"
+                        },
+                        {
+                            "water_breathing": "v.variant = 14;"
+                        },
+                        {
+                            "weakness": "v.variant = 15;"
+                        },
+                        {
+                            "wither": "v.variant = 16;"
+                        }
+                    ]
+                },
+                "fire_resistance": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 1;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.fire_resistance"
+                    ]
+                },
+                "instant_damage": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 2;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.instant_damage"
+                    ]
+                },
+                "instant_health": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 3;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.instant_health"
+                    ]
+                },
+                "invisbility": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 4;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.invisibility"
+                    ]
+                },
+                "jump_boost": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 5;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.jump_boost"
+                    ]
+                },
+                "night_vision": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 6;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.night_vision"
+                    ]
+                },
+                "poison": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 7;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.poison"
+                    ]
+                },
+                "regeneration": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 8;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.regeneration"
+                    ]
+                },
+                "resistance": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 9;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.resistance"
+                    ]
+                },
+                "slowness": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 10;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.slowness"
+                    ]
+                },
+                "slow_falling": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 11;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.slow_falling"
+                    ]
+                },
+                "speed": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 12;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.speed"
+                    ]
+                },
+                "strength": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 13;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.strength"
+                    ]
+                },
+                "water_breathing": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 14;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.water_breathing"
+                    ]
+                },
+                "weakness": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 15;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.weakness"
+                    ]
+                },
+                "wither": {
+                    "transitions": [
+                        {
+                            "default": "v.variant != 16;"
+                        }
+                    ],
+                    "animations": [
+                        "animation.snowgolem.wither"
+                    ]
+                }
+            }
+        }
+    }
+}

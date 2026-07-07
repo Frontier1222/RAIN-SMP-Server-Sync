@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:fake.orange.terracotta"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:orange_terracotta"
+      }
+    },
+    "pattern": [
+      "X X",
+      " X ",
+      "X X"
+    ],
+    "result": {
+      "item": "ulkd_ess:fake.orange.terracotta",
+      "count": 2
+    },
+    "unlock": [
+      {
+        "item": "minecraft:orange_terracotta"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

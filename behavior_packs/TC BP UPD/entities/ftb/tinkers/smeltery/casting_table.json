@@ -1,0 +1,84 @@
+{
+  "format_version": "1.20.60",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "ftb_tc:casting_table",
+      "is_summonable": true,
+      "is_spawnable": false
+    },
+    "component_groups": {
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "width": 1,
+            "height": 1,
+            "pivot": [0, 0.5, 0]
+          }
+        ]
+      },
+      "minecraft:health": {
+        "value": 1,
+        "max": 1
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "in_water",
+                  "value": true,
+                  "subject": "self"
+                },
+                {
+                  "test": "is_underwater",
+                  "value": true,
+                  "subject": "self"
+                }
+              ]
+            },
+            "event": "ftb_tc:remove"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "in_lava",
+                  "value": true,
+                  "subject": "self"
+                }
+              ]
+            },
+            "event": "ftb_tc:remove"
+          }
+        ]
+      },
+      "minecraft:is_stackable": {},
+      "minecraft:knockback_resistance": {
+        "value": 1,
+        "max": 1
+      },
+      "minecraft:push_through": 1,
+      "minecraft:navigation.swim": {
+        "can_sink": true
+      },
+      "minecraft:movement": {
+        "value": 0
+      },
+      "minecraft:underwater_movement": {
+        "value": 0
+      },
+      "minecraft:water_movement": {
+        "drag_factor": 0
+      }
+    },
+    "events": {
+    }
+  }
+}

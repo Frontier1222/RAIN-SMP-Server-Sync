@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:ts_r_ston_b612d4"},"tags":["smelters_anvil"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:sword_guard_ardite_blade_rock_stone"},"ingredients":[{"item":"ftb_tc:part_sword_blade_stone"},{"item":"ftb_tc:part_sword_guard_ardite"}]}}

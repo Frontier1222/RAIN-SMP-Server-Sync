@@ -1,0 +1,21 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:congealed_earth_slime"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["xx", "xx"],
+    "key": {
+      "x": {
+        "item": "minecraft:slime_ball"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:congealed_earth_slime"
+    }
+  }
+}

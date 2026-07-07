@@ -1,0 +1,26 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.ftb_tc.casting_table_particles": {
+			"loop": false,
+			"animation_length": 1.5,
+			"particle_effects": {
+				"0.01": {
+					"effect": "smoke",
+					"locator": "smoke"
+				},
+				"1.3": {
+					"effect": "smoke",
+					"locator": "smoke"
+				}
+			},
+			"sound_effects": {
+				"1.3": [
+					{
+						"effect": "fizz"
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,109 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.ftb_tc.controller",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "furnace",
+					"parent": "bone",
+					"pivot": [0, 0, 0.2],
+					"cubes": [
+						{
+							"origin": [-4, 2, -8.8],
+							"size": [8, 6, 1],
+							"inflate": -0.1,
+							"uv": {
+								"north": {"uv": [0, 12], "uv_size": [64, 36], "material_instance": "furnace_fire"}
+							}
+						},
+						{
+							"origin": [-3.5, 10, -8.4],
+							"size": [7, 5, 1],
+							"inflate": -0.1,
+							"uv": {
+								"north": {"uv": [0, 12], "uv_size": [64, 36], "material_instance": "furnace_fire"}
+							}
+						}
+					]
+				},
+				{
+					"name": "controller",
+					"parent": "bone",
+					"pivot": [0, 4, -9],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 16, 16],
+							"uv": {
+								"north": {"uv": [16, 16], "uv_size": [16, 16]},
+								"east": {"uv": [32, 16], "uv_size": [16, 16]},
+								"south": {"uv": [48, 16], "uv_size": [16, 16]},
+								"west": {"uv": [0, 16], "uv_size": [16, 16]},
+								"up": {"uv": [32, 16], "uv_size": [-16, -16]},
+								"down": {"uv": [48, 16], "uv_size": [-16, -16]}
+							}
+						},
+						{
+							"origin": [-4, 2, -9],
+							"size": [8, 6, 1],
+							"uv": {
+								"north": {"uv": [23, 43], "uv_size": [8, 6]},
+								"east": {"uv": [22, 43], "uv_size": [1, 6]},
+								"south": {"uv": [32, 43], "uv_size": [8, 6]},
+								"west": {"uv": [31, 43], "uv_size": [1, 6]},
+								"up": {"uv": [31, 43], "uv_size": [-8, -1]},
+								"down": {"uv": [39, 43], "uv_size": [-8, -1]}
+							}
+						},
+						{
+							"origin": [-5, 10, -8.5],
+							"size": [10, 5, 1],
+							"uv": {
+								"north": {"uv": [1, 42], "uv_size": [10, 5]},
+								"east": {"uv": [0, 42], "uv_size": [1, 5]},
+								"south": {"uv": [12, 42], "uv_size": [10, 5]},
+								"west": {"uv": [11, 42], "uv_size": [1, 5]},
+								"up": {"uv": [11, 42], "uv_size": [-10, -1]},
+								"down": {"uv": [21, 42], "uv_size": [-10, -1]}
+							}
+						},
+						{
+							"origin": [-5, 4, -9.5],
+							"size": [2, 2, 2],
+							"uv": {
+								"north": {"uv": [2, 2], "uv_size": [2, 2]},
+								"east": {"uv": [0, 2], "uv_size": [2, 2]},
+								"south": {"uv": [6, 2], "uv_size": [2, 2]},
+								"west": {"uv": [4, 2], "uv_size": [2, 2]},
+								"up": {"uv": [2, 0], "uv_size": [2, 2]},
+								"down": {"uv": [4, 2], "uv_size": [2, -2]}
+							}
+						}
+					]
+				}
+			],
+			"item_display_transforms": {
+				"gui": {
+					"rotation": [30, -135, 0],
+					"translation": [0, 0, 0],
+					"scale": [0.625, 0.625, 0.625],
+					"rotation_pivot": [0, 0, 0],
+					"scale_pivot": [0, 0, 0],
+					"fit_to_frame": true
+				}
+			}
+		}
+	]
+}

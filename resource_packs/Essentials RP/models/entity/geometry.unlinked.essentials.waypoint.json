@@ -1,0 +1,24 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.ulkd_ess.waypoint",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3,
+				"visible_bounds_offset": [0, 0.5, 0]
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 10.60876, 0.20665],
+					"cubes": [
+						{"origin": [-5, 6, -4], "size": [10, 10, 10], "pivot": [0, 10, 1], "rotation": [61.51653, 25.49671, 38.42684], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

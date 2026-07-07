@@ -1,0 +1,16 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ftb_tc:iron_can_empty"
+    },
+    "components": {
+      "minecraft:max_stack_size": 16,
+      "minecraft:icon": "iron_can_empty",
+      "ftb_tc:fluid_holder": {
+        "amount": 100,
+        "return_item": "ftb_tc:iron_can_{fluid_type}"
+      }
+    }
+  }
+}

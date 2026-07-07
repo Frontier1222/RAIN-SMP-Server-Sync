@@ -1,0 +1,15 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.ftb_tc.stop_rotate": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"stop_rotate"
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:mining.helmet"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:iron_ingot"
+      },
+      "Y": {
+        "item": "minecraft:glowstone"
+      },
+      "O": {
+        "item": "minecraft:yellow_dye"
+      }
+    },
+    "pattern": [
+      "XXX",
+      "XYX",
+      "O O"
+    ],
+    "result": {
+      "item": "ulkd_ess:mining.helmet",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ]
+  }
+}

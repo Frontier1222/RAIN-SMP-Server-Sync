@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:earth_slime_grass_seeds"
+    },
+    "tags": ["crafting_table"],
+    "pattern": [" x ", "xXx", " x "],
+    "key": {
+      "x": {
+        "item": "minecraft:slime_ball"
+      },
+      "X": {
+        "item": "minecraft:wheat_seeds"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:earth_slime_grass_seeds",
+      "count": 1
+    }
+  }
+}

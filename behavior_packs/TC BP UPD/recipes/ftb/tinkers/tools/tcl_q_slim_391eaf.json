@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:tcl_q_slim_391eaf"},"tags":["smelters_anvil"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:cleaver_head_queens_slime_guard_netherite"},"ingredients":[{"item":"ftb_tc:part_cleaver_head_queens_slime"},{"item":"ftb_tc:part_cleaver_guard_netherite"}]}}

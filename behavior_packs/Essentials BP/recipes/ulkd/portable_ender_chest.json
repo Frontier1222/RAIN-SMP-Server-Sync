@@ -1,0 +1,30 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:portable.ender.chest"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:ender_chest"
+      }
+    },
+    "pattern": [
+      "XX",
+      "XX"
+    ],
+    "result": {
+      "item": "ulkd_ess:portable.ender.chest",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:ender_chest"
+      }
+    ]
+  }
+}

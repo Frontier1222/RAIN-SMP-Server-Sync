@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ulkd_ess:fake.smooth.stone_reverse"
+    },
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "ulkd_ess:fake.smooth.stone",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "minecraft:smooth_stone",
+      "count": 5
+    },
+    "unlock": [
+      {
+        "item": "ulkd_ess:fake.smooth.stone"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

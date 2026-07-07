@@ -1,0 +1,18 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                { "type": "item", "name": "minecraft:sentry_armor_trim_smithing_template" },
+                { "type": "item", "name": "minecraft:dune_armor_trim_smithing_template" },
+                { "type": "item", "name": "minecraft:coast_armor_trim_smithing_template" },
+                { "type": "item", "name": "minecraft:wild_armor_trim_smithing_template" },
+                { "type": "item", "name": "minecraft:wayfinder_armor_trim_smithing_template" },
+                { "type": "item", "name": "minecraft:raiser_armor_trim_smithing_template" },
+                { "type": "item", "name": "minecraft:shaper_armor_trim_smithing_template" },
+                { "type": "item", "name": "minecraft:host_armor_trim_smithing_template" },
+                { "type": "item", "name": "minecraft:bolt_armor_trim_smithing_template" }
+            ]
+        }
+    ]
+}

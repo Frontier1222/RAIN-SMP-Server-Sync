@@ -1,0 +1,35 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ftb_tc:raw_slimesteel"
+    },
+    "tags": ["alloy_crafter"],
+    "ingredients": [
+      {
+        "item": "ftb_tc:sky_slime_ball"
+      },
+      {
+        "item": "ftb_tc:sky_slime_ball"
+      },
+      {
+        "item": "ftb_tc:seared_brick"
+      },
+      {
+        "item": "minecraft:raw_iron"
+      },
+      {
+        "item": "minecraft:raw_iron"
+      }
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": [
+      {
+        "item": "ftb_tc:raw_slimesteel",
+        "count": 2
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:pattern_sword"
+    },
+    "tags": [
+      "stencil_table"
+    ],
+    "key": {
+      "B": {
+        "item": "ftb_tc:pattern_blank"
+      }
+    },
+    "pattern": [
+      "B  ",
+      "B  ",
+      "   "
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:pattern_sword",
+      "count": 1
+    }
+  }
+}

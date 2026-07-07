@@ -1,0 +1,216 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:geometry": [
+        {
+            "description": {
+                "identifier": "geometry.wildfire",
+                "texture_width": 64,
+                "texture_height": 64,
+                "visible_bounds_width": 3,
+                "visible_bounds_height": 3,
+                "visible_bounds_offset": [
+                    0,
+                    1.5,
+                    0
+                ]
+            },
+            "bones": [
+                {
+                    "name": "root",
+                    "pivot": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "name": "main",
+                    "parent": "root",
+                    "pivot": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "cubes": [
+                        {
+                            "origin": [
+                                -2,
+                                3,
+                                -2
+                            ],
+                            "size": [
+                                4,
+                                16.3,
+                                4
+                            ],
+                            "uv": [
+                                48,
+                                0
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "body",
+                    "parent": "root",
+                    "pivot": [
+                        0,
+                        24,
+                        0
+                    ]
+                },
+                {
+                    "name": "upperBodyParts8",
+                    "parent": "body",
+                    "pivot": [
+                        0,
+                        24,
+                        0
+                    ],
+                    "cubes": [
+                        {
+                            "origin": [
+                                -4,
+                                11,
+                                0
+                            ],
+                            "size": [
+                                10,
+                                18,
+                                2
+                            ],
+                            "uv": [
+                                24,
+                                16
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "upperBodyParts9",
+                    "parent": "body",
+                    "pivot": [
+                        0,
+                        24,
+                        0
+                    ],
+                    "cubes": [
+                        {
+                            "origin": [
+                                -4,
+                                11,
+                                0
+                            ],
+                            "size": [
+                                10,
+                                18,
+                                2
+                            ],
+                            "uv": [
+                                24,
+                                16
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "upperBodyParts10",
+                    "parent": "body",
+                    "pivot": [
+                        0,
+                        24,
+                        0
+                    ],
+                    "cubes": [
+                        {
+                            "origin": [
+                                -4,
+                                11,
+                                0
+                            ],
+                            "size": [
+                                10,
+                                18,
+                                2
+                            ],
+                            "uv": [
+                                24,
+                                16
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "upperBodyParts11",
+                    "parent": "body",
+                    "pivot": [
+                        0,
+                        24,
+                        0
+                    ],
+                    "cubes": [
+                        {
+                            "origin": [
+                                -4,
+                                11,
+                                0
+                            ],
+                            "size": [
+                                10,
+                                18,
+                                2
+                            ],
+                            "uv": [
+                                24,
+                                16
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "head",
+                    "parent": "root",
+                    "pivot": [
+                        0,
+                        24,
+                        0
+                    ],
+                    "cubes": [
+                        {
+                            "origin": [
+                                -4,
+                                20,
+                                -4
+                            ],
+                            "size": [
+                                8,
+                                8,
+                                8
+                            ],
+                            "uv": [
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "origin": [
+                                -4.2,
+                                18.9,
+                                -4.2
+                            ],
+                            "size": [
+                                8.4,
+                                9.5,
+                                8.4
+                            ],
+                            "uv": [
+                                0,
+                                48
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

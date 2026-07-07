@@ -1,0 +1,72 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.ftb_tc.item.small.first_person": {
+			"loop": true,
+			"bones": {
+				"item_root": {
+					"position": [
+						0,
+						5,
+						7
+					],
+					"rotation": [
+						0,
+						0,
+						225
+					],
+					"scale": 0.45
+				}
+			}
+		},
+		"animation.ftb_tc.item.small.third_person": {
+			"loop": true,
+			"bones": {
+				"item_root": {
+					"position": [
+						-6.5,
+						15,
+						-4
+					],
+					"scale": 0.3
+				}
+			}
+		},
+		"animation.ftb_tc.item.first_person": {
+			"loop": true,
+			"bones": {
+				"item_root": {
+					"rotation": [
+						47.5,
+						0,
+						225
+					],
+					"position": [
+						5,
+						10,
+						7
+					],
+					"scale": 0.8
+				}
+			}
+		},
+		"animation.ftb_tc.item.third_person": {
+			"loop": true,
+			"bones": {
+				"item_root": {
+					"rotation": [
+						0,
+						-45,
+						0
+					],
+					"position": [
+						-7.5,
+						10,
+						-5
+					],
+					"scale": 0.5
+				}
+			}
+		}
+	}
+}

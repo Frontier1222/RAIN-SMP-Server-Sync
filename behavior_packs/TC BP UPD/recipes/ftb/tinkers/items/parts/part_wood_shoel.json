@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:part_wood_shoel"
+    },
+    "tags": [
+      "part_builder"
+    ],
+    "key": {
+      "P": {
+        "item": "ftb_tc:pattern_shoel"
+      },
+      "B": {
+        "tag": "minecraft:planks"
+      }
+    },
+    "pattern": [
+      "BPB",
+      "  B",
+      "   "
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:part_shoel_head_wood",
+      "count": 1
+    }
+  }
+}

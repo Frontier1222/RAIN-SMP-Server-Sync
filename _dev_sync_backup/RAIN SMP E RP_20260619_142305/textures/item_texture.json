@@ -1,0 +1,150 @@
+{
+    "resource_pack_name": "",
+    "texture_name": "atlas.items",
+    "texture_data": {
+        "viberater.christmas_coin": {
+            "textures": "textures/items/christmas_coin"
+        },
+        "viberater.rain_coin": {
+            "textures": "textures/items/rain_coin"
+        },
+         "gui": {
+            "textures": "textures/bd/gui"
+        },
+         "viberater.chest_front": {
+            "textures": "textures/items/chest_front"
+        },
+        "viberater.writable_book": {
+            "textures": "textures/items/writable_book"
+        },
+         "viberater.written_book": {
+            "textures": "textures/items/written_book"
+        },
+        "viberater.lootbag_bacon": {
+            "textures": "textures/items/lootbag_bacon_item_texture"
+        },
+        "viberater.lootbag_bat": {
+            "textures": "textures/items/lootbag_bat_item_texture"
+        },
+        "viberater.lootbag_common": {
+            "textures": "textures/items/lootbag_common_item_texture"
+        },
+        "viberater.lootbag_darkosto": {
+            "textures": "textures/items/lootbag_darkosto_item_texture"
+        },
+        "viberater.lootbag_epic": {
+            "textures": "textures/items/lootbag_epic_item_texture"
+        },
+        "viberater.lootbag_legendary": {
+            "textures": "textures/items/lootbag_legendary_item_texture"
+        },
+        "viberater.lootbag_rare": {
+            "textures": "textures/items/lootbag_rare_item_texture"
+        },
+        "viberater.lootbag_soaryn": {
+            "textures": "textures/items/lootbag_soaryn_item_texture"
+        },
+        "viberater.lootbag_uncommon": {
+            "textures": "textures/items/lootbag_uncommon_item_texture"
+        },
+        "viberater.lootbag_waffle": {
+            "textures": "textures/items/lootbag_waffle_item_texture"
+        },
+        "viberater.lootbag_worn_out": {
+            "textures": "textures/items/lootbag_worn_out_item_texture"
+        },
+        "viberater.lootbag_wyld": {
+            "textures": "textures/items/lootbag_wyld_item_texture"
+        },
+        "viberater.lootbag_base": {
+            "textures": "textures/items/lootbag_texture_base"
+        },
+        "viberater.lootbag_string": {
+            "textures": "textures/items/lootbag_texture_string"
+        },
+        "viberater.rain_rare_coin": {
+            "textures": "textures/items/rain_rare_coin"
+        },
+         "viberater.rain_uncommon_coin": {
+            "textures": "textures/items/rain_uncommon_coin"
+        },
+        "viberater.rain_common_coin": {
+            "textures": "textures/items/rain_common_coin"
+        },
+        "viberater.rain_event_coin": {
+            "textures": "textures/items/rain_event_coin"
+        },
+        "viberater.dungeon_coin": {
+            "textures": "textures/items/dungeon_coin"
+        },
+        "viberater.wither_sword": {
+            "textures": "textures/items/wither_sword1"
+        },
+        "netherite_pickaxe": {
+            "textures": "textures/items/netherite_pickaxe"
+        },
+        "viberater.orb_of_agility": {
+            "textures": "textures/items/orb_of_agility"
+        },
+        "viberater.orb_of_respite": {
+            "textures": "textures/items/orb_of_respite"
+        },
+        "viberater.orb_of_affliction": {
+            "textures": "textures/items/orb_of_affliction"
+        },
+        "viberater.orb_of_divine_intervention": {
+            "textures": "textures/items/orb_of_divine_intervention"
+        },
+        "viberater.orb_of_nullification": {
+            "textures": "textures/items/orb_of_nullification"
+        },
+        "viberater.orb_of_aviation": {
+            "textures": "textures/items/orb_of_aviation"
+        },
+        "viberater.orb_of_piglin_rapacity": {
+            "textures": "textures/items/orb_of_piglin_rapacity"
+        },
+        "viberater.orb_of_infinite_fuel": {
+            "textures": "textures/items/orb_of_infinite_fuel"
+        },
+        "viberater.orb_of_seclusion": {
+            "textures": "textures/items/orb_of_seclusion"
+        },
+        "viberater.orb_of_fecundation": {
+            "textures": "textures/items/orb_of_fecundation"
+        },
+        "viberater.orb_of_excavation": {
+            "textures": "textures/items/orb_of_excavation"
+        },
+        "viberater.orb_of_subaquatics": {
+            "textures": "textures/items/orb_of_subaquatics"
+        },
+        "viberater.orb_of_gelidity": {
+            "textures": "textures/items/orb_of_gelidity"
+        },
+        "viberater.orb_of_strigiformity": {
+            "textures": "textures/items/orb_of_strigiformity"
+        },
+        "viberater.dart_gun": {
+            "textures": "textures/items/dart_gun/dart_gun"
+        },
+        "viberater.snowball": {
+            "textures": "textures/items/snowball"
+        },
+        "viberater.christmas_sword": {
+            "textures": "textures/items/christmas_sword"
+        },
+        "viberater.wildfire_sword": {
+            "textures": "textures/items/wildfire_sword"
+        },
+        "viberater.infested_potion_30": {
+            "textures": "textures/items/potion_bottle_drinkable"
+        },
+        "viberater.infested_splash_potion_30": {
+            "textures": "textures/items/potion_bottle_splash"
+        },
+        "viberater.infested_lingering_potion_30": {
+            "textures": "textures/items/potion_bottle_lingering"
+        }
+    }
+}

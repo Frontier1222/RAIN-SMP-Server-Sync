@@ -1,0 +1,38 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:clear_waypoint"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "ulkd_ess:guidebook"
+      },
+      "Y": {
+        "item": "minecraft:lapis_lazuli"
+      }
+    },
+    "pattern": [
+      "XY"
+    ],
+    "result": [
+      {
+        "item": "ulkd_ess:clear_waypoint",
+        "count": 1
+      },
+      {
+        "item": "ulkd_ess:guidebook",
+        "count": 1
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:lapis_lazuli"
+      }
+    ]
+  }
+}

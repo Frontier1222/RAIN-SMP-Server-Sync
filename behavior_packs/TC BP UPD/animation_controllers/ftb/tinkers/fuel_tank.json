@@ -1,0 +1,217 @@
+{
+  "format_version": "1.20.0",
+  "animation_controllers": {
+    "controller.animation.ftb_tc.ftb_seared_tank.execute_commands": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "execute_lava_id_1": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 1" },
+            { "execute_lava_id_2": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 2" },
+            { "execute_lava_id_3": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 3" },
+            { "execute_lava_id_4": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 4" },
+            { "execute_lava_id_5": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 5" },
+            { "execute_lava_id_6": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 6" },
+            { "execute_lava_id_7": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 7" },
+            { "execute_lava_id_8": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 8" },
+            { "execute_lava_id_9": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 9" },
+            { "execute_lava_id_10": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 10" },
+            { "execute_lava_id_11": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 11" },
+            { "execute_lava_id_12": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 12" },
+            { "execute_lava_id_13": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 13" },
+            { "execute_lava_id_14": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 14" },
+            { "execute_lava_id_15": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 15" },
+            { "execute_lava_id_16": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 16" },
+            { "execute_lava_id_17": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 17" },
+            { "execute_lava_id_18": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 18" },
+            { "execute_lava_id_19": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 19" },
+            { "execute_lava_id_20": "query.property('ftb_tc:fluid_type') == 'lava' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 20" },
+            { "execute_blaze_lava_id_1": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 1" },
+            { "execute_blaze_lava_id_2": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 2" },
+            { "execute_blaze_lava_id_3": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 3" },
+            { "execute_blaze_lava_id_4": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 4" },
+            { "execute_blaze_lava_id_5": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 5" },
+            { "execute_blaze_lava_id_6": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 6" },
+            { "execute_blaze_lava_id_7": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 7" },
+            { "execute_blaze_lava_id_8": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 8" },
+            { "execute_blaze_lava_id_9": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 9" },
+            { "execute_blaze_lava_id_10": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 10" },
+            { "execute_blaze_lava_id_11": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 11" },
+            { "execute_blaze_lava_id_12": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 12" },
+            { "execute_blaze_lava_id_13": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 13" },
+            { "execute_blaze_lava_id_14": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 14" },
+            { "execute_blaze_lava_id_15": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 15" },
+            { "execute_blaze_lava_id_16": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 16" },
+            { "execute_blaze_lava_id_17": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 17" },
+            { "execute_blaze_lava_id_18": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 18" },
+            { "execute_blaze_lava_id_19": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 19" },
+            { "execute_blaze_lava_id_20": "query.property('ftb_tc:fluid_type') == 'blaze' && (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) == 20" }
+          ],
+          "on_entry": [
+            "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_fuel",
+            "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_fuel_blaze"
+          ]
+        },
+        "execute_lava_id_1": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 1" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_2": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 2" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_3": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 3" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_4": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 4" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_5": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 5" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_6": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 6" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_7": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 7" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_8": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 8" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_9": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 9" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_10": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 10" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_11": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 11" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_12": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 12" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_13": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 13" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_14": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 14" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_15": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 15" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_16": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 16" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_17": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 17" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_18": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 18" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_19": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 19" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_lava_id_20": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'lava' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 20" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel" ]
+        },
+        "execute_blaze_lava_id_1": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 1" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_2": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 2" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_3": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 3" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_4": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 4" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_5": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 5" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_6": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 6" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_7": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 7" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_8": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 8" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_9": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 9" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_10": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 10" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_11": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 11" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_12": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 12" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_13": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 13" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_14": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 14" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_15": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 15" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_16": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 16" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_17": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 17" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_18": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 18" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_19": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 19" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        },
+        "execute_blaze_lava_id_20": {
+          "transitions": [ { "default": "query.property('ftb_tc:fluid_type') != 'blaze' || (query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')) != 20" } ],
+          "on_entry": [ "/execute at @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:add_fuel_blaze" ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.ftb_tc.melter_particles": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"particles": "query.skin_id >= 1"
+						}
+					]
+				},
+				"particles": {
+					"transitions": [
+						{
+							"default": "query.skin_id == 0"
+						}
+					],
+					"animations": [
+						"fire",
+						"fire2"
+					]
+				}
+			}
+		}
+	}
+}

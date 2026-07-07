@@ -1,0 +1,43 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.ftb_tc.pattern_chest",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"item_display_transforms": {
+			  "gui": {
+				"translation": [0, 0, 0],
+				"rotation": [30, 225, 0],
+				"scale": [0.625, 0.625, 0.625],
+				"rotation_pivot": [0, 0, 0],
+				"scale_pivot": [0, 0, 0],
+				"fit_to_frame": true
+			  }
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-8, 14, -8], "size": [16, 2, 16], "uv": [0, 32]},
+						{"origin": [-8.05, 0.5, -8], "size": [16, 16, 16], "inflate": -1.5, "uv": [0, 0]},
+						{"origin": [-4, 9, -7.25], "size": [8, 4, 1], "uv": [48, 5]},
+						{"origin": [-0.5, 10.5, -7.5], "size": [1, 1, 1], "uv": [6, 32]},
+						{"origin": [-0.5, 5.5, -7.5], "size": [1, 1, 1], "uv": [6, 0]},
+						{"origin": [-4, 4, -7.25], "size": [8, 4, 1], "uv": [48, 0]},
+						{"origin": [5.5, 0, -7.5], "size": [2, 14, 2], "uv": [8, 32]},
+						{"origin": [-7.5, 0, -7.5], "size": [2, 14, 2], "uv": [0, 32]},
+						{"origin": [-7.5, 0, 5.5], "size": [2, 14, 2], "uv": [8, 0]},
+						{"origin": [5.5, 0, 5.5], "size": [2, 14, 2], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

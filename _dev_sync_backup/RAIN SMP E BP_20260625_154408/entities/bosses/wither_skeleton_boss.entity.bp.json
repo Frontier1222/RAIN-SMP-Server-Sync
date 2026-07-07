@@ -1,0 +1,467 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "viberater:wither_skeleton",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false,
+            "scripts": {
+                "animate": [
+                    "health",
+                    "target_shielded_test"
+                ]
+            },
+            "animations": {
+                "health": "controller.animation.health",
+                "target_shielded_test": "controller.animation.target_shielded_test"
+            }
+        },
+        "component_groups": {
+            "wither_skeleton_ability_inactive": {
+                "minecraft:entity_sensor": {
+                    "minimum_count": 1,
+                    "sensor_range": 24,
+                    "event": "wither_skeleton_ability_active",
+                    "event_filters": {
+                        "all_of": [
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "player"
+                            },
+                            {
+                                "none_of": {
+                                    "test": "has_ability",
+                                    "subject": "other",
+                                    "value": "instabuild"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "wither_skeleton_pull_active": {
+                "minecraft:timer": {
+                    "looping": false,
+                    "time": [
+                        5,
+                        10
+                    ],
+                    "time_down_event": {
+                        "event": "wither_skeleton_ability_reset"
+                    }
+                }
+            },
+            "wither_skeleton_decimate_active": {
+                "minecraft:timer": {
+                    "looping": false,
+                    "time": [
+                        20,
+                        25
+                    ],
+                    "time_down_event": {
+                        "event": "wither_skeleton_ability_reset"
+                    }
+                }
+            },
+            "wither_skeleton_decay_active": {
+                "minecraft:timer": {
+                    "looping": false,
+                    "time": [
+                        10,
+                        15
+                    ],
+                    "time_down_event": {
+                        "event": "wither_skeleton_ability_reset"
+                    }
+                }
+            },
+            "reset_ac_commands": {
+                "minecraft:skin_id": {
+                    "value": 0
+                }
+            },
+            "attack_shielded_player": {
+                "minecraft:skin_id": {
+                    "value": 1
+                }
+            },
+            "player_unshielded": {
+                "minecraft:skin_id": {
+                    "value": 2
+                }
+            },
+            "target_shielded_test": {
+                "minecraft:entity_sensor": {
+                    "event_filters": {
+                        "all_of": {
+                            "test": "has_tag",
+                            "subject": "target",
+                            "operator": "equals",
+                            "value": "shielded"
+                        }
+                    },
+                    "sensor_range": 32,
+                    "event": "attack_shielded_player"
+                }
+            },
+            "target_unshielded_test": {
+                "minecraft:entity_sensor": {
+                    "event_filters": {
+                        "all_of": {
+                            "test": "has_tag",
+                            "subject": "target",
+                            "operator": "not",
+                            "value": "shielded"
+                        }
+                    },
+                    "sensor_range": 32,
+                    "event": "player_unshielded"
+                }
+            },
+            "ranged_attack": {
+                "minecraft:behavior.ranged_attack": {
+                    "priority": 0,
+                    "attack_interval_min": 1.0,
+                    "attack_interval_max": 1.5,
+                    "attack_radius": 32.0
+                },
+                "minecraft:shooter": {
+                    "def": "minecraft:arrow",
+                    "aux_val": 37
+                },
+                "minecraft:environment_sensor": {
+                    "triggers": [
+                        {
+                            "filters": {
+                                "test": "has_ranged_weapon",
+                                "subject": "self",
+                                "operator": "==",
+                                "value": false
+                            },
+                            "event": "melee_attack"
+                        }
+                    ]
+                }
+            },
+            "melee_attack": {
+                "minecraft:behavior.melee_attack": {
+                    "priority": 4,
+                    "track_target": true,
+                    "speed_multiplier": 1.33,
+                    "cooldown_time": 0.66,
+                    "on_attack": {
+                        "event": "melee_attack"
+                    }
+                },
+                "minecraft:attack": {
+                    "damage": 8,
+                    "effect_name": "wither",
+                    "effect_duration": 12
+                },
+                "minecraft:environment_sensor": {
+                    "triggers": [
+                        {
+                            "filters": {
+                                "test": "has_ranged_weapon",
+                                "subject": "self",
+                                "operator": "==",
+                                "value": true
+                            },
+                            "event": "ranged_attack"
+                        }
+                    ]
+                }
+            }
+        },
+        "components": {
+            "minecraft:water_movement": {
+                "drag_factor": 1
+            },
+            "minecraft:boss": {
+                "should_darken_sky": true,
+                "name": "Ashenblade The Tragic",
+                "hud_range": 32
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.75
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "on_damage": {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_target",
+                                    "value": false
+                                },
+                                {
+                                    "test": "distance_to_nearest_player",
+                                    "operator": ">",
+                                    "value": 32
+                                }
+                            ]
+                        }
+                    },
+                    "deals_damage": false
+                }
+            },
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:experience_reward": {
+                "on_death": 250
+            },
+            "minecraft:nameable": {
+                "allow_name_tag_renaming": false,
+                "always_show": true
+            },
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "suffocate_time": 0,
+                "breathes_water": true
+            },
+            "minecraft:health": {
+                "value": 1680,
+                "max": 16800
+            },
+            "minecraft:equip_item": {},
+            "minecraft:collision_box": {
+                "width": 0.72,
+                "height": 2.01
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/bosses/wither_skeleton_boss_loot.loot_table.json"
+            },
+            "minecraft:equipment": {
+                "table": "loot_tables/bosses/polar_bear_boss_gear.loot_table.json",
+                "slot_drop_chance": [
+                    {
+                        "slot": "slot.armor.head",
+                        "drop_chance": 0
+                    },
+                    {
+                        "slot": "slot.armor.chest",
+                        "drop_chance": 0
+                    },
+                    {
+                        "slot": "slot.armor.legs",
+                        "drop_chance": 0
+                    },
+                    {
+                        "slot": "slot.armor.feet",
+                        "drop_chance": 0
+                    }
+                ]
+            },
+            "minecraft:movement": {
+                "value": 0.33
+            },
+            "minecraft:lava_movement": {
+                "value": 0.33
+            },
+            "minecraft:navigation.climb": {
+                "avoid_sun": false,
+                "avoid_water": false,
+                "can_path_over_lava": true,
+                "can_path_over_water": true,
+                "can_walk_in_lava": true,
+                "can_sink": false
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:jump.static": {},
+            "minecraft:can_climb": {},
+            "minecraft:scale": {
+                "value": 1.2
+            },
+            "minecraft:fire_immune": {},
+            "minecraft:despawn": {
+                "despawn_from_simulation_edge": true
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 2,
+                "must_see": false,
+                "must_reach": false,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "player"
+                        },
+                        "max_dist": 32
+                    }
+                ]
+            },
+            "minecraft:behavior.equip_item": {
+                "priority": 3
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 6,
+                "speed_multiplier": 1
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 7,
+                "look_distance": 32
+            },
+            "minecraft:behavior.random_look_around": {
+                "priority": 8
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "wither",
+                    "monster",
+                    "undead",
+                    "skeleton",
+                    "mob",
+                    "boss",
+                    "wither_skeleton_boss"
+                ]
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "ranged_attack",
+                        "target_shielded_test",
+                        "wither_skeleton_ability_inactive"
+                    ]
+                }
+            },
+            "melee_attack": {
+                "add": {
+                    "component_groups": [
+                        "melee_attack"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "ranged_attack"
+                    ]
+                }
+            },
+            "reset_ac_commands": {
+                "add": {
+                    "component_groups": [
+                        "reset_ac_commands"
+                    ]
+                }
+            },
+            "attack_shielded_player": {
+                "add": {
+                    "component_groups": [
+                        "attack_shielded_player",
+                        "target_unshielded_test"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "target_shielded_test"
+                    ]
+                }
+            },
+            "player_unshielded": {
+                "add": {
+                    "component_groups": [
+                        "target_shielded_test",
+                        "player_unshielded"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "target_unshielded_test",
+                        "attack_shielded_player"
+                    ]
+                }
+            },
+            "ranged_attack": {
+                "add": {
+                    "component_groups": [
+                        "ranged_attack"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "melee_attack"
+                    ]
+                }
+            },
+            "death": {
+                "queue_command": {
+                    "command": [
+                        "scoreboard players add @a[tag=!admin, r=48] wither_skeleton_boss 120"
+                    ]
+                }
+            },
+            "wither_skeleton_ability_active": {
+                "randomize": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "wither_skeleton_pull_active"
+                            ]
+                        },
+                        "queue_command": {
+                            "command": "function \"boss/wither_skeleton_pull\""
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "wither_skeleton_ability_inactive"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "wither_skeleton_decimate_active"
+                            ]
+                        },
+                        "queue_command": {
+                            "command": "function \"boss/wither_skeleton_decimate\""
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "wither_skeleton_ability_inactive"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "wither_skeleton_decay_active"
+                            ]
+                        },
+                        "queue_command": {
+                            "command": "function \"boss/wither_skeleton_decay\""
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "wither_skeleton_ability_inactive"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "wither_skeleton_ability_reset": {
+                "add": {
+                    "component_groups": [
+                        "wither_skeleton_ability_inactive"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "wither_skeleton_pull_active",
+                        "wither_skeleton_decimate_active",
+                        "wither_skeleton_decay_active"
+                    ]
+                }
+            }
+        }
+    }
+}

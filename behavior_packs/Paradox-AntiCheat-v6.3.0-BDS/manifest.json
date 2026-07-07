@@ -1,0 +1,66 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Paradox AntiCheat",
+    "description": "A utility to fight against malicious hackers on Bedrock Edition ~ v6.3.0",
+    "uuid": "8c45bb53-8b54-3f2b-ad3a-1f322624802c",
+    "version": [
+      6,
+      3,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      30
+    ]
+  },
+  "metadata": {
+    "authors": [
+      "Visual1mpact"
+    ],
+    "license": "GPLv3",
+    "url": "https://github.com/Visual1mpact/Paradox_AntiCheat"
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "d8395127-6923-4fb7-93d2-977cecd463e0",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "description": "Paradox AntiCheat API Features",
+      "language": "javascript",
+      "type": "script",
+      "uuid": "1326c87b-37f3-4543-9f0f-0d03893134e1",
+      "version": [
+        0,
+        0,
+        1
+      ],
+      "entry": "scripts/paradox.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.9.0-beta"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "2.2.0-beta"
+    },
+    {
+      "module_name": "@minecraft/server-net",
+      "version": "1.0.0-beta"
+    },
+    {
+      "module_name": "@minecraft/server-admin",
+      "version": "1.0.0-beta"
+    }
+  ]
+}

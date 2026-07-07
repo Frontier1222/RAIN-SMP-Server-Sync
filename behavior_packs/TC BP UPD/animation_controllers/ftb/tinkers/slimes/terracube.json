@@ -1,0 +1,45 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.ftb_tc.ftb_tc_terracube_slime_jumping": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"big": "!query.is_in_water && query.is_jumping && query.variant >= 4"
+						},
+						{
+							"small": "!query.is_in_water && query.is_jumping && query.variant <= 4"
+						}
+					]
+				},
+				"big": {
+					"transitions": [
+						{
+							"default": "!query.is_in_water && !query.is_jumping && query.variant >= 4"
+						}
+					],
+					"on_entry": [
+						"/execute as @s run playsound mob.slime.big @a[r=8] ~ ~ ~"
+					],					
+					"on_exit": [
+						"/execute as @s run particle ftb_tc:terracube_particle ~ ~-0.5 ~"
+					]
+				},
+				"small": {
+					"transitions": [
+						{
+							"default": "!query.is_in_water && !query.is_jumping && query.variant <= 4"
+						}
+					],
+					"on_entry": [
+						"/execute as @s run playsound mob.slime.small @a[r=8] ~ ~ ~"
+					],
+					"on_exit": [
+						"/execute as @s run particle ftb_tc:terracube_particle ~ ~-0.5 ~"
+					]
+				}
+			}
+		}
+	}
+}

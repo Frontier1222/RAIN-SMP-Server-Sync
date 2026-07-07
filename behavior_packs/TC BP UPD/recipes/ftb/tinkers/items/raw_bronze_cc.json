@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:bronze_ingot_cc"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "cc",
+      "ct"
+    ],
+    "key": {
+      "c": {
+        "item": "minecraft:raw_copper"
+      },
+      "t": {
+        "item": "ftb_tc:raw_tin"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": [
+      {
+        "item": "ftb_tc:raw_bronze",
+        "count": 4
+      }
+    ]
+  }
+}

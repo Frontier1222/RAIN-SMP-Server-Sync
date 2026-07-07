@@ -1,0 +1,32 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ulkd_ess:iron_paxel"
+    },
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "minecraft:iron_pickaxe"
+      },
+      {
+        "item": "minecraft:iron_axe"
+      },
+      {
+        "item": "minecraft:iron_shovel"
+      }
+    ],
+    "result": {
+      "item": "ulkd_ess:paxel_iron",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:iron_pickaxe"
+      }
+    ]
+  }
+}

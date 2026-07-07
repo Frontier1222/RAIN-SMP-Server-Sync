@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ulkd_ess:fake.netherrack_reverse"
+    },
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "ulkd_ess:fake.netherrack",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "minecraft:netherrack",
+      "count": 5
+    },
+    "unlock": [
+      {
+        "item": "ulkd_ess:fake.netherrack"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

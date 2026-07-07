@@ -1,0 +1,141 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.ftb_tc.melter_liquid": {
+      "geometry": "Array.geo[query.variant]",
+      "materials": [
+        {
+          "*": "material.liquid"
+        }
+      ],
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "gauge*": false
+        },
+        {
+          "ftb_liquid_glow*": true
+        }
+      ],
+      "uv_anim": {
+        "offset": [0.0, "math.mod(math.floor(query.life_time * 1.5), 16) / 16"],
+        "scale": [1.0, "1 / 49"]
+      },
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40",
+            "Geometry.variant_41",
+            "Geometry.variant_42",
+            "Geometry.variant_43",
+            "Geometry.variant_44",
+            "Geometry.variant_45",
+            "Geometry.variant_46",
+            "Geometry.variant_47",
+            "Geometry.variant_48",
+            "Geometry.variant_49",
+            "Geometry.variant_50"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "Texture.liquid_variant_0",
+            "Texture.liquid_variant_1",
+            "Texture.liquid_variant_2",
+            "Texture.liquid_variant_3",
+            "Texture.liquid_variant_4",
+            "Texture.liquid_variant_5",
+            "Texture.liquid_variant_6",
+            "Texture.liquid_variant_7",
+            "Texture.liquid_variant_8",
+            "Texture.liquid_variant_9",
+            "Texture.liquid_variant_10",
+            "Texture.liquid_variant_11",
+            "Texture.liquid_variant_12",
+            "Texture.liquid_variant_13",
+            "Texture.liquid_variant_14",
+            "Texture.liquid_variant_15",
+            "Texture.liquid_variant_16",
+            "Texture.liquid_variant_17",
+            "Texture.liquid_variant_18",
+            "Texture.liquid_variant_19",
+            "Texture.liquid_variant_20",
+            "Texture.liquid_variant_21",
+            "Texture.liquid_variant_22",
+            "Texture.liquid_variant_23",
+            "Texture.liquid_variant_24",
+            "Texture.liquid_variant_25",
+            "Texture.liquid_variant_26",
+            "Texture.liquid_variant_27",
+            "Texture.liquid_variant_28",
+            "Texture.liquid_variant_29",
+            "Texture.liquid_variant_30",
+            "Texture.liquid_variant_31",
+            "Texture.liquid_variant_32",
+            "Texture.liquid_variant_33",
+            "Texture.liquid_variant_34",
+            "Texture.liquid_variant_35",
+            "Texture.liquid_variant_36",
+            "Texture.liquid_variant_37",
+            "Texture.liquid_variant_38",
+            "Texture.liquid_variant_39",
+            "Texture.liquid_variant_40",
+            "Texture.liquid_variant_41",
+            "Texture.liquid_variant_42",
+            "Texture.liquid_variant_43",
+            "Texture.liquid_variant_44",
+            "Texture.liquid_variant_45",
+            "Texture.liquid_variant_46",
+            "Texture.liquid_variant_47",
+            "Texture.liquid_variant_48",
+            "Texture.liquid_variant_49",
+            "Texture.liquid_variant_50"
+          ]
+        }
+      },
+      "textures": ["array.skins[query.variant]"]
+    }
+  }
+}

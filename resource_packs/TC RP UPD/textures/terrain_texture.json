@@ -1,0 +1,1676 @@
+{
+  "resource_pack_name": "Tinkers Construct",
+  "texture_name": "atlas.terrain",
+  "padding": 8,
+  "num_mip_levels": 4,
+  "texture_data": {
+    "axe_head_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_bronze"
+    },
+    "cleaver_blade_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_bronze"
+    },
+    "cleaver_guard_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_bronze"
+    },
+    "crossguard_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_bronze"
+    },
+    "dagger_blade_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_bronze"
+    },
+    "large_handle_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_bronze"
+    },
+    "pickaxe_head_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_bronze"
+    },
+    "shoel_head_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_bronze"
+    },
+    "sword_blade_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_bronze"
+    },
+    "sword_guard_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_bronze"
+    },
+    "repair_item_bronze": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/bronze"
+    },
+    "bronze_ingot": {
+      "textures": "textures/ftb/tinkers/items/materials/bronze_ingot"
+    },
+    "tin_ingot": {
+      "textures": "textures/ftb/tinkers/items/materials/tin_ingot"
+    },
+    "liquid_tin": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/tin"
+    },
+    "liquid_bronze": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/bronze"
+    },
+    "tin_ore": {
+      "textures": "textures/ftb/tinkers/blocks/tin_ore"
+    },
+    "deepslate_tin_ore": {
+      "textures": "textures/ftb/tinkers/blocks/deepslate_tin_ore"
+    },
+    "tin_block": {
+      "textures": "textures/ftb/tinkers/blocks/tin_block"
+    },
+    "bronze_block": {
+      "textures": "textures/ftb/tinkers/blocks/bronze"
+    },
+    "raw_bronze_block": {
+      "textures": "textures/ftb/tinkers/blocks/raw/raw_bronze_block"
+    },
+    "raw_tin_block": {
+      "textures": "textures/ftb/tinkers/blocks/raw/raw_tin_block"
+    },
+    "ftb_melter": {
+      "textures": "textures/ftb/tinkers/entity/melter/melter_v0"
+    },
+    "ftb_gauge_0": {
+      "textures": "textures/ftb/tinkers/entity/melter/gauge_0"
+    },
+    "ftb_gauge_1": {
+      "textures": "textures/ftb/tinkers/entity/melter/gauge_1"
+    },
+    "ftb_gauge_2": {
+      "textures": "textures/ftb/tinkers/entity/melter/gauge_2"
+    },
+    "ftb_gauge_3": {
+      "textures": "textures/ftb/tinkers/entity/melter/gauge_3"
+    },
+    "ftb_gauge_4": {
+      "textures": "textures/ftb/tinkers/entity/melter/gauge_4"
+    },
+    "ftb_gauge_5": {
+      "textures": "textures/ftb/tinkers/entity/melter/gauge_5"
+    },
+    "ftb_gauge_6": {
+      "textures": "textures/ftb/tinkers/entity/melter/gauge_6"
+    },
+    "ftb_gauge_7": {
+      "textures": "textures/ftb/tinkers/entity/melter/gauge_7"
+    },
+    "ftb_gauge_8": {
+      "textures": "textures/ftb/tinkers/entity/melter/gauge_8"
+    },
+    "iron_bush_stage_0": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/iron_berry_bush_stage0"
+    },
+    "iron_bush_stage_1": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/iron_berry_bush_stage1"
+    },
+    "iron_berry_bush_stage_2": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/iron_berry_bush_stage2"
+    },
+    "iron_berry_bush_stage_3": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/iron_berry_bush_stage3"
+    },
+    "copper_bush_stage_0": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/copper_berry_bush_stage0"
+    },
+    "copper_bush_stage_1": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/copper_berry_bush_stage1"
+    },
+    "copper_berry_bush_stage_2": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/copper_berry_bush_stage2"
+    },
+    "copper_berry_bush_stage_3": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/copper_berry_bush_stage3"
+    },
+    "gold_bush_stage_0": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/gold_berry_bush_stage0"
+    },
+    "gold_bush_stage_1": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/gold_berry_bush_stage1"
+    },
+    "gold_berry_bush_stage_2": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/gold_berry_bush_stage2"
+    },
+    "gold_berry_bush_stage_3": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/gold_berry_bush_stage3"
+    },
+    "diamond_bush_stage_0": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/diamond_berry_bush_stage0"
+    },
+    "diamond_bush_stage_1": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/diamond_berry_bush_stage1"
+    },
+    "diamond_berry_bush_stage_2": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/diamond_berry_bush_stage2"
+    },
+    "diamond_berry_bush_stage_3": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/diamond_berry_bush_stage3"
+    },
+    "emerald_bush_stage_0": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/emerald_berry_bush_stage0"
+    },
+    "emerald_bush_stage_1": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/emerald_berry_bush_stage1"
+    },
+    "emerald_berry_bush_stage_2": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/emerald_berry_bush_stage2"
+    },
+    "emerald_berry_bush_stage_3": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/emerald_berry_bush_stage3"
+    },
+    "xp_bush_stage_0": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/xp_berry_bush_stage0"
+    },
+    "xp_bush_stage_1": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/xp_berry_bush_stage1"
+    },
+    "xp_berry_bush_stage_2": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/xp_berry_bush_stage2"
+    },
+    "xp_berry_bush_stage_3": {
+      "textures": "textures/ftb/tinkers/blocks/berry_bush/xp_berry_bush_stage3"
+    },
+    "cheese_block": {
+      "textures": "textures/ftb/tinkers/blocks/cheese_block"
+    },
+    "cheese_block_v1": {
+      "textures": "textures/ftb/tinkers/blocks/cheese_block_v1"
+    },
+    "cheese_block_v2": {
+      "textures": "textures/ftb/tinkers/blocks/cheese_block_v2"
+    },
+    "cheese_block_v3": {
+      "textures": "textures/ftb/tinkers/blocks/cheese_block_v3"
+    },
+    "cheese_ingot": {
+      "textures": "textures/ftb/tinkers/items/cheese_ingot"
+    },
+    "casting_basin": {
+      "textures": "textures/ftb/tinkers/entity/casting_basin/casting_basin_v0"
+    },
+    "casting_table": {
+      "textures": "textures/ftb/tinkers/entity/casting_table/casting_table"
+    },
+    "drying_rack": {
+      "textures": "textures/ftb/tinkers/entity/drying_rack"
+    },
+    "ftb_jerky_beef": {
+      "textures": "textures/ftb/tinkers/items/food/beef_jerky"
+    },
+    "ftb_jerky_chicken": {
+      "textures": "textures/ftb/tinkers/items/food/chicken_jerky"
+    },
+    "ftb_jerky_clownfish": {
+      "textures": "textures/ftb/tinkers/items/food/clownfish_jerky"
+    },
+    "ftb_jerky_fish": {
+      "textures": "textures/ftb/tinkers/items/food/fish_jerky"
+    },
+    "ftb_jerky_monster": {
+      "textures": "textures/ftb/tinkers/items/food/monster_jerky"
+    },
+    "ftb_jerky_mutton": {
+      "textures": "textures/ftb/tinkers/items/food/mutton_jerky"
+    },
+    "ftb_jerky_pork": {
+      "textures": "textures/ftb/tinkers/items/food/pork_jerky"
+    },
+    "ftb_jerky_pufferfish": {
+      "textures": "textures/ftb/tinkers/items/food/pufferfish_jerky"
+    },
+    "ftb_jerky_rabbit": {
+      "textures": "textures/ftb/tinkers/items/food/rabbit_jerky"
+    },
+    "ftb_jerky_salmon": {
+      "textures": "textures/ftb/tinkers/items/food/salmon_jerky"
+    },
+    "ftb_beef": {
+      "textures": "textures/items/beef_raw"
+    },
+    "ftb_chicken": {
+      "textures": "textures/items/chicken_raw"
+    },
+    "ftb_clownfish": {
+      "textures": "textures/items/fish_clownfish_raw"
+    },
+    "ftb_fish": {
+      "textures": "textures/items/fish_raw"
+    },
+    "ftb_monster": {
+      "textures": "textures/items/rotten_flesh"
+    },
+    "ftb_mutton": {
+      "textures": "textures/items/mutton_raw"
+    },
+    "ftb_pork": {
+      "textures": "textures/items/porkchop_raw"
+    },
+    "ftb_pufferfish": {
+      "textures": "textures/items/fish_pufferfish_raw"
+    },
+    "ftb_rabbit": {
+      "textures": "textures/items/rabbit_raw"
+    },
+    "ftb_salmon": {
+      "textures": "textures/items/fish_salmon_raw"
+    },
+    "seared_drain": {
+      "textures": "textures/ftb/tinkers/entity/seared_drain"
+    },
+    "smeltery_controller": {
+      "textures": "textures/ftb/tinkers/blocks/smeltery_con"
+    },
+    "seared_tank": {
+      "textures": "textures/ftb/tinkers/blocks/seared_tank"
+    },
+    "cast_chest": {
+      "textures": "textures/ftb/tinkers/blocks/cast_chest.png"
+    },
+    "part_chest": {
+      "textures": "textures/ftb/tinkers/blocks/part_chest.png"
+    },
+    "tinkers_chest": {
+      "textures": "textures/ftb/tinkers/blocks/tinkers_chest.png"
+    },
+    "modifier_worktable_stone": {
+      "textures": "textures/ftb/tinkers/blocks/modifier/stone.png"
+    },
+    "modifier_worktable_cobblestone": {
+      "textures": "textures/ftb/tinkers/blocks/modifier/cobblestone.png"
+    },
+    "modifier_worktable_mossy_cobblestone": {
+      "textures": "textures/ftb/tinkers/blocks/modifier/mossy_cobblestone.png"
+    },
+    "modifier_worktable_andesite": {
+      "textures": "textures/ftb/tinkers/blocks/modifier/andesite.png"
+    },
+    "modifier_worktable_diorite": {
+      "textures": "textures/ftb/tinkers/blocks/modifier/diorite.png"
+    },
+    "modifier_worktable_granite": {
+      "textures": "textures/ftb/tinkers/blocks/modifier/granite.png"
+    },
+    "modifier_worktable_deepslate": {
+      "textures": "textures/ftb/tinkers/blocks/modifier/deepslate.png"
+    },
+    "modifier_worktable_cobbled_deepslate": {
+      "textures": "textures/ftb/tinkers/blocks/modifier/cobbled_deepslate.png"
+    },
+    "modifier_worktable_basalt": {
+      "textures": "textures/ftb/tinkers/blocks/modifier/basalt.png"
+    },
+    "head_blaze": {
+      "textures": "textures/ftb/tinkers/blocks/heads/blaze_head"
+    },
+    "head_enderman": {
+      "textures": "textures/ftb/tinkers/blocks/heads/enderman_head"
+    },
+    "head_stray": {
+      "textures": "textures/ftb/tinkers/blocks/heads/stray_head"
+    },
+    "head_husk": {
+      "textures": "textures/ftb/tinkers/blocks/heads/husk_head"
+    },
+    "head_drowned": {
+      "textures": "textures/ftb/tinkers/blocks/heads/drowned_head"
+    },
+    "head_spider": {
+      "textures": "textures/ftb/tinkers/blocks/heads/spider_head"
+    },
+    "head_cave_spider": {
+      "textures": "textures/ftb/tinkers/blocks/heads/cave_spider_head"
+    },
+    "head_piglin_brute": {
+      "textures": "textures/ftb/tinkers/blocks/heads/piglin_brute_head"
+    },
+    "head_zombie_piglin": {
+      "textures": "textures/ftb/tinkers/blocks/heads/zombie_piglin_head"
+    },
+    "head_squidgy": {
+      "textures": "textures/ftb/tinkers/blocks/heads/squidgy_head"
+    },
+    "head_drp": {
+      "textures": "textures/ftb/tinkers/blocks/heads/drp_head"
+    },
+    "head_ecko": {
+      "textures": "textures/ftb/tinkers/blocks/heads/ecko_head"
+    },
+    "head_brown_mooshroom": {
+      "textures": "textures/ftb/tinkers/blocks/heads/brown_mooshroom_head.png"
+    },
+    "head_chicken": {
+      "textures": "textures/ftb/tinkers/blocks/heads/chicken_head.png"
+    },
+    "head_cod": {
+      "textures": "textures/ftb/tinkers/blocks/heads/cod_head.png"
+    },
+    "head_cow": {
+      "textures": "textures/ftb/tinkers/blocks/heads/cow_head.png"
+    },
+    "head_glow_squid": {
+      "textures": "textures/ftb/tinkers/blocks/heads/glow_squid_head.png"
+    },
+    "head_mooshroom": {
+      "textures": "textures/ftb/tinkers/blocks/heads/mooshroom_head.png"
+    },
+    "head_pig": {
+      "textures": "textures/ftb/tinkers/blocks/heads/pig_head.png"
+    },
+    "head_pufferfish": {
+      "textures": "textures/ftb/tinkers/blocks/heads/pufferfish_head.png"
+    },
+    "head_salmon": {
+      "textures": "textures/ftb/tinkers/blocks/heads/salmon_head.png"
+    },
+    "head_sheep": {
+      "textures": "textures/ftb/tinkers/blocks/heads/sheep_head.png"
+    },
+    "head_squid": {
+      "textures": "textures/ftb/tinkers/blocks/heads/squid_head.png"
+    },
+    "head_tropical_fish": {
+      "textures": "textures/ftb/tinkers/blocks/heads/tropical_fish_head.png"
+    },
+    "head_turtle": {
+      "textures": "textures/ftb/tinkers/blocks/heads/turtle_head.png"
+    },
+    "grout": {
+      "textures": "textures/ftb/tinkers/blocks/grout"
+    },
+    "seared_brick": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_brick"
+    },
+    "seared_brick_cracked": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_brick_cracked"
+    },
+    "seared_brick_carved": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_brick_carved"
+    },
+    "seared_cobble": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_cobble"
+    },
+    "seared_creeper": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_creeper"
+    },
+    "seared_fancy_brick": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_fancy_bricks"
+    },
+    "seared_glass": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_glass"
+    },
+    "seared_ladder": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_ladder"
+    },
+    "seared_paver": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_paver"
+    },
+    "seared_paver_slab": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_paver_slab"
+    },
+    "seared_road": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_road"
+    },
+    "seared_small_bricks": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_small_bricks"
+    },
+    "seared_stone": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_stone"
+    },
+    "seared_tile": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_tile"
+    },
+    "seared_triangle": {
+      "textures": "textures/ftb/tinkers/blocks/seared/seared_triangle_bricks"
+    },
+    "crafting_station": {
+      "textures": "textures/ftb/tinkers/blocks/crafting_station.png"
+    },
+    "smelters_anvil_copper": {
+      "textures": "textures/ftb/tinkers/blocks/anvil/copper.png"
+    },
+    "smelters_anvil_diamond": {
+      "textures": "textures/ftb/tinkers/blocks/anvil/diamond.png"
+    },
+    "smelters_anvil_iron": {
+      "textures": "textures/ftb/tinkers/blocks/anvil/iron.png"
+    },
+    "smelters_station_acacia": {
+      "textures": "textures/ftb/tinkers/blocks/station/acacia.png"
+    },
+    "smelters_station_bamboo": {
+      "textures": "textures/ftb/tinkers/blocks/station/bamboo.png"
+    },
+    "smelters_station_birch": {
+      "textures": "textures/ftb/tinkers/blocks/station/birch.png"
+    },
+    "smelters_station_cherry": {
+      "textures": "textures/ftb/tinkers/blocks/station/cherry.png"
+    },
+    "smelters_station_crimson": {
+      "textures": "textures/ftb/tinkers/blocks/station/crimson.png"
+    },
+    "smelters_station_dark_oak": {
+      "textures": "textures/ftb/tinkers/blocks/station/dark_oak.png"
+    },
+    "smelters_station_jungle": {
+      "textures": "textures/ftb/tinkers/blocks/station/jungle.png"
+    },
+    "smelters_station_mangrove": {
+      "textures": "textures/ftb/tinkers/blocks/station/mangrove.png"
+    },
+    "smelters_station_oak": {
+      "textures": "textures/ftb/tinkers/blocks/station/oak.png"
+    },
+    "smelters_station_spruce": {
+      "textures": "textures/ftb/tinkers/blocks/station/spruce.png"
+    },
+    "smelters_station_warped": {
+      "textures": "textures/ftb/tinkers/blocks/station/warped.png"
+    },
+    "part_builder_acacia": {
+      "textures": "textures/ftb/tinkers/blocks/builder/acacia.png"
+    },
+    "part_builder_bamboo": {
+      "textures": "textures/ftb/tinkers/blocks/builder/bamboo.png"
+    },
+    "part_builder_birch": {
+      "textures": "textures/ftb/tinkers/blocks/builder/birch.png"
+    },
+    "part_builder_cherry": {
+      "textures": "textures/ftb/tinkers/blocks/builder/cherry.png"
+    },
+    "part_builder_crimson": {
+      "textures": "textures/ftb/tinkers/blocks/builder/crimson.png"
+    },
+    "part_builder_dark_oak": {
+      "textures": "textures/ftb/tinkers/blocks/builder/dark_oak.png"
+    },
+    "part_builder_jungle": {
+      "textures": "textures/ftb/tinkers/blocks/builder/jungle.png"
+    },
+    "part_builder_mangrove": {
+      "textures": "textures/ftb/tinkers/blocks/builder/mangrove.png"
+    },
+    "part_builder_oak": {
+      "textures": "textures/ftb/tinkers/blocks/builder/oak.png"
+    },
+    "part_builder_spruce": {
+      "textures": "textures/ftb/tinkers/blocks/builder/spruce.png"
+    },
+    "part_builder_warped": {
+      "textures": "textures/ftb/tinkers/blocks/builder/warped.png"
+    },
+    "stencil_table_acacia": {
+      "textures": "textures/ftb/tinkers/blocks/stencil/acacia.png"
+    },
+    "stencil_table_bamboo": {
+      "textures": "textures/ftb/tinkers/blocks/stencil/bamboo.png"
+    },
+    "stencil_table_birch": {
+      "textures": "textures/ftb/tinkers/blocks/stencil/birch.png"
+    },
+    "stencil_table_cherry": {
+      "textures": "textures/ftb/tinkers/blocks/stencil/cherry.png"
+    },
+    "stencil_table_crimson": {
+      "textures": "textures/ftb/tinkers/blocks/stencil/crimson.png"
+    },
+    "stencil_table_dark_oak": {
+      "textures": "textures/ftb/tinkers/blocks/stencil/dark_oak.png"
+    },
+    "stencil_table_jungle": {
+      "textures": "textures/ftb/tinkers/blocks/stencil/jungle.png"
+    },
+    "stencil_table_mangrove": {
+      "textures": "textures/ftb/tinkers/blocks/stencil/mangrove.png"
+    },
+    "stencil_table_oak": {
+      "textures": "textures/ftb/tinkers/blocks/stencil/oak.png"
+    },
+    "stencil_table_spruce": {
+      "textures": "textures/ftb/tinkers/blocks/stencil/spruce.png"
+    },
+    "stencil_table_warped": {
+      "textures": "textures/ftb/tinkers/blocks/stencil/warped.png"
+    },
+    "spike_normal": {
+      "textures": "textures/ftb/tinkers/blocks/spike_normal"
+    },
+    "spike_iron": {
+      "textures": "textures/ftb/tinkers/blocks/spike_iron"
+    },
+    "spike_diamond": {
+      "textures": "textures/ftb/tinkers/blocks/spike_diamond"
+    },
+    "ardite_block": {
+      "textures": "textures/ftb/tinkers/blocks/ardite/ardite_block"
+    },
+    "ardite_block_top": {
+      "textures": "textures/ftb/tinkers/blocks/ardite/ardite_block_top"
+    },
+    "ardite_ore": {
+      "textures": "textures/ftb/tinkers/blocks/ardite_ore"
+    },
+    "cobalt_block": {
+      "textures": "textures/ftb/tinkers/blocks/cobalt_block"
+    },
+    "cobalt_ore": {
+      "textures": "textures/ftb/tinkers/blocks/cobalt_ore"
+    },
+    "raw_ardite_block": {
+      "textures": "textures/ftb/tinkers/blocks/raw/raw_ardite_block"
+    },
+    "raw_cobalt_block": {
+      "textures": "textures/ftb/tinkers/blocks/raw/raw_cobalt_block"
+    },
+    "raw_pig_iron_block": {
+      "textures": "textures/ftb/tinkers/blocks/raw/raw_pig_iron_block"
+    },
+    "raw_slimesteel_block": {
+      "textures": "textures/ftb/tinkers/blocks/raw/raw_slimesteel_block"
+    },
+    "raw_amethyst_bronze_block": {
+      "textures": "textures/ftb/tinkers/blocks/raw/raw_amethyst_bronze_block"
+    },
+    "raw_netherite_block": {
+      "textures": "textures/ftb/tinkers/blocks/raw/raw_netherite_block"
+    },
+    "raw_hepatizon_block": {
+      "textures": "textures/ftb/tinkers/blocks/raw/raw_hepatizon_block"
+    },
+    "raw_manyullyn_block": {
+      "textures": "textures/ftb/tinkers/blocks/raw/raw_manyullyn_block"
+    },
+    "raw_queens_slime_block": {
+      "textures": "textures/ftb/tinkers/blocks/raw/raw_queens_slime_block"
+    },
+    "raw_rose_gold_block": {
+      "textures": "textures/ftb/tinkers/blocks/raw/raw_rose_gold_block"
+    },
+    "pig_iron_back": {
+      "textures": "textures/ftb/tinkers/blocks/pig_iron/pig_iron_back"
+    },
+    "pig_iron_bottom": {
+      "textures": "textures/ftb/tinkers/blocks/pig_iron/pig_iron_bottom"
+    },
+    "pig_iron_front": {
+      "textures": "textures/ftb/tinkers/blocks/pig_iron/pig_iron_front"
+    },
+    "pig_iron_left": {
+      "textures": "textures/ftb/tinkers/blocks/pig_iron/pig_iron_left"
+    },
+    "pig_iron_right": {
+      "textures": "textures/ftb/tinkers/blocks/pig_iron/pig_iron_right"
+    },
+    "pig_iron_top": {
+      "textures": "textures/ftb/tinkers/blocks/pig_iron/pig_iron_top"
+    },
+    "greenheart_log": {
+      "textures": "textures/ftb/tinkers/blocks/wood/earth/log"
+    },
+    "greenheart_log_top": {
+      "textures": "textures/ftb/tinkers/blocks/wood/earth/log_top"
+    },
+    "greenheart_planks": {
+      "textures": "textures/ftb/tinkers/blocks/wood/earth/planks"
+    },
+    "greenheart_stripped_log": {
+      "textures": "textures/ftb/tinkers/blocks/wood/earth/stripped_log"
+    },
+    "greenheart_stripped_log_top": {
+      "textures": "textures/ftb/tinkers/blocks/wood/earth/stripped_log_top"
+    },
+    "scarletshroom_log": {
+      "textures": "textures/ftb/tinkers/blocks/wood/scarlet/log"
+    },
+    "scarletshroom_log_top": {
+      "textures": "textures/ftb/tinkers/blocks/wood/scarlet/log_top"
+    },
+    "scarletshroom_planks": {
+      "textures": "textures/ftb/tinkers/blocks/wood/scarlet/planks"
+    },
+    "scarletshroom_stripped_log": {
+      "textures": "textures/ftb/tinkers/blocks/wood/scarlet/stripped_log"
+    },
+    "scarletshroom_stripped_log_top": {
+      "textures": "textures/ftb/tinkers/blocks/wood/scarlet/stripped_log_top"
+    },
+    "skyroot_log": {
+      "textures": "textures/ftb/tinkers/blocks/wood/skyroot/log"
+    },
+    "skyroot_log_top": {
+      "textures": "textures/ftb/tinkers/blocks/wood/skyroot/log_top"
+    },
+    "skyroot_planks": {
+      "textures": "textures/ftb/tinkers/blocks/wood/skyroot/planks"
+    },
+    "skyroot_stripped_log": {
+      "textures": "textures/ftb/tinkers/blocks/wood/skyroot/stripped_log"
+    },
+    "skyroot_stripped_log_top": {
+      "textures": "textures/ftb/tinkers/blocks/wood/skyroot/stripped_log_top"
+    },
+    "earth_dirt": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/earth_dirt"
+    },
+    "earth_grass": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/earth_grass"
+    },
+    "earth_grass_top": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/earth_grass_top"
+    },
+    "ender_dirt": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/ender_dirt"
+    },
+    "ender_grass": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/ender_grass"
+    },
+    "ender_grass_top": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/ender_grass_top"
+    },
+    "ichor_dirt": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/ichor_dirt"
+    },
+    "ichor_grass": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/ichor_grass"
+    },
+    "ichor_grass_top": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/ichor_grass_top"
+    },
+    "sky_dirt": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/sky_dirt"
+    },
+    "sky_grass": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/sky_grass"
+    },
+    "sky_grass_top": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/sky_grass_top"
+    },
+    "scarlet_dirt": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/scarlet_dirt"
+    },
+    "scarlet_grass": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/scarlet_grass"
+    },
+    "scarlet_grass_top": {
+      "textures": "textures/ftb/tinkers/blocks/dirt/scarlet_grass_top"
+    },
+    "congealed_earth_slime": {
+      "textures": "textures/ftb/tinkers/blocks/slime/congealed_earth"
+    },
+    "congealed_ender_slime": {
+      "textures": "textures/ftb/tinkers/blocks/slime/congealed_ender"
+    },
+    "congealed_ichor_slime": {
+      "textures": "textures/ftb/tinkers/blocks/slime/congealed_ichor"
+    },
+    "congealed_scarlet_essence": {
+      "textures": "textures/ftb/tinkers/blocks/slime/congealed_scarlet_essence"
+    },
+    "congealed_sky_slime": {
+      "textures": "textures/ftb/tinkers/blocks/slime/congealed_sky"
+    },
+    "ender_slime": {
+      "textures": "textures/ftb/tinkers/blocks/slime/ender"
+    },
+    "ichor_slime": {
+      "textures": "textures/ftb/tinkers/blocks/slime/ichor"
+    },
+    "scarlet_essence": {
+      "textures": "textures/ftb/tinkers/blocks/slime/scarlet_essence"
+    },
+    "sky_slime": {
+      "textures": "textures/ftb/tinkers/blocks/slime/sky"
+    },
+    "amethyst_bronze": {
+      "textures": "textures/ftb/tinkers/blocks/amethyst_bronze"
+    },
+    "hepatizon": {
+      "textures": "textures/ftb/tinkers/blocks/hepatizon"
+    },
+    "manyullyn": {
+      "textures": "textures/ftb/tinkers/blocks/manyullyn"
+    },
+    "queens_slime_bottom": {
+      "textures": "textures/ftb/tinkers/blocks/queens_slime_bottom"
+    },
+    "queens_slime_side": {
+      "textures": "textures/ftb/tinkers/blocks/queens_slime_side"
+    },
+    "queens_slime_top": {
+      "textures": "textures/ftb/tinkers/blocks/queens_slime_top"
+    },
+    "rose_gold": {
+      "textures": "textures/ftb/tinkers/blocks/rose_gold"
+    },
+    "slimesteel": {
+      "textures": "textures/ftb/tinkers/blocks/slimesteel"
+    },
+    "slimesteel_slime": {
+      "textures": "textures/ftb/tinkers/blocks/slimesteel_slime"
+    },
+    "slimesteel_steel": {
+      "textures": "textures/ftb/tinkers/blocks/slimesteel_steel"
+    },
+    "glow": {
+      "textures": "textures/ftb/tinkers/blocks/glow"
+    },
+    "alloy_crafter_bottom": {
+      "textures": ["textures/ftb/tinkers/blocks/alloy_crafter/bottom"]
+    },
+    "alloy_crafter_front": {
+      "textures": "textures/ftb/tinkers/blocks/alloy_crafter/front"
+    },
+    "alloy_crafter_side": {
+      "textures": ["textures/ftb/tinkers/blocks/alloy_crafter/side"]
+    },
+    "alloy_crafter_top": {
+      "textures": ["textures/ftb/tinkers/blocks/alloy_crafter/top"]
+    },
+    "earth_slime_leaves": {
+      "textures": "textures/ftb/tinkers/blocks/slime/earth_slime_leaves"
+    },
+    "sky_slime_leaves": {
+      "textures": "textures/ftb/tinkers/blocks/slime/sky_slime_leaves"
+    },
+    "ender_slime_leaves": {
+      "textures": "textures/ftb/tinkers/blocks/slime/ender_slime_leaves"
+    },
+    "scarlet_slime_leaves": {
+      "textures": "textures/ftb/tinkers/blocks/slime/scarlet_slime_leaves"
+    },
+    "tall_grass_earth": {
+      "textures": "textures/ftb/tinkers/blocks/slime/tall_grass_earth"
+    },
+    "tall_grass_scarlet": {
+      "textures": "textures/ftb/tinkers/blocks/slime/tall_grass_scarlet"
+    },
+    "tall_grass_ender": {
+      "textures": "textures/ftb/tinkers/blocks/slime/tall_grass_ender"
+    },
+    "tall_grass_sky": {
+      "textures": "textures/ftb/tinkers/blocks/slime/tall_grass_sky"
+    },
+    "sapling_earth": {
+      "textures": "textures/ftb/tinkers/blocks/slime/sapling_earth"
+    },
+    "sapling_scarlet": {
+      "textures": "textures/ftb/tinkers/blocks/slime/sapling_scarlet"
+    },
+    "sapling_ender": {
+      "textures": "textures/ftb/tinkers/blocks/slime/sapling_ender"
+    },
+    "sapling_sky": {
+      "textures": "textures/ftb/tinkers/blocks/slime/sapling_sky"
+    },
+    "empty": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/empty"
+    },
+    "cast_axe": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_axe"
+    },
+    "cast_bucket": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_bucket"
+    },
+    "cast_diamond": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_diamond"
+    },
+    "cast_emerald": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_gem"
+    },
+    "cast_guard": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_guard"
+    },
+    "cast_cleaver": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_cleaver"
+    },
+    "cast_ingot": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_ingot"
+    },
+    "cast_pickaxe": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_pickaxe"
+    },
+    "cast_rod": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_rod"
+    },
+    "cast_dagger": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_dagger"
+    },
+    "cast_sword": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_sword"
+    },
+    "cast_cleaver_guard": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_cleaver_guard"
+    },
+    "cast_crossguard": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_crossguard"
+    },
+    "cast_repair_kit": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_repair_kit"
+    },
+    "cast_shoel": {
+      "textures": "textures/ftb/tinkers/items/casts/cast_shoel"
+    },
+    "sand_cast": {
+      "textures": "textures/ftb/tinkers/items/patterns/sand_cast"
+    },
+    "red_sand_cast": {
+      "textures": "textures/ftb/tinkers/items/patterns/red_sand_cast"
+    },
+    "sand_cast_axe": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_axe"
+    },
+    "sand_cast_bucket": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_bucket"
+    },
+    "sand_cast_diamond": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_diamond"
+    },
+    "sand_cast_emerald": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_gem"
+    },
+    "sand_cast_guard": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_guard"
+    },
+    "sand_cast_cleaver": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_cleaver"
+    },
+    "sand_cast_ingot": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_ingot"
+    },
+    "sand_cast_pickaxe": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_pickaxe"
+    },
+    "sand_cast_rod": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_rod"
+    },
+    "sand_cast_dagger": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_dagger"
+    },
+    "sand_cast_sword": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_sword"
+    },
+    "sand_cast_cleaver_guard": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_cleaver_guard"
+    },
+    "sand_cast_crossguard": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_crossguard"
+    },
+    "sand_cast_repair_kit": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_repair_kit"
+    },
+    "sand_cast_shoel": {
+      "textures": "textures/ftb/tinkers/items/casts/sand_cast_shoel"
+    },
+    "red_sand_cast_axe": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_axe"
+    },
+    "red_sand_cast_bucket": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_bucket"
+    },
+    "red_sand_cast_diamond": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_diamond"
+    },
+    "red_sand_cast_emerald": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_gem"
+    },
+    "red_sand_cast_guard": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_guard"
+    },
+    "red_sand_cast_cleaver": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_cleaver"
+    },
+    "red_sand_cast_ingot": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_ingot"
+    },
+    "red_sand_cast_pickaxe": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_pickaxe"
+    },
+    "red_sand_cast_rod": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_rod"
+    },
+    "red_sand_cast_dagger": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_dagger"
+    },
+    "red_sand_cast_sword": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_sword"
+    },
+    "red_sand_cast_cleaver_guard": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_cleaver_guard"
+    },
+    "red_sand_cast_crossguard": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_crossguard"
+    },
+    "red_sand_cast_repair_kit": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_repair_kit"
+    },
+    "red_sand_cast_shoel": {
+      "textures": "textures/ftb/tinkers/items/casts/red_sand_cast_shoel"
+    },
+    "axe_head_amethyst_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_amethyst_b"
+    },
+    "cleaver_blade_amethyst_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_amethyst_b"
+    },
+    "cleaver_guard_amethyst_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_amethyst_b"
+    },
+    "crossguard_amethyst_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_amethyst_b"
+    },
+    "dagger_blade_amethyst_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_amethyst_b"
+    },
+    "large_handle_amethyst_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_amethyst_b"
+    },
+    "pickaxe_head_amethyst_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_amethyst_b"
+    },
+    "shoel_head_amethyst_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_amethyst_b"
+    },
+    "sword_blade_amethyst_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_amethyst_b"
+    },
+    "sword_guard_amethyst_bronze": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_amethyst_b"
+    },
+    "axe_head_ardite": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_ardite"
+    },
+    "cleaver_blade_ardite": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_ardite"
+    },
+    "cleaver_guard_ardite": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_ardite"
+    },
+    "crossguard_ardite": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_ardite"
+    },
+    "dagger_blade_ardite": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_ardite"
+    },
+    "large_handle_ardite": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_ardite"
+    },
+    "pickaxe_head_ardite": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_ardite"
+    },
+    "shoel_head_ardite": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_ardite"
+    },
+    "sword_blade_ardite": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_ardite"
+    },
+    "sword_guard_ardite": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_ardite"
+    },
+    "axe_head_bone": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_bone"
+    },
+    "cleaver_blade_bone": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_bone"
+    },
+    "cleaver_guard_bone": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_bone"
+    },
+    "crossguard_bone": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_bone"
+    },
+    "dagger_blade_bone": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_bone"
+    },
+    "large_handle_bone": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_bone"
+    },
+    "pickaxe_head_bone": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_bone"
+    },
+    "shoel_head_bone": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_bone"
+    },
+    "sword_blade_bone": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_bone"
+    },
+    "sword_guard_bone": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_bone"
+    },
+    "axe_head_cobalt": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_cobalt"
+    },
+    "cleaver_blade_cobalt": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_cobalt"
+    },
+    "cleaver_guard_cobalt": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_cobalt"
+    },
+    "crossguard_cobalt": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_cobalt"
+    },
+    "dagger_blade_cobalt": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_cobalt"
+    },
+    "large_handle_cobalt": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_cobalt"
+    },
+    "pickaxe_head_cobalt": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_cobalt"
+    },
+    "shoel_head_cobalt": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_cobalt"
+    },
+    "sword_blade_cobalt": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_cobalt"
+    },
+    "sword_guard_cobalt": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_cobalt"
+    },
+    "axe_head_diamond": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_diamond"
+    },
+    "cleaver_blade_diamond": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_diamond"
+    },
+    "cleaver_guard_diamond": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_diamond"
+    },
+    "crossguard_diamond": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_diamond"
+    },
+    "dagger_blade_diamond": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_diamond"
+    },
+    "large_handle_diamond": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_diamond"
+    },
+    "pickaxe_head_diamond": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_diamond"
+    },
+    "shoel_head_diamond": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_diamond"
+    },
+    "sword_blade_diamond": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_diamond"
+    },
+    "sword_guard_diamond": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_diamond"
+    },
+    "axe_head_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_gold"
+    },
+    "cleaver_blade_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_gold"
+    },
+    "cleaver_guard_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_gold"
+    },
+    "crossguard_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_gold"
+    },
+    "dagger_blade_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_gold"
+    },
+    "large_handle_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_gold"
+    },
+    "pickaxe_head_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_gold"
+    },
+    "shoel_head_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_gold"
+    },
+    "sword_blade_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_gold"
+    },
+    "sword_guard_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_gold"
+    },
+    "axe_head_hepatizon": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_hepatizon"
+    },
+    "cleaver_blade_hepatizon": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_hepatizon"
+    },
+    "cleaver_guard_hepatizon": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_hepatizon"
+    },
+    "crossguard_hepatizon": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_hepatizon"
+    },
+    "dagger_blade_hepatizon": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_hepatizon"
+    },
+    "large_handle_hepatizon": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_hepatizon"
+    },
+    "pickaxe_head_hepatizon": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_hepatizon"
+    },
+    "shoel_head_hepatizon": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_hepatizon"
+    },
+    "sword_blade_hepatizon": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_hepatizon"
+    },
+    "sword_guard_hepatizon": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_hepatizon"
+    },
+    "axe_head_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_iron"
+    },
+    "cleaver_blade_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_iron"
+    },
+    "cleaver_guard_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_iron"
+    },
+    "crossguard_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_iron"
+    },
+    "dagger_blade_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_iron"
+    },
+    "large_handle_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_iron"
+    },
+    "pickaxe_head_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_iron"
+    },
+    "shoel_head_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_iron"
+    },
+    "sword_blade_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_iron"
+    },
+    "sword_guard_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_iron"
+    },
+    "axe_head_manyullyn": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_manyullyn"
+    },
+    "cleaver_blade_manyullyn": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_manyullyn"
+    },
+    "cleaver_guard_manyullyn": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_manyullyn"
+    },
+    "crossguard_manyullyn": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_manyullyn"
+    },
+    "dagger_blade_manyullyn": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_manyullyn"
+    },
+    "large_handle_manyullyn": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_manyullyn"
+    },
+    "pickaxe_head_manyullyn": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_manyullyn"
+    },
+    "shoel_head_manyullyn": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_manyullyn"
+    },
+    "sword_blade_manyullyn": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_manyullyn"
+    },
+    "sword_guard_manyullyn": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_manyullyn"
+    },
+    "axe_head_netherite": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_netherite"
+    },
+    "cleaver_blade_netherite": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_netherite"
+    },
+    "cleaver_guard_netherite": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_netherite"
+    },
+    "crossguard_netherite": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_netherite"
+    },
+    "dagger_blade_netherite": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_netherite"
+    },
+    "large_handle_netherite": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_netherite"
+    },
+    "pickaxe_head_netherite": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_netherite"
+    },
+    "shoel_head_netherite": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_netherite"
+    },
+    "sword_blade_netherite": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_netherite"
+    },
+    "sword_guard_netherite": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_netherite"
+    },
+    "axe_head_pig_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_pig_iron"
+    },
+    "cleaver_blade_pig_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_pig_iron"
+    },
+    "cleaver_guard_pig_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_pig_iron"
+    },
+    "crossguard_pig_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_pig_iron"
+    },
+    "dagger_blade_pig_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_pig_iron"
+    },
+    "large_handle_pig_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_pig_iron"
+    },
+    "pickaxe_head_pig_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_pig_iron"
+    },
+    "shoel_head_pig_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_pig_iron"
+    },
+    "sword_blade_pig_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_pig_iron"
+    },
+    "sword_guard_pig_iron": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_pig_iron"
+    },
+    "axe_head_queens_slime": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_queens_slime"
+    },
+    "cleaver_blade_queens_slime": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_queens_slime"
+    },
+    "cleaver_guard_queens_slime": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_queens_slime"
+    },
+    "crossguard_queens_slime": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_queens_slime"
+    },
+    "dagger_blade_queens_slime": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_queens_slime"
+    },
+    "large_handle_queens_slime": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_queens_slime"
+    },
+    "pickaxe_head_queens_slime": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_queens_slime"
+    },
+    "shoel_head_queens_slime": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_queens_slime"
+    },
+    "sword_blade_queens_slime": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_queens_slime"
+    },
+    "sword_guard_queens_slime": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_queens_slime"
+    },
+    "axe_head_rose_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_rose_gold"
+    },
+    "cleaver_blade_rose_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_rose_gold"
+    },
+    "cleaver_guard_rose_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_rose_gold"
+    },
+    "crossguard_rose_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_rose_gold"
+    },
+    "dagger_blade_rose_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_rose_gold"
+    },
+    "large_handle_rose_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_rose_gold"
+    },
+    "pickaxe_head_rose_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_rose_gold"
+    },
+    "shoel_head_rose_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_rose_gold"
+    },
+    "sword_blade_rose_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_rose_gold"
+    },
+    "sword_guard_rose_gold": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_rose_gold"
+    },
+    "axe_head_slimesteel": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_slimesteel"
+    },
+    "cleaver_blade_slimesteel": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_slimesteel"
+    },
+    "cleaver_guard_slimesteel": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_slimesteel"
+    },
+    "crossguard_slimesteel": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_slimesteel"
+    },
+    "dagger_blade_slimesteel": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_slimesteel"
+    },
+    "large_handle_slimesteel": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_slimesteel"
+    },
+    "pickaxe_head_slimesteel": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_slimesteel"
+    },
+    "shoel_head_slimesteel": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_slimesteel"
+    },
+    "sword_blade_slimesteel": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_slimesteel"
+    },
+    "sword_guard_slimesteel": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_slimesteel"
+    },
+    "axe_head_stone": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_stone"
+    },
+    "cleaver_blade_stone": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_stone"
+    },
+    "cleaver_guard_stone": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_stone"
+    },
+    "crossguard_stone": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_stone"
+    },
+    "dagger_blade_stone": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_stone"
+    },
+    "large_handle_stone": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_stone"
+    },
+    "pickaxe_head_stone": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_stone"
+    },
+    "shoel_head_stone": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_stone"
+    },
+    "sword_blade_stone": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_stone"
+    },
+    "sword_guard_stone": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_stone"
+    },
+    "axe_head_wood": {
+      "textures": "textures/ftb/tinkers/items/parts/axe_head_wood"
+    },
+    "cleaver_blade_wood": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_blade_wood"
+    },
+    "cleaver_guard_wood": {
+      "textures": "textures/ftb/tinkers/items/parts/cleaver_guard_wood"
+    },
+    "crossguard_wood": {
+      "textures": "textures/ftb/tinkers/items/parts/crossguard_wood"
+    },
+    "dagger_blade_wood": {
+      "textures": "textures/ftb/tinkers/items/parts/dagger_blade_wood"
+    },
+    "large_handle_wood": {
+      "textures": "textures/ftb/tinkers/items/parts/large_handle_wood"
+    },
+    "pickaxe_head_wood": {
+      "textures": "textures/ftb/tinkers/items/parts/pickaxe_head_wood"
+    },
+    "shoel_head_wood": {
+      "textures": "textures/ftb/tinkers/items/parts/shoel_head_wood"
+    },
+    "sword_blade_wood": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_blade_wood"
+    },
+    "sword_guard_wood": {
+      "textures": "textures/ftb/tinkers/items/parts/sword_guard_wood"
+    },
+    "repair_item_amethyst_bronze": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/amethyst_bronze"
+    },
+    "repair_item_ardite": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/ardite"
+    },
+    "repair_item_bone": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/bone"
+    },
+    "repair_item_cobalt": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/cobalt"
+    },
+    "repair_item_diamond": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/diamond"
+    },
+    "repair_item_gold": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/gold"
+    },
+    "repair_item_hepatizon": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/hepatizon"
+    },
+    "repair_item_iron": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/iron"
+    },
+    "repair_item_manyullyn": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/manyullyn"
+    },
+    "repair_item_netherite": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/netherite"
+    },
+    "repair_item_pig_iron": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/pig_iron"
+    },
+    "repair_item_queens_slime": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/queens_slime"
+    },
+    "repair_item_stone": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/stone"
+    },
+    "repair_item_rose_gold": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/rose_gold"
+    },
+    "repair_item_slimesteel": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/slimesteel"
+    },
+    "repair_item_wood": {
+      "textures": "textures/ftb/tinkers/items/repair_kits/wood"
+    },
+    "ardite_ingot": {
+      "textures": "textures/ftb/tinkers/items/materials/ardite_ingot"
+    },
+    "cobalt_ingot": {
+      "textures": "textures/ftb/tinkers/items/materials/cobalt_ingot"
+    },
+    "manyullyn_ingot": {
+      "textures": "textures/ftb/tinkers/items/materials/manyullyn_ingot"
+    },
+    "pig_iron_ingot": {
+      "textures": "textures/ftb/tinkers/items/materials/pig_iron_ingot"
+    },
+    "queens_slime_ingot": {
+      "textures": "textures/ftb/tinkers/items/materials/queens_slime_ingot"
+    },
+    "amethyst_bronze_ingot": {
+      "textures": "textures/ftb/tinkers/items/materials/amethyst_bronze_ingot"
+    },
+    "hepatizon_ingot": {
+      "textures": "textures/ftb/tinkers/items/materials/hepatizon_ingot"
+    },
+    "rose_gold_ingot": {
+      "textures": "textures/ftb/tinkers/items/materials/rose_gold_ingot"
+    },
+    "slimesteel_ingot": {
+      "textures": "textures/ftb/tinkers/items/materials/slimesteel_ingot"
+    },
+    "diamond": {
+      "textures": "textures/items/diamond"
+    },
+    "emerald": {
+      "textures": "textures/items/emerald"
+    },
+    "gold_ingot": {
+      "textures": "textures/items/gold_ingot"
+    },
+    "copper_ingot": {
+      "textures": "textures/items/copper_ingot"
+    },
+    "iron_ingot": {
+      "textures": "textures/items/iron_ingot"
+    },
+    "netherite_ingot": {
+      "textures": "textures/items/netherite_ingot"
+    },
+    "bucket_empty": {
+      "textures": "textures/items/bucket_empty"
+    },
+    "seared_brick_item": {
+      "textures": "textures/ftb/tinkers/items/materials/seared_brick"
+    },
+    "liquid_milk": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/milk"
+    },
+    "liquid_amethyst_bronze": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/amethyst_bronze"
+    },
+    "liquid_ardite": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/ardite"
+    },
+    "liquid_blaze": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/blaze"
+    },
+    "liquid_cobalt": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/cobalt"
+    },
+    "liquid_copper": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/copper"
+    },
+    "liquid_diamond": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/diamond"
+    },
+    "liquid_earth_slime": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/earth_slime"
+    },
+    "liquid_emerald": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/emerald"
+    },
+    "liquid_empty_black": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/empty_black"
+    },
+    "liquid_ender_slime": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/ender_slime"
+    },
+    "liquid_gold": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/gold"
+    },
+    "liquid_hepatizon": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/hepatizon"
+    },
+    "liquid_ichor_slime": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/ichor_slime"
+    },
+    "liquid_iron": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/iron"
+    },
+    "liquid_lava": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/lava"
+    },
+    "liquid_manyullyn": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/manyullyn"
+    },
+    "liquid_netherite": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/netherite"
+    },
+    "liquid_obsidian": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/obsidian"
+    },
+    "liquid_pig_iron": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/pig_iron"
+    },
+    "liquid_queens_slime": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/queens_slime"
+    },
+    "liquid_rose_gold": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/rose_gold"
+    },
+    "liquid_scarlet_slime": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/scarlet_slime"
+    },
+    "liquid_sky_slime": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/sky_slime"
+    },
+    "liquid_slimesteel": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/slimesteel"
+    },
+    "liquid_water": {
+      "textures": "textures/ftb/tinkers/blocks/fluid/water"
+    },
+    "pig_full": {
+      "textures": "textures/ftb/tinkers/blocks/full_blocks/pig_full"
+    },
+    "queens_slime_full": {
+      "textures": "textures/ftb/tinkers/blocks/full_blocks/queens_slime_full"
+    },
+    "slimesteel_full_block": {
+      "textures": "textures/ftb/tinkers/blocks/full_blocks/slimesteel_full_block"
+    },
+    "smeltery_controller_full_block": {
+      "textures": "textures/ftb/tinkers/blocks/full_blocks/smeltery_controller_full"
+    },
+    "iron_block": {
+      "textures": "textures/blocks/iron_block"
+    },
+    "gold_block": {
+      "textures": "textures/blocks/gold_block"
+    },
+    "diamond_block": {
+      "textures": "textures/blocks/diamond_block"
+    },
+    "emerald_block": {
+      "textures": "textures/blocks/emerald_block"
+    },
+    "netherite_block": {
+      "textures": "textures/blocks/netherite_block"
+    },
+    "copper_block": {
+      "textures": "textures/blocks/copper_block"
+    },
+    "slime": {
+      "textures": "textures/blocks/slime"
+    },
+    "obsidian": {
+      "textures": "textures/blocks/obsidian"
+    },
+    "lava": {
+      "textures": "textures/blocks/lava_still"
+    },
+    "rabbit_foot": {
+      "textures": "textures/items/rabbit_foot"
+    },
+    "shulker_shell": {
+      "textures": "textures/items/shulker_shell"
+    },
+    "plate_chestplate": {
+      "textures": "textures/ftb/tinkers/items/armours/plate_chestplate.png"
+    },
+    "travelers_helmet": {
+      "textures": "textures/ftb/tinkers/items/armours/travelers_helmet.png"
+    },
+    "slime_boots": {
+      "textures": "textures/ftb/tinkers/items/armours/slime_boots.png"
+    },
+    "slime_leggings": {
+      "textures": "textures/ftb/tinkers/items/armours/slime_leggings.png"
+    },
+    "slime_chestplate": {
+      "textures": "textures/ftb/tinkers/items/armours/slime_chestplate.png"
+    },
+    "slime_helmet": {
+      "textures": "textures/ftb/tinkers/items/armours/slime_helmet.png"
+    },
+    "smeltery_controller_built": {
+      "textures": "textures/ftb/tinkers/blocks/smeltery_v2"
+    },
+    "seared_drain_built": {
+      "textures": "textures/ftb/tinkers/entity/seared_drain_alt"
+    }
+  }
+}

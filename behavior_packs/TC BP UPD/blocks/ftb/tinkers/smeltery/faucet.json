@@ -1,0 +1,553 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:faucet",
+      "menu_category": {
+        "category": "items"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": [
+            "minecraft:cardinal_direction"
+          ]
+        }
+      },
+      "states": {
+        "ftb_tc:flow_state": [
+          0,
+          1,
+          2
+        ],
+        "ftb_tc:fluid_type_1": [
+          0,
+          1,
+          2
+        ],
+        "ftb_tc:fluid_type_2": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    "components": {
+      "minecraft:tick": {
+        "interval_range": [
+          20,
+          20
+        ]
+      },
+      "tag:minecraft:is_pickaxe_item_destructible": {},
+      "ftb_tc:faucet": {},
+      "minecraft:collision_box": {
+        "origin": [
+          -4,
+          4,
+          2
+        ],
+        "size": [
+          8,
+          6,
+          6
+        ]
+      },
+      "minecraft:selection_box": {
+        "origin": [
+          -4,
+          4,
+          2
+        ],
+        "size": [
+          8,
+          6,
+          6
+        ]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 15
+      },
+      "minecraft:geometry": {
+        "identifier": "geometry.ftb_tc.faucet",
+        "bone_visibility": {
+          "faucet": true,
+          "fluid_table": "query.block_state('ftb_tc:flow_state') == 1",
+          "fluid_basin": "query.block_state('ftb_tc:flow_state') == 2"
+        }
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "empty",
+          "render_method": "alpha_test"
+        },
+        "faucet": {
+          "texture": "seared_paver",
+          "render_method": "alpha_test"
+        },
+        "fluid": {
+          "texture": "empty",
+          "render_method": "alpha_test"
+        }
+      }
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              180,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              90,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              270,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 0 && q.block_state('ftb_tc:fluid_type_2') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_amethyst_bronze",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 0 && q.block_state('ftb_tc:fluid_type_2') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_ardite",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 0 && q.block_state('ftb_tc:fluid_type_2') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_cobalt",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 0 && q.block_state('ftb_tc:fluid_type_2') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_copper",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 0 && q.block_state('ftb_tc:fluid_type_2') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_diamond",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 0 && q.block_state('ftb_tc:fluid_type_2') == 6",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_emerald",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 0 && q.block_state('ftb_tc:fluid_type_2') == 7",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_gold",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 0 && q.block_state('ftb_tc:fluid_type_2') == 8",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_hepatizon",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 0 && q.block_state('ftb_tc:fluid_type_2') == 9",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_iron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 1 && q.block_state('ftb_tc:fluid_type_2') == 0",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_manyullyn",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 1 && q.block_state('ftb_tc:fluid_type_2') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_netherite",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 1 && q.block_state('ftb_tc:fluid_type_2') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_pig_iron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 1 && q.block_state('ftb_tc:fluid_type_2') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_queens_slime",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 1 && q.block_state('ftb_tc:fluid_type_2') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_rose_gold",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 1 && q.block_state('ftb_tc:fluid_type_2') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_slimesteel",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 1 && q.block_state('ftb_tc:fluid_type_2') == 6",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_earth_slime",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 1 && q.block_state('ftb_tc:fluid_type_2') == 7",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_ender_slime",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 1 && q.block_state('ftb_tc:fluid_type_2') == 8",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_scarlet_slime",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 1 && q.block_state('ftb_tc:fluid_type_2') == 9",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_sky_slime",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 2 && q.block_state('ftb_tc:fluid_type_2') == 0",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_tin",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:fluid_type_1') == 2 && q.block_state('ftb_tc:fluid_type_2') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            },
+            "faucet": {
+              "texture": "seared_paver",
+              "render_method": "alpha_test"
+            },
+            "fluid": {
+              "texture": "liquid_bronze",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "ftb_tc:e_p_smeltery_controller",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

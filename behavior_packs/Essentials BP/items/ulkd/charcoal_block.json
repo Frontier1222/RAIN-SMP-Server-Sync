@@ -1,0 +1,20 @@
+{
+	"format_version": "1.21.70",
+	"minecraft:item": {
+		"description": {
+			"identifier": "ulkd_ess:charcoal_block",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:block_placer": {
+				"block": "ulkd_ess:charcoal_block",
+				"replace_block_item": true
+			},
+			"minecraft:fuel": {
+				"duration": 800
+			}
+		}
+	}
+}

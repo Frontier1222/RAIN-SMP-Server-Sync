@@ -1,0 +1,44 @@
+{
+    "format_version": "1.21.60",
+    "minecraft:item": {
+        "description": {
+            "identifier": "viberater:orb_of_agility",
+            "menu_category": {
+                "category": "equipment"
+            }
+        },
+        "components": {
+            "minecraft:max_stack_size": {
+                "value": 1
+            },
+            "minecraft:icon": {
+                "textures": {
+                    "default": "viberater.orb_of_agility"
+                }
+            },
+            "minecraft:durability": {
+                "max_durability": 600
+            },
+            "minecraft:cooldown": {
+                "category": "ender_pearl",
+                "duration": 1
+            },
+            "minecraft:repairable": {
+                "repair_items": [
+                    {
+                        "items": [
+                            "minecraft:lapis_lazuli"
+                        ],
+                        "repair_amount": 10
+                    },
+                    {
+                        "items": [
+                            "minecraft:experience_bottle"
+                        ],
+                        "repair_amount": 300
+                    }
+                ]
+            }
+        }
+    }
+}

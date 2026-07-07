@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:empty_capture_cube"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:iron_ingot"
+      },
+      "Y": {
+        "item": "minecraft:obsidian"
+      },
+      "Z": {
+        "item": "minecraft:ender_eye"
+      }
+    },
+    "pattern": [
+      "YXY",
+      "XZX",
+      "YXY"
+    ],
+    "result": {
+      "item": "ulkd_ess:empty_capture_cube",
+      "count": 3
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ]
+  }
+}

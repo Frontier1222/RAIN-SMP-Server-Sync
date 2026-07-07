@@ -1,0 +1,209 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Made by Gao",
+        "name": "More Hotbars",
+        "uuid": "923cf513-dd9e-4020-82c8-baf859795b32",
+        "version": [2, 3, 0],
+        "min_engine_version": [ 1, 21, 70 ]
+    },
+    "modules": [
+        {
+            "description": "Made by Gao",
+            "type": "resources",
+            "uuid": "b6143c44-7b0d-452b-a8a7-88c7659020f8",
+            "version": [2, 3, 0]
+        }
+    ],
+    "subpacks":[
+        {
+            "folder_name": "clear",
+            "name": "Clear Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "white",
+            "name": "White Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "white_circular",
+            "name": "Circular White Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "gray",
+            "name": "Gray Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "black",
+            "name": "Black Hotbar",
+            "memory_tier": 1
+        },
+		{
+            "folder_name": "red",
+            "name": "Red Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "red_circular",
+            "name": "Circular Red Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "red_gradient",
+            "name": "Gradient Red Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "red_pastel",
+            "name": "Pastel Red Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "orange",
+            "name": "Orange Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "orange_circular",
+            "name": "Circular Orange Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "orange_pastel",
+            "name": "Pastel Orange Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "orange_gradient",
+            "name": "Gradient Orange Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "yellow",
+            "name": "Yellow Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "yellow_circular",
+            "name": "Circular Yellow Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "yellow_pastel",
+            "name": "Pastel Yellow Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "yellow_gradient",
+            "name": "Gradient Yellow Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "green",
+            "name": "Green Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "green_pastel",
+            "name": "Pastel Green Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "green_gradient",
+            "name": "Gradient Green Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "cyan",
+            "name": "Cyan Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "cyan_pastel",
+            "name": "Pastel Cyan Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "blue",
+            "name": "Blue Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "blue_pastel",
+            "name": "Pastel Blue Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "blue_gradient",
+            "name": "Gradient Blue Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "purple",
+            "name": "Purple Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "purple_pastel",
+            "name": "Pastel Purple Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "purple_gradient",
+            "name": "Gradient Purple Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "pink",
+            "name": "Pink Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "pink_pastel",
+            "name": "Pastel Pink Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "pink_gradient",
+            "name": "Gradient Pink Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "connect",
+            "name": "Connected Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "gold",
+            "name": "Gold Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "dia",
+            "name": "Diamond Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "bw",
+            "name": "Black and White Hotbar",
+            "memory_tier": 1
+        },{
+            "folder_name": "bw_gradient",
+            "name": "Gradient Black and White Hotbar",
+            "memory_tier": 1
+        },
+        {
+            "folder_name": "portal",
+            "name": "Animated Portal Hotbar",
+            "memory_tier": 1
+        },
+		{
+            "folder_name": "rgb",
+            "name": "Animated Rainbow Hotbar",
+            "memory_tier": 1
+        }
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.ftb_tc.ftb_tc_despawn_entity": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"use": "query.is_saddled"
+						}
+					]
+				},
+				"use": {
+					"transitions": [
+						{
+							"default": "!query.is_saddled"
+						}
+					],
+					"on_entry": [
+						"/kill @s"
+					]
+				}
+			}
+		}
+	}
+}

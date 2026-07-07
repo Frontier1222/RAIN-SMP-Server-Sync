@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:glowball"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["xxx", "xXx", "xxx"],
+    "key": {
+      "x": {
+        "item": "minecraft:snowball"
+      },
+      "X": {
+        "item": "minecraft:glowstone_dust"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:glowball",
+      "count": 8
+    }
+  }
+}

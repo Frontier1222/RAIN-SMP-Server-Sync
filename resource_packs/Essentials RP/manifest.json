@@ -1,0 +1,31 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "pack.name",
+        "description": "pack.description",
+        "uuid": "09f402ab-112e-4826-a422-6e0a6b4e0d97",
+        "pack_scope": "world",
+        "version": [1, 0, 45],
+        "min_engine_version": [1, 21, 70]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "1b7fa8b0-037c-4764-b597-f4e81b31e983",
+            "version": [1, 0, 45]
+        }
+    ],
+    "metadata": {
+        "product_type": "addon",
+        "authors": ["Unlinked", "Eriks Petriks"]
+    },
+    "dependencies": [
+        {
+            "uuid": "7f9516b4-d1a4-4f26-8a55-c0cc98c2c475",
+            "version": [1, 0, 44]
+        }
+    ]
+}
+
+
+

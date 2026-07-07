@@ -1,0 +1,44 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ftb_tc:netherite_helmet",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.helmet"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "slot": "armor_head",
+        "value": 10
+      },
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:trimmable_armors",
+          "minecraft:is_armor"
+        ]
+      },
+      "minecraft:icon": "netherite_helmet",
+      "minecraft:wearable": {
+        "slot": "slot.armor.head",
+        "protection": 7,
+        "dispensable": true
+      },
+      "minecraft:durability": {
+        "max_durability": 457
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "minecraft:netherite_ingot"
+            ],
+            "repair_amount": 125
+          }
+        ]
+      }
+    }
+  }
+}

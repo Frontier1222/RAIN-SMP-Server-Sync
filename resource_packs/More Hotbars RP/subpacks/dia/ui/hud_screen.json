@@ -1,0 +1,145 @@
+{
+  "namespace": "hud",
+
+"hotbar_slot_selected_image": {
+    "type": "image",
+    "texture": "textures/ui/selected_hotbar_slot",
+    "size": [ 24, 24 ],
+    "layer": -1,
+    "bindings": [
+      {
+        "binding_name": "#slot_selected",
+        "binding_name_override": "#visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$hotbar_collection_name"
+      }
+    ]
+  },
+
+  "exp_progress_bar_and_hotbar": {
+    "type": "panel",
+    "size": [ "100%c", 31 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "offset": "$xp_control_offset",
+    "controls": [
+      {
+        "resizing_xp_bar_with_hotbar": {
+          "type": "panel",
+          "size": [ "100%c", 5 ],
+          "controls": [
+            {
+              "empty_progress_bar@empty_progress_bar": {
+                "size": [ "100%c", 5 ],
+                "layer": 1,
+                "controls": [
+                  {
+                    "full_progress_bar@full_progress_bar": {
+                      "size": [ "100%c", 5 ],
+                      "layer": 2,
+                      "controls": [
+                        {
+                          "progress_bar_nub@progress_bar_nub": {
+                            "size": [ "100%c", 5 ],
+                            "max_size": [ 190, 5 ],
+                            "layer": 0,
+                            "controls": [
+                              {
+                                "hotbar@hotbar_chooser": {
+                                  "offset": [ 4, 16 ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "progress_text_label@progress_text_label": {
+                "offset": [ 0, 0 ],
+                "layer": 7
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#show_survival_ui",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      // For when we hide the XP bar in Creative Move we still want to display the HUD
+      {
+        "hotbar@hotbar_chooser": {
+          "offset": [ 4, 16 ],
+          "bindings": [
+            {
+              "binding_name": "#is_creative_mode",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "item_text_factory": {
+          "size": [ 100, 10 ],
+          "type": "factory",
+          "control_ids": {
+            "item_text": "@hud.item_name_text",
+            "jukebox_text": "@hud.jukebox_popup_text"
+          }
+        }
+      }
+    ]
+  },
+
+  "empty_progress_bar": {
+    "type": "image",
+    "size": [ 178, 5 ],
+    "texture": "textures/ui/experiencebarempty",
+    "uv_size": [ 178, 5 ],
+    "uv": "@hud.exp_bars_01",
+    "disable_anim_fast_forward": false
+  },
+
+  "full_progress_bar": {
+    "type": "image",
+    "texture": "textures/ui/experiencebarfull",
+    "clip_direction": "left",
+    "clip_pixelperfect": false,
+    "uv_size": [ 178, 5 ],
+    "size": [ 178, 5 ],
+    "uv": "@hud.exp_bars_01",
+    "disable_anim_fast_forward": false,
+    "bindings": [
+      {
+        "binding_name": "#exp_progress",
+        "binding_name_override": "#clip_ratio",
+        "binding_type": "global"
+      }
+    ]
+  },
+
+  "animated_uv_temp": {
+    "anim_type": "uv",
+    "from": "$uv",
+    "to": "$uv",
+    "duration": 0.0575
+    },
+
+  "exp_bars_01@hud.animated_uv_temp": { "$uv": [ 0, 0  ], "next": "@hud.exp_bars_02", "duration": 8 },
+  "exp_bars_02@hud.animated_uv_temp": { "$uv": [ 0, 5  ], "next": "@hud.exp_bars_03" },
+  "exp_bars_03@hud.animated_uv_temp": { "$uv": [ 0, 10 ], "next": "@hud.exp_bars_04" },
+  "exp_bars_04@hud.animated_uv_temp": { "$uv": [ 0, 15 ], "next": "@hud.exp_bars_05" },
+  "exp_bars_05@hud.animated_uv_temp": { "$uv": [ 0, 20 ], "next": "@hud.exp_bars_06" },
+  "exp_bars_06@hud.animated_uv_temp": { "$uv": [ 0, 25 ], "next": "@hud.exp_bars_07" },
+  "exp_bars_07@hud.animated_uv_temp": { "$uv": [ 0, 30 ], "next": "@hud.exp_bars_08" },
+  "exp_bars_08@hud.animated_uv_temp": { "$uv": [ 0, 35 ], "next": "@hud.exp_bars_09" },
+  "exp_bars_09@hud.animated_uv_temp": { "$uv": [ 0, 40 ], "next": "@hud.exp_bars_10" },
+  "exp_bars_10@hud.animated_uv_temp": { "$uv": [ 0, 45 ], "next": "@hud.exp_bars_01" }
+}

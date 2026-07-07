@@ -1,0 +1,40 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:checkpoint"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:ender_pearl"
+      },
+      "Y": {
+        "item": "minecraft:diamond"
+      },
+      "O": {
+        "item": "minecraft:compass"
+      },
+      "Z": {
+        "item": "minecraft:echo_shard"
+      }
+    },
+    "pattern": [
+      "YXY",
+      "ZOZ",
+      "YXY"
+    ],
+    "result": {
+      "item": "ulkd_ess:checkpoint",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:ender_pearl"
+      }
+    ]
+  }
+}

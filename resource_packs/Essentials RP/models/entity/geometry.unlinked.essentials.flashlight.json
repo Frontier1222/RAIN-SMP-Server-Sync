@@ -1,0 +1,56 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.ulkd_ess.flashlight",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "root2",
+					"pivot": [-6, 14.5, 4.5]
+				},
+				{
+					"name": "waist2",
+					"parent": "root2",
+					"pivot": [1.2, 11.5, -0.9]
+				},
+				{
+					"name": "body2",
+					"parent": "waist2",
+					"pivot": [-4.8, 23.5, -5.7]
+				},
+				{
+					"name": "leftArm",
+					"parent": "body2",
+					"pivot": [-4.8, 23.5, -0.9]
+				},
+				{
+					"name": "flashlight",
+					"parent": "leftArm",
+					"pivot": [-4, 14, -6],
+					"cubes": [
+						{"origin": [-5, 14, -4], "size": [2, 2, 6], "uv": [0, 0]},
+						{"origin": [-5.5, 13.5, -7], "size": [3, 3, 3], "uv": [0, 8]}
+					]
+				},
+				{
+					"name": "light",
+					"parent": "flashlight",
+					"pivot": [-4.04762, 15, -8.90631],
+					"cubes": [
+						{"origin": [-5.5, 13.07648, -9.90589], "size": [3, 0, 3], "pivot": [-3, 13.07648, -7.90589], "rotation": [25, 0, 0], "uv": [-3, 14]},
+						{"origin": [-5.5, 16.82648, -9.90589], "size": [3, 0, 3], "pivot": [-3, 16.82648, -7.90589], "rotation": [-20, 0, 0], "uv": [-3, 14]},
+						{"origin": [-6.03392, 17.23177, -10.75233], "size": [3, 0, 3], "pivot": [-4.53392, 15, -7.94003], "rotation": [-20, 0, 90], "uv": [-3, 14]},
+						{"origin": [-5.04762, 12.84752, -10.91003], "size": [3, 0, 3], "pivot": [-3.54762, 15, -7.90631], "rotation": [25, 0, 90], "uv": [-3, 14]}
+					]
+				}
+			]
+		}
+	]
+}

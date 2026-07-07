@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:tin_ore",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "tag:iron_pick_diggable": {},
+      "tag:minecraft:is_pickaxe_item_destructible": {},
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 2.5
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 15
+      },
+      "minecraft:loot": "loot_tables/ftb/tinkers/blocks/ores/tin_ore.json",
+      "minecraft:collision_box": true,
+      "minecraft:selection_box": true,
+      "minecraft:geometry": "geometry.ftb_tc.ftb_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "tin_ore",
+          "render_method": "alpha_test"
+        }
+      }
+    }
+  }
+}

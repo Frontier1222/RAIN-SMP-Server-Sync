@@ -1,0 +1,21 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:crafting_station"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["C"],
+    "key": {
+      "C": {
+        "item": "minecraft:crafting_table"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:crafting_station"
+    }
+  }
+}

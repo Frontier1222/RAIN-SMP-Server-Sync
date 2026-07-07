@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:fake.deepslate.tiles"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:deepslate_tiles"
+      }
+    },
+    "pattern": [
+      "X X",
+      " X ",
+      "X X"
+    ],
+    "result": {
+      "item": "ulkd_ess:fake.deepslate.tiles",
+      "count": 2
+    },
+    "unlock": [
+      {
+        "item": "minecraft:deepslate_tiles"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

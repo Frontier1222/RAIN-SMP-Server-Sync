@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:piston_modifier"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "SPS",
+      "PEP",
+      "SPS"
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:piston"
+      },
+      "S": {
+        "item": "minecraft:redstone"
+      },
+      "E": {
+        "item": "ftb_tc:empty_modifier"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:piston_modifier"
+    }
+  }
+}

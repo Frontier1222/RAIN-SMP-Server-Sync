@@ -1,0 +1,40 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:diamond_berry_bush_full"
+    },
+    "components": {
+      "ftb_tc:full_berry_bush_interact": {},
+      "minecraft:tick": {
+        "interval_range": [
+          1,
+          1
+        ]
+      },
+      "minecraft:light_dampening": 0,
+      "tag:ftb_tc:diamond_berry_bush": {},
+      "tag:dont_break": {},
+      "tag:dont_place": {},
+      "minecraft:flammable": false,
+      "minecraft:collision_box": false,
+      "minecraft:selection_box": true,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:display_name": "tile.ftb_tc:diamond_berry_bush.name",
+      "minecraft:geometry": {
+        "identifier": "geometry.ftb_tc.berry_bush"
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "diamond_berry_bush_stage_3",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:loot": "loot_tables/ftb/tinkers/berries/diamond_berry_seed.json",
+      "minecraft:friction": 0.6
+    }
+  }
+}

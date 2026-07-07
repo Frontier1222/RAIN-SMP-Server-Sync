@@ -1,0 +1,34 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:saddle"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:leather"
+      },
+      "Y": {
+        "item": "minecraft:lead"
+      }
+    },
+    "pattern": [
+      "Y Y",
+      "XXX",
+      "XXX"
+    ],
+    "result": {
+      "item": "minecraft:saddle",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:leather"
+      }
+    ]
+  }
+}

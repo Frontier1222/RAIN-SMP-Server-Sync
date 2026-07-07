@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:fake.bamboo.planks"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:bamboo_planks"
+      }
+    },
+    "pattern": [
+      "X X",
+      " X ",
+      "X X"
+    ],
+    "result": {
+      "item": "ulkd_ess:fake.bamboo.planks",
+      "count": 2
+    },
+    "unlock": [
+      {
+        "item": "minecraft:bamboo_planks"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

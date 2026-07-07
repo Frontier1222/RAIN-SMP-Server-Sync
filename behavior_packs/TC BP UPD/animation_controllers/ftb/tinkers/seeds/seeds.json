@@ -1,0 +1,45 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.ftb_tc.ftb_tc_slime_seeds": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"use": "q.is_alive"
+						}
+					]
+				},
+				"use": {
+					"transitions": [
+						{
+							"default": "!q.is_alive"
+						}
+					],
+					"on_entry": [
+						//earth_slime
+						"/execute at @s[type=ftb_tc:earth_slime_seed_entity] if block ~ ~-1 ~ dirt [] run particle minecraft:crop_growth_emitter ~ ~0.05 ~",
+						"/execute at @s[type=ftb_tc:earth_slime_seed_entity] if block ~ ~-1 ~ dirt [] run playsound item.bone_meal.use @p ~ ~ ~ 0.35 1.0 0.35",
+						"/execute at @s[type=ftb_tc:earth_slime_seed_entity] if block ~ ~-1 ~ dirt [] run setblock ~ ~-1 ~ ftb_tc:earth_grass [] replace",
+						//sky_slime
+						"/execute at @s[type=ftb_tc:sky_slime_seed_entity] if block ~ ~-1 ~ dirt [] run particle minecraft:crop_growth_emitter ~ ~0.05 ~",
+						"/execute at @s[type=ftb_tc:sky_slime_seed_entity] if block ~ ~-1 ~ dirt [] run playsound item.bone_meal.use @p ~ ~ ~ 0.35 1.0 0.35",
+						"/execute at @s[type=ftb_tc:sky_slime_seed_entity] if block ~ ~-1 ~ dirt [] run setblock ~ ~-1 ~ ftb_tc:sky_grass [] replace",
+						//scarlet_slime
+						"/execute at @s[type=ftb_tc:scarlet_slime_seed_entity] if block ~ ~-1 ~ dirt [] run particle minecraft:crop_growth_emitter ~ ~0.05 ~",
+						"/execute at @s[type=ftb_tc:scarlet_slime_seed_entity] if block ~ ~-1 ~ dirt [] run playsound item.bone_meal.use @p ~ ~ ~ 0.35 1.0 0.35",
+						"/execute at @s[type=ftb_tc:scarlet_slime_seed_entity] if block ~ ~-1 ~ dirt [] run setblock ~ ~-1 ~ ftb_tc:scarlet_grass [] replace",
+						//ender_slime
+						"/execute at @s[type=ftb_tc:ender_slime_seed_entity] if block ~ ~-1 ~ dirt [] run particle minecraft:crop_growth_emitter ~ ~0.05 ~",
+						"/execute at @s[type=ftb_tc:ender_slime_seed_entity] if block ~ ~-1 ~ dirt [] run playsound item.bone_meal.use @p ~ ~ ~ 0.35 1.0 0.35",
+						"/execute at @s[type=ftb_tc:ender_slime_seed_entity] if block ~ ~-1 ~ dirt [] run setblock ~ ~-1 ~ ftb_tc:ender_grass [] replace",
+						//ichor_slime
+						"/execute at @s[type=ftb_tc:ichor_slime_seed_entity] if block ~ ~-1 ~ dirt [] run particle minecraft:crop_growth_emitter ~ ~0.05 ~",
+						"/execute at @s[type=ftb_tc:ichor_slime_seed_entity] if block ~ ~-1 ~ dirt [] run playsound item.bone_meal.use @p ~ ~ ~ 0.35 1.0 0.35",
+						"/execute at @s[type=ftb_tc:ichor_slime_seed_entity] if block ~ ~-1 ~ dirt [] run setblock ~ ~-1 ~ ftb_tc:ichor_grass [] replace"
+					]
+				}
+			}
+		}
+	}
+}

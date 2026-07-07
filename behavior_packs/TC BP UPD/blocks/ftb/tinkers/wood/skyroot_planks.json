@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.20",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:skyroot_planks",
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "tag:wood": {},
+      "minecraft:collision_box": true,
+      "minecraft:selection_box": true,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 15
+      },
+      "minecraft:geometry": "geometry.ftb_tc.ftb_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "skyroot_planks",
+          "render_method": "alpha_test"
+        }
+      }
+    }
+  }
+}

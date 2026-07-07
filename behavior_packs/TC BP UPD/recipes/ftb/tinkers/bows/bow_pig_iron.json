@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:bow_pig_iron"
+    },
+    "tags": ["smelters_station"],
+    "pattern": [" #X", "# X", " #X"],
+    "key": {
+      "#": {
+        "item": "ftb_tc:part_large_handle_pig_iron"
+      },
+      "X": {
+        "item": "minecraft:string"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:bow_pig_iron",
+      "count": 1
+    }
+  }
+}

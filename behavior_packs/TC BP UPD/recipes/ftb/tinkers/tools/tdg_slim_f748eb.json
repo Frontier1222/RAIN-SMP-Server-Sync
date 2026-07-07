@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:tdg_slim_f748eb"},"tags":["smelters_station"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:dagger_blade_slimesteel_crossguard_ardite"},"ingredients":[{"item":"ftb_tc:part_dagger_crossguard_ardite"},{"item":"ftb_tc:part_dagger_blade_slimesteel"}]}}

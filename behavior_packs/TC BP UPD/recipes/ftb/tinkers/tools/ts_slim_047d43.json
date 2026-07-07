@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:ts_slim_047d43"},"tags":["smelters_anvil"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:sword_guard_pig_iron_blade_slimesteel"},"ingredients":[{"item":"ftb_tc:part_sword_guard_pig_iron"},{"item":"ftb_tc:part_sword_blade_slimesteel"}]}}

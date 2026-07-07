@@ -1,0 +1,154 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "weight": 15,
+                    "name": "viberater:orb_of_gelidity",
+                    "functions": [
+                        {
+                            "function": "set_lore",
+                            "lore": [
+                                "Upon use, replaces Water underneath you feet with different types of Ice.",
+                                "Durability - 2400 | Cooldown - 0.25 Second",
+                                "Repair in Anvil with Experience Bottle or Lapis Lazuli"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "loot_table",
+                    "name": "loot_tables/chests/wandering_trader.json",
+                    "weight": 2
+                },
+                {
+                    "type": "item",
+                    "weight": 75,
+                    "name": "viberater:christmas_coin_2023"
+                },
+                {
+                    "type": "item",
+                    "name": "viberater:christmas_sword",
+                    "weight": 5,
+                    "functions": [
+                        {
+                            "function": "set_lore",
+                            "lore": [
+                              "§r§fExclusive Sword. Applies Weakness IV and Slowness I on hit.",
+                              "§r§fObtained from the Polar Bear Boss.",
+                              "§r§o§7Official Christmas 2023 Item"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "viberater:snowball",
+                    "weight": 8,
+                    "functions": [
+                        {
+                            "function": "set_lore",
+                            "lore": [
+                              "§r§fExclusive Thrown Projectile. Applies Slowness IV on hit.",
+                              "§r§fObtained from the Polar Bear Boss.",
+                              "§r§o§7Official Christmas 2023 Item"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:leather",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 16,
+                                "max": 32
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 4,
+                                "max": 12
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:bone_block",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 2,
+                                "max": 8
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 1,
+                                "max": 3
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:raw_iron_block",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 3,
+                                "max": 4
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 2,
+                                "max": 4
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": {
+                "min": 1,
+                "max": 3
+            },
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "name": "loot_tables/chests/end_city_treasure.json"
+                }
+            ]
+        }
+    ]
+}

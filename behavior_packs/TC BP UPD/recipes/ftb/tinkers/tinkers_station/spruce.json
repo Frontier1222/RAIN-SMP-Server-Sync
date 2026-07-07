@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:tinkers_station_spruce"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["P", "X", "C"],
+    "key": {
+      "P": {
+        "item": "ftb_tc:pattern_blank"
+      },
+      "C": {
+        "item": "minecraft:crafting_table"
+      },
+      "X": {
+        "item": "minecraft:spruce_log"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:tinkers_station_spruce"
+    }
+  }
+}

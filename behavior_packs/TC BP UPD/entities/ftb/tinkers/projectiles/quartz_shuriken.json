@@ -1,0 +1,119 @@
+{
+  "format_version": "1.20.60",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "ftb_tc:quartz_shuriken_entity",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": {
+        "animate": [
+          "despawn"
+        ]
+      },
+      "animations": {
+        "despawn": "controller.animation.ftb_tc.ftb_tc_despawn_entity"
+      }
+    },
+    "component_groups": {
+      "ftb_tc:despawn": {
+        "minecraft:spawn_entity": {
+          "entities":{
+            "max_wait_time": 0,
+            "min_wait_time": 0,
+            "num_to_spawn": 1,
+            "single_use": true,
+            "spawn_item": "ftb_tc:quartz_shuriken"
+          }
+        },
+        "minecraft:instant_despawn": {
+          "remove_child_entities": false
+        },
+        "minecraft:is_saddled": {}
+      }
+    },
+    "components": {
+      "minecraft:scale": {
+        "value": 0.15
+      },
+      "minecraft:collision_box": {
+        "width": 0.05,
+        "height": 0.05
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "knockback": false,
+            "destroy_on_hit": true,
+            "damage": 5
+          },
+          "stick_in_ground": {}
+        },
+        "anchor": 2,
+        "power": 1.55,
+        "gravity": 0.035,
+        "offset": [
+          0,
+          0,
+          0
+        ]
+      },
+      "minecraft:environment_sensor": {
+				"triggers": {
+          "target": "self",
+					"filters": {
+						"all_of": [
+							{
+								"test": "on_ground",
+								"value": true,
+                "operator": "equals",
+								"subject": "self"
+							}
+						]
+					},
+					"event": "ftb_tc:despawn"
+				}
+			},
+      "minecraft:timer": {
+        "time": 4,
+        "looping": true,
+        "time_down_event": {
+          "event": "ftb_tc:despawn",
+          "target": "self"
+        }
+      },
+      "minecraft:physics": {
+        "push_towards_closest_space": false,
+        "has_gravity": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 100.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "ftb_tc:despawn": {
+        "add": {
+          "component_groups": [
+            "ftb_tc:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

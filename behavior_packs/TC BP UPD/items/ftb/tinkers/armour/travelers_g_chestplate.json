@@ -1,0 +1,40 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ftb_tc:travelers_gold_chestplate",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.chestplate"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": "travelers_gold_chestplate",
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:trimmable_armors",
+          "minecraft:is_armor",
+          "minecraft:golden_tier"
+        ]
+      },
+      "minecraft:wearable": {
+        "slot": "slot.armor.chest",
+        "protection": 5
+      },
+      "minecraft:durability": {
+        "max_durability": 160
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "minecraft:leather"
+            ],
+            "repair_amount": 40
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "format_version": "1.20.50",
+    "minecraft:item": {
+        "description": {
+            "identifier": "bd:gui",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:foil": true,
+            "minecraft:max_stack_size": 1,
+            "minecraft:hand_equipped": true,
+            "minecraft:display_name": {
+                "value": "§r§d§lRAIN SMP GUI"
+            },
+            "minecraft:icon": {
+                "texture": "gui"
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "ftb_tc:pig_iron_block",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "ftb_tc:casting_basin",
+			"materials": {
+				"default": "slime",
+				"liquid": "ftb_liquid",
+				"outer": "slime_outer"
+			},
+			"textures": {
+				"default": "textures/ftb/tinkers/entity/casting_basin/casting_basin_v0"
+			},
+			"geometry": {
+				"default": "geometry.ftb_tc.casting_basin"
+			},
+			"sound_effects": {
+				"fizz": "random.fizz"
+			},
+			"particle_effects": {
+				"smoke": "ftb_tc:casting_table_smoke_particle",
+				"fire": "minecraft:lava_particle"
+			},
+			"animations": {
+				"stop_rotate": "animation.ftb_tc.stop_rotate",
+				"particles": "animation.ftb_tc.casting_basin_particles"
+			},
+			"animation_controllers": [
+				{
+					"stop_rotate": "controller.animation.ftb_tc.stop_rotate"
+				},
+				{
+					"particles": "controller.animation.ftb_tc.casting_basin_particles"
+				}
+			],
+			"render_controllers": [
+				"controller.render.ftb_tc.casting_basin"
+			],
+			"spawn_egg": {
+				"texture": "ftb_casting_basin_egg",
+				"texture_index": 0
+			}
+		}
+	}
+}

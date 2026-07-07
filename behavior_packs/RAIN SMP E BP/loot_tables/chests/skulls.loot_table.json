@@ -1,0 +1,14 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                { "type": "item", "name": "minecraft:creeper_head" },
+                { "type": "item", "name": "minecraft:piglin_head" },
+                { "type": "item", "name": "minecraft:zombie_head" },
+                { "type": "item", "name": "minecraft:skeleton_skull" },
+                { "type": "item", "name": "minecraft:wither_skeleton_skull" }
+            ]
+        }
+    ]
+}

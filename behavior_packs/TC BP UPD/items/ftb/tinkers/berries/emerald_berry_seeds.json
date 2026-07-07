@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ftb_tc:emerald_berry_bush",
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      "minecraft:hand_equipped": true,
+      "minecraft:glint": false,
+      "minecraft:icon": "emerald_berry_seeds",
+      "minecraft:display_name": {
+        "value": "item.ftb_tc:emerald_berry_seeds.name"
+      },
+      "minecraft:block_placer": {
+        "block": "ftb_tc:emerald_berry_bush",
+        "replace_block_item": true,
+        "use_on": [
+          "farmland",
+          "grass_block",
+          "dirt",
+          "coarse_dirt",
+          "podzol",
+          "moss_block",
+          "mycelium",
+          "mud",
+          "muddy_mangrove_roots",
+          "dirt_with_roots",
+          "ftb_tc:emerald_berry_bush"
+        ]
+      }
+    }
+  }
+}

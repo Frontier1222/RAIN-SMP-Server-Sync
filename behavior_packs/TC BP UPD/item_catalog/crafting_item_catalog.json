@@ -1,0 +1,857 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:crafting_items_catalog": {
+    "categories": [
+      {
+        "category_name": "equipment",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:empty_modifier",
+              "name": "ftb_tc:itemGroup.name.modifiers"
+            },
+            "items": [
+              "ftb_tc:empty_modifier",
+              "ftb_tc:remove_modifier",
+              "ftb_tc:armadillo_modifier",
+              "ftb_tc:emerald_modifier",
+              "ftb_tc:glowstone_modifier",
+              "ftb_tc:lapis_modifier",
+              "ftb_tc:lightining_modifier",
+              "ftb_tc:necrotic_modifier",
+              "ftb_tc:netherstar_modifier",
+              "ftb_tc:obsidian_modifier",
+              "ftb_tc:piston_modifier",
+              "ftb_tc:prismarine_modifier",
+              "ftb_tc:quartz_modifier",
+              "ftb_tc:redstone_modifier",
+              "ftb_tc:rotten_modifier",
+              "ftb_tc:scute_modifier",
+              "ftb_tc:silky_modifier",
+              "ftb_tc:spider_modifier",
+              "ftb_tc:tnt_modifier"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:bow_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.bows"
+            },
+            "items": [
+              "ftb_tc:bow_amethyst_bronze",
+              "ftb_tc:bow_ardite",
+              "ftb_tc:bow_bone",
+              "ftb_tc:bow_bronze",
+              "ftb_tc:bow_cobalt",
+              "ftb_tc:bow_diamond",
+              "ftb_tc:bow_gold",
+              "ftb_tc:bow_hepatizon",
+              "ftb_tc:bow_iron",
+              "ftb_tc:bow_manyullyn",
+              "ftb_tc:bow_netherite",
+              "ftb_tc:bow_pig_iron",
+              "ftb_tc:bow_queens_slime",
+              "ftb_tc:bow_rose_gold",
+              "ftb_tc:bow_slimesteel",
+              "ftb_tc:bow_stone",
+              "ftb_tc:bow_wood"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:earth_slime_sling",
+              "name": "ftb_tc:itemGroup.name.slings"
+            },
+            "items": [
+              "ftb_tc:earth_slime_sling",
+              "ftb_tc:ender_slime_sling",
+              "ftb_tc:ichor_slime_sling",
+              "ftb_tc:scarlet_slime_sling",
+              "ftb_tc:sky_slime_sling",
+              "ftb_tc:glowball",
+              "ftb_tc:flint_shuriken",
+              "ftb_tc:quartz_shuriken"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:part_axe_head_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.axe_heads"
+            },
+            "items": [
+              "ftb_tc:part_axe_head_amethyst_bronze",
+              "ftb_tc:part_axe_head_ardite",
+              "ftb_tc:part_axe_head_bone",
+              "ftb_tc:part_axe_head_bronze",
+              "ftb_tc:part_axe_head_cobalt",
+              "ftb_tc:part_axe_head_diamond",
+              "ftb_tc:part_axe_head_gold",
+              "ftb_tc:part_axe_head_hepatizon",
+              "ftb_tc:part_axe_head_iron",
+              "ftb_tc:part_axe_head_manyullyn",
+              "ftb_tc:part_axe_head_netherite",
+              "ftb_tc:part_axe_head_pig_iron",
+              "ftb_tc:part_axe_head_queens_slime",
+              "ftb_tc:part_axe_head_rose_gold",
+              "ftb_tc:part_axe_head_slimesteel",
+              "ftb_tc:part_axe_head_stone",
+              "ftb_tc:part_axe_head_wood"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:part_cleaver_head_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.cleaver_heads"
+            },
+            "items": [
+              "ftb_tc:part_cleaver_head_amethyst_bronze",
+              "ftb_tc:part_cleaver_head_ardite",
+              "ftb_tc:part_cleaver_head_bone",
+              "ftb_tc:part_cleaver_head_bronze",
+              "ftb_tc:part_cleaver_head_cobalt",
+              "ftb_tc:part_cleaver_head_diamond",
+              "ftb_tc:part_cleaver_head_gold",
+              "ftb_tc:part_cleaver_head_hepatizon",
+              "ftb_tc:part_cleaver_head_iron",
+              "ftb_tc:part_cleaver_head_manyullyn",
+              "ftb_tc:part_cleaver_head_netherite",
+              "ftb_tc:part_cleaver_head_pig_iron",
+              "ftb_tc:part_cleaver_head_queens_slime",
+              "ftb_tc:part_cleaver_head_rose_gold",
+              "ftb_tc:part_cleaver_head_slimesteel",
+              "ftb_tc:part_cleaver_head_stone",
+              "ftb_tc:part_cleaver_head_wood"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:part_cleaver_guard_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.cleaver_guards"
+            },
+            "items": [
+              "ftb_tc:part_cleaver_guard_amethyst_bronze",
+              "ftb_tc:part_cleaver_guard_ardite",
+              "ftb_tc:part_cleaver_guard_bone",
+              "ftb_tc:part_cleaver_guard_bronze",
+              "ftb_tc:part_cleaver_guard_cobalt",
+              "ftb_tc:part_cleaver_guard_diamond",
+              "ftb_tc:part_cleaver_guard_gold",
+              "ftb_tc:part_cleaver_guard_hepatizon",
+              "ftb_tc:part_cleaver_guard_iron",
+              "ftb_tc:part_cleaver_guard_manyullyn",
+              "ftb_tc:part_cleaver_guard_netherite",
+              "ftb_tc:part_cleaver_guard_pig_iron",
+              "ftb_tc:part_cleaver_guard_queens_slime",
+              "ftb_tc:part_cleaver_guard_rose_gold",
+              "ftb_tc:part_cleaver_guard_slimesteel",
+              "ftb_tc:part_cleaver_guard_stone",
+              "ftb_tc:part_cleaver_guard_wood"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:part_dagger_crossguard_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.dagger_crossguards"
+            },
+            "items": [
+              "ftb_tc:part_dagger_crossguard_amethyst_bronze",
+              "ftb_tc:part_dagger_crossguard_ardite",
+              "ftb_tc:part_dagger_crossguard_bone",
+              "ftb_tc:part_dagger_crossguard_bronze",
+              "ftb_tc:part_dagger_crossguard_cobalt",
+              "ftb_tc:part_dagger_crossguard_diamond",
+              "ftb_tc:part_dagger_crossguard_gold",
+              "ftb_tc:part_dagger_crossguard_hepatizon",
+              "ftb_tc:part_dagger_crossguard_iron",
+              "ftb_tc:part_dagger_crossguard_manyullyn",
+              "ftb_tc:part_dagger_crossguard_netherite",
+              "ftb_tc:part_dagger_crossguard_pig_iron",
+              "ftb_tc:part_dagger_crossguard_queens_slime",
+              "ftb_tc:part_dagger_crossguard_rose_gold",
+              "ftb_tc:part_dagger_crossguard_slimesteel",
+              "ftb_tc:part_dagger_crossguard_stone",
+              "ftb_tc:part_dagger_crossguard_wood"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:part_dagger_blade_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.dagger_blades"
+            },
+            "items": [
+              "ftb_tc:part_dagger_blade_amethyst_bronze",
+              "ftb_tc:part_dagger_blade_ardite",
+              "ftb_tc:part_dagger_blade_bone",
+              "ftb_tc:part_dagger_blade_bronze",
+              "ftb_tc:part_dagger_blade_cobalt",
+              "ftb_tc:part_dagger_blade_diamond",
+              "ftb_tc:part_dagger_blade_gold",
+              "ftb_tc:part_dagger_blade_hepatizon",
+              "ftb_tc:part_dagger_blade_iron",
+              "ftb_tc:part_dagger_blade_manyullyn",
+              "ftb_tc:part_dagger_blade_netherite",
+              "ftb_tc:part_dagger_blade_pig_iron",
+              "ftb_tc:part_dagger_blade_queens_slime",
+              "ftb_tc:part_dagger_blade_rose_gold",
+              "ftb_tc:part_dagger_blade_slimesteel",
+              "ftb_tc:part_dagger_blade_stone",
+              "ftb_tc:part_dagger_blade_wood"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:part_large_handle_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.large_handles"
+            },
+            "items": [
+              "ftb_tc:part_large_handle_amethyst_bronze",
+              "ftb_tc:part_large_handle_ardite",
+              "ftb_tc:part_large_handle_bone",
+              "ftb_tc:part_large_handle_bronze",
+              "ftb_tc:part_large_handle_cobalt",
+              "ftb_tc:part_large_handle_diamond",
+              "ftb_tc:part_large_handle_gold",
+              "ftb_tc:part_large_handle_hepatizon",
+              "ftb_tc:part_large_handle_iron",
+              "ftb_tc:part_large_handle_manyullyn",
+              "ftb_tc:part_large_handle_netherite",
+              "ftb_tc:part_large_handle_pig_iron",
+              "ftb_tc:part_large_handle_queens_slime",
+              "ftb_tc:part_large_handle_rose_gold",
+              "ftb_tc:part_large_handle_slimesteel",
+              "ftb_tc:part_large_handle_stone",
+              "ftb_tc:part_large_handle_wood"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:part_pickaxe_head_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.pickaxe_heads"
+            },
+            "items": [
+              "ftb_tc:part_pickaxe_head_amethyst_bronze",
+              "ftb_tc:part_pickaxe_head_ardite",
+              "ftb_tc:part_pickaxe_head_bone",
+              "ftb_tc:part_pickaxe_head_bronze",
+              "ftb_tc:part_pickaxe_head_cobalt",
+              "ftb_tc:part_pickaxe_head_diamond",
+              "ftb_tc:part_pickaxe_head_gold",
+              "ftb_tc:part_pickaxe_head_hepatizon",
+              "ftb_tc:part_pickaxe_head_iron",
+              "ftb_tc:part_pickaxe_head_manyullyn",
+              "ftb_tc:part_pickaxe_head_netherite",
+              "ftb_tc:part_pickaxe_head_pig_iron",
+              "ftb_tc:part_pickaxe_head_queens_slime",
+              "ftb_tc:part_pickaxe_head_rose_gold",
+              "ftb_tc:part_pickaxe_head_slimesteel",
+              "ftb_tc:part_pickaxe_head_stone",
+              "ftb_tc:part_pickaxe_head_wood"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:part_shoel_head_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.shoel_heads"
+            },
+            "items": [
+              "ftb_tc:part_shoel_head_amethyst_bronze",
+              "ftb_tc:part_shoel_head_ardite",
+              "ftb_tc:part_shoel_head_bone",
+              "ftb_tc:part_shoel_head_bronze",
+              "ftb_tc:part_shoel_head_cobalt",
+              "ftb_tc:part_shoel_head_diamond",
+              "ftb_tc:part_shoel_head_gold",
+              "ftb_tc:part_shoel_head_hepatizon",
+              "ftb_tc:part_shoel_head_iron",
+              "ftb_tc:part_shoel_head_manyullyn",
+              "ftb_tc:part_shoel_head_netherite",
+              "ftb_tc:part_shoel_head_pig_iron",
+              "ftb_tc:part_shoel_head_queens_slime",
+              "ftb_tc:part_shoel_head_rose_gold",
+              "ftb_tc:part_shoel_head_slimesteel",
+              "ftb_tc:part_shoel_head_stone",
+              "ftb_tc:part_shoel_head_wood"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:part_sword_blade_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.sword_blades"
+            },
+            "items": [
+              "ftb_tc:part_sword_blade_amethyst_bronze",
+              "ftb_tc:part_sword_blade_ardite",
+              "ftb_tc:part_sword_blade_bone",
+
+              "ftb_tc:part_sword_blade_bronze",
+              "ftb_tc:part_sword_blade_cobalt",
+              "ftb_tc:part_sword_blade_diamond",
+              "ftb_tc:part_sword_blade_gold",
+              "ftb_tc:part_sword_blade_hepatizon",
+              "ftb_tc:part_sword_blade_iron",
+              "ftb_tc:part_sword_blade_manyullyn",
+              "ftb_tc:part_sword_blade_netherite",
+              "ftb_tc:part_sword_blade_pig_iron",
+              "ftb_tc:part_sword_blade_queens_slime",
+              "ftb_tc:part_sword_blade_rose_gold",
+              "ftb_tc:part_sword_blade_slimesteel",
+              "ftb_tc:part_sword_blade_stone",
+              "ftb_tc:part_sword_blade_wood"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:part_sword_guard_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.sword_guards"
+            },
+            "items": [
+              "ftb_tc:part_sword_guard_amethyst_bronze",
+              "ftb_tc:part_sword_guard_ardite",
+              "ftb_tc:part_sword_guard_bone",
+              "ftb_tc:part_sword_guard_bronze",
+              "ftb_tc:part_sword_guard_cobalt",
+              "ftb_tc:part_sword_guard_diamond",
+              "ftb_tc:part_sword_guard_gold",
+              "ftb_tc:part_sword_guard_hepatizon",
+              "ftb_tc:part_sword_guard_iron",
+              "ftb_tc:part_sword_guard_manyullyn",
+              "ftb_tc:part_sword_guard_netherite",
+              "ftb_tc:part_sword_guard_pig_iron",
+              "ftb_tc:part_sword_guard_queens_slime",
+              "ftb_tc:part_sword_guard_rose_gold",
+              "ftb_tc:part_sword_guard_slimesteel",
+              "ftb_tc:part_sword_guard_stone",
+              "ftb_tc:part_sword_guard_wood"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:earth_slime_potion",
+              "name": "ftb_tc:itemGroup.name.potions"
+            },
+            "items": [
+              "ftb_tc:earth_slime_potion",
+              "ftb_tc:ender_slime_potion",
+              "ftb_tc:ichor_slime_potion",
+              "ftb_tc:magma_potion",
+              "ftb_tc:sky_slime_potion",
+              "ftb_tc:venom_potion",
+              "ftb_tc:scarlet_essence_potion"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:repair_item_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.repair_kits"
+            },
+            "items": [
+              "ftb_tc:repair_item_amethyst_bronze",
+              "ftb_tc:repair_item_ardite",
+              "ftb_tc:repair_item_bone",
+              "ftb_tc:repair_item_bronze",
+              "ftb_tc:repair_item_cobalt",
+              "ftb_tc:repair_item_diamond",
+              "ftb_tc:repair_item_gold",
+              "ftb_tc:repair_item_hepatizon",
+              "ftb_tc:repair_item_iron",
+              "ftb_tc:repair_item_manyullyn",
+              "ftb_tc:repair_item_netherite",
+              "ftb_tc:repair_item_pig_iron",
+              "ftb_tc:repair_item_queens_slime",
+              "ftb_tc:repair_item_rose_gold",
+              "ftb_tc:repair_item_slimesteel",
+              "ftb_tc:repair_item_stone",
+              "ftb_tc:repair_item_wood"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:part_builder_acacia",
+              "name": "ftb_tc:itemGroup.name.part_builders"
+            },
+            "items": [
+              "ftb_tc:part_builder_acacia",
+              "ftb_tc:part_builder_bamboo",
+              "ftb_tc:part_builder_birch",
+              "ftb_tc:part_builder_cherry",
+              "ftb_tc:part_builder_crimson",
+              "ftb_tc:part_builder_dark_oak",
+              "ftb_tc:part_builder_jungle",
+              "ftb_tc:part_builder_mangrove",
+              "ftb_tc:part_builder_oak",
+              "ftb_tc:part_builder_spruce",
+              "ftb_tc:part_builder_warped"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:stencil_table_acacia",
+              "name": "ftb_tc:itemGroup.name.stencil_tables"
+            },
+            "items": [
+              "ftb_tc:stencil_table_acacia",
+              "ftb_tc:stencil_table_bamboo",
+              "ftb_tc:stencil_table_birch",
+              "ftb_tc:stencil_table_cherry",
+              "ftb_tc:stencil_table_crimson",
+              "ftb_tc:stencil_table_dark_oak",
+              "ftb_tc:stencil_table_jungle",
+              "ftb_tc:stencil_table_mangrove",
+              "ftb_tc:stencil_table_oak",
+              "ftb_tc:stencil_table_spruce",
+              "ftb_tc:stencil_table_warped"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:tinkers_station_acacia",
+              "name": "ftb_tc:itemGroup.name.tinkers_stations"
+            },
+            "items": [
+              "ftb_tc:tinkers_station_acacia",
+              "ftb_tc:tinkers_station_bamboo",
+              "ftb_tc:tinkers_station_birch",
+              "ftb_tc:tinkers_station_cherry",
+              "ftb_tc:tinkers_station_crimson",
+              "ftb_tc:tinkers_station_dark_oak",
+              "ftb_tc:tinkers_station_jungle",
+              "ftb_tc:tinkers_station_mangrove",
+              "ftb_tc:tinkers_station_oak",
+              "ftb_tc:tinkers_station_spruce",
+              "ftb_tc:tinkers_station_warped"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:modifier_worktable_andesite",
+              "name": "ftb_tc:itemGroup.name.modifier_worktables"
+            },
+            "items": [
+              "ftb_tc:modifier_worktable_andesite",
+              "ftb_tc:modifier_worktable_basalt",
+              "ftb_tc:modifier_worktable_cobblestone",
+              "ftb_tc:modifier_worktable_cobbled_deepslate",
+              "ftb_tc:modifier_worktable_deepslate",
+              "ftb_tc:modifier_worktable_diorite",
+              "ftb_tc:modifier_worktable_granite",
+              "ftb_tc:modifier_worktable_mossy_cobblestone",
+              "ftb_tc:modifier_worktable_stone"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:bucket_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.buckets"
+            },
+            "items": [
+              "ftb_tc:bucket_amethyst_bronze",
+              "ftb_tc:bucket_ardite",
+              "ftb_tc:bucket_blaze",
+              "ftb_tc:bucket_cobalt",
+              "ftb_tc:bucket_copper",
+              "ftb_tc:bucket_diamond",
+              "ftb_tc:bucket_earth_slime",
+              "ftb_tc:bucket_emerald",
+              "ftb_tc:bucket_ender_slime",
+              "ftb_tc:bucket_gold",
+              "ftb_tc:bucket_hepatizon",
+              "ftb_tc:bucket_iron",
+              "ftb_tc:bucket_manyullyn",
+              "ftb_tc:bucket_netherite",
+              "ftb_tc:bucket_pig_iron",
+              "ftb_tc:bucket_queens_slime",
+              "ftb_tc:bucket_rose_gold",
+              "ftb_tc:bucket_scarlet_slime",
+              "ftb_tc:bucket_sky_slime",
+              "ftb_tc:bucket_slimesteel"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:copper_can_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.copper_cans"
+            },
+            "items": [
+              "ftb_tc:copper_can_empty",
+              "ftb_tc:copper_can_amethyst_bronze",
+              "ftb_tc:copper_can_ardite",
+              "ftb_tc:copper_can_blaze",
+              "ftb_tc:copper_can_cobalt",
+              "ftb_tc:copper_can_copper",
+              "ftb_tc:copper_can_diamond",
+              "ftb_tc:copper_can_earth_slime",
+              "ftb_tc:copper_can_emerald",
+              "ftb_tc:copper_can_ender_slime",
+              "ftb_tc:copper_can_gold",
+              "ftb_tc:copper_can_hepatizon",
+              "ftb_tc:copper_can_iron",
+              "ftb_tc:copper_can_lava",
+              "ftb_tc:copper_can_manyullyn",
+              "ftb_tc:copper_can_netherite",
+              "ftb_tc:copper_can_pig_iron",
+              "ftb_tc:copper_can_queens_slime",
+              "ftb_tc:copper_can_rose_gold",
+              "ftb_tc:copper_can_scarlet_slime",
+              "ftb_tc:copper_can_sky_slime",
+              "ftb_tc:copper_can_slimesteel"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:iron_can_amethyst_bronze",
+              "name": "ftb_tc:itemGroup.name.iron_cans"
+            },
+            "items": [
+              "ftb_tc:iron_can_empty",
+              "ftb_tc:iron_can_amethyst_bronze",
+              "ftb_tc:iron_can_ardite",
+              "ftb_tc:iron_can_blaze",
+              "ftb_tc:iron_can_cobalt",
+              "ftb_tc:iron_can_copper",
+              "ftb_tc:iron_can_diamond",
+              "ftb_tc:iron_can_earth_slime",
+              "ftb_tc:iron_can_emerald",
+              "ftb_tc:iron_can_ender_slime",
+              "ftb_tc:iron_can_gold",
+              "ftb_tc:iron_can_hepatizon",
+              "ftb_tc:iron_can_iron",
+              "ftb_tc:iron_can_lava",
+              "ftb_tc:iron_can_manyullyn",
+              "ftb_tc:iron_can_netherite",
+              "ftb_tc:iron_can_pig_iron",
+              "ftb_tc:iron_can_queens_slime",
+              "ftb_tc:iron_can_rose_gold",
+              "ftb_tc:iron_can_scarlet_slime",
+              "ftb_tc:iron_can_sky_slime",
+              "ftb_tc:iron_can_slimesteel"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:cast_axe",
+              "name": "ftb_tc:itemGroup.name.casts"
+            },
+            "items": [
+              "ftb_tc:sand_cast",
+              "ftb_tc:red_sand_cast",
+              "ftb_tc:cast_axe",
+              "ftb_tc:cast_bucket",
+              "ftb_tc:cast_cleaver_guard",
+              "ftb_tc:cast_cleaver",
+              "ftb_tc:cast_crossguard",
+              "ftb_tc:cast_dagger",
+              "ftb_tc:cast_diamond",
+              "ftb_tc:cast_emerald",
+              "ftb_tc:cast_guard",
+              "ftb_tc:cast_ingot",
+              "ftb_tc:cast_pickaxe",
+              "ftb_tc:cast_repair_kit",
+              "ftb_tc:cast_rod",
+              "ftb_tc:cast_shoel",
+              "ftb_tc:cast_sword"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:pattern_axe",
+              "name": "ftb_tc:itemGroup.name.patterns"
+            },
+            "items": [
+              "ftb_tc:pattern_blank",
+              "ftb_tc:pattern_axe",
+              "ftb_tc:pattern_binding",
+              "ftb_tc:pattern_cleaver_guard",
+              "ftb_tc:pattern_cleaver",
+              "ftb_tc:pattern_crossguard",
+              "ftb_tc:pattern_dagger",
+              "ftb_tc:pattern_guard",
+              "ftb_tc:pattern_pickaxe",
+              "ftb_tc:pattern_repair_kit",
+              "ftb_tc:pattern_rod",
+              "ftb_tc:pattern_shoel",
+              "ftb_tc:pattern_sword"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:cast_chest",
+              "name": "ftb_tc:itemGroup.name.tinkers_chests"
+            },
+            "items": [
+              "ftb_tc:cast_chest",
+              "ftb_tc:part_chest",
+              "ftb_tc:tinkers_chest"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:tinkers_anvil_copper",
+              "name": "ftb_tc:itemGroup.name.tinkers_anvils"
+            },
+            "items": [
+              "ftb_tc:tinkers_anvil_copper",
+              "ftb_tc:tinkers_anvil_diamond",
+              "ftb_tc:tinkers_anvil_iron"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:materials_and_you",
+              "name": "ftb_tc:itemGroup.name.books"
+            },
+            "items": [
+              "ftb_tc:materials_and_you",
+              "ftb_tc:gadgetry",
+              "ftb_tc:mighty_smelting",
+              "ftb_tc:modifiers",
+              "ftb_tc:puny_smelting",
+              "ftb_tc:encyclopedia",
+              "ftb_tc:changelog_1"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:jerky_beef",
+              "name": "ftb_tc:itemGroup.name.jerky"
+            },
+            "items": [
+              "ftb_tc:jerky_beef",
+              "ftb_tc:jerky_chicken",
+              "ftb_tc:jerky_clownfish",
+              "ftb_tc:jerky_fish",
+              "ftb_tc:jerky_monster",
+              "ftb_tc:jerky_mutton",
+              "ftb_tc:jerky_pork",
+              "ftb_tc:jerky_puffferfish",
+              "ftb_tc:jerky_rabbit",
+              "ftb_tc:jerky_salmon"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:ardite_ingot",
+              "name": "ftb_tc:itemGroup.name.materials"
+            },
+            "items": [
+              "ftb_tc:amethyst_bronze_nugget",
+              "ftb_tc:amethyst_bronze_ingot",
+              "ftb_tc:raw_amethyst_bronze",
+              "ftb_tc:ardite_nugget",
+              "ftb_tc:ardite_ingot",
+              "ftb_tc:raw_ardite",
+              "ftb_tc:ardite_scrap",
+              "ftb_tc:bronze_nugget",
+              "ftb_tc:bronze_ingot",
+              "ftb_tc:raw_bronze",
+              "ftb_tc:cobalt_nugget",
+              "ftb_tc:cobalt_ingot",
+              "ftb_tc:raw_cobalt",
+              "ftb_tc:cobalt_scrap",
+              "ftb_tc:copper_nugget",
+              "ftb_tc:hepatizon_nugget",
+              "ftb_tc:hepatizon_ingot",
+              "ftb_tc:raw_hepatizon",
+              "ftb_tc:manyullyn_nugget",
+              "ftb_tc:manyullyn_ingot",
+              "ftb_tc:raw_manyullyn",
+              "ftb_tc:netherite_nugget",
+              "ftb_tc:raw_netherite",
+              "ftb_tc:pig_iron_nugget",
+              "ftb_tc:pig_iron_ingot",
+              "ftb_tc:raw_pig_iron",
+              "ftb_tc:queens_slime_nugget",
+              "ftb_tc:queens_slime_ingot",
+              "ftb_tc:raw_queens_slime",
+              "ftb_tc:rose_gold_nugget",
+              "ftb_tc:rose_gold_ingot",
+              "ftb_tc:raw_rose_gold",
+              "ftb_tc:slimesteel_nugget",
+              "ftb_tc:slimesteel_ingot",
+              "ftb_tc:raw_slimesteel",
+              "ftb_tc:tin_nugget",
+              "ftb_tc:tin_ingot",
+              "ftb_tc:raw_tin",
+              "ftb_tc:tin_scrap",
+              "ftb_tc:diamond_shard",
+              "ftb_tc:emerald_shard"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:smeltery_controller",
+              "name": "ftb_tc:itemGroup.name.smeltery"
+            },
+            "items": [
+              "ftb_tc:smeltery_controller",
+              "ftb_tc:seared_drain",
+              "ftb_tc:seared_tank",
+              "ftb_tc:faucet",
+              "ftb_tc:casting_basin",
+              "ftb_tc:casting_table",
+              "ftb_tc:melter"
+
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:ender_slime_ball",
+              "name": "ftb_tc:itemGroup.name.slime_beans"
+            },
+            "items": [
+              "ftb_tc:ender_slime_ball",
+              "ftb_tc:ender_slime_grass_seeds",
+              "ftb_tc:ender_sapling",
+              "ftb_tc:earth_slime_grass_seeds",
+              "ftb_tc:earth_sapling",
+              "ftb_tc:scarlet_slime_ball",
+              "ftb_tc:scarlet_slime_grass_seeds",
+              "ftb_tc:scarlet_sapling",
+              "ftb_tc:sky_slime_ball",
+              "ftb_tc:sky_slime_grass_seeds",
+              "ftb_tc:sky_sapling",
+              "ftb_tc:ichor_slime_ball",
+              "ftb_tc:ichor_slime_grass_seeds"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "nature",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:greenheart_log",
+              "name": "ftb_tc:itemGroup.name.tinkers_wood"
+            },
+            "items": [
+              "ftb_tc:greenheart_log",
+              "ftb_tc:greenheart_stripped_log",
+              "ftb_tc:greenheart_planks",
+              "ftb_tc:scarletshroom_log",
+              "ftb_tc:scarletshroom_stripped_log",
+              "ftb_tc:scarletshroom_planks",
+              "ftb_tc:skyroot_log",
+              "ftb_tc:skyroot_stripped_log",
+              "ftb_tc:skyroot_planks"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:copper_berry",
+              "name": "ftb_tc:itemGroup.name.ore_berries"
+            },
+            "items": [
+              "ftb_tc:copper_berry",
+              "ftb_tc:copper_berry_bush",
+              "ftb_tc:diamond_berry",
+              "ftb_tc:diamond_berry_bush",
+              "ftb_tc:emerald_berry",
+              "ftb_tc:emerald_berry_bush",
+              "ftb_tc:gold_berry",
+              "ftb_tc:gold_berry_bush",
+              "ftb_tc:iron_berry",
+              "ftb_tc:iron_berry_bush",
+              "ftb_tc:xp_berry",
+              "ftb_tc:xp_berry_bush"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:amethyst_bronze_block",
+              "name": "ftb_tc:itemGroup.name.block_materials"
+            },
+            "items": [
+              "ftb_tc:raw_amethyst_bronze_block",
+              "ftb_tc:amethyst_bronze_block",
+              "ftb_tc:raw_ardite_block",
+              "ftb_tc:ardite_block",
+              "ftb_tc:raw_cobalt_block",
+              "ftb_tc:cobalt_block",
+              "ftb_tc:raw_hepatizon_block",
+              "ftb_tc:hepatizon_block",
+              "ftb_tc:raw_manyullyn_block",
+              "ftb_tc:manyullyn_block",
+              "ftb_tc:raw_pig_iron_block",
+              "ftb_tc:pig_iron_block",
+              "ftb_tc:raw_queens_slime_block",
+              "ftb_tc:queens_slime_block",
+              "ftb_tc:raw_rose_gold_block",
+              "ftb_tc:rose_gold_block",
+              "ftb_tc:raw_slimesteel_block",
+              "ftb_tc:slimesteel_block",
+              "ftb_tc:raw_netherite_block",
+              "ftb_tc:cobalt_ore",
+              "ftb_tc:ardite_ore"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:seared_brick_block",
+              "name": "ftb_tc:itemGroup.name.seared_blocks"
+            },
+            "items": [
+              "ftb_tc:seared_brick_block",
+              "ftb_tc:seared_brick_carved",
+              "ftb_tc:seared_brick_cracked",
+              "ftb_tc:seared_cobble",
+              "ftb_tc:seared_creeper",
+              "ftb_tc:seared_paver",
+              "ftb_tc:seared_road",
+              "ftb_tc:seared_small_bricks",
+              "ftb_tc:seared_stone",
+              "ftb_tc:seared_tile",
+              "ftb_tc:seared_triangle",
+              "ftb_tc:seared_brick_slab",
+              "ftb_tc:seared_cobble_slab",
+              "ftb_tc:seared_paver_slab",
+              "ftb_tc:seared_stone_slab",
+              "ftb_tc:seared_fancy_bricks",
+              "ftb_tc:seared_glass"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "ftb_tc:earth_grass",
+              "name": "ftb_tc:itemGroup.name.slime_blocks"
+            },
+            "items": [
+              "ftb_tc:congealed_earth_slime",
+              "ftb_tc:congealed_ender_slime",
+              "ftb_tc:congealed_scarlet_essence",
+              "ftb_tc:congealed_sky_slime",
+              "ftb_tc:congealed_ichor_slime",
+              "ftb_tc:ender_slime",
+              "ftb_tc:scarlet_essence",
+              "ftb_tc:sky_slime",
+              "ftb_tc:ichor_slime",
+              "ftb_tc:earth_grass",
+              "ftb_tc:ender_grass",
+              "ftb_tc:scarlet_grass",
+              "ftb_tc:sky_grass",
+              "ftb_tc:ichor_grass",
+              "ftb_tc:earth_dirt",
+              "ftb_tc:ender_dirt",
+              "ftb_tc:scarlet_dirt",
+              "ftb_tc:sky_dirt",
+              "ftb_tc:ichor_dirt",
+              "ftb_tc:earth_slime_leaves",
+              "ftb_tc:ender_slime_leaves",
+              "ftb_tc:scarlet_slime_leaves",
+              "ftb_tc:sky_slime_leaves"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

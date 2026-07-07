@@ -1,0 +1,14 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "ftb_tc:materials_and_you",
+          "weight": 10
+        }
+      ]
+    }
+  ]
+}

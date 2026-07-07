@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ftb_tc:jerky_monster",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      "minecraft:icon": "ftb_jerky_monster",
+      "minecraft:hand_equipped": {
+        "value": false
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 1.6,
+        "movement_modifier": 0.35
+      },
+      "minecraft:food": {
+        "can_always_eat": true,
+        "nutrition": 6,
+        "saturation_modifier": 0.8
+      },
+      "minecraft:use_animation": "eat"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ulkd_ess:charcoal"
+    },
+    "ingredients": [
+      {
+        "item": "ulkd_ess:charcoal_block"
+      }
+    ],
+    "result": {
+      "item": "minecraft:charcoal",
+      "count": 9
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "ulkd_ess:charcoal_block"
+      }
+    ]
+  }
+}

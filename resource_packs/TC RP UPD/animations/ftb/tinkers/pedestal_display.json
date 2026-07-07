@@ -1,0 +1,16 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.ftb_tc.pedestal_display_item": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.0417,
+			"bones": {
+				"rightItem": {
+					"rotation": [144.78923, -2.35017, 265.70469],
+					"position": [-2.9, -10.3, -5.4],
+					"scale": 0.9
+				}
+			}
+		}
+	}
+}

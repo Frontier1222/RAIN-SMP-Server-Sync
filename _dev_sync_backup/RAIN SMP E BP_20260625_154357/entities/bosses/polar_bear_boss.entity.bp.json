@@ -1,0 +1,586 @@
+{
+    "format_version": "1.18.20",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "viberater:polar_bear",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "knockback_on_hit": {
+                "minecraft:behavior.knockback_roar": {
+                    "priority": 1,
+                    "attack_time": 1,
+                    "cooldown_time": 1,
+                    "duration": 1,
+                    "knockback_damage": 1,
+                    "knockback_range": 48,
+                    "knockback_horizontal_strength": 9,
+                    "knockback_vertical_strength": 9,
+                    "on_roar_end": {
+                        "event": "knockback_on_hit_end"
+                    }
+                }
+            },
+            "pb_40_knockback": {
+                "minecraft:behavior.knockback_roar": {
+                    "priority": 1,
+                    "attack_time": 1,
+                    "cooldown_time": 1,
+                    "duration": 1,
+                    "knockback_damage": 4,
+                    "knockback_range": 48,
+                    "knockback_horizontal_strength": 8,
+                    "knockback_vertical_strength": 8,
+                    "on_roar_end": {
+                        "event": "pb_40_knockback_end"
+                    }
+                }
+            },
+            "pb_25_knockback": {
+                "minecraft:behavior.knockback_roar": {
+                    "priority": 1,
+                    "attack_time": 1,
+                    "cooldown_time": 1,
+                    "duration": 1,
+                    "knockback_damage": 8,
+                    "knockback_range": 48,
+                    "knockback_horizontal_strength": 12,
+                    "knockback_vertical_strength": 12,
+                    "on_roar_end": {
+                        "event": "pb_25_knockback_end"
+                    }
+                }
+            },
+            "pb_10_knockback": {
+                "minecraft:behavior.knockback_roar": {
+                    "priority": 1,
+                    "attack_time": 1,
+                    "cooldown_time": 1,
+                    "duration": 1,
+                    "knockback_damage": 16,
+                    "knockback_range": 48,
+                    "knockback_horizontal_strength": 16,
+                    "knockback_vertical_strength": 16,
+                    "on_roar_end": {
+                        "event": "pb_10_knockback_end"
+                    }
+                }
+            },
+            "pb_100": {
+                "minecraft:behavior.melee_attack": {
+                    "on_attack": {
+                        "event": "melee_attack_100"
+                    }
+                },
+                "minecraft:attack": {
+                    "damage": 10
+                },
+                "minecraft:movement": {
+                    "value": 0.33
+                }
+            },
+            "pb_85": {
+                "minecraft:scale": {
+                    "value": 1.25
+                },
+                "minecraft:behavior.melee_attack": {
+                    "on_attack": {
+                        "event": "melee_attack_85"
+                    },
+                    "reach_multiplier": 1.1
+                },
+                "minecraft:attack": {
+                    "damage": 11
+                },
+                "minecraft:movement": {
+                    "value": 0.34
+                }
+            },
+            "pb_70": {
+                "minecraft:scale": {
+                    "value": 1.5
+                },
+                "minecraft:behavior.melee_attack": {
+                    "on_attack": {
+                        "event": "melee_attack_70"
+                    },
+                    "reach_multiplier": 1.15
+                },
+                "minecraft:attack": {
+                    "damage": 12
+                },
+                "minecraft:movement": {
+                    "value": 0.35
+                }
+            },
+            "pb_55": {
+                "minecraft:scale": {
+                    "value": 1.75
+                },
+                "minecraft:behavior.melee_attack": {
+                    "on_attack": {
+                        "event": "melee_attack_55"
+                    },
+                    "reach_multiplier": 1.2
+                },
+                "minecraft:attack": {
+                    "damage": 13
+                },
+                "minecraft:movement": {
+                    "value": 0.36
+                }
+            },
+            "pb_40": {
+                "minecraft:scale": {
+                    "value": 2
+                },
+                "minecraft:behavior.melee_attack": {
+                    "on_attack": {
+                        "event": "melee_attack_40"
+                    },
+                    "reach_multiplier": 1.25
+                },
+                "minecraft:attack": {
+                    "damage": 14
+                },
+                "minecraft:movement": {
+                    "value": 0.37
+                }
+            },
+            "pb_25": {
+                "minecraft:scale": {
+                    "value": 2.25
+                },
+                "minecraft:behavior.melee_attack": {
+                    "on_attack": {
+                        "event": "melee_attack_25"
+                    },
+                    "reach_multiplier": 1.25
+                },
+                "minecraft:attack": {
+                    "damage": 15
+                },
+                "minecraft:movement": {
+                    "value": 0.38
+                }
+            },
+            "pb_10": {
+                "minecraft:scale": {
+                    "value": 2.5
+                },
+                "minecraft:behavior.melee_attack": {
+                    "on_attack": {
+                        "event": "melee_attack_10"
+                    },
+                    "reach_multiplier": 1.3
+                },
+                "minecraft:attack": {
+                    "damage": 16
+                },
+                "minecraft:movement": {
+                    "value": 0.39
+                }
+            }
+        },
+        "components": {
+            "minecraft:equipment": {
+                "table": "loot_tables/bosses/polar_bear_boss_gear.loot_table.json",
+                "slot_drop_chance": [
+                    {
+                        "slot": "slot.armor.head",
+                        "drop_chance": 0
+                    },
+                    {
+                        "slot": "slot.armor.chest",
+                        "drop_chance": 0
+                    },
+                    {
+                        "slot": "slot.armor.legs",
+                        "drop_chance": 0
+                    },
+                    {
+                        "slot": "slot.armor.feet",
+                        "drop_chance": 0
+                    }
+                ]
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.75
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/bosses/polar_bear_boss_loot.loot_table.json"
+            },
+            "minecraft:behavior.melee_attack": {
+                "on_attack": {
+                    "event": "melee_attack_100"
+                }
+            },
+            "minecraft:boss": {
+                "should_darken_sky": true,
+                "name": "Pordin, Keeper of the North",
+                "hud_range": 32
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "on_damage": {
+                            "filters": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "has_target",
+                                            "value": false
+                                        },
+                                        {
+                                            "test": "distance_to_nearest_player",
+                                            "operator": ">",
+                                            "value": 32
+                                        },
+                                        {
+                                            "all_of": [
+                                                {
+                                                    "test": "is_family",
+                                                    "subject": "other",
+                                                    "value": "arrow"
+                                                },
+                                                {
+                                                    "test": "has_component",
+                                                    "subject": "other",
+                                                    "value": "minecraft:player_arrow"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "event": "hit_detect"
+                        }
+                    }
+                ]
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 3,
+                "must_see": true,
+                "within_radius": 32.0,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "subject": "other",
+                                    "test": "is_family",
+                                    "value": "player"
+                                }
+                            ]
+                        },
+                        "max_dist": 32.0
+                    }
+                ]
+            },
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:type_family": {
+                "family": [
+                    "monster",
+                    "polarbear",
+                    "mob",
+                    "boss",
+                    "custom"
+                ]
+            },
+            "minecraft:health": {
+                "value": 1080
+            },
+            "minecraft:collision_box": {
+                "width": 1.4,
+                "height": 1.4
+            },
+            "minecraft:water_movement": {
+                "drag_factor": 1
+            },
+            "minecraft:navigation.climb": {
+                "avoid_sun": false,
+                "avoid_water": false,
+                "can_path_over_lava": true,
+                "can_path_over_water": true,
+                "can_walk_in_lava": true,
+                "can_sink": false
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:jump.static": {},
+            "minecraft:can_climb": {},
+            "minecraft:follow_range": {
+                "value": 32
+            },
+            "minecraft:despawn": {
+                "despawn_from_distance": {}
+            },
+            "minecraft:behavior.float": {
+                "priority": 0
+            },
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 2
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 5
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 6,
+                "target_distance": 6.0,
+                "probability": 0.02
+            },
+            "minecraft:behavior.random_look_around": {
+                "priority": 7
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "pb_100"
+                    ]
+                }
+            },
+            "melee_attack_100": {
+                "queue_command": {
+                    "command": [
+                        "effect @a[r=12] weakness 4 0 true"
+                    ]
+                }
+            },
+            "melee_attack_85": {
+                "queue_command": {
+                    "command": [
+                        "effect @a[r=12] weakness 5 0 true"
+                    ]
+                }
+            },
+            "melee_attack_70": {
+                "queue_command": {
+                    "command": [
+                        "effect @a[r=18] weakness 6 1 true"
+                    ]
+                }
+            },
+            "melee_attack_55": {
+                "queue_command": {
+                    "command": [
+                        "effect @a[r=18] weakness 7 1 true"
+                    ]
+                }
+            },
+            "melee_attack_40": {
+                "queue_command": {
+                    "command": [
+                        "effect @a[r=24] weakness 8 2 true"
+                    ]
+                }
+            },
+            "melee_attack_25": {
+                "queue_command": {
+                    "command": [
+                        "effect @a[r=24] weakness 9 2 true"
+                    ]
+                }
+            },
+            "melee_attack_10": {
+                "queue_command": {
+                    "command": [
+                        "effect @a[r=30] weakness 10 3 true"
+                    ]
+                }
+            },
+            "hit_detect": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "test": "actor_health",
+                            "operator": "<=",
+                            "value": 816
+                        },
+                        "queue_command": {
+                            "command": [
+                                "execute as @s[tag=!pb_85] run function polar_bear_boss"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "actor_health",
+                            "operator": "<=",
+                            "value": 672
+                        },
+                        "queue_command": {
+                            "command": [
+                                "execute as @s[tag=!pb_70] run function polar_bear_boss"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "actor_health",
+                            "operator": "<=",
+                            "value": 528
+                        },
+                        "queue_command": {
+                            "command": [
+                                "execute as @s[tag=!pb_55] run function polar_bear_boss"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "actor_health",
+                            "operator": "<=",
+                            "value": 384
+                        },
+                        "queue_command": {
+                            "command": [
+                                "execute as @s[tag=!pb_40] run function polar_bear_boss"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "actor_health",
+                            "operator": "<=",
+                            "value": 240
+                        },
+                        "queue_command": {
+                            "command": [
+                                "execute as @s[tag=!pb_25] run function polar_bear_boss"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "actor_health",
+                            "operator": "<=",
+                            "value": 96
+                        },
+                        "queue_command": {
+                            "command": [
+                                "execute as @s[tag=!pb_10] run function polar_bear_boss"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "pb_85": {
+                "remove": {
+                    "component_groups": [
+                        "pb_100"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "pb_85"
+                    ]
+                }
+            },
+            "pb_70": {
+                "remove": {
+                    "component_groups": [
+                        "pb_85"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "pb_70"
+                    ]
+                }
+            },
+            "pb_55": {
+                "remove": {
+                    "component_groups": [
+                        "pb_70"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "pb_55"
+                    ]
+                }
+            },
+            "pb_40": {
+                "remove": {
+                    "component_groups": [
+                        "pb_55"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "pb_40",
+                        "pb_40_knockback"
+                    ]
+                }
+            },
+            "pb_25": {
+                "remove": {
+                    "component_groups": [
+                        "pb_40"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "pb_25",
+                        "pb_25_knockback"
+                    ]
+                }
+            },
+            "pb_10": {
+                "remove": {
+                    "component_groups": [
+                        "pb_25"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "pb_10",
+                        "pb_10_knockback"
+                    ]
+                }
+            },
+            "pb_40_knockback_end": {
+                "remove": {
+                    "component_groups": [
+                        "pb_40_knockback"
+                    ]
+                }
+            },
+            "pb_25_knockback_end": {
+                "remove": {
+                    "component_groups": [
+                        "pb_25_knockback"
+                    ]
+                }
+            },
+            "pb_10_knockback_end": {
+                "remove": {
+                    "component_groups": [
+                        "pb_10_knockback"
+                    ]
+                }
+            },
+            "knockback_on_hit_end": {
+                "remove": {
+                    "component_groups": [
+                        "knockback_on_hit"
+                    ]
+                }
+            }
+        }
+    }
+}

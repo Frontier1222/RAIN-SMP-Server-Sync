@@ -1,0 +1,93 @@
+{
+  "format_version": "1.20.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:seared_brick_slab",
+      "menu_category": {
+        "category": "construction"
+      },
+      "traits": {
+        "minecraft:placement_position": {
+          "enabled_states": [
+            "minecraft:vertical_half"
+          ]
+        }
+      }
+    },
+    "components": {
+      "tag:minecraft:is_pickaxe_item_destructible": {},
+      "tag:stone": {},
+      "minecraft:geometry": "geometry.ftb_tc.ftb_slab",
+      "minecraft:material_instances": {
+        "up": {
+          "texture": "seared_brick",
+          "render_method": "alpha_test"
+        },
+        "down": {
+          "texture": "seared_brick",
+          "render_method": "alpha_test"
+        },
+        "north": {
+          "texture": "seared_brick",
+          "render_method": "alpha_test"
+        },
+        "south": {
+          "texture": "seared_brick",
+          "render_method": "alpha_test"
+        },
+        "east": {
+          "texture": "seared_brick",
+          "render_method": "alpha_test"
+        },
+        "west": {
+          "texture": "seared_brick",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:selection_box": {
+        "origin": [
+          -8,
+          0,
+          -8
+        ],
+        "size": [
+          16,
+          8,
+          16
+        ]
+      },
+      "minecraft:collision_box": {
+        "origin": [
+          -8,
+          0,
+          -8
+        ],
+        "size": [
+          16,
+          8,
+          16
+        ]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 15
+      }
+    },
+    "permutations": [
+      {
+        "condition": "query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:transformation": {
+            "translation": [
+              0,
+              0.5,
+              0
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

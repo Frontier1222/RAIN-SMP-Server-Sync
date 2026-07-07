@@ -1,0 +1,95 @@
+{
+	"format_version": "1.20.60",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "ftb_tc:sky_slime_bean_entity",
+			"is_summonable": true,
+			"is_spawnable": false,
+			"scripts": {
+				"animate": [
+					"bean"
+				]
+			},
+			"animations": {
+				"bean": "controller.animation.ftb_tc.ftb_tc_slime_bean"
+			},
+			"properties": {
+				"ftb_tc:is_right_dimension": {
+				  "type": "bool",
+				  "default": true,
+				  "client_sync": true
+				}
+			  }
+		},
+		"component_groups": {
+			"ftb_tc:remove_with_bean": {
+				"minecraft:is_chested": {},
+				"minecraft:instant_despawn": {},
+				"minecraft:spawn_entity": {
+					"entities": [
+						{
+							"spawn_item": "ftb_tc:sky_slime_bean",
+							"min_wait_time": 0,
+							"num_to_spawn": 1,
+							"single_use": true,
+							"max_wait_time": 0
+						}
+					]
+				}
+			},
+			"ftb_tc:remove": {
+				"minecraft:is_chested": {},
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:scale": {
+				"value": 1
+			},
+			"minecraft:collision_box": {
+				"width": 0.001,
+				"height": 0.001
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": -20,
+				"inhale_time": 0,
+				"breathes_air": true,
+				"breathes_water": true,
+				"generates_bubbles": true
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "drowning",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:health": {
+				"value": 1,
+				"max": 1
+			},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": true
+			}
+		},
+		"events": {
+			"ftb_tc:remove": {
+				"add": {
+					"component_groups": [
+						"ftb_tc:remove"
+					]
+				}
+			},
+			"ftb_tc:remove_with_bean": {
+				"add": {
+					"component_groups": [
+						"ftb_tc:remove_with_bean"
+					]
+				}
+			}
+		}
+	}
+}

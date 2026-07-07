@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:wood_repair_kit"
+    },
+    "tags": [
+      "part_builder"
+    ],
+    "key": {
+      "B": {
+        "item": "ftb_tc:pattern_repair_kit"
+      },
+      "P": {
+        "tag": "minecraft:planks"
+      }
+    },
+    "pattern": [
+      " P ",
+      "PBP",
+      " P "
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:repair_item_wood",
+      "count": 1
+    }
+  }
+}

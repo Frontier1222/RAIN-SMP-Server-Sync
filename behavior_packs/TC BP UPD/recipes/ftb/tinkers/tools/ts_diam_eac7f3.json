@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:ts_diam_eac7f3"},"tags":["smelters_anvil"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:sword_guard_diamond_blade_diamond"},"ingredients":[{"item":"ftb_tc:part_sword_blade_diamond"},{"item":"ftb_tc:part_sword_guard_diamond"}]}}

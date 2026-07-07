@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:part_stone_crossguard"
+    },
+    "tags": [
+      "part_builder"
+    ],
+    "key": {
+      "B": {
+        "item": "ftb_tc:pattern_crossguard"
+      },
+      "P": {
+        "item": "minecraft:cobblestone"
+      }
+    },
+    "pattern": [
+      "   ",
+      "BP ",
+      "   "
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:part_dagger_crossguard_stone",
+      "count": 1
+    }
+  }
+}

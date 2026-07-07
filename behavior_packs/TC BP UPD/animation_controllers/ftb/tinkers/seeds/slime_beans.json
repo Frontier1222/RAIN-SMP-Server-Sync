@@ -1,0 +1,42 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.ftb_tc.ftb_tc_slime_bean": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bean": "query.property('ftb_tc:is_right_dimension') == true"
+            },          {
+              "warning": "query.property('ftb_tc:is_right_dimension') == false"
+            }
+          ]
+        },
+        "warning": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:is_right_dimension') == true"
+            }
+          ],
+          "on_entry": [
+            "/title @p actionbar §4Can not be placed in this biome!"
+          ]
+        },
+        "bean": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:is_right_dimension') == false"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s[type=ftb_tc:earth_slime_bean_entity] run execute as @p[r=5] run scriptevent ftb_tc:earth_slime_event",
+            "/execute at @s[type=ftb_tc:ender_slime_bean_entity] run execute as @p[r=5] run scriptevent ftb_tc:ender_slime_event",
+            "/execute at @s[type=ftb_tc:sky_slime_bean_entity] run execute as @p[r=5] run scriptevent ftb_tc:sky_slime_event",
+            "/execute at @s[type=ftb_tc:scarlet_slime_bean_entity] run execute as @p[r=5] run scriptevent ftb_tc:scarlet_slime_event",
+            "/execute at @s[type=ftb_tc:terracube_bean_entity] run execute as @p[r=5] run scriptevent ftb_tc:terra_slime_event"
+          ]
+        }
+      }
+    }
+  }
+}

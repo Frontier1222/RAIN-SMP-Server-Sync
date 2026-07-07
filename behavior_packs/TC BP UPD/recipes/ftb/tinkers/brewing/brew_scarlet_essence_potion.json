@@ -1,0 +1,14 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "ftb_tc:brew_scarlet_essence_potion"
+    },
+
+    "tags": ["brewing_stand"],
+
+    "input": "minecraft:glass_bottle",
+    "reagent": "ftb_tc:congealed_scarlet_essence",
+    "output": "ftb_tc:scarlet_essence_potion"
+  }
+}

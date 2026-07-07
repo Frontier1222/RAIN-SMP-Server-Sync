@@ -1,0 +1,58 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "ftb_tc:drying_rack",
+      "materials": {
+        "default": "slime"
+      },
+      "textures": {
+        "item_variant_0": "textures/ftb/tinkers/blocks/fluid/empty",
+        "item_variant_1": "textures/items/beef_raw",
+        "item_variant_2": "textures/items/chicken_raw",
+        "item_variant_3": "textures/items/fish_clownfish_raw",
+        "item_variant_4": "textures/items/fish_raw",
+        "item_variant_5": "textures/items/rotten_flesh",
+        "item_variant_6": "textures/items/mutton_raw",
+        "item_variant_7": "textures/items/porkchop_raw",
+        "item_variant_8": "textures/items/fish_pufferfish_raw",
+        "item_variant_9": "textures/items/rabbit_raw",
+        "item_variant_10": "textures/items/fish_salmon_raw",
+        "item_variant_11": "textures/ftb/tinkers/items/food/beef_jerky",
+        "item_variant_12": "textures/ftb/tinkers/items/food/chicken_jerky",
+        "item_variant_13": "textures/ftb/tinkers/items/food/clownfish_jerky",
+        "item_variant_14": "textures/ftb/tinkers/items/food/fish_jerky",
+        "item_variant_15": "textures/ftb/tinkers/items/food/monster_jerky",
+        "item_variant_16": "textures/ftb/tinkers/items/food/mutton_jerky",
+        "item_variant_17": "textures/ftb/tinkers/items/food/pork_jerky",
+        "item_variant_18": "textures/ftb/tinkers/items/food/pufferfish_jerky",
+        "item_variant_19": "textures/ftb/tinkers/items/food/rabbit_jerky",
+        "item_variant_20": "textures/ftb/tinkers/items/food/salmon_jerky",
+
+        //main_texture
+        "default": "textures/ftb/tinkers/entity/drying_rack"
+      },
+      "geometry": {
+        "default": "geometry.ftb_tc.drying_rack"
+      },
+      "sound_effects": {
+        "fizz": "random.fizz"
+      },
+      "animations": {
+        "stop_rotate": "animation.ftb_tc.stop_rotate"
+      },
+      "animation_controllers": [
+        {
+          "stop_rotate": "controller.animation.ftb_tc.stop_rotate"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "e_p_drying_rack"
+      },
+      "render_controllers": [
+        "controller.render.ftb_tc.drying_rack",
+        "controller.render.ftb_tc.drying_rack_items"
+    ]
+    }
+  }
+}

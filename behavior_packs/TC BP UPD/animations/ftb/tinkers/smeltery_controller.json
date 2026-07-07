@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.ftb_tc.smeltery_controller.build_check": {
+			"loop": true,
+			"animation_length": 2.0,
+			"timeline": {
+				"0.01": [
+					"/execute at @s run scriptevent ftb_tc:build_test_event"
+				]
+			}
+		}
+	}
+}

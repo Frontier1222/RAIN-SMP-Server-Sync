@@ -1,0 +1,40 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:detector4"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:magma_cream"
+      },
+      "Z": {
+        "item": "minecraft:ghast_tear"
+      },
+      "Y": {
+        "item": "minecraft:netherite_scrap"
+      },
+      "O": {
+        "item": "ulkd_ess:detector3"
+      }
+    },
+    "pattern": [
+      "XYX",
+      "YOY",
+      "ZYZ"
+    ],
+    "result": {
+      "item": "ulkd_ess:detector4",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:magma_cream"
+      }
+    ]
+  }
+}

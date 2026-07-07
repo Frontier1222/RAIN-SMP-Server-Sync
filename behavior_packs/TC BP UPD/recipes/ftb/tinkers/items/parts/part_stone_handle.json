@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:part_stone_handle"
+    },
+    "tags": [
+      "part_builder"
+    ],
+    "key": {
+      "B": {
+        "item": "ftb_tc:pattern_rod"
+      },
+      "P": {
+        "item": "minecraft:cobblestone"
+      }
+    },
+    "pattern": [
+      "   ",
+      " B ",
+      "  P"
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:part_large_handle_stone",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "ftb_tc:part_pickaxe_head_pig_iron",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

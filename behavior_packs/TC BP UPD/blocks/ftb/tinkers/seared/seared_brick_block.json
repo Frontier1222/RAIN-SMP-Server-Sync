@@ -1,0 +1,30 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:seared_brick_block",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "tag:minecraft:is_pickaxe_item_destructible": {},
+      "tag:stone": {},
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 15
+      },
+      "minecraft:collision_box": true,
+      "minecraft:selection_box": true,
+      "minecraft:geometry": "geometry.ftb_tc.fake_cobblestone",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "seared_brick",
+          "render_method": "alpha_test"
+        }
+      }
+    }
+  }
+}

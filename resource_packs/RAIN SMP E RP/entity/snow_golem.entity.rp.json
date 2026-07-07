@@ -1,0 +1,54 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "minecraft:snow_golem",
+            "scripts": {
+                "pre_animation": [
+                    "v.variant = query.variant;"
+                ]
+            },
+            "animations": {
+                "animation.snowgolem.fire_resistance": "animation.snowgolem.fire_resistance",
+                "animation.snowgolem.instant_damage": "animation.snowgolem.instant_damage",
+                "animation.snowgolem.instant_health": "animation.snowgolem.instant_health",
+                "animation.snowgolem.invisibility": "animation.snowgolem.invisibility",
+                "animation.snowgolem.jump_boost": "animation.snowgolem.jump_boost",
+                "animation.snowgolem.night_vision": "animation.snowgolem.night_vision",
+                "animation.snowgolem.poison": "animation.snowgolem.poison",
+                "animation.snowgolem.regeneration": "animation.snowgolem.regeneration",
+                "animation.snowgolem.resistance": "animation.snowgolem.resistance",
+                "animation.snowgolem.slow_falling": "animation.snowgolem.slow_falling",
+                "animation.snowgolem.slowness": "animation.snowgolem.slowness",
+                "animation.snowgolem.speed": "animation.snowgolem.speed",
+                "animation.snowgolem.strength": "animation.snowgolem.strength",
+                "animation.snowgolem.water_breathing": "animation.snowgolem.water_breathing",
+                "animation.snowgolem.weakness": "animation.snowgolem.weakness",
+                "animation.snowgolem.wither": "animation.snowgolem.wither",
+                "particle_controller": "controller.animation.snowgolem.particle"
+            },
+            "particle_effects": {
+                "fire_resistance": "viberater:fire_resistance.particle",
+                "instant_damage": "viberater:instant_damage.particle",
+                "instant_health": "viberater:instant_health.particle",
+                "invisibility": "viberater:invisibility.particle",
+                "jump_boost": "viberater:jump_boost.particle",
+                "night_vision": "viberater:night_vision.particle",
+                "poison": "viberater:poison.particle",
+                "regeneration": "viberater:regeneration.particle",
+                "resistance": "viberater:resistance.particle",
+                "slow_falling": "viberater:slow_falling.particle",
+                "slowness": "viberater:slowness.particle",
+                "speed": "viberater:speed.particle",
+                "strength": "viberater:strength.particle",
+                "water_breathing": "viberater:strength.particle",
+                "weakness": "viberater:weakness.particle",
+                "wither": "viberater:wither.particle"
+            },
+            "spawn_egg": {
+                "base_color": "#d9f2f2",
+                "overlay_color": "#81a4a4"
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "ftb_tc:sky_slime",
+      "materials": {
+        "default": "slime",
+        "outer": "slime_outer"
+      },
+      "textures": {
+        "default": "textures/ftb/tinkers/entity/slimes/sky_slime"
+      },
+      "geometry": {
+        "default": "geometry.slime",
+        "armor": "geometry.slime.armor"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.squish_factor = (query.previous_squish_value + (query.current_squish_value - query.previous_squish_value) * query.frame_alpha);",
+          "variable.bounce = 1 / ((variable.squish_factor / (query.variant * 0.5 + 1)) + 1);",
+          "variable.horizontal_scale_amount = variable.bounce * query.variant;",
+          "variable.vertical_scale_amount = (1 / variable.bounce) * query.variant;"
+        ],
+        "scalex": "variable.horizontal_scale_amount",
+        "scaley": "variable.vertical_scale_amount",
+        "scalez": "variable.horizontal_scale_amount"
+      },
+      "animations": {
+				"jump": "animation.ftb_tc.ftb_slime.jump",
+				"land": "animation.ftb_tc.ftb_slime.land"
+			},
+			"animation_controllers": [
+				{
+					"bounce": "controller.animation.ftb_tc.ftb_slime"
+				}
+			],
+      "render_controllers": [
+        "controller.render.slime",
+        "controller.render.slime_armor"
+      ],
+			"spawn_egg": {
+				"texture": "skyslime_spawn_egg"
+			}
+    }
+  }
+}

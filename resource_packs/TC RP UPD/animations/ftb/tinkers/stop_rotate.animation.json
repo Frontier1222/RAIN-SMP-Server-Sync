@@ -1,0 +1,13 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.ftb_tc.stop_rotate": {
+			"loop": true,
+			"bones": {
+				"bone": {
+					"rotation": [0, "-query.body_y_rotation+(math.round(query.body_y_rotation/90)*90)", 0]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_smithing_transform": {
+    "description": {
+      "identifier": "ftb_tc:smithing_diamond_pick"
+    },
+    "tags": ["smithing_table"],
+    "template": "minecraft:netherite_upgrade_smithing_template",
+    "base": "ftb_tc:part_pickaxe_head_diamond",
+    "addition": "minecraft:netherite_ingot",
+    "result": "ftb_tc:part_pickaxe_head_netherite"
+  }
+}

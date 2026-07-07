@@ -1,0 +1,39 @@
+{
+  "format_version": "1.19.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:sky_sapling_block"
+    },
+    "components": {
+      "minecraft:collision_box": false,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0
+      },
+      "minecraft:selection_box": {
+        "origin": [
+          -6,
+          0,
+          -6
+        ],
+        "size": [
+          13,
+          13,
+          13
+        ]
+      },
+      "minecraft:loot": "loot_tables/ftb/tinkers/blocks/saplings/sky_sapling.json",
+      "minecraft:geometry": "geometry.ftb_tc.ftb_tc_tall_grass",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "sapling_sky",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:light_dampening": 0,
+      "minecraft:map_color": "#32a852"
+    }
+  }
+}

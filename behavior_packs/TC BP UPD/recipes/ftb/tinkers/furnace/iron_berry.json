@@ -1,0 +1,11 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "ftb_tc:iron_berry"
+    },
+    "tags": ["furnace", "blast_furnace"],
+    "input": "ftb_tc:iron_berry",
+    "output": "minecraft:iron_nugget"
+  }
+}

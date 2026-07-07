@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "ulkd_ess:sponge"
+    },
+    "tags": [
+      "furnace"
+    ],
+    "input": {
+      "item": "ulkd_ess:sponge"
+    },
+    "output": {
+      "item": "ulkd_ess:sponge",
+      "count": 1
+    },
+    "unlock": [
+      {
+        "item": "ulkd_ess:sponge"
+      }
+    ]
+  }
+}

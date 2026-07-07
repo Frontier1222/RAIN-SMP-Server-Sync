@@ -1,0 +1,192 @@
+{
+  "namespace": "hud",
+
+  "hotbar_slot_selected_image": {
+    "type": "image",
+    "texture": "textures/ui/selected_hotbar_slot",
+    "size": [ 24, 24 ],
+    "layer": -1,
+    "bindings": [
+      {
+        "binding_name": "#slot_selected",
+        "binding_name_override": "#visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$hotbar_collection_name"
+      }
+    ]
+  },
+
+  "exp_progress_bar_and_hotbar": {
+    "type": "panel",
+    "size": [ "100%c", 31 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "offset": "$xp_control_offset",
+    "controls": [
+      {
+        "resizing_xp_bar_with_hotbar": {
+          "type": "panel",
+          "size": [ "100%c", 5 ],
+          "controls": [
+            {
+              "empty_progress_bar@empty_progress_bar": {
+                "size": [ "100%c", 5 ],
+                "layer": 1,
+                "controls": [
+                  {
+                    "full_progress_bar@full_progress_bar": {
+                      "size": [ "100%c", 5 ],
+                      "layer": 2,
+                      "controls": [
+                        {
+                          "progress_bar_nub@progress_bar_nub": {
+                            "size": [ "100%c", 5 ],
+                            "max_size": [ 190, 5 ],
+                            "layer": 0,
+                            "controls": [
+                              {
+                                "hotbar@hotbar_chooser": {
+                                  "offset": [ 4, 16 ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "progress_text_label@progress_text_label": {
+                "offset": [ 0, 0 ],
+                "layer": 7
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#show_survival_ui",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      // For when we hide the XP bar in Creative Move we still want to display the HUD
+      {
+        "hotbar@hotbar_chooser": {
+          "offset": [ 4, 16 ],
+          "bindings": [
+            {
+              "binding_name": "#is_creative_mode",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "item_text_factory": {
+          "size": [ 100, 10 ],
+          "type": "factory",
+          "control_ids": {
+            "item_text": "@hud.item_name_text",
+            "jukebox_text": "@hud.jukebox_popup_text"
+          }
+        }
+      }
+    ]
+  },
+
+  "hotbar_anim": {
+    "anim_type": "flip_book",
+    "initial_uv": [ 0, 0 ],
+    "frame_count": 30,
+    "frame_step": 1,
+    "fps": 13,
+    "reversible": false,
+    "easing": "linear"
+  },
+
+  "main_hand_slot": {
+    "uv_size": [ 20, 22 ],
+    "uv": "@hotbar_anim",
+    "disable_anim_fast_forward": false
+  },
+
+  "hotbar_slot_image": {
+    "type": "image",
+    "offset": [ 0, 0 ],
+    "size": [ 20, 22 ],
+    "uv_size": [ 20, 22 ],
+    "uv": "@hotbar_anim",
+    "disable_anim_fast_forward": false,
+    "layer": 1,
+    "alpha": 0.65
+  },
+
+  "empty_progress_bar": {
+    "type": "image",
+    "size": [ 178, 5 ],
+    "texture": "textures/ui/experiencebarempty",
+    "uv_size": [ 178, 5 ],
+    "uv": "@hud.exp_bars_01",
+    "disable_anim_fast_forward": false
+  },
+
+  "full_progress_bar": {
+    "type": "image",
+    "texture": "textures/ui/experiencebarfull",
+    "clip_direction": "left",
+    "clip_pixelperfect": false,
+    "uv_size": [ 178, 5 ],
+    "size": [ 178, 5 ],
+    "uv": "@hud.exp_bars_01",
+    "disable_anim_fast_forward": false,
+    "bindings": [
+      {
+        "binding_name": "#exp_progress",
+        "binding_name_override": "#clip_ratio",
+        "binding_type": "global"
+      }
+    ]
+  },
+
+  "animated_uv_temp": {
+    "anim_type": "uv",
+    "from": "$uv",
+    "to": "$uv",
+    "duration": 0.095
+    },
+
+  "exp_bars_01@hud.animated_uv_temp": { "$uv": [ 0, 0   ], "next": "@hud.exp_bars_02" },
+  "exp_bars_02@hud.animated_uv_temp": { "$uv": [ 0, 5   ], "next": "@hud.exp_bars_03" },
+  "exp_bars_03@hud.animated_uv_temp": { "$uv": [ 0, 10  ], "next": "@hud.exp_bars_04" },
+  "exp_bars_04@hud.animated_uv_temp": { "$uv": [ 0, 15  ], "next": "@hud.exp_bars_05" },
+  "exp_bars_05@hud.animated_uv_temp": { "$uv": [ 0, 20  ], "next": "@hud.exp_bars_06" },
+  "exp_bars_06@hud.animated_uv_temp": { "$uv": [ 0, 25  ], "next": "@hud.exp_bars_07" },
+  "exp_bars_07@hud.animated_uv_temp": { "$uv": [ 0, 30  ], "next": "@hud.exp_bars_08" },
+  "exp_bars_08@hud.animated_uv_temp": { "$uv": [ 0, 35  ], "next": "@hud.exp_bars_09" },
+  "exp_bars_09@hud.animated_uv_temp": { "$uv": [ 0, 40  ], "next": "@hud.exp_bars_10" },
+  "exp_bars_10@hud.animated_uv_temp": { "$uv": [ 0, 45  ], "next": "@hud.exp_bars_11" },
+  "exp_bars_11@hud.animated_uv_temp": { "$uv": [ 0, 50  ], "next": "@hud.exp_bars_12" },
+  "exp_bars_12@hud.animated_uv_temp": { "$uv": [ 0, 55  ], "next": "@hud.exp_bars_13" },
+  "exp_bars_13@hud.animated_uv_temp": { "$uv": [ 0, 60  ], "next": "@hud.exp_bars_14" },
+  "exp_bars_14@hud.animated_uv_temp": { "$uv": [ 0, 65  ], "next": "@hud.exp_bars_15" },
+  "exp_bars_15@hud.animated_uv_temp": { "$uv": [ 0, 70  ], "next": "@hud.exp_bars_16" },
+  "exp_bars_16@hud.animated_uv_temp": { "$uv": [ 0, 75  ], "next": "@hud.exp_bars_17" },
+  "exp_bars_17@hud.animated_uv_temp": { "$uv": [ 0, 80  ], "next": "@hud.exp_bars_18" },
+  "exp_bars_18@hud.animated_uv_temp": { "$uv": [ 0, 85  ], "next": "@hud.exp_bars_19" },
+  "exp_bars_19@hud.animated_uv_temp": { "$uv": [ 0, 90  ], "next": "@hud.exp_bars_20" },
+  "exp_bars_20@hud.animated_uv_temp": { "$uv": [ 0, 95  ], "next": "@hud.exp_bars_21" },
+  "exp_bars_21@hud.animated_uv_temp": { "$uv": [ 0, 100 ], "next": "@hud.exp_bars_22" },
+  "exp_bars_22@hud.animated_uv_temp": { "$uv": [ 0, 105 ], "next": "@hud.exp_bars_23" },
+  "exp_bars_23@hud.animated_uv_temp": { "$uv": [ 0, 110 ], "next": "@hud.exp_bars_24" },
+  "exp_bars_24@hud.animated_uv_temp": { "$uv": [ 0, 115 ], "next": "@hud.exp_bars_25" },
+  "exp_bars_25@hud.animated_uv_temp": { "$uv": [ 0, 120 ], "next": "@hud.exp_bars_26" },
+  "exp_bars_26@hud.animated_uv_temp": { "$uv": [ 0, 125 ], "next": "@hud.exp_bars_27" },
+  "exp_bars_27@hud.animated_uv_temp": { "$uv": [ 0, 130 ], "next": "@hud.exp_bars_28" },
+  "exp_bars_28@hud.animated_uv_temp": { "$uv": [ 0, 135 ], "next": "@hud.exp_bars_29" },
+  "exp_bars_29@hud.animated_uv_temp": { "$uv": [ 0, 140 ], "next": "@hud.exp_bars_30" },
+  "exp_bars_30@hud.animated_uv_temp": { "$uv": [ 0, 145 ], "next": "@hud.exp_bars_01" }
+}

@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:side.diorite.slab"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:diorite"
+      }
+    },
+    "pattern": [
+      "X",
+      "X",
+      "X"
+    ],
+    "result": {
+      "item": "ulkd_ess:side.diorite.slab",
+      "count": 6
+    },
+    "unlock": [
+      {
+        "item": "minecraft:diorite"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

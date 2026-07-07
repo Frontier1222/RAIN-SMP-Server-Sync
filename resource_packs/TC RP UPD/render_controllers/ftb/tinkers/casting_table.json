@@ -1,0 +1,130 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.ftb_tc.casting_table": {
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "part_visibility": [
+        {
+          "*": true
+        },
+        {
+          "cast*": false
+        },
+        {
+          "parts*": false
+        },
+        {
+          "ftb_liquid_glow*": false
+        }
+      ],
+			"textures": [
+				"Texture.default"
+			]
+    },
+    "controller.render.ftb_tc.casting_table_parts": {
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "parts*": true
+        },
+        {
+          "cast*": false
+        },
+        {
+          "ftb_liquid_glow*": false
+        }
+      ],
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.part_variant_0"
+          ]
+        }
+      },
+      "textures": ["array.skins[query.variant]"]
+    },
+    "controller.render.ftb_tc.casting_table_liquid": {
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.liquid"
+        }
+      ],
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "cast*": false
+        },
+        {
+          "parts*": false
+        },
+        {
+          "ftb_liquid_glow*": true
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * 1.5), 16) / 16"
+        ],
+        "scale": [
+          1.0,
+          "1 / 49"
+        ]
+      },
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.liquid_variant_0"
+          ]
+        }
+      },
+      "textures": ["array.skins[query.variant]"]
+    },
+    "controller.render.ftb_tc.casting_table_cast": {
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "cast*": true
+        },
+        {
+          "parts*": false
+        },
+        {
+          "ftb_liquid_glow*": false
+        }
+      ],
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.cast_variant_0"
+          ]
+        }
+      },
+      "textures": ["array.skins[query.variant]"]
+    }
+  }
+}

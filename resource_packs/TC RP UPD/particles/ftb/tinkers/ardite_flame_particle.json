@@ -1,0 +1,39 @@
+{
+	"format_version": "1.10.0",
+	"particle_effect": {
+		"description": {
+			"identifier": "ftb_tc:ardite_flame_particle",
+			"basic_render_parameters": {
+				"material": "particles_alpha",
+				"texture": "textures/particle/particles"
+			}
+		},
+		"components": {
+			"minecraft:emitter_rate_instant": {
+				"num_particles": 5
+			},
+			"minecraft:emitter_lifetime_once": {
+				"active_time": 1
+			},
+			"minecraft:emitter_shape_point": {},
+			"minecraft:particle_lifetime_expression": {
+				"max_lifetime": "Math.random(0.6, 1.8)"
+			},
+			"minecraft:particle_initial_speed": 1.25,
+			"minecraft:particle_motion_dynamic": {
+				"linear_drag_coefficient": 1
+			},
+			"minecraft:particle_appearance_billboard": {
+				"size": ["(0.05 + variable.particle_random_1*0.05) - (0.05 * variable.particle_age)", "(0.05 + variable.particle_random_1*0.05) - (0.05 * variable.particle_age)"],
+				"facing_camera_mode": "lookat_xyz",
+				"uv": {
+					"texture_width": 128,
+					"texture_height": 128,
+					"uv": [0, 24],
+					"uv_size": [8, 8]
+				}
+			},
+			"minecraft:particle_appearance_lighting": {}
+		}
+	}
+}

@@ -1,0 +1,28 @@
+{
+  "format_version": "1.19.0",
+  "animation_controllers": {
+    "controller.animation.ftb_tc.entity.tp_controller": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "on_entry": ["/tp @s ~ ~ ~"],
+          "on_exit": ["/tp @s ~ ~ ~"],
+          "transitions": [
+            {
+              "tp": "1.0"
+            }
+          ]
+        },
+        "tp": {
+          "on_entry": ["/tp @s ~ ~ ~"],
+          "on_exit": ["/tp @s ~ ~ ~"],
+          "transitions": [
+            {
+              "default": "1.0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

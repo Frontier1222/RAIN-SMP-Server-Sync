@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:cobalt_scrap_used"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "ss",
+      "ss"
+    ],
+    "key": {
+      "s": {
+        "item": "ftb_tc:cobalt_scrap"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:raw_cobalt",
+      "count": 1
+    }
+  }
+}

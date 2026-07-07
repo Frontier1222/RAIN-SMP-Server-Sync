@@ -1,0 +1,14 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "ftb_tc:brew_venom_potion"
+    },
+
+    "tags": ["brewing_stand"],
+
+    "input": "minecraft:glass_bottle",
+    "reagent": "minecraft:spider_eye",
+    "output": "ftb_tc:venom_potion"
+  }
+}

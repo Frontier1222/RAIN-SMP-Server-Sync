@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ftb_tc:raw_queens_slime"
+    },
+    "tags": ["alloy_crafter"],
+    "ingredients": [
+      {
+        "item": "minecraft:raw_gold"
+      },
+      {
+        "item": "ftb_tc:raw_cobalt"
+      },
+      {
+        "item": "minecraft:magma_cream"
+      },
+      {
+        "item": "minecraft:magma_cream"
+      }
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": [
+      {
+        "item": "ftb_tc:raw_queens_slime",
+        "count": 2
+      }
+    ]
+  }
+}

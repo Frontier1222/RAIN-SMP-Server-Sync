@@ -1,0 +1,32 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:sky_slime",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 5
+      },
+      "minecraft:friction": 0.1,
+      "minecraft:collision_box": true,
+      "minecraft:selection_box": true,
+      "minecraft:geometry": {
+        "identifier": "geometry.ftb_tc.ftb_block",
+        "culling": "ftb_tc:glass"
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "sky_slime",
+          "render_method": "blend"
+        }
+      }
+    }
+  }
+}

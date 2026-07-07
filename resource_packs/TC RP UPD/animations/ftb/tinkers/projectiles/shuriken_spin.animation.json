@@ -1,0 +1,28 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.ftb_tc.shuriken_spin": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"bone": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.0": [360, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.ftb_tc.shuriken_stop": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0,
+			"bones": {
+				"bone": {
+					"rotation": {
+						"0.0": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

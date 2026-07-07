@@ -1,0 +1,1 @@
+execute at @s run effect @s fire_resistance 180 0 false

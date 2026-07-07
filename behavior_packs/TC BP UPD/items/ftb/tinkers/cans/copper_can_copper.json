@@ -1,0 +1,20 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ftb_tc:copper_can_copper"
+    },
+    "components": {
+      "ftb_tc:fluid_storage": {
+        "fluid": "ftb_tc:copper",
+        "amount": 200,
+        "seared_tank": false,
+        "return_item": "ftb_tc:copper_can_empty"
+      },
+      "minecraft:max_stack_size": {
+        "value": 1
+      },
+      "minecraft:icon": "copper_can_copper"
+    }
+  }
+}

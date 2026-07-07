@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:slab.terracotta"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:hardened_clay"
+      }
+    },
+    "pattern": [
+      "XXX"
+    ],
+    "result": {
+      "item": "ulkd_ess:slab.terracotta",
+      "count": 6
+    },
+    "unlock": [
+      {
+        "item": "minecraft:hardened_clay"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

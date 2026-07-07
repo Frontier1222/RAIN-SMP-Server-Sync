@@ -1,0 +1,80 @@
+{
+   "num_mip_levels" : 4,
+   "padding" : 8,
+   "resource_pack_name" : "vanilla",
+   "texture_data" : {
+      "ulkd_ess:charcoal" : {
+         "textures" : "textures/unlinked/essentials/charcoal_block"
+      },
+      "ulkd_ess:chiseled_quartz" : {
+         "textures" : "textures/blocks/quartz_block_chiseled"
+      },
+      "ulkd_ess:wool_orange" : {
+         "textures" : "textures/blocks/wool_colored_orange"
+      },
+      "ulkd_ess:wool_magenta" : {
+         "textures" : "textures/blocks/wool_colored_magenta"
+      },
+      "ulkd_ess:wool_light_blue" : {
+         "textures" : "textures/blocks/wool_colored_light_blue"
+      },
+      "ulkd_ess:wool_yellow" : {
+         "textures" : "textures/blocks/wool_colored_yellow"
+      },
+      "ulkd_ess:wool_lime" : {
+         "textures" : "textures/blocks/wool_colored_lime"
+      },
+      "ulkd_ess:wool_pink" : {
+         "textures" : "textures/blocks/wool_colored_pink"
+      },
+      "ulkd_ess:wool_gray" : {
+         "textures" : "textures/blocks/wool_colored_gray"
+      },
+      "ulkd_ess:wool_light_gray" : {
+         "textures" : "textures/blocks/wool_colored_silver"
+      },
+      "ulkd_ess:wool_cyan" : {
+         "textures" : "textures/blocks/wool_colored_cyan"
+      },
+      "ulkd_ess:wool_purple" : {
+         "textures" : "textures/blocks/wool_colored_purple"
+      },
+      "ulkd_ess:wool_blue" : {
+         "textures" : "textures/blocks/wool_colored_blue"
+      },
+      "ulkd_ess:wool_brown" : {
+         "textures" : "textures/blocks/wool_colored_brown"
+      },
+      "ulkd_ess:wool_green" : {
+         "textures" : "textures/blocks/wool_colored_green"
+      },
+      "ulkd_ess:wool_red" : {
+         "textures" : "textures/blocks/wool_colored_red"
+      },
+      "ulkd_ess:wool_black" : {
+         "textures" : "textures/blocks/wool_colored_black"
+      },
+      "ulkd_ess:world_anchor" : {
+         "textures" : "textures/unlinked/essentials/essentials.world_anchor"
+      },
+      "ulkd_ess:side_cut_sandstone_slab" : {
+         "textures" : "textures/blocks/sandstone_smooth"
+      },
+      "ulkd_ess:side_cut_red_sandstone_slab" : {
+         "textures" : "textures/blocks/red_sandstone_smooth"
+      },
+      "ulkd_ess:side_red_sandstone_slab" : {
+         "textures" : "textures/blocks/red_sandstone_bottom"
+      },
+      "ulkd_ess:side_smooth_quartz_slab" : {
+         "textures" : "textures/blocks/quartz_block_bottom"
+      },
+      "ulkd_ess:elevator" : {
+         "textures" : "textures/unlinked/essentials/elevator"
+      },
+      "ulkd_ess:locked_chest" : {
+         "textures" : "textures/unlinked/essentials/locked_chest"
+      }
+   },
+   "texture_name" : "atlas.terrain"
+}

@@ -1,0 +1,66 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.ulkd_ess.sleeping_bag": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "is_sleeping": "q.has_player_rider && (q.time_of_day > 0.75 || q.time_of_day < 0.25) && q.property('ulkd_ess:in_overworld')"
+            },
+            {
+              "pre_explode": "q.has_player_rider && !q.property('ulkd_ess:in_overworld')"
+            }
+          ]
+        },
+        "is_sleeping": {
+          "on_entry": [
+            "v.ulkd_ess_sleep_start = q.time_stamp;",
+            "/camera @a[r=1] fade time 5.0 0.0 0.0"
+          ],
+          "transitions": [
+            {
+              "cancel": "!q.has_player_rider"
+            },
+            {
+              "slept": "q.time_stamp - v.ulkd_ess_sleep_start > 100"
+            }
+          ]
+        },
+        "pre_explode": {
+          "transitions": [
+            {
+              "explode": "1"
+            }
+          ],
+          "on_entry": [
+            "/ride @s evict_riders"
+          ]
+        },
+        "explode": {
+          "on_entry": [
+            "@s explode"
+          ]
+        },
+        "cancel": {
+          "transitions": [
+            {
+              "default": "q.has_player_rider"
+            }
+          ]
+        },
+        "slept": {
+          "transitions": [
+            {
+              "default": "q.has_player_rider"
+            }
+          ],
+          "on_entry": [
+            "/time set day",
+            "/ride @s evict_riders"
+          ]
+        }
+      }
+    }
+  }
+}

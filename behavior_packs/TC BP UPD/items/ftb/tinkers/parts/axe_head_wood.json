@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ftb_tc:part_axe_head_wood",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      "minecraft:icon": "axe_head_wood",
+      "minecraft:durability": {
+        "damage_chance": {
+          "min": 0,
+          "max": 0
+        },
+        "max_durability": 500
+      },
+      "minecraft:max_damage": 0,
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:transformable_items"
+        ]
+      },
+      "minecraft:glint": false,
+      "minecraft:hand_equipped": {
+        "value": false
+      }
+    }
+  }
+}

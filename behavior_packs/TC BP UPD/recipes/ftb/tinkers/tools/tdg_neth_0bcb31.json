@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:tdg_neth_0bcb31"},"tags":["smelters_station"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:dagger_blade_netherite_crossguard_iron"},"ingredients":[{"item":"ftb_tc:part_dagger_crossguard_iron"},{"item":"ftb_tc:part_dagger_blade_netherite"}]}}

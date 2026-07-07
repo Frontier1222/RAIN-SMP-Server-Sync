@@ -1,0 +1,42 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.ftb_tc.casting_basin_particles": {
+			"loop": false,
+			"animation_length": 3.0,
+			"particle_effects": {
+				"0.01": {
+					"effect": "fire",
+					"locator": "fire"
+				},
+				"0.03": {
+					"effect": "fire",
+					"locator": "fire"
+				},
+				"0.06": {
+					"effect": "fire",
+					"locator": "fire"
+				},
+				"0.1": {
+					"effect": "smoke",
+					"locator": "smoke"
+				},
+				"1.65": {
+					"effect": "smoke",
+					"locator": "smoke"
+				},
+				"2.95": {
+					"effect": "smoke",
+					"locator": "smoke"
+				}
+			},
+			"sound_effects": {
+				"2.95": [
+					{
+						"effect": "fizz"
+					}
+				]
+			}
+		}
+	}
+}

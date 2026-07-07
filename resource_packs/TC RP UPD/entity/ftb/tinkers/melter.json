@@ -1,0 +1,33 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "ftb_tc:melter",
+			"materials": {
+				"default": "slime",
+				"liquid": "ftb_liquid"
+			},
+			"textures": {
+				"lit_0":"textures/ftb/tinkers/entity/melter/melter_v0"
+			},
+			"geometry": {
+				"default": "geometry.ftb_tc.melter_empty"
+			},
+			"animations": {
+				"stop_rotate": "animation.ftb_tc.stop_rotate"
+			},
+			"animation_controllers": [
+				{
+					"stop_rotate": "controller.animation.ftb_tc.stop_rotate"
+				}
+			],
+			"render_controllers": [
+				"controller.render.ftb_tc.melter"
+			],
+			"spawn_egg": {
+				"texture": "ftb_melter_egg",
+				"texture_index": 0
+			}
+		}
+	}
+}

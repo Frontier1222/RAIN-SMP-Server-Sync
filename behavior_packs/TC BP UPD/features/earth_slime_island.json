@@ -1,0 +1,19 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:structure_template_feature": {
+    "description": {
+      "identifier": "ftb_tc:earth_slime_island"
+    },
+    "structure_name": "ftb_tc:earth_slime_island",
+    "adjustment_radius": 4,
+    "facing_direction": "south",
+    "constraints": {
+      "block_intersection": {
+        "block_allowlist": [
+          "minecraft:water",
+          "minecraft:air"
+        ]
+      }
+    }
+  }
+}

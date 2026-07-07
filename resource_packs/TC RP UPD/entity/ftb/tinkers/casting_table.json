@@ -1,0 +1,51 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "ftb_tc:casting_table",
+      "materials": {
+        "default": "slime",
+        "liquid": "ftb_liquid"
+      },
+      "textures": {
+        "liquid_variant_0": "textures/ftb/tinkers/blocks/fluid/empty",
+        //casts
+        "cast_variant_0": "textures/ftb/tinkers/items/casts/empty",
+        //parts
+        "part_variant_0": "textures/ftb/tinkers/items/parts/empty",
+        //main_texture
+        "default": "textures/ftb/tinkers/entity/casting_table/casting_table"
+      },
+      "geometry": {
+        "default": "geometry.ftb_tc.casting_table"
+      },
+      "sound_effects": {
+        "fizz": "random.fizz"
+      },
+      "particle_effects": {
+        "smoke": "ftb_tc:casting_table_smoke_particle"
+      },
+      "animations": {
+        "stop_rotate": "animation.ftb_tc.stop_rotate",
+        "particles": "animation.ftb_tc.casting_table_particles"
+      },
+      "animation_controllers": [
+        {
+          "stop_rotate": "controller.animation.ftb_tc.stop_rotate"
+        },
+        {
+          "particles": "controller.animation.ftb_tc.casting_table_particles"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "ftb_casting_table"
+      },
+      "render_controllers": [
+        "controller.render.ftb_tc.casting_table",
+        "controller.render.ftb_tc.casting_table_liquid",
+        "controller.render.ftb_tc.casting_table_cast",
+        "controller.render.ftb_tc.casting_table_parts"
+    ]
+    }
+  }
+}

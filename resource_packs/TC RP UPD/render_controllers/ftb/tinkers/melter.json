@@ -1,0 +1,28 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.ftb_tc.melter": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.lit_0"
+          ]
+        }
+      },
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.skin_id]"
+      ],
+      "part_visibility": [
+        {
+          "*": true
+        }
+      ]
+    }
+  }
+}

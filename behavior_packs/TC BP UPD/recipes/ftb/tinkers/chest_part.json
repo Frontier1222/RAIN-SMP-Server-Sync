@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:part_chest"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " P ",
+      "SCS",
+      "SWS"
+    ],
+    "key": {
+      "P": {
+        "item": "ftb_tc:pattern_blank"
+      },
+      "C": {
+        "item": "minecraft:chest"
+      },
+      "W": {
+        "tag": "minecraft:planks"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:part_chest"
+    }
+  }
+}

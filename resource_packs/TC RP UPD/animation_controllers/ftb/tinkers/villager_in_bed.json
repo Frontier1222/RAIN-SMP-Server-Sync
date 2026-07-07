@@ -1,0 +1,25 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.ftb_tc.villager_get_in_bed" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"transitions" : [
+						{
+							"get_in_bed" : "query.is_sleeping"
+						}
+					]
+				},
+				"get_in_bed" : {
+					"animations" : [ "get_in_bed" ],
+					"transitions" : [
+						{
+							"default" : "!query.is_sleeping"
+						}
+					]
+				}
+			}
+		}
+	}
+}

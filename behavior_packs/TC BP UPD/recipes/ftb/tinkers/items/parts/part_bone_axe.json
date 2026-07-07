@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:part_bone_axe"
+    },
+    "tags": [
+      "part_builder"
+    ],
+    "key": {
+      "B": {
+        "item": "ftb_tc:pattern_axe"
+      },
+      "P": {
+        "item": "minecraft:bone"
+      }
+    },
+    "pattern": [
+      " P ",
+      " B ",
+      "   "
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:part_axe_head_bone",
+      "count": 1
+    }
+  }
+}

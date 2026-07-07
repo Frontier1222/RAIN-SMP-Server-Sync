@@ -1,0 +1,811 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.ftb_tc.ftb_seared_drain.execute_commands": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "execute_amethyst_bronze_remove_1": "query.property('ftb_tc:material_list') == 1 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_amethyst_bronze_remove_2": "query.property('ftb_tc:material_list') == 1 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_amethyst_bronze_remove_10": "query.property('ftb_tc:material_list') == 1 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_ardite_remove_1": "query.property('ftb_tc:material_list') == 2 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_ardite_remove_2": "query.property('ftb_tc:material_list') == 2 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_ardite_remove_10": "query.property('ftb_tc:material_list') == 2 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_cobalt_remove_1": "query.property('ftb_tc:material_list') == 3 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_cobalt_remove_2": "query.property('ftb_tc:material_list') == 3 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_cobalt_remove_10": "query.property('ftb_tc:material_list') == 3 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_copper_remove_1": "query.property('ftb_tc:material_list') == 4 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_copper_remove_2": "query.property('ftb_tc:material_list') == 4 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_copper_remove_10": "query.property('ftb_tc:material_list') == 4 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_diamond_remove_1": "query.property('ftb_tc:material_list') == 5 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_diamond_remove_2": "query.property('ftb_tc:material_list') == 5 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_diamond_remove_10": "query.property('ftb_tc:material_list') == 5 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_emerald_remove_1": "query.property('ftb_tc:material_list') == 6 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_emerald_remove_2": "query.property('ftb_tc:material_list') == 6 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_emerald_remove_10": "query.property('ftb_tc:material_list') == 6 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_gold_remove_1": "query.property('ftb_tc:material_list') == 7 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_gold_remove_2": "query.property('ftb_tc:material_list') == 7 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_gold_remove_10": "query.property('ftb_tc:material_list') == 7 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_hepatizon_remove_1": "query.property('ftb_tc:material_list') == 8 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_hepatizon_remove_2": "query.property('ftb_tc:material_list') == 8 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_hepatizon_remove_10": "query.property('ftb_tc:material_list') == 8 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_iron_remove_1": "query.property('ftb_tc:material_list') == 9 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_iron_remove_2": "query.property('ftb_tc:material_list') == 9 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_iron_remove_10": "query.property('ftb_tc:material_list') == 9 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_manyullyn_remove_1": "query.property('ftb_tc:material_list') == 10 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_manyullyn_remove_2": "query.property('ftb_tc:material_list') == 10 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_manyullyn_remove_10": "query.property('ftb_tc:material_list') == 10 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_netherite_remove_1": "query.property('ftb_tc:material_list') == 11 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_netherite_remove_2": "query.property('ftb_tc:material_list') == 11 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_netherite_remove_10": "query.property('ftb_tc:material_list') == 11 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_pig_iron_remove_1": "query.property('ftb_tc:material_list') == 12 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_pig_iron_remove_2": "query.property('ftb_tc:material_list') == 12 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_pig_iron_remove_10": "query.property('ftb_tc:material_list') == 12 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_queens_slime_remove_1": "query.property('ftb_tc:material_list') == 13 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_queens_slime_remove_2": "query.property('ftb_tc:material_list') == 13 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_queens_slime_remove_10": "query.property('ftb_tc:material_list') == 13 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_rose_gold_remove_1": "query.property('ftb_tc:material_list') == 14 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_rose_gold_remove_2": "query.property('ftb_tc:material_list') == 14 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_rose_gold_remove_10": "query.property('ftb_tc:material_list') == 14 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_slimesteel_remove_1": "query.property('ftb_tc:material_list') == 15 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_slimesteel_remove_2": "query.property('ftb_tc:material_list') == 15 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_slimesteel_remove_10": "query.property('ftb_tc:material_list') == 15 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_earth_slime_remove_1": "query.property('ftb_tc:material_list') == 16 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_earth_slime_remove_2": "query.property('ftb_tc:material_list') == 16 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_earth_slime_remove_10": "query.property('ftb_tc:material_list') == 16 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_ender_slime_remove_1": "query.property('ftb_tc:material_list') == 17 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_ender_slime_remove_2": "query.property('ftb_tc:material_list') == 17 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_ender_slime_remove_10": "query.property('ftb_tc:material_list') == 17 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_scarlet_slime_remove_1": "query.property('ftb_tc:material_list') == 18 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_scarlet_slime_remove_2": "query.property('ftb_tc:material_list') == 18 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_scarlet_slime_remove_10": "query.property('ftb_tc:material_list') == 18 && query.property('ftb_tc:amount') == 10"
+            },
+            {
+              "execute_sky_slime_remove_1": "query.property('ftb_tc:material_list') == 19 && query.property('ftb_tc:amount') == 1"
+            },
+            {
+              "execute_sky_slime_remove_2": "query.property('ftb_tc:material_list') == 19 && query.property('ftb_tc:amount') == 2"
+            },
+            {
+              "execute_sky_slime_remove_10": "query.property('ftb_tc:material_list') == 19 && query.property('ftb_tc:amount') == 10"
+            }
+          ]
+        },
+        "execute_amethyst_bronze_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_amethyst_bronze_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_amethyst_bronze_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_amethyst_bronze_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_amethyst_bronze_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_amethyst_bronze_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_ardite_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_ardite_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_ardite_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_ardite_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_ardite_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_ardite_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_cobalt_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_cobalt_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_cobalt_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_cobalt_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_cobalt_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_cobalt_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_copper_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_copper_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_copper_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_copper_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_copper_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_copper_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_diamond_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_diamond_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_diamond_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_diamond_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_diamond_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_diamond_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_emerald_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_emerald_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_emerald_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_emerald_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_emerald_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_emerald_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_gold_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_gold_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_gold_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_gold_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_gold_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_gold_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_hepatizon_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_hepatizon_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_hepatizon_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_hepatizon_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_hepatizon_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_hepatizon_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_iron_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_iron_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_iron_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_iron_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_iron_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_iron_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_manyullyn_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_manyullyn_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_manyullyn_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_manyullyn_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_manyullyn_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_manyullyn_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_netherite_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_netherite_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_netherite_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_netherite_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_netherite_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_netherite_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_pig_iron_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_pig_iron_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_pig_iron_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_pig_iron_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_pig_iron_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_pig_iron_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_queens_slime_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_queens_slime_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_queens_slime_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_queens_slime_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_queens_slime_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_queens_slime_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_rose_gold_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_rose_gold_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_rose_gold_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_rose_gold_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_rose_gold_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_rose_gold_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_slimesteel_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_slimesteel_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_slimesteel_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_slimesteel_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_slimesteel_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_slimesteel_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_earth_slime_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_earth_slime_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_earth_slime_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_earth_slime_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_earth_slime_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_earth_slime_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_ender_slime_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_ender_slime_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_ender_slime_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_ender_slime_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_ender_slime_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_ender_slime_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_scarlet_slime_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_scarlet_slime_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_scarlet_slime_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_scarlet_slime_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_scarlet_slime_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_scarlet_slime_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_sky_slime_remove_1": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_sky_slime_single",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_sky_slime_remove_2": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_sky_slime_double",
+            "@s ftb_tc:reset_amount"
+          ]
+        },
+        "execute_sky_slime_remove_10": {
+          "transitions": [
+            {
+              "default": "query.property('ftb_tc:amount') == 0"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s run execute as @s run event entity @e[type=ftb_tc:smeltery_controller,r=1] ftb_tc:remove_sky_slime_ten",
+            "@s ftb_tc:reset_amount"
+          ]
+        }
+      }
+    }
+  }
+}

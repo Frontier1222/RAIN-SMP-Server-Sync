@@ -1,0 +1,474 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.ftb_tc.seared_tank",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "tank",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 16, 16],
+							"uv": {
+								"north": {"uv": [4, 4], "uv_size": [4, 4]},
+								"east": {"uv": [0, 4], "uv_size": [4, 4]},
+								"south": {"uv": [12, 4], "uv_size": [4, 4]},
+								"west": {"uv": [8, 4], "uv_size": [4, 4]},
+								"up": {"uv": [8, 4], "uv_size": [-4, -4]},
+								"down": {"uv": [12, 4], "uv_size": [-4, -4]}
+							}
+						},
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 16, 16],
+							"inflate": -0.01,
+							"uv": {
+								"north": {"uv": [4, 4], "uv_size": [4, 4]},
+								"east": {"uv": [0, 4], "uv_size": [4, 4]},
+								"south": {"uv": [12, 4], "uv_size": [4, 4]},
+								"west": {"uv": [8, 4], "uv_size": [4, 4]},
+								"up": {"uv": [8, 4], "uv_size": [-4, -4]},
+								"down": {"uv": [12, 4], "uv_size": [-4, -4]}
+							}
+						},
+						{
+							"origin": [-5, 16, -5],
+							"size": [10, 1, 10],
+							"uv": {
+								"north": {"uv": [3, 10.5], "uv_size": [2.5, 0.25]},
+								"east": {"uv": [0.5, 10.5], "uv_size": [2.5, 0.25]},
+								"south": {"uv": [8, 10.5], "uv_size": [2.5, 0.25]},
+								"west": {"uv": [5.5, 10.5], "uv_size": [2.5, 0.25]},
+								"up": {"uv": [5.5, 10.5], "uv_size": [-2.5, -2.5]},
+								"down": {"uv": [8, 10.5], "uv_size": [-2.5, -2.5]}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_1",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 0.8, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_2",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 1.6, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_3",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 2.4, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_4",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 3.2, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_5",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 4, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_6",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 4.8, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_7",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 5.6, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_8",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 6.4, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_9",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 7.2, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_10",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 8, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_11",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 8.8, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_12",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 9.6, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_13",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 10.4, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_14",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 11.2, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_15",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 12, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_16",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 12.8, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_17",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 13.6, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_18",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 14.4, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_19",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 15.2, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid_level_20",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 16, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"east": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"south": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"west": {"uv": [0, 0], "uv_size": [64, 64], "material_instance": "fluid"},
+								"up": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"},
+								"down": {"uv": [64, 64], "uv_size": [-64, -64], "material_instance": "fluid"}
+							}
+						}
+					]
+				}
+			],
+			"item_display_transforms": {
+				"gui": {
+					"rotation": [30, 225, 0],
+					"translation": [0, 0, 0],
+					"scale": [0.625, 0.625, 0.625],
+					"rotation_pivot": [0, 0, 0],
+					"scale_pivot": [0, 0, 0]
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:fake.jungle.wood"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:jungle_wood"
+      }
+    },
+    "pattern": [
+      "X X",
+      " X ",
+      "X X"
+    ],
+    "result": {
+      "item": "ulkd_ess:fake.jungle.wood",
+      "count": 2
+    },
+    "unlock": [
+      {
+        "item": "minecraft:jungle_wood"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

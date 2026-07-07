@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:tcl_r_ston_f1b962"},"tags":["smelters_anvil"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:cleaver_head_rock_stone_guard_cobalt"},"ingredients":[{"item":"ftb_tc:part_cleaver_head_stone"},{"item":"ftb_tc:part_cleaver_guard_cobalt"}]}}

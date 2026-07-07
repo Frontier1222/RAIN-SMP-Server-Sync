@@ -1,0 +1,39 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.ftb_tc.casting_basin": {
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "part_visibility": [
+        {
+          "*": true
+        },
+        {
+          "solid*": false
+        },
+        {
+          "full_block_trans*": false
+        },
+        {
+          "full_block*": false
+        },
+        {
+          "ftb_liquid_glow*": false
+        },
+        {
+          "item*": false
+        },
+        {
+          "head*": false
+        }
+      ],
+			"textures": [
+				"Texture.default"
+			]
+    }
+  }
+}

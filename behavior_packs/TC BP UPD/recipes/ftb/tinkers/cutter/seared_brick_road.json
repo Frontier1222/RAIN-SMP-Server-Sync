@@ -1,0 +1,21 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ftb_tc:seared_road"
+    },
+    "tags": ["stonecutter"],
+    "ingredients": [
+      {
+        "item": "ftb_tc:seared_paver"
+      }
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:seared_road",
+      "count": 1
+    }
+  }
+}

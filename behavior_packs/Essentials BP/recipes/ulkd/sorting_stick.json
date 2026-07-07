@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:sorting_stick"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:diamond"
+      },
+      "Y": {
+        "item": "minecraft:gold_nugget"
+      },
+      "Z": {
+        "item": "minecraft:stick"
+      }
+    },
+    "pattern": [
+      " X ",
+      "YZY",
+      "YZY"
+    ],
+    "result": {
+      "item": "ulkd_ess:sorting_stick",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      }
+    ]
+  }
+}

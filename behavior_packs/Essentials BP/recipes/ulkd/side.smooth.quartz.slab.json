@@ -1,0 +1,32 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:side.smooth.quartz.slab"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:quartz_block",
+        "data": 3
+      }
+    },
+    "pattern": [
+      "X",
+      "X",
+      "X"
+    ],
+    "result": {
+      "item": "ulkd_ess:side.smooth.quartz.slab",
+      "count": 6
+    },
+    "unlock": [
+      {
+        "item": "minecraft:quartz_block"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

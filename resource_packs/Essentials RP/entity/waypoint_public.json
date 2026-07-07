@@ -1,0 +1,35 @@
+
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "ulkd_ess:waypoint_public",
+			"materials": {
+				"default": "unlinked_waypoint"
+			},
+			"textures": {
+				"default": "textures/unlinked/essentials/waypoint_public"
+			},
+			"geometry": {
+				"default": "geometry.ulkd_ess.waypoint"
+			},
+			"render_controllers": [
+				"controller.render.default"
+			],
+			"enable_attachables": false,
+			"spawn_egg": {
+				"base_color": "#FF00C1",
+				"overlay_color": "#26FF00"
+			},
+			"animations": {
+				"spin": "animation.unlinked_essentials.waypoint.spin"
+			},
+			"scripts": {
+				"animate": [
+					"spin"
+				],
+				"should_update_bones_and_effects_offscreen": true
+			}
+		}
+	}
+}

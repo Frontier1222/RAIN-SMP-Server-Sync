@@ -1,0 +1,50 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:ardite_block",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "tag:metal": {},
+      "tag:minecraft:is_pickaxe_item_destructible": {},
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 15
+      },
+      "minecraft:collision_box": true,
+      "minecraft:selection_box": true,
+      "minecraft:geometry": "geometry.ftb_tc.ftb_block",
+      "minecraft:material_instances": {
+        "up": {
+          "texture": "ardite_block_top",
+          "render_method": "alpha_test"
+        },
+        "down": {
+          "texture": "ardite_block_top",
+          "render_method": "alpha_test"
+        },
+        "north": {
+          "texture": "ardite_block",
+          "render_method": "alpha_test"
+        },
+        "south": {
+          "texture": "ardite_block",
+          "render_method": "alpha_test"
+        },
+        "east": {
+          "texture": "ardite_block",
+          "render_method": "alpha_test"
+        },
+        "west": {
+          "texture": "ardite_block",
+          "render_method": "alpha_test"
+        }
+      }
+    }
+  }
+}

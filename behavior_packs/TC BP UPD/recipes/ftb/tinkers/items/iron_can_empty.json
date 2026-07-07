@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:iron_can_empty"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "n n",
+      " x "
+    ],
+    "key": {
+      "n": {
+        "item": "ftb_tc:tin_nugget"
+      },
+      "x": {
+        "item": "ftb_tc:tin_ingot"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:iron_can_empty",
+      "count": 2
+    }
+  }
+}

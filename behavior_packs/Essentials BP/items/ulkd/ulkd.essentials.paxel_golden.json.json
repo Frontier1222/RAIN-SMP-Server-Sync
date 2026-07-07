@@ -1,0 +1,65 @@
+{
+  "format_version": "1.21.70",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ulkd_ess:paxel_golden",
+      "menu_category": {
+        "category": "equipment",
+        "group": "ulkd_ess:itemGroup.name.paxels"
+      }
+    },
+    "components": {
+      "minecraft:hand_equipped": true,
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": "unlinked.essentials.paxel_golden",
+      "minecraft:damage": {
+        "value": 2
+      },
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "block": {
+              "tags": "q.any_tag('minecraft:is_hoe_item_destructible', 'minecraft:is_axe_item_destructible', 'minecraft:is_shovel_item_destructible', 'minecraft:is_sword_item_destructible') || (q.any_tag('minecraft:is_pickaxe_item_destructible') && !q.any_tag('minecraft:stone_tier_destructible', 'minecraft:diamond_tier_destructible', 'minecraft:iron_tier_destructible'))"
+            },
+            "speed": 12
+          }
+        ]
+      },
+      "minecraft:enchantable": {
+        "slot": "pickaxe",
+        "value": 15
+      },
+      "minecraft:durability": {
+        "max_durability": 32
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "minecraft:gold_ingot"
+            ],
+            "repair_amount": "math.ceil(q.max_durability / 3)"
+          },
+          {
+            "items": [
+              "ulkd_ess:paxel_golden"
+            ],
+            "repair_amount": "math.min(q.remaining_durability + c.other->q.remaining_durability + math.floor(q.max_durability /20), c.other->q.max_durability)"
+          }
+        ]
+      },
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:digger",
+          "minecraft:is_tool",
+          "minecraft:is_pickaxe",
+          "minecraft:is_axe",
+          "minecraft:is_shovel",
+          "minecraft:is_hoe",
+          "minecraft:golden_tier"
+        ]
+      }
+    }
+  }
+}

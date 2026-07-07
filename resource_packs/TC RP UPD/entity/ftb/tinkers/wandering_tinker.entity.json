@@ -1,0 +1,45 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "ftb_tc:wandering_tinker",
+      "materials": {
+        "default": "wandering_trader"
+      },
+      "textures": {
+        "default": "textures/ftb/tinkers/entity/wandering_tinker"
+      },
+      "geometry": {
+        "default": "geometry.villager_v2"
+      },
+      "scripts": {
+        "scale": "0.9375"
+      },
+      "animations": {
+        "general": "animation.villager.general",
+        "look_at_target": "animation.common.look_at_target",
+        "move": "animation.villager.move",
+        "baby_transform": "animation.villager.baby_transform",
+        "get_in_bed": "animation.villager.get_in_bed"
+      },
+      "animation_controllers": [
+        {
+          "general": "controller.animation.villager.general"
+        },
+        {
+          "move": "controller.animation.villager.move"
+        },
+        {
+          "baby": "controller.animation.villager.baby"
+        },
+        {
+          "get_in_bed": "controller.animation.ftb_tc.villager_get_in_bed"
+        }
+      ],
+      "render_controllers": ["controller.render.default"],
+			"spawn_egg": {
+				"texture": "tinker_spawn_egg"
+			}
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:fake.terracotta"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:hardened_clay"
+      }
+    },
+    "pattern": [
+      "X X",
+      " X ",
+      "X X"
+    ],
+    "result": {
+      "item": "ulkd_ess:fake.terracotta",
+      "count": 2
+    },
+    "unlock": [
+      {
+        "item": "minecraft:hardened_clay"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

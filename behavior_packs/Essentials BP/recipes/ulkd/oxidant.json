@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:oxidant"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:water_bucket"
+      },
+      "Y": {
+        "item": "minecraft:bone_meal"
+      },
+      "Z": {
+        "item": "minecraft:gunpowder"
+      }
+    },
+    "pattern": [
+      "Z",
+      "Y",
+      "X"
+    ],
+    "result": {
+      "item": "ulkd_ess:oxidant",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:water_bucket"
+      }
+    ]
+  }
+}

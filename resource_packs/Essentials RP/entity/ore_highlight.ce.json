@@ -1,0 +1,20 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "ulkd_ess:ore_highlight",
+            "materials": {
+                "default": "unlinked_waypoint"
+            },
+            "textures": {
+                "default": "textures/unlinked/essentials/domino"
+            },
+            "geometry": {
+                "default": "geometry.ulkd_ess.generic_block"
+            },
+            "render_controllers": [
+                "controller.render.ulkd_ess.emissive"
+            ]
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:fibre_to_string"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "FF",
+      "FF"
+    ],
+    "key": {
+      "F": {
+        "item": "ftb_tc:plant_fibre"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "minecraft:string",
+      "count": 2
+    }
+  }
+}

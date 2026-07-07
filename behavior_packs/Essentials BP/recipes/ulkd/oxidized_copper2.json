@@ -1,0 +1,40 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:oxidized_copper2"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "ulkd_ess:oxidant"
+      },
+      "Y": {
+        "item": "minecraft:weathered_copper"
+      }
+    },
+    "pattern": [
+      "YYY",
+      "YXY",
+      "YYY"
+    ],
+    "result": [
+      {
+        "item": "minecraft:oxidized_copper",
+        "count": 8
+      },
+      {
+        "item": "minecraft:bucket",
+        "count": 1
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:weathered_copper"
+      }
+    ]
+  }
+}

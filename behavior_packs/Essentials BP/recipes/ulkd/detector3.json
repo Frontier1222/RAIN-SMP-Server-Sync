@@ -1,0 +1,40 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:detector3"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:diamond"
+      },
+      "Y": {
+        "item": "minecraft:echo_shard"
+      },
+      "Z": {
+        "item": "minecraft:noteblock"
+      },
+      "O": {
+        "item": "minecraft:ender_pearl"
+      }
+    },
+    "pattern": [
+      "YXX",
+      "ZOX",
+      "XXX"
+    ],
+    "result": {
+      "item": "ulkd_ess:detector3",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      }
+    ]
+  }
+}

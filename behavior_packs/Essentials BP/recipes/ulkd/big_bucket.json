@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:big_bucket"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:bucket"
+      }
+    },
+    "pattern": [
+      "X X",
+      "X X",
+      " X "
+    ],
+    "result": {
+      "item": "ulkd_ess:empty_bucket",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:bucket"
+      }
+    ]
+  }
+}

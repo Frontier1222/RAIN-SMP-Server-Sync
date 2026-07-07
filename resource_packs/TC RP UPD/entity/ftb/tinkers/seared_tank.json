@@ -1,0 +1,59 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "ftb_tc:seared_tank",
+      "materials": {
+        "default": "slime",
+        "liquid": "ftb_liquid"
+      },
+      "textures": {
+        "empty": "textures/ftb/tinkers/entity/seared_tank/seared_tank",
+        "lava": "textures/ftb/tinkers/blocks/fluid/lava",
+        "water": "textures/ftb/tinkers/blocks/fluid/water",
+        "blaze": "textures/ftb/tinkers/blocks/fluid/blaze"
+        
+      },
+      "geometry": {
+        "variant_0": "geometry.ftb_tc.seared_tank_v0",
+        "variant_1": "geometry.ftb_tc.seared_tank_v1",
+        "variant_2": "geometry.ftb_tc.seared_tank_v2",
+        "variant_3": "geometry.ftb_tc.seared_tank_v3",
+        "variant_4": "geometry.ftb_tc.seared_tank_v4",
+        "variant_5": "geometry.ftb_tc.seared_tank_v5",
+        "variant_6": "geometry.ftb_tc.seared_tank_v6",
+        "variant_7": "geometry.ftb_tc.seared_tank_v7",
+        "variant_8": "geometry.ftb_tc.seared_tank_v8",
+        "variant_9": "geometry.ftb_tc.seared_tank_v9",
+        "variant_10": "geometry.ftb_tc.seared_tank_v10",
+        "variant_11": "geometry.ftb_tc.seared_tank_v11",
+        "variant_12": "geometry.ftb_tc.seared_tank_v12",
+        "variant_13": "geometry.ftb_tc.seared_tank_v13",
+        "variant_14": "geometry.ftb_tc.seared_tank_v14",
+        "variant_15": "geometry.ftb_tc.seared_tank_v15",
+        "variant_16": "geometry.ftb_tc.seared_tank_v16",
+        "variant_17": "geometry.ftb_tc.seared_tank_v17",
+        "variant_18": "geometry.ftb_tc.seared_tank_v18",
+        "variant_19": "geometry.ftb_tc.seared_tank_v19",
+        "variant_20": "geometry.ftb_tc.seared_tank_v20"
+      },
+			"animations": {
+        "stop_rotate": "animation.ftb_tc.stop_rotate"
+			},
+			"animation_controllers": [
+        {
+					"stop_rotate": "controller.animation.ftb_tc.stop_rotate"
+				}
+			],
+      "spawn_egg": {
+        "texture": "ftb_seared_tank"
+      },
+      "render_controllers": [
+        "controller.render.ftb_tc.seared_tank",
+        "controller.render.ftb_tc.seared_tank_liquid",
+        "controller.render.ftb_tc.seared_tank_liquid_water",
+        "controller.render.ftb_tc.seared_tank_liquid_blaze"
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "ui_defs": [
+        "ui/hud_screen.json",
+        "ui/chat_screen.json",
+
+        "ui/bd/action.json",
+        "ui/bd/modal.json",
+        "ui/bd/gui.json",
+        "ui/chest_ui/container.json",
+        "ui/chest_ui/inventory.json",
+        "ui/bd/sub.json",
+        "ui/bd/main.json",
+
+        "ui/adv/_screen.r4ui",
+        "ui/adv/_screen_content.r4ui",
+        "ui/adv/_scroll_custom.r4ui",
+        "ui/adv/_toast.r4ui"
+    ]
+}

@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:fake.polished.blackstone"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:polished_blackstone"
+      }
+    },
+    "pattern": [
+      "X X",
+      " X ",
+      "X X"
+    ],
+    "result": {
+      "item": "ulkd_ess:fake.polished.blackstone",
+      "count": 2
+    },
+    "unlock": [
+      {
+        "item": "minecraft:polished_blackstone"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

@@ -1,0 +1,336 @@
+{
+    "format_version": "1.14.0",
+    "sound_definitions": {
+        "unlinked.essentials.capture": {
+            "category": "player",
+            "sounds": [
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/capture",
+                    "volume": 1,
+					"pitch" : 0.9
+                },
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/capture",
+                    "volume": 1,
+					"pitch" : 1
+                },
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/capture",
+                    "volume": 1,
+					"pitch" : 1.1
+                }
+            ]
+        },
+        "unlinked.essentials.release": {
+            "category": "player",
+            "sounds": [
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/release",
+                    "volume": 1,
+					"pitch" : 0.9
+                },
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/release",
+                    "volume": 1,
+					"pitch" : 1
+                },
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/release",
+                    "volume": 1,
+					"pitch" : 1.1
+                }
+            ]
+        },
+        "unlinked.essentials.air_bubbles": {
+            "category": "player",
+            "sounds": [
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/air_bubbles",
+                    "volume": 1,
+					"pitch" : 0.9
+                },
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/air_bubbles",
+                    "volume": 1,
+					"pitch" : 1
+                },
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/air_bubbles",
+                    "volume": 1,
+					"pitch" : 1.1
+                }
+            ]
+        },
+        "unlinked.essentials.air_bladder": {
+            "category": "player",
+            "sounds": [
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/air_bladder",
+                    "volume": 1,
+					"pitch" : 0.9
+                },
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/air_bladder",
+                    "volume": 1,
+					"pitch" : 1
+                },
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/air_bladder",
+                    "volume": 1,
+					"pitch" : 1.1
+                }
+            ]
+        },
+        "unlinked.essentials.air_bladder_inflate": {
+            "category": "player",
+            "sounds": [
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/air_bladder_inflate",
+                    "volume": 1,
+					"pitch" : 1
+                },
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/air_bladder_inflate",
+                    "volume": 1,
+					"pitch" : 0.9
+                },
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/air_bladder_inflate",
+                    "volume": 1,
+					"pitch" : 1.1
+                }
+            ]
+        },
+        "unlinked.essentials.sand": {
+            "category": "block",
+            "sounds": [
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/sand1",
+                    "volume": 1
+                },
+                {
+					"is3D" : true,
+					"name" : "sounds/unlinked/essentials/sand2",
+					"volume" : 1
+				},
+                {
+					"is3D" : true,
+					"name" : "sounds/unlinked/essentials/sand3",
+					"volume" : 1
+				}
+            ]
+        },
+        "unlinked.essentials.elevator": {
+            "category": "ui",
+            "sounds": [
+                {
+                    "is3D": false,
+                    "name": "sounds/unlinked/essentials/elevator",
+                    "volume": 1
+                }
+            ]
+        },
+        "unlinked.essentials.switch": {
+            "category": "ui",
+            "sounds": [
+                {
+                    "is3D": false,
+                    "name": "sounds/unlinked/essentials/switch",
+                    "volume": 1
+                }
+            ]
+        },
+        "unlinked.essentials.click_n": {
+            "category": "ui",
+            "sounds": [
+                {
+                    "is3D": false,
+                    "name": "sounds/unlinked/essentials/click_n",
+                    "volume": 1
+                }
+            ]
+        },
+        "unlinked.essentials.click_y": {
+            "category": "ui",
+            "sounds": [
+                {
+                    "is3D": false,
+                    "name": "sounds/unlinked/essentials/click_y",
+                    "volume": 1
+                }
+            ]
+        },
+        "unlinked.essentials.pop": {
+            "category": "block",
+            "sounds": [
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/pop",
+                    "volume": 0.25,
+					"pitch" : 1
+                },
+                {
+					"is3D" : true,
+					"name" : "sounds/unlinked/essentials/pop",
+					"volume" : 0.25,
+					"pitch" : 0.8
+				},
+                {
+					"is3D" : true,
+					"name" : "sounds/unlinked/essentials/pop",
+					"volume" : 0.25,
+					"pitch" : 0.9
+				},
+                {
+					"is3D" : true,
+					"name" : "sounds/unlinked/essentials/pop",
+					"volume" : 0.25,
+					"pitch" : 1.1
+				},
+                {
+					"is3D" : true,
+					"name" : "sounds/unlinked/essentials/pop",
+					"volume" : 0.25,
+					"pitch" : 1.2
+				}
+            ]
+        },
+        "unlinked.essentials.incinerate": {
+            "category": "block",
+            "sounds": [
+                {
+                    "is3D": false,
+                    "name": "sounds/unlinked/essentials/incinerate",
+                    "volume": 1
+                }
+            ]
+        },
+        "unlinked.essentials.teleport": {
+            "category": "block",
+            "sounds": [
+                {
+                    "is3D": false,
+                    "name": "sounds/unlinked/essentials/teleport",
+                    "volume": 1
+                }
+            ]
+        },
+        "unlinked.essentials.scan": {
+            "category": "block",
+            "sounds": [
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/scan",
+                    "volume": 0.5
+                }
+            ]
+        },
+        "unlinked.essentials.log": {
+            "category": "block",
+            "sounds": [
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/log1",
+                    "volume": 1
+                },
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/log2",
+                    "volume": 1
+                },
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/log3",
+                    "volume": 1
+                }
+            ]
+        },
+        "unlinked.essentials.ore": {
+            "category": "block",
+            "sounds": [
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/ore1",
+                    "volume": 1
+                },
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/ore2",
+                    "volume": 1
+                },
+                {
+                    "is3D": true,
+                    "name": "sounds/unlinked/essentials/ore3",
+                    "volume": 1
+                }
+            ]
+        },
+        "unlinked.essentials.bribe": {
+            "category": "player",
+            "sounds": [
+                "sounds/unlinked/essentials/bribe1",
+                "sounds/unlinked/essentials/bribe2",
+                "sounds/unlinked/essentials/bribe3",
+                "sounds/unlinked/essentials/bribe4"
+            ]
+        },
+        "unlinked.essentials.sort": {
+            "category": "ui",
+            "sounds": [
+                "sounds/unlinked/essentials/sorting_stick"
+            ]
+        },
+        "unlinked.essentials.crop_breaker": {
+            "category": "ui",
+            "sounds": [
+                "sounds/unlinked/essentials/crop_breaker"
+            ]
+        },
+        "unlinked.essentials.super_sponge": {
+            "category": "ui",
+            "sounds": [
+                "sounds/unlinked/essentials/sponge"
+            ]
+        },
+        "unlinked.essentials.chest.lock": {
+            "category": "block",
+            "sounds": [
+                "sounds/unlinked/essentials/chest_lock"
+            ]
+        },
+        "unlinked.essentials.chest.unlock": {
+            "category": "block",
+            "sounds": [
+                "sounds/unlinked/essentials/chest_unlock"
+            ]
+        },
+        "unlinked.essentials.disenchant": {
+            "category": "ui",
+            "sounds": [
+                "sounds/unlinked/essentials/disenchant"
+            ]
+        },
+        "unlinked.essentials.scythe": {
+            "category": "ui",
+            "sounds": [
+                "sounds/unlinked/essentials/scythe"
+            ]
+        }
+    }
+}

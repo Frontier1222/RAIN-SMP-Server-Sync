@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:slab.terracotta.light_gray"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:light_gray_terracotta"
+      }
+    },
+    "pattern": [
+      "XXX"
+    ],
+    "result": {
+      "item": "ulkd_ess:slab.terracotta.light_gray",
+      "count": 6
+    },
+    "unlock": [
+      {
+        "item": "minecraft:light_gray_terracotta"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

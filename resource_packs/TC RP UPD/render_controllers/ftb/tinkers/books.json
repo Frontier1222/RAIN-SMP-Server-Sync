@@ -1,0 +1,97 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.ftb_tc.ftb_books": {
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "part_visibility": [
+        {
+          "*": true
+        },
+        {
+          "back*": false
+        },
+        {
+          "controls*": false
+        },
+        {
+          "jump*": false
+        }
+      ],
+      "textures": ["texture.default"]
+    },
+	    "controller.render.ftb_tc.ftb_books_back": {
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "back*": true
+        },
+        {
+          "controls*": false
+        },
+        {
+          "jump*": false
+        }
+      ],
+      "textures": ["texture.back"]
+    },
+    "controller.render.ftb_tc.ftb_books_controls": {
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "back*": false
+        },
+        {
+          "controls*": true
+        },
+        {
+          "jump*": false
+        }
+      ],
+      "textures": ["texture.controls"]
+    },
+    "controller.render.ftb_tc.ftb_books_jump": {
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "back*": false
+        },
+        {
+          "controls*": false
+        },
+        {
+          "jump*": true
+        }
+      ],
+      "textures": ["texture.jump"]
+    }
+  }
+}

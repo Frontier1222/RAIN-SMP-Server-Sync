@@ -1,0 +1,20 @@
+{
+    "format_version": "1.26.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "ae_sg:floating_text",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/ae_sg/misc/none"
+            },
+            "geometry": {
+                "default": "geometry.armor_stand"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

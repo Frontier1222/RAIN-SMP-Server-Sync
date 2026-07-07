@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:slab.sand"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:sand"
+      }
+    },
+    "pattern": [
+      "XXX"
+    ],
+    "result": {
+      "item": "ulkd_ess:slab.sand",
+      "count": 6
+    },
+    "unlock": [
+      {
+        "item": "minecraft:sand"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

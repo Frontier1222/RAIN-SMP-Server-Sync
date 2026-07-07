@@ -1,0 +1,182 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:netherite_sword",
+                    "functions": [
+                        {
+                            "function": "set_lore",
+                            "lore": [
+                                "\u00c2\u00a7f\u00c2\u00a7lOffical Christmas Event Item"
+                            ]
+                        },
+                        {
+                            "function": "specific_enchants",
+                            "enchants": [
+                                {
+                                    "id": "unbreaking",
+                                    "level": 3
+                                },
+                                {
+                                    "id": "mending",
+                                    "level": 1
+                                },
+                                {
+                                    "id": "sharpness",
+                                    "level": 5
+                                },
+                                {
+                                    "id": "knockback",
+                                    "level": 2
+                                },
+                                {
+                                    "id": "fire_aspect",
+                                    "level": 2
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:netherite_hoe",
+                    "functions": [
+                        {
+                            "function": "set_lore",
+                            "lore": [
+                                "\u00c2\u00a7f\u00c2\u00a7lOffical Christmas Event Item"
+                            ]
+                        },
+                        {
+                            "function": "specific_enchants",
+                            "enchants": [
+                                {
+                                    "id": "unbreaking",
+                                    "level": 3
+                                },
+                                {
+                                    "id": "mending",
+                                    "level": 1
+                                },
+                                {
+                                    "id": "efficiency",
+                                    "level": 5
+                                },
+                                {
+                                    "id": "fortune",
+                                    "level": 3
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:netherite_pickaxe",
+                    "functions": [
+                        {
+                            "function": "set_lore",
+                            "lore": [
+                                "\u00c2\u00a7f\u00c2\u00a7lOffical Christmas Event Item"
+                            ]
+                        },
+                        {
+                            "function": "specific_enchants",
+                            "enchants": [
+                                {
+                                    "id": "unbreaking",
+                                    "level": 3
+                                },
+                                {
+                                    "id": "mending",
+                                    "level": 1
+                                },
+                                {
+                                    "id": "efficiency",
+                                    "level": 5
+                                },
+                                {
+                                    "id": "fortune",
+                                    "level": 3
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:netherite_axe",
+                    "functions": [
+                        {
+                            "function": "set_lore",
+                            "lore": [
+                                "\u00c2\u00a7f\u00c2\u00a7lOffical Christmas Event Item"
+                            ]
+                        },
+                        {
+                            "function": "specific_enchants",
+                            "enchants": [
+                                {
+                                    "id": "unbreaking",
+                                    "level": 3
+                                },
+                                {
+                                    "id": "mending",
+                                    "level": 1
+                                },
+                                {
+                                    "id": "efficiency",
+                                    "level": 5
+                                },
+                                {
+                                    "id": "fortune",
+                                    "level": 3
+                                },
+                                {
+                                    "id": "sharpness",
+                                    "level": 5
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:netherite_shovel",
+                    "functions": [
+                        {
+                            "function": "set_lore",
+                            "lore": [
+                                "\u00c2\u00a7f\u00c2\u00a7lOffical Christmas Event Item"
+                            ]
+                        },
+                        {
+                            "function": "specific_enchants",
+                            "enchants": [
+                                {
+                                    "id": "unbreaking",
+                                    "level": 3
+                                },
+                                {
+                                    "id": "mending",
+                                    "level": 1
+                                },
+                                {
+                                    "id": "efficiency",
+                                    "level": 5
+                                },
+                                {
+                                    "id": "silk_touch",
+                                    "level": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

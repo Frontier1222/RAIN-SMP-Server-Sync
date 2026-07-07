@@ -1,0 +1,149 @@
+import { system } from "@minecraft/server";
+import { PlayerCache } from "../classes/player-cache.js";
+import { EventCoordinator } from "../classes/event-coordinator.js";
+let currentRunId = null;
+let playerLeaveCallback;
+let afkJobId = null;
+// Initial AFK time in ticks; this will be updated based on the user's input.
+let AFK_TIME_TICKS = 12000; // Default: 10 minutes in ticks (20 ticks per second * 60 seconds * 10 minutes)
+const playerLastActive = {};
+const VELOCITY_THRESHOLD = 0.01; // Threshold for detecting movement
+/**
+ * Converts hours, minutes, and seconds to ticks.
+ *
+ * @param {number} hours - The number of hours.
+ * @param {number} minutes - The number of minutes.
+ * @param {number} seconds - The number of seconds.
+ * @returns {number} - The equivalent number of ticks.
+ */
+function convertToTicks(hours, minutes, seconds) {
+    return (hours * 3600 + minutes * 60 + seconds) * 20; // 20 ticks per second
+}
+/**
+ * Determines if a player is AFK based on their velocity.
+ *
+ * @param {Vector3} velocity - The velocity of the player.
+ * @returns {boolean} - True if the player's velocity is below the threshold, indicating they are AFK.
+ */
+function isPlayerAFK(velocity) {
+    return Math.abs(velocity.x) < VELOCITY_THRESHOLD && Math.abs(velocity.y) < VELOCITY_THRESHOLD && Math.abs(velocity.z) < VELOCITY_THRESHOLD;
+}
+/**
+ * Checks if a player's security clearance should be ignored for AFK checking.
+ *
+ * @param {Player} player - The player to check.
+ * @returns {boolean} - True if the player's security clearance is 4 (ignore AFK status).
+ */
+function isSecurityClearanceIgnored(player) {
+    const clearance = player && player.getDynamicProperty("securityClearance");
+    return clearance === 4;
+}
+/**
+ * Checks the AFK status of all players.
+ * Kicks players who have been AFK longer than the configured time.
+ */
+function* afkCheckGenerator() {
+    const currentTick = system.currentTick;
+    for (const player of PlayerCache.getPlayers()) {
+        if (player.isValid) {
+            try {
+                const velocity = player.getVelocity();
+                // Update only if the player is moving and should not be ignored
+                if (!isSecurityClearanceIgnored(player)) {
+                    if (!playerLastActive[player.id] || !isPlayerAFK(velocity)) {
+                        playerLastActive[player.id] = currentTick;
+                    }
+                    else {
+                        const lastActiveTick = playerLastActive[player.id];
+                        if (currentTick - lastActiveTick >= AFK_TIME_TICKS) {
+                            player.runCommand(`kick @s You have been kicked for being AFK!`);
+                            delete playerLastActive[player.id];
+                        }
+                    }
+                }
+            }
+            catch (e) { }
+        }
+        yield;
+    }
+}
+/**
+ * Executes the AFK check as a background job.
+ */
+async function executeAfkCheck() {
+    if (afkJobId !== null)
+        return;
+    await new Promise((resolve) => {
+        function* runner() {
+            try {
+                yield* afkCheckGenerator();
+            }
+            finally {
+                afkJobId = null;
+                resolve();
+            }
+        }
+        afkJobId = system.runJob(runner());
+    });
+}
+/**
+ * Handles player logout events by removing them from the activity tracking.
+ *
+ * @param {PlayerLeaveAfterEvent} event - The player leave event.
+ */
+function onPlayerLogout(event) {
+    delete playerLastActive[event.playerId];
+}
+/**
+ * Starts the AFK checker. Sets the AFK time and interval for checking.
+ *
+ * @param {number} [hours=0] - The number of hours before a player is considered AFK.
+ * @param {number} [minutes=10] - The number of minutes before a player is considered AFK.
+ * @param {number} [seconds=0] - The number of seconds before a player is considered AFK.
+ */
+export function startAFKChecker(hours = 0, minutes = 10, seconds = 0) {
+    // If an AFK checker is already running, clear it
+    if (currentRunId !== null) {
+        if (playerLeaveCallback !== undefined) {
+            EventCoordinator.unsubscribeAfter("playerLeave", playerLeaveCallback);
+        }
+        system.clearRun(currentRunId);
+        currentRunId = null;
+    }
+    // Set the new AFK time
+    AFK_TIME_TICKS = convertToTicks(hours, minutes, seconds);
+    // Set up the player leave callback
+    playerLeaveCallback = (event) => onPlayerLogout(event);
+    EventCoordinator.subscribeAfter("playerLeave", playerLeaveCallback);
+    let isRunning = false;
+    let runIdBackup = null;
+    currentRunId = system.runInterval(async () => {
+        if (isRunning) {
+            // Restore the backup runId if an overlap is detected
+            system.clearRun(currentRunId);
+            currentRunId = runIdBackup;
+            return; // Skip this iteration if the previous one is still running
+        }
+        runIdBackup = currentRunId;
+        isRunning = true;
+        await executeAfkCheck();
+        isRunning = false;
+    }, 100); // Check every 5 seconds (100 ticks)
+}
+/**
+ * Stops the AFK checker by clearing the interval and unsubscribing from the playerLeave event.
+ */
+export function stopAFKChecker() {
+    if (currentRunId !== null) {
+        system.clearRun(currentRunId);
+        currentRunId = null;
+    }
+    if (afkJobId !== null) {
+        system.clearJob(afkJobId);
+        afkJobId = null;
+    }
+    if (playerLeaveCallback !== undefined) {
+        EventCoordinator.unsubscribeAfter("playerLeave", playerLeaveCallback);
+        playerLeaveCallback = undefined;
+    }
+}

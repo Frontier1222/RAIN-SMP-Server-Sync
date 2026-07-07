@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ulkd_ess:satchel_lime"
+    },
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "minecraft:lime_dye"
+      },
+      {
+        "item": "ulkd_ess:satchel"
+      }
+    ],
+    "result": {
+      "item": "ulkd_ess:satchel_lime"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:lime_dye"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

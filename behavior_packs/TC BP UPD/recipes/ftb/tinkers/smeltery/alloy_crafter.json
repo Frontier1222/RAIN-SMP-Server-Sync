@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:alloy_crafter"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "bCb",
+      "bFb",
+      "sss"
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:brick"
+      },
+      "s": {
+        "item": "ftb_tc:seared_brick"
+      },
+      "C": {
+        "item": "minecraft:crafting_table"
+      },
+      "F": {
+        "item": "minecraft:furnace"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:alloy_crafter"
+    }
+  }
+}

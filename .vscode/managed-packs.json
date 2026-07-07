@@ -1,0 +1,38 @@
+{
+  "packs": [
+    {
+      "id": "rain",
+      "label": "RAIN SMP",
+      "behavior": "RAIN SMP E BP",
+      "resource": "RAIN SMP E RP"
+    },
+    {
+      "id": "essentials",
+      "label": "Essentials",
+      "behavior": "Essentials BP",
+      "resource": "Essentials RP"
+    },
+    {
+      "id": "hotbars",
+      "label": "More Hotbars",
+      "resource": "More Hotbars RP"
+    },
+    {
+      "id": "paradox",
+      "label": "Paradox AntiCheat",
+      "behavior": "Paradox-AntiCheat-v6.3.0-BDS"
+    },
+    {
+      "id": "tc",
+      "label": "Tinkers Construct",
+      "behavior": "TC BP UPD",
+      "resource": "TC RP UPD"
+    },
+    {
+      "id": "worldbuilder",
+      "label": "World Builder",
+      "behavior": "World Builder 1.6 Add-On BP",
+      "resource": "World Builder 1.6 Add-On RP"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+
+
+{
+	"format_version": "1.10.0",
+	"particle_effect": {
+		"description": {
+			"identifier": "ulkd_ess:block_show",
+			"basic_render_parameters": {
+				"material": "particles_blend",
+				"texture": "textures/blocks/wool_colored_white"
+			}
+		},
+		"events": {
+			"next_face": {
+				"sequence": [
+					{
+						"expression": "t.face = v.face + 1;t.offset_x = v.offset_x;t.offset_y = v.offset_y;t.offset_z = v.offset_z;t.lifetime = v.lifetime;"
+					},
+					{
+						"particle_effect": {
+							"effect": "ulkd_ess:block_show",
+							"type": "particle",
+							"pre_effect_expression": "v.face = t.face;v.offset_x = t.offset_x;v.offset_y = t.offset_y;v.offset_z = t.offset_z;v.lifetime = t.lifetime;"
+						}
+					}
+				]
+			}
+		},
+		"components": {
+			"minecraft:emitter_initialization": {
+				"creation_expression": "t.destroy_circle = 0;v.player_id = v.player_id ?? -1;v.offset_x = v.offset_x ?? 0;v.offset_y = v.offset_y ?? 0;v.offset_z = v.offset_z ?? 0;v.face = v.face ?? 0;v.size = 0.49;",
+				"per_update_expression": "v.angle = v.face == 1 ? 90 : v.face == 2 ? 270 : v.face == 6 ? 180 : 0;v.is_vertical = v.face == 3 || v.face == 4;v.size = 0.49;"
+			},
+			"minecraft:emitter_rate_instant": {
+				"num_particles": "v.face > 6 ? 0 : 1"
+			},
+			"minecraft:emitter_lifetime_expression": {
+				"activation_expression": "v.face < 7 && v.emitter_age < (v.lifetime ?? 1800)",
+				"expiration_expression": "v.face >= 7 || v.emitter_age >= (v.lifetime ?? 1800) || (t.destroy_circle ?? 0) || ((t.ulkd_ess_player_id ?? 0) != (v.player_id ?? -1) && (v.player_id ?? -1) != -1)"
+			},
+			"minecraft:emitter_shape_point": {},
+			"minecraft:particle_lifetime_expression": {
+				"expiration_expression": "v.emitter_age >= (v.lifetime ?? 1800) || (t.destroy_circle ?? 0)"
+			},
+			"minecraft:particle_lifetime_events": {
+				"timeline": {
+					"0.0": "next_face"
+				}
+			},
+			"minecraft:particle_motion_parametric": {
+				"relative_position": [
+					"(v.is_vertical ? 0 : math.sin(v.angle) * v.size) + v.offset_x", 
+					"((v.face == 3 ? 1 : v.face == 4 ? -1 : 0) * v.size) + v.offset_y", 
+					"(v.is_vertical ? 0 : math.cos(v.angle) * v.size) + v.offset_z"
+				]
+			},
+			"minecraft:particle_appearance_billboard": {
+				"size": ["v.face == 0 ? 0.001 : v.size", "v.face == 0 ? 0.001 : v.size"],
+				"facing_camera_mode": "direction_z",
+				"direction": {
+					"mode": "custom",
+					"custom_direction": [
+						"v.is_vertical ? 0 : math.sin(v.angle)", 
+						"v.face == 3 ? 1 : v.face == 4 ? -1 : 0", 
+						"v.is_vertical ? 0 : math.cos(v.angle)"
+					]
+				},
+				"uv": {
+					"texture_width": 16,
+					"texture_height": 16,
+					"uv": [0, 0],
+					"uv_size": [1, 1]
+				}
+			},
+			"minecraft:particle_appearance_tinting": {
+				"color": "#AA00FFF2"
+			}
+		}
+	}
+}

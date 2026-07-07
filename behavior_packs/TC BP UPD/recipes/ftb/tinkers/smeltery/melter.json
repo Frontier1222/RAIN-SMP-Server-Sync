@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:melter"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "sts",
+      "sSs",
+      "SXS"
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:furnace"
+      },
+      "t": {
+        "item": "ftb_tc:seared_glass"
+      },
+      "s": {
+        "item": "ftb_tc:seared_brick"
+      },
+      "S": {
+        "item": "ftb_tc:seared_brick_block"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:melter"
+    }
+  }
+}

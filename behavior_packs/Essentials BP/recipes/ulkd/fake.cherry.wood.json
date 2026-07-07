@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:fake.cherry.wood"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:cherry_wood"
+      }
+    },
+    "pattern": [
+      "X X",
+      " X ",
+      "X X"
+    ],
+    "result": {
+      "item": "ulkd_ess:fake.cherry.wood",
+      "count": 2
+    },
+    "unlock": [
+      {
+        "item": "minecraft:cherry_wood"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

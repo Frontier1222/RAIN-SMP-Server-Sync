@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:xp_satchel"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:bundle"
+      },
+      "Y": {
+        "item": "minecraft:lapis_lazuli"
+      },
+      "Z": {
+        "item": "minecraft:string"
+      }
+    },
+    "pattern": [
+      "ZZZ",
+      "XYX",
+      "XXX"
+    ],
+    "result": {
+      "item": "ulkd_ess:xp_satchel",
+      "count": 1
+    },
+    "unlock": [
+      {
+        "item": "minecraft:bundle"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ftb_tc:ingot_rose_gold_back"
+    },
+    "tags": ["crafting_table"],
+    "ingredients": [
+      {
+        "item": "ftb_tc:rose_gold_block"
+      }
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": [
+      {
+        "item": "ftb_tc:rose_gold_ingot",
+        "count": 9
+      }
+    ]
+  }
+}

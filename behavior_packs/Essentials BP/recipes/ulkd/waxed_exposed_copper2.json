@@ -1,0 +1,38 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:waxed_exposed_copper2"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:honeycomb"
+      },
+      "Y": {
+        "item": "minecraft:exposed_copper"
+      }
+    },
+    "pattern": [
+      "YX"
+    ],
+    "result": [
+      {
+        "item": "minecraft:waxed_exposed_copper",
+        "count": 8
+      },
+      {
+        "item": "minecraft:bucket",
+        "count": 1
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:honeycomb"
+      }
+    ]
+  }
+}

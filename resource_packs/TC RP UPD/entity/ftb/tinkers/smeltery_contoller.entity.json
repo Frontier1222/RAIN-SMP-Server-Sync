@@ -1,0 +1,123 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "ftb_tc:smeltery_controller",
+      "materials": {
+        "default": "slime",
+        "not_built": "slime_outer",
+        "liquid": "ftb_liquid"
+      },
+      "textures": {
+        "empty": "textures/ftb/tinkers/blocks/fluid/empty",
+        "amethyst_bronze": "textures/ftb/tinkers/blocks/fluid/amethyst_bronze",
+        "ardite": "textures/ftb/tinkers/blocks/fluid/ardite",
+        "cobalt": "textures/ftb/tinkers/blocks/fluid/cobalt",
+        "copper": "textures/ftb/tinkers/blocks/fluid/copper",
+        "diamond": "textures/ftb/tinkers/blocks/fluid/diamond",
+        "emerald": "textures/ftb/tinkers/blocks/fluid/emerald",
+        "gold": "textures/ftb/tinkers/blocks/fluid/gold",
+        "hepatizon": "textures/ftb/tinkers/blocks/fluid/hepatizon",
+        "iron": "textures/ftb/tinkers/blocks/fluid/iron",
+        "manyullyn": "textures/ftb/tinkers/blocks/fluid/manyullyn",
+        "netherite": "textures/ftb/tinkers/blocks/fluid/netherite",
+        "pig_iron": "textures/ftb/tinkers/blocks/fluid/pig_iron",
+        "queens_slime": "textures/ftb/tinkers/blocks/fluid/queens_slime",
+        "rose_gold": "textures/ftb/tinkers/blocks/fluid/rose_gold",
+        "slimesteel": "textures/ftb/tinkers/blocks/fluid/slimesteel",
+        "earth_slime": "textures/ftb/tinkers/blocks/fluid/earth_slime",
+        "ender_slime": "textures/ftb/tinkers/blocks/fluid/ender_slime",
+        "scarlet_slime": "textures/ftb/tinkers/blocks/fluid/scarlet_slime",
+        "sky_slime": "textures/ftb/tinkers/blocks/fluid/sky_slime",
+        "not_built": "textures/ftb/tinkers/entity/controller/smeltery_con_outline",
+        "built": "textures/ftb/tinkers/entity/controller/smeltery_con_built",
+        "empty_black": "textures/ftb/tinkers/blocks/fluid/empty_black",
+        "lava": "textures/ftb/tinkers/blocks/fluid/lava",
+        "blaze": "textures/ftb/tinkers/blocks/fluid/blaze",
+        "tin": "textures/ftb/tinkers/blocks/fluid/tin",
+        "bronze": "textures/ftb/tinkers/blocks/fluid/bronze"
+      },
+      "geometry": {
+        "default": "geometry.ftb_tc.smeltery_con_default",
+        "variant_0": "geometry.ftb_tc.smeltery_con_v0",
+        "variant_1": "geometry.ftb_tc.smeltery_con_v1",
+        "variant_2": "geometry.ftb_tc.smeltery_con_v2",
+        "variant_3": "geometry.ftb_tc.smeltery_con_v3",
+        "variant_4": "geometry.ftb_tc.smeltery_con_v4",
+        "variant_5": "geometry.ftb_tc.smeltery_con_v5",
+        "variant_6": "geometry.ftb_tc.smeltery_con_v6",
+        "variant_7": "geometry.ftb_tc.smeltery_con_v7",
+        "variant_8": "geometry.ftb_tc.smeltery_con_v8",
+        "variant_9": "geometry.ftb_tc.smeltery_con_v9",
+        "variant_10": "geometry.ftb_tc.smeltery_con_v10",
+        "variant_11": "geometry.ftb_tc.smeltery_con_v11",
+        "variant_12": "geometry.ftb_tc.smeltery_con_v12",
+        "variant_13": "geometry.ftb_tc.smeltery_con_v13",
+        "variant_14": "geometry.ftb_tc.smeltery_con_v14",
+        "variant_15": "geometry.ftb_tc.smeltery_con_v15",
+        "variant_16": "geometry.ftb_tc.smeltery_con_v16",
+        "variant_17": "geometry.ftb_tc.smeltery_con_v17",
+        "variant_18": "geometry.ftb_tc.smeltery_con_v18",
+        "variant_19": "geometry.ftb_tc.smeltery_con_v19",
+        "variant_20": "geometry.ftb_tc.smeltery_con_v20",
+        "variant_21": "geometry.ftb_tc.smeltery_con_v21",
+        "variant_22": "geometry.ftb_tc.smeltery_con_v22",
+        "variant_23": "geometry.ftb_tc.smeltery_con_v23",
+        "variant_24": "geometry.ftb_tc.smeltery_con_v24",
+        "variant_25": "geometry.ftb_tc.smeltery_con_v25",
+        "variant_26": "geometry.ftb_tc.smeltery_con_v26",
+        "variant_27": "geometry.ftb_tc.smeltery_con_v27",
+        "variant_28": "geometry.ftb_tc.smeltery_con_v28",
+        "variant_29": "geometry.ftb_tc.smeltery_con_v29",
+        "variant_30": "geometry.ftb_tc.smeltery_con_v30",
+        "variant_31": "geometry.ftb_tc.smeltery_con_v31",
+        "variant_32": "geometry.ftb_tc.smeltery_con_v32",
+        "variant_33": "geometry.ftb_tc.smeltery_con_v33",
+        "variant_34": "geometry.ftb_tc.smeltery_con_v34",
+        "variant_35": "geometry.ftb_tc.smeltery_con_v35",
+        "variant_36": "geometry.ftb_tc.smeltery_con_v36",
+        "variant_37": "geometry.ftb_tc.smeltery_con_v37",
+        "variant_38": "geometry.ftb_tc.smeltery_con_v38",
+        "variant_39": "geometry.ftb_tc.smeltery_con_v39",
+        "variant_40": "geometry.ftb_tc.smeltery_con_v40"
+      },
+      "animations": {
+        "stop_rotate": "animation.ftb_tc.stop_rotate"
+      },
+      "animation_controllers": [
+        {
+          "stop_rotate": "controller.animation.ftb_tc.stop_rotate"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "ftb_controller_egg"
+      },
+      "render_controllers": [
+        "controller.render.ftb_tc.smeltery_controller",
+        "controller.render.ftb_tc.smeltery_controller_furnace_lava",
+        "controller.render.ftb_tc.smeltery_controller_furnace_blaze",
+        "controller.render.ftb_tc.smeltery_amethyst_bronze_l",
+        "controller.render.ftb_tc.smeltery_ardite_l",
+        "controller.render.ftb_tc.smeltery_cobalt_l",
+        "controller.render.ftb_tc.smeltery_copper_l",
+        "controller.render.ftb_tc.smeltery_diamond_l",
+        "controller.render.ftb_tc.smeltery_emerald_l",
+        "controller.render.ftb_tc.smeltery_gold_l",
+        "controller.render.ftb_tc.smeltery_hepatizon_l",
+        "controller.render.ftb_tc.smeltery_iron_l",
+        "controller.render.ftb_tc.smeltery_manyullyn_l",
+        "controller.render.ftb_tc.smeltery_netherite_l",
+        "controller.render.ftb_tc.smeltery_pig_iron_l",
+        "controller.render.ftb_tc.smeltery_queens_slime_l",
+        "controller.render.ftb_tc.smeltery_rose_gold_l",
+        "controller.render.ftb_tc.smeltery_slimesteel_l",
+        "controller.render.ftb_tc.smeltery_earth_slime_l",
+        "controller.render.ftb_tc.smeltery_ender_slime_l",
+        "controller.render.ftb_tc.smeltery_scarlet_slime_l",
+        "controller.render.ftb_tc.smeltery_sky_slime_l",
+        "controller.render.ftb_tc.smeltery_tin_l",
+        "controller.render.ftb_tc.smeltery_bronze_l"
+      ]
+    }
+  }
+}

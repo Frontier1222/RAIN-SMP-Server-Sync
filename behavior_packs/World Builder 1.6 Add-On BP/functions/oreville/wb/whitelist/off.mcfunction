@@ -1,0 +1,1 @@
+scriptevent oreville_wb:whitelist false

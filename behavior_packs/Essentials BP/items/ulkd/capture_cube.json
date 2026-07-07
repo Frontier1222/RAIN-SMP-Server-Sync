@@ -1,0 +1,16 @@
+{
+    "format_version": "1.21.70",
+    "minecraft:item": {
+        "description": {
+            "identifier": "ulkd_ess:capture_cube",
+            "menu_category": {
+                "category": "none",
+                "is_hidden_in_commands": false
+            }
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:icon": "unlinked.essentials:capture_cube"
+        }
+    }
+}

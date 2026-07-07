@@ -1,0 +1,35 @@
+{
+    "format_version": 2,
+    "metadata": {
+        "generated_with": {
+            "blockbench_item_wizard": ["1.2.4"]
+        }
+    },
+    "header": {
+        "name": "RAIN SMP E BP",
+        "description": "Behavior Pack #107",
+        "min_engine_version": [1, 21, 130],
+        "uuid": "5c3e8a44-12bc-4876-92a1-8d2b7e1f44c9",
+        "version": [1, 0, 7086]
+    },    
+    "modules": [
+        {
+            "description": "behavior",
+            "type": "script",
+            "uuid": "e47a92b1-56df-41c3-8a9d-3f6e8b2a11d5",
+            "version": [1, 0, 7086],
+            "entry": "scripts/main.js"
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server",
+            "version": "2.9.0-beta"
+        },
+        {
+            "module_name": "@minecraft/server-ui",
+            "version": "2.0.0"
+        }
+    ],
+    "subpacks": []
+}

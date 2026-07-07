@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "ftb_tc:slime_helmet",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.helmet"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": "slime_helmet",
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:trimmable_armors",
+          "minecraft:is_armor"
+        ]
+      },
+      "minecraft:wearable": {
+        "slot": "slot.armor.head",
+        "protection": 3
+      },
+      "minecraft:durability": {
+        "max_durability": 510
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "ftb_tc:ender_slime_ball"
+            ],
+            "repair_amount": 125
+          }
+        ]
+      }
+    }
+  }
+}

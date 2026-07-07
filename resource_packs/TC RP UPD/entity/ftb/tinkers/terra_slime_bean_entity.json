@@ -1,0 +1,20 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "ftb_tc:terracube_bean_entity",
+			"materials": {
+				"default": "snowball"
+			},
+			"textures": {
+				"default": "textures/ftb/tinkers/entity/terra_slime_sprout"
+			},
+			"geometry": {
+				"default": "geometry.ftb_tc.slime_sprout"
+			},
+			"render_controllers": [
+				"controller.render.ftb_tc.ftb_tc_projectile"
+			]
+		}
+	}
+}

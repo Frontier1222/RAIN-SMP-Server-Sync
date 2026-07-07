@@ -1,0 +1,29 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "name": "loot_tables/chests/low_tier_orbs.loot_table.json",
+                    "weight": 40
+                },
+                {
+                    "type": "loot_table",
+                    "name": "loot_tables/chests/midlow_tier_orbs.loot_table.json",
+                    "weight": 30
+                },
+                {
+                    "type": "loot_table",
+                    "name": "loot_tables/chests/midhigh_tier_orbs.loot_table.json",
+                    "weight": 20
+                },
+                {
+                    "type": "loot_table",
+                    "name": "loot_tables/chests/high_tier_orbs.loot_table.json",
+                    "weight": 10
+                }
+            ]
+        }
+    ]
+}

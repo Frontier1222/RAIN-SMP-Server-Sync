@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:tnt_modifier"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "STS",
+      "TET",
+      "STS"
+    ],
+    "key": {
+      "T": {
+        "item": "minecraft:tnt"
+      },
+      "S": {
+        "item": "minecraft:gunpowder"
+      },
+      "E": {
+        "item": "ftb_tc:empty_modifier"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:tnt_modifier"
+    }
+  }
+}

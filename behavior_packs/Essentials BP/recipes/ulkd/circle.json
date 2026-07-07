@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:circle"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "ulkd_ess:measuring_tape"
+      }
+    },
+    "pattern": [
+      " X",
+      "X X",
+      " X "
+    ],
+    "result": {
+      "item": "ulkd_ess:circle",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "ulkd_ess:measuring_tape"
+      }
+    ]
+  }
+}

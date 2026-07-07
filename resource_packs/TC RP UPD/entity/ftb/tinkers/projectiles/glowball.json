@@ -1,0 +1,28 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "ftb_tc:glowball_entity",
+			"materials": {
+				"default": "snowball"
+			},
+			"textures": {
+				"default": "textures/ftb/tinkers/items/gadgets/glowball"
+			},
+			"geometry": {
+				"default": "geometry.item_sprite"
+			},
+			"render_controllers": [
+				"controller.render.ftb_tc.ftb_tc_projectile"
+			],
+			"animations": {
+				"flying": "animation.actor.billboard"
+			},
+			"scripts": {
+				"animate": [
+					"flying"
+				]
+			}
+		}
+	}
+}

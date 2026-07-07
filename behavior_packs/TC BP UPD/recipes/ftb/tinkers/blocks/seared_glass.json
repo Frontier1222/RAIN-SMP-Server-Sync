@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:seared_glass"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " X ",
+      "XgX",
+      " X"
+    ],
+    "key": {
+      "X": {
+        "item": "ftb_tc:seared_brick"
+      },
+      "g": {
+        "item": "minecraft:glass"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:seared_glass",
+      "count": 1
+    }
+  }
+}

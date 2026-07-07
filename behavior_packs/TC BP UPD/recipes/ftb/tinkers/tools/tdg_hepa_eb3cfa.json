@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:tdg_hepa_eb3cfa"},"tags":["smelters_station"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:dagger_blade_hepatizon_crossguard_bone"},"ingredients":[{"item":"ftb_tc:part_dagger_crossguard_bone"},{"item":"ftb_tc:part_dagger_blade_hepatizon"}]}}

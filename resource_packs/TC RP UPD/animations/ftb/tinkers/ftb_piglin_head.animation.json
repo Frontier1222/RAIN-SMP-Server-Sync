@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.ftb_tc.ftb_piglin_head.new": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"head": {
+					"position": [0, 0, 0],
+					"scale": [1.2, 1.2, 1.2]
+				}
+			}
+		}
+	}
+}

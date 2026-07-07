@@ -1,0 +1,32 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "ftb_tc:quartz_shuriken_entity",
+			"materials": {
+				"default": "snowball"
+			},
+			"textures": {
+				"default": "textures/ftb/tinkers/entity/projectiles/quartz_shuriken"
+			},
+			"geometry": {
+				"default": "geometry.ftb_tc.shuriken"
+			},
+			"render_controllers": [
+				"controller.render.ftb_tc.ftb_tc_projectile"
+			],
+			"animations": {
+				"flying": "animation.actor.billboard",
+				"spin": "animation.ftb_tc.shuriken_spin",
+				"stop": "animation.ftb_tc.shuriken_stop"
+			},
+			"scripts": {
+				"animate": [
+					"flying",
+					"spin",
+					"stop"
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:tcl_a_bron_4575a2"},"tags":["smelters_anvil"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:cleaver_head_amethyst_bronze_guard_hepatizon"},"ingredients":[{"item":"ftb_tc:part_cleaver_head_amethyst_bronze"},{"item":"ftb_tc:part_cleaver_guard_hepatizon"}]}}

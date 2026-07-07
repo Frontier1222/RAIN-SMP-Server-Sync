@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ulkd_ess:fake.polished.diorite_reverse"
+    },
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "ulkd_ess:fake.polished.diorite",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "minecraft:polished_diorite",
+      "count": 5
+    },
+    "unlock": [
+      {
+        "item": "ulkd_ess:fake.polished.diorite"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

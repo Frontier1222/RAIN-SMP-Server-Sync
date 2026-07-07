@@ -1,0 +1,807 @@
+{
+  "tiers": [
+    {
+      "groups": [
+        {
+          "num_to_select": 3,
+          "trades": [
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:blaze_head_item"
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:cave_spider_head_item"
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:drowned_head_item"
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:enderman_head_item"
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:husk_head_item"
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:piglin_brute_head_item"
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:spider_head_item"
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:stray_head_item"
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:zombie_piglin_head_item"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "num_to_select": 2,
+          "trades": [
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:drp_head_item"
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:squidgy_head_item"
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:ecko_head_item"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "num_to_select": 3,
+          "trades": [
+            {
+              "max_uses": 20,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:copper_berry_bush",
+                  "quantity": {
+                    "max": 3,
+                    "min": 1
+                  }
+                }
+              ]
+            },
+            {
+              "max_uses": 20,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:diamond_berry_bush",
+                  "quantity": {
+                    "max": 3,
+                    "min": 1
+                  }
+                }
+              ]
+            },
+            {
+              "max_uses": 20,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:emerald_berry_bush",
+                  "quantity": {
+                    "max": 3,
+                    "min": 1
+                  }
+                }
+              ]
+            },
+            {
+              "max_uses": 20,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:gold_berry_bush",
+                  "quantity": {
+                    "max": 3,
+                    "min": 1
+                  }
+                }
+              ]
+            },
+            {
+              "max_uses": 20,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:iron_berry_bush",
+                  "quantity": {
+                    "max": 3,
+                    "min": 1
+                  }
+                }
+              ]
+            },
+            {
+              "max_uses": 20,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:xp_berry_bush",
+                  "quantity": {
+                    "max": 3,
+                    "min": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "num_to_select": 1,
+          "trades": [
+            {
+              "max_uses": 20,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 3,
+                    "min": 1
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:grout",
+                  "quantity": 8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "num_to_select": 2,
+          "trades": [
+            {
+              "max_uses": 20,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 3,
+                    "min": 1
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:gravel",
+                  "quantity": 8
+                }
+              ]
+            },
+            {
+              "max_uses": 20,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 3,
+                    "min": 1
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:sand",
+                  "quantity": 8
+                }
+              ]
+            },
+            {
+              "max_uses": 20,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 3,
+                    "min": 1
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:clay",
+                  "quantity": 8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "num_to_select": 2,
+          "trades": [
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 12,
+                    "min": 3
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:lava_bucket"
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 16,
+                    "min": 6
+                  }
+                },
+                {
+                  "item": "minecraft:blaze_rod",
+                  "quantity": {
+                    "max": 4,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:bucket_blaze"
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 16,
+                    "min": 8
+                  }
+                },
+                {
+                  "item": "minecraft:blaze_rod",
+                  "quantity": {
+                    "max": 4,
+                    "min": 2
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:copper_can_blaze"
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 16,
+                    "min": 8
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:copper_can_lava"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "num_to_select": 5,
+          "trades": [
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 18,
+                    "min": 9
+                  }
+                },
+                {
+                  "item": "ftb_tc:amethyst_bronze_nugget",
+                  "quantity": {
+                    "max": 16,
+                    "min": 8
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:raw_amethyst_bronze",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 18,
+                    "min": 9
+                  }
+                },
+                {
+                  "item": "ftb_tc:ardite_nugget",
+                  "quantity": {
+                    "max": 16,
+                    "min": 8
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:raw_ardite",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 18,
+                    "min": 9
+                  }
+                },
+                {
+                  "item": "ftb_tc:cobalt_nugget",
+                  "quantity": {
+                    "max": 16,
+                    "min": 8
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:raw_cobalt",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 18,
+                    "min": 9
+                  }
+                },
+                {
+                  "item": "ftb_tc:hepatizon_nugget",
+                  "quantity": {
+                    "max": 16,
+                    "min": 8
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:raw_hepatizon",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 18,
+                    "min": 9
+                  }
+                },
+                {
+                  "item": "ftb_tc:manyullyn_nugget",
+                  "quantity": {
+                    "max": 16,
+                    "min": 8
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:raw_manyullyn",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 18,
+                    "min": 9
+                  }
+                },
+                {
+                  "item": "ftb_tc:netherite_nugget",
+                  "quantity": {
+                    "max": 16,
+                    "min": 8
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:raw_netherite",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 18,
+                    "min": 9
+                  }
+                },
+                {
+                  "item": "ftb_tc:pig_iron_nugget",
+                  "quantity": {
+                    "max": 16,
+                    "min": 8
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:raw_pig_iron",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 18,
+                    "min": 9
+                  }
+                },
+                {
+                  "item": "ftb_tc:queens_slime_nugget",
+                  "quantity": {
+                    "max": 16,
+                    "min": 8
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:raw_queens_slime",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 18,
+                    "min": 9
+                  }
+                },
+                {
+                  "item": "ftb_tc:rose_gold_nugget",
+                  "quantity": {
+                    "max": 16,
+                    "min": 8
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:raw_rose_gold",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": {
+                    "max": 18,
+                    "min": 9
+                  }
+                },
+                {
+                  "item": "ftb_tc:slimesteel_nugget",
+                  "quantity": {
+                    "max": 16,
+                    "min": 8
+                  }
+                }
+              ],
+              "gives": [
+                {
+                  "item": "ftb_tc:raw_slimesteel",
+                  "quantity": {
+                    "max": 5,
+                    "min": 2
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

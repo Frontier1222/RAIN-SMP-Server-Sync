@@ -1,0 +1,147 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "empty",
+                    "weight": 100
+                },
+                {
+                    "type": "item",
+                    "name": "viberater:orb_of_subaquatics",
+                    "weight": 45,
+                    "functions": [
+                        {
+                            "function": "set_lore",
+                            "lore": [
+                                "Upon use, gives Conduit Power effect for 61 seconds",
+                                "Durability - 60 | Cooldown - 60 Seconds",
+                                "Repair in Anvil with Experience Bottle or Lapis Lazuli"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "viberater:orb_of_respite",
+                    "weight": 30,
+                    "functions": [
+                        {
+                            "function": "set_lore",
+                            "lore": [
+                                "Upon use, gives Regeneration II for 2 seconds",
+                                "Durability - 120 | Cooldown - 1 Second",
+                                "Repair in Anvil with Experience Bottle or Lapis Lazuli"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "viberater:orb_of_affliction",
+                    "weight": 25,
+                    "functions": [
+                        {
+                            "function": "set_lore",
+                            "lore": [
+                                "Upon use, deals 4 magic damage to every entity within 8 blocks radius",
+                                "Durability - 120 | Cooldown - 1 Second",
+                                "Repair in Anvil with Experience Bottle or Lapis Lazuli"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:bone_block",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 2,
+                                "max": 8
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 1,
+                                "max": 3
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": {
+                "min": 2,
+                "max": 4
+            },
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "name": "loot_tables/chests/village_blacksmith.json"
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "empty",
+                    "weight": 90
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:bow",
+                    "weight": 10,
+                    "functions": [
+                        {
+                            "function": "set_lore",
+                            "lore": [
+                                "Official Item"
+                            ]
+                        },
+                        {
+                            "function": "specific_enchants",
+                            "enchants": [
+                                {
+                                    "id": "power",
+                                    "level": 5
+                                },
+                                {
+                                    "id": "punch",
+                                    "level": 2
+                                },
+                                {
+                                    "id": "flame",
+                                    "level": 1
+                                },
+                                {
+                                    "id": "infinity",
+                                    "level": 1
+                                },
+                                {
+                                    "id": "mending",
+                                    "level": 1
+                                },
+                                {
+                                    "id": "unbreaking",
+                                    "level": 3
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

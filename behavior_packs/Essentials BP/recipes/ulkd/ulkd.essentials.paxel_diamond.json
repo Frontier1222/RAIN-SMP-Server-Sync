@@ -1,0 +1,32 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ulkd_ess:diamond_paxel"
+    },
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "minecraft:diamond_pickaxe"
+      },
+      {
+        "item": "minecraft:diamond_axe"
+      },
+      {
+        "item": "minecraft:diamond_shovel"
+      }
+    ],
+    "result": {
+      "item": "ulkd_ess:paxel_diamond",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:diamond_pickaxe"
+      }
+    ]
+  }
+}

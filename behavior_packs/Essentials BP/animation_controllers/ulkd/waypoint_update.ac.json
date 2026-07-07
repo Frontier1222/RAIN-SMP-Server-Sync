@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.ulkd_ess.waypoint.update": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "tick": "q.time_stamp - (v.time ?? q.time_stamp) >= 10"
+                        }
+                    ],
+                    "on_entry": [
+                        "v.time = q.time_stamp;"
+                    ]
+                },
+                "tick": {
+                    "on_entry": [
+                        "/scriptevent ulkd_ess:waypoint.update",
+                        "v.time = q.time_stamp;"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "1"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

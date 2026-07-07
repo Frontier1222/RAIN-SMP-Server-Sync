@@ -1,0 +1,30 @@
+[
+  // More Hotbars RP (with purple_gradient subpack)
+  {
+    "pack_id": "923cf513-dd9e-4020-82c8-baf859795b32",
+    "version": [2, 3, 0],
+    "subpack": "purple_gradient"
+  },
+  // RAIN SMP E RP (Custom UI and Textures)
+  {
+    "pack_id": "e1b873a8-1336-4ea0-ba78-3a56085796e9",
+    "version": [1, 0, 79]
+  },
+  // Essentials RP (Unlinked Essentials Resource Pack)
+  {
+    "pack_id": "09f402ab-112e-4826-a422-6e0a6b4e0d97",
+    "version": [1, 0, 45]
+  },
+  // TC RP UPD (Tinkers Construct Resource Pack)
+  {
+    "pack_id": "5f76dd92-6455-4f15-9ef6-e16b32aeeb34",
+    "version": [1, 0, 66]
+  },
+  // World Builder 1.6 Add-On RP (Oreville Studios)
+  {
+    "pack_id": "36705eae-cbbd-461a-b6e8-4cc41b26e182",
+    "version": [1, 0, 24]
+  }
+]
+
+

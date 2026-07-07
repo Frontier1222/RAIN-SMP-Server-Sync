@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:tdg_r_ston_dc664a"},"tags":["smelters_station"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:dagger_blade_rock_stone_crossguard_manyullyn"},"ingredients":[{"item":"ftb_tc:part_dagger_crossguard_manyullyn"},{"item":"ftb_tc:part_dagger_blade_stone"}]}}

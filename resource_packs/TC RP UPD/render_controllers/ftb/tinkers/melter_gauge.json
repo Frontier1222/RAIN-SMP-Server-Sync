@@ -1,0 +1,42 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.ftb_tc.melter_gauge": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.skin_id_0",
+            "Texture.skin_id_1",
+            "Texture.skin_id_2",
+            "Texture.skin_id_3",
+            "Texture.skin_id_4",
+            "Texture.skin_id_5",
+            "Texture.skin_id_6",
+            "Texture.skin_id_7",
+            "Texture.skin_id_8"
+          ]
+        }
+      },
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.skin_id]"
+      ],
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "gauge*": true
+        },
+        {
+          "ftb_liquid_glow*": false
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:tcl_diam_3967ba"},"tags":["smelters_anvil"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:cleaver_head_diamond_guard_manyullyn"},"ingredients":[{"item":"ftb_tc:part_cleaver_head_diamond"},{"item":"ftb_tc:part_cleaver_guard_manyullyn"}]}}

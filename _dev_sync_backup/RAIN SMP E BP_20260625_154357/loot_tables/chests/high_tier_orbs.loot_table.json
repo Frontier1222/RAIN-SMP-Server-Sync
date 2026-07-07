@@ -1,0 +1,21 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "viberater:orb_of_divine_intervention"
+                },
+                {
+                    "type": "item",
+                    "name": "viberater:orb_of_fecundation"
+                },
+                {
+                    "type": "item",
+                    "name": "viberater:orb_of_excavation"
+                }
+            ]
+        }
+    ]
+}

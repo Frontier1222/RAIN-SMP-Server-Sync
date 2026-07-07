@@ -1,0 +1,11 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "ftb_tc:emerald_berry"
+    },
+    "tags": ["furnace", "blast_furnace"],
+    "input": "ftb_tc:emerald_berry",
+    "output": "ftb_tc:emerald_shard"
+  }
+}

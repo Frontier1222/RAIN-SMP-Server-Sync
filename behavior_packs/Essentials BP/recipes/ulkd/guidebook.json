@@ -1,0 +1,33 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:guidebook"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:paper"
+      },
+      "Y": {
+        "item": "minecraft:torch"
+      }
+    },
+    "pattern": [
+      "YY",
+      "XX"
+    ],
+    "result": {
+      "item": "ulkd_ess:guidebook",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:paper"
+      }
+    ]
+  }
+}

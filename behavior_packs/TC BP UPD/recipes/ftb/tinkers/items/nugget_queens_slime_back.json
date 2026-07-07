@@ -1,0 +1,23 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ftb_tc:nugget_queens_slime_back"
+    },
+    "tags": ["crafting_table"],
+    "ingredients": [
+      {
+        "item": "ftb_tc:queens_slime_ingot"
+      }
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": [
+      {
+        "item": "ftb_tc:queens_slime_nugget",
+        "count": 9
+      }
+    ]
+  }
+}

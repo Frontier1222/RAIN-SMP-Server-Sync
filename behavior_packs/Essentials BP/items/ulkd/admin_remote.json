@@ -1,0 +1,24 @@
+{
+	"format_version": "1.21.70",
+	"minecraft:item": {
+		"description": {
+			"identifier": "ulkd_ess:admin_remote",
+			"menu_category": {
+				"category": "equipment",
+				"group": "ulkd_ess:itemGroup.name.admin"
+			}
+		},
+		"components": {
+			"minecraft:max_stack_size": 1,
+			"minecraft:icon": "unlinked.essentials:admin_remote",
+			"minecraft:custom_components": [
+				"ulkd_ess:form"
+			],
+			"minecraft:tags": {
+				"tags": [
+					"ulkd_ess:form_admin_remote"
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:slab.terracotta.magenta"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:magenta_terracotta"
+      }
+    },
+    "pattern": [
+      "XXX"
+    ],
+    "result": {
+      "item": "ulkd_ess:slab.terracotta.magenta",
+      "count": 6
+    },
+    "unlock": [
+      {
+        "item": "minecraft:magenta_terracotta"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

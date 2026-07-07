@@ -1,0 +1,77 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.ftb_tc.seared_tank": {
+      "geometry": "Geometry.variant_0",
+      "materials": [ { "*": "Material.default" } ],
+      "part_visibility": [ { "*": true }, { "ftb_liquid_glow*": false } ],
+      "textures": [ "texture.empty" ]
+    },
+    "controller.render.ftb_tc.seared_tank_liquid": {
+      "geometry": "Array.geo[query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0", "Geometry.variant_1", "Geometry.variant_2", "Geometry.variant_3",
+            "Geometry.variant_4", "Geometry.variant_5", "Geometry.variant_6", "Geometry.variant_7",
+            "Geometry.variant_8", "Geometry.variant_9", "Geometry.variant_10", "Geometry.variant_11",
+            "Geometry.variant_12", "Geometry.variant_13", "Geometry.variant_14", "Geometry.variant_15",
+            "Geometry.variant_16", "Geometry.variant_17", "Geometry.variant_18", "Geometry.variant_19",
+            "Geometry.variant_20"
+          ]
+        }
+      },
+      "materials": [ { "*": "Material.liquid" } ],
+      "uv_anim": {
+        "offset": [ 0.0, "math.mod(math.floor(query.life_time * .5), 32) / 32" ],
+        "scale": [ 1.0, "1 / 39" ]
+      },
+      "part_visibility": [ { "*": false }, { "ftb_liquid_glow*": "query.property('ftb_tc:fluid_type') == 'lava'" } ],
+      "textures": [ "texture.lava" ]
+    },
+    "controller.render.ftb_tc.seared_tank_liquid_water": {
+      "geometry": "Array.geo[query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0", "Geometry.variant_1", "Geometry.variant_2", "Geometry.variant_3",
+            "Geometry.variant_4", "Geometry.variant_5", "Geometry.variant_6", "Geometry.variant_7",
+            "Geometry.variant_8", "Geometry.variant_9", "Geometry.variant_10", "Geometry.variant_11",
+            "Geometry.variant_12", "Geometry.variant_13", "Geometry.variant_14", "Geometry.variant_15",
+            "Geometry.variant_16", "Geometry.variant_17", "Geometry.variant_18", "Geometry.variant_19",
+            "Geometry.variant_20"
+          ]
+        }
+      },
+      "materials": [ { "*": "Material.liquid" } ],
+      "uv_anim": {
+        "offset": [ 0.0, "math.mod(math.floor(query.life_time * .5), 32) / 32" ],
+        "scale": [ 1.0, "1 / 39" ]
+      },
+      "part_visibility": [ { "*": false }, { "ftb_liquid_glow*": "query.property('ftb_tc:fluid_type') == 'water'" } ],
+      "textures": [ "texture.water" ]
+    },
+    "controller.render.ftb_tc.seared_tank_liquid_blaze": {
+      "geometry": "Array.geo[query.property('ftb_tc:fluid_level_1') * 10 + query.property('ftb_tc:fluid_level_2')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0", "Geometry.variant_1", "Geometry.variant_2", "Geometry.variant_3",
+            "Geometry.variant_4", "Geometry.variant_5", "Geometry.variant_6", "Geometry.variant_7",
+            "Geometry.variant_8", "Geometry.variant_9", "Geometry.variant_10", "Geometry.variant_11",
+            "Geometry.variant_12", "Geometry.variant_13", "Geometry.variant_14", "Geometry.variant_15",
+            "Geometry.variant_16", "Geometry.variant_17", "Geometry.variant_18", "Geometry.variant_19",
+            "Geometry.variant_20"
+          ]
+        }
+      },
+      "materials": [ { "*": "Material.liquid" } ],
+      "uv_anim": {
+        "offset": [ 0.0, "math.mod(math.floor(query.life_time * .5), 32) / 32" ],
+        "scale": [ 1.0, "1 / 39" ]
+      },
+      "part_visibility": [ { "*": false }, { "ftb_liquid_glow*": "query.property('ftb_tc:fluid_type') == 'blaze'" } ],
+      "textures": [ "texture.blaze" ]
+    }
+  }
+}

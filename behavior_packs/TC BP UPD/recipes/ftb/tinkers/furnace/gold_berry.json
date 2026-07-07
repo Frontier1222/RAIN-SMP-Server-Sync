@@ -1,0 +1,11 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "ftb_tc:gold_berry"
+    },
+    "tags": ["furnace", "blast_furnace"],
+    "input": "ftb_tc:gold_berry",
+    "output": "minecraft:gold_nugget"
+  }
+}

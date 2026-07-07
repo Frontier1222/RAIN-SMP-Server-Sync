@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:fake.acacia.wood"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:acacia_wood"
+      }
+    },
+    "pattern": [
+      "X X",
+      " X ",
+      "X X"
+    ],
+    "result": {
+      "item": "ulkd_ess:fake.acacia.wood",
+      "count": 2
+    },
+    "unlock": [
+      {
+        "item": "minecraft:acacia_wood"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

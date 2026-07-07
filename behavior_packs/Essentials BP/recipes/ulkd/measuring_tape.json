@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:measuring_tape"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:iron_ingot"
+      },
+      "Y": {
+        "item": "minecraft:redstone"
+      },
+      "Z": {
+        "item": "minecraft:string"
+      }
+    },
+    "pattern": [
+      "XZX",
+      "XYX",
+      "ZZX"
+    ],
+    "result": {
+      "item": "ulkd_ess:measuring_tape",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ]
+  }
+}

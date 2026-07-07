@@ -1,0 +1,192 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.particle.default": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "default"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.fire_resistance": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "fire_resistance"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.instant_damage": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "instant_damage"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.instant_health": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "instant_health"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.invisibility": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "invisibility"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.jump_boost": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "jump_boost"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.night_vision": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "night_vision"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.poison": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "poison"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.regeneration": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "regeneration"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.resistance": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "resistance"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.slow_falling": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "slow_falling"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.slowness": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "slowness"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.speed": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "speed"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.strength": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "strength"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.water_breathing": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "water_breathing"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.weakness": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "weakness"
+                    }
+                ]
+            }
+        },
+        "animation.snowgolem.wither": {
+            "loop": true,
+            "animation_length": 100000,
+            "particle_effects": {
+                "0.01": [
+                    {
+                        "effect": "wither"
+                    }
+                ]
+            }
+        }
+    }
+}

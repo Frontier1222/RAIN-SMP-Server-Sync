@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:mighty_smelting"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["Xx"],
+    "key": {
+      "X": {
+        "item": "minecraft:book"
+      },
+      "x": {
+        "item": "ftb_tc:seared_brick"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:mighty_smelting",
+      "count": 1
+    }
+  }
+}

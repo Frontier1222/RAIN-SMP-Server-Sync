@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:satchel"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:bundle"
+      },
+      "Y": {
+        "item": "minecraft:gold_ingot"
+      },
+      "Z": {
+        "item": "minecraft:string"
+      }
+    },
+    "pattern": [
+      "ZZZ",
+      "XYX",
+      "XXX"
+    ],
+    "result": {
+      "item": "ulkd_ess:satchel",
+      "count": 1
+    },
+    "unlock": [
+      {
+        "item": "minecraft:bundle"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

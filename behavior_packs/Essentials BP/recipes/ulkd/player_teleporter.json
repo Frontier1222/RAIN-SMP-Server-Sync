@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:player_teleporter"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:ender_pearl"
+      },
+      "Y": {
+        "item": "minecraft:diamond"
+      },
+      "O": {
+        "item": "minecraft:compass"
+      }
+    },
+    "pattern": [
+      "YXY",
+      "XOX",
+      "YXY"
+    ],
+    "result": {
+      "item": "ulkd_ess:player_teleporter",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:ender_pearl"
+      }
+    ]
+  }
+}

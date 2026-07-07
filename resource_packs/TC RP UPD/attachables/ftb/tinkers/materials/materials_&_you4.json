@@ -1,0 +1,40 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "ftb_tc:materials_and_you_4",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/ftb/tinkers/books/materials/page_4",
+                "back": "textures/ftb/tinkers/books/materials/back_open",
+                "controls": "textures/ftb/tinkers/books/materials/controls",
+                "jump": "textures/ftb/tinkers/books/materials/jump"
+            },
+            "geometry": {
+                "default": "geometry.ftb_tc.ftb_book_attachable"
+            },
+            "animations": {
+                "first_person": "animation.ftb_tc.book.first_person",
+                "third_person": "animation.ftb_tc.book.third_person"
+            },
+            "scripts": {
+                "animate": [
+                    {
+                        "first_person": "c.is_first_person"
+                    },
+                    {
+                        "third_person": "!c.is_first_person"
+                    }
+                ]
+            },
+            "render_controllers": [
+                "controller.render.ftb_tc.ftb_books",
+                "controller.render.ftb_tc.ftb_books_back",
+                "controller.render.ftb_tc.ftb_books_controls",
+                "controller.render.ftb_tc.ftb_books_jump"
+            ]
+        }
+    }
+}

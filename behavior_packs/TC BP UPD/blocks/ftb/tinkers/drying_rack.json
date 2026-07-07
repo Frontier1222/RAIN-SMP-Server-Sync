@@ -1,0 +1,611 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:drying_rack",
+      "menu_category": {
+        "category": "items"
+      },
+      "states": {
+        "ftb_tc:is_dried": [
+          false,
+          true
+        ],
+        "ftb_tc:item_type": [
+          "empty",
+          "beef",
+          "chicken",
+          "clownfish",
+          "fish",
+          "monster",
+          "mutton",
+          "pork",
+          "pufferfish",
+          "rabbit",
+          "salmon"
+        ]
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": [
+            "minecraft:cardinal_direction"
+          ]
+        }
+      }
+    },
+    "components": {
+      "ftb_tc:drying_rack_interact": {},
+      "tag:minecraft:is_axe_item_destructible": {},
+      "minecraft:tick": {
+        "interval_range": [
+          1,
+          1
+        ]
+      },
+      "minecraft:light_dampening": 0,
+      "tag:ftb_tc:drying_rack": {},
+      "tag:dont_break": {},
+      "tag:dont_place": {},
+      "minecraft:light_emission": 1,
+      "minecraft:flammable": false,
+      "minecraft:collision_box": {
+        "origin": [
+          -8,
+          0,
+          4.5
+        ],
+        "size": [
+          16,
+          16,
+          3
+        ]
+      },
+      "minecraft:selection_box": {
+        "origin": [
+          -8,
+          0,
+          4.5
+        ],
+        "size": [
+          16,
+          16,
+          3
+        ]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:map_color": "#544b47",
+      "minecraft:geometry": {
+        "identifier": "geometry.ftb_tc.drying_rack",
+        "bone_visibility": {
+          "base": true,
+          "item": false
+        }
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "drying_rack",
+          "render_method": "alpha_test"
+        },
+        "item": {
+          "texture": "empty",
+          "render_method": "alpha_test"
+        }
+      }
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == false && q.block_state('ftb_tc:item_type') == 'empty'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": false
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "empty",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == false && q.block_state('ftb_tc:item_type') == 'beef'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_beef",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == false && q.block_state('ftb_tc:item_type') == 'chicken'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_chicken",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == false && q.block_state('ftb_tc:item_type') == 'clownfish'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_clownfish",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == false && q.block_state('ftb_tc:item_type') == 'fish'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_fish",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == false && q.block_state('ftb_tc:item_type') == 'monster'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_monster",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == false && q.block_state('ftb_tc:item_type') == 'mutton'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_mutton",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == false && q.block_state('ftb_tc:item_type') == 'pork'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_pork",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == false && q.block_state('ftb_tc:item_type') == 'pufferfish'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_pufferfish",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == false && q.block_state('ftb_tc:item_type') == 'rabbit'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_rabbit",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == false && q.block_state('ftb_tc:item_type') == 'salmon'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_salmon",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == true && q.block_state('ftb_tc:item_type') == 'beef'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_jerky_beef",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == true && q.block_state('ftb_tc:item_type') == 'chicken'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_jerky_chicken",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == true && q.block_state('ftb_tc:item_type') == 'clownfish'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_jerky_clownfish",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == true && q.block_state('ftb_tc:item_type') == 'fish'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_jerky_fish",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == true && q.block_state('ftb_tc:item_type') == 'monster'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_jerky_monster",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == true && q.block_state('ftb_tc:item_type') == 'mutton'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_jerky_mutton",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == true && q.block_state('ftb_tc:item_type') == 'pork'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_jerky_pork",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == true && q.block_state('ftb_tc:item_type') == 'pufferfish'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_jerky_pufferfish",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == true && q.block_state('ftb_tc:item_type') == 'rabbit'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_jerky_rabbit",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_dried') == true && q.block_state('ftb_tc:item_type') == 'salmon'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.ftb_tc.drying_rack",
+            "bone_visibility": {
+              "base": true,
+              "item": true
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "drying_rack",
+              "render_method": "alpha_test"
+            },
+            "item": {
+              "texture": "ftb_jerky_salmon",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              180,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              90,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              270,
+              0
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:vanilla_book"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["ppp", "Xxx", "   "],
+    "key": {
+      "x": {
+        "item": "ftb_tc:pattern_blank"
+      },
+      "X": {
+        "item": "minecraft:slime_ball"
+      },
+      "p": {
+        "item": "minecraft:paper"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "minecraft:book",
+      "count": 1
+    }
+  }
+}

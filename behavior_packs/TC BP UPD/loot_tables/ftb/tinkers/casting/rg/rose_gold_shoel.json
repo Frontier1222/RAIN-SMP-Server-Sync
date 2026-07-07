@@ -1,0 +1,14 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "ftb_tc:part_shoel_head_rose_gold",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

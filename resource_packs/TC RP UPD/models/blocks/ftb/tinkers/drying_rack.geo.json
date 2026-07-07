@@ -1,0 +1,89 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.ftb_tc.drying_rack",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"item_display_transforms": {
+			  "gui": {
+				"translation": [0, 0, 0],
+				"rotation": [30, 225, 0],
+				"scale": [0.625, 0.625, 0.625],
+				"rotation_pivot": [0, 0, 0],
+				"scale_pivot": [0, 0, 0],
+				"fit_to_frame": true
+			  }
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "base",
+					"parent": "bone",
+					"pivot": [-12.75, 13.5, 7.5],
+					"cubes": [
+						{
+							"origin": [-6, 12, 6],
+							"size": [12, 3, 2],
+							"uv": {
+								"north": {"uv": [2, 18], "uv_size": [12, 3]},
+								"east": {"uv": [0, 18], "uv_size": [2, 3]},
+								"south": {"uv": [16, 18], "uv_size": [12, 3]},
+								"west": {"uv": [14, 18], "uv_size": [2, 3]},
+								"up": {"uv": [14, 18], "uv_size": [-12, -2]},
+								"down": {"uv": [26, 18], "uv_size": [-12, -2]}
+							}
+						},
+						{
+							"origin": [5.75, 11.5, 5.5],
+							"size": [2, 4, 3],
+							"uv": {
+								"north": {"uv": [3, 24], "uv_size": [2, 4]},
+								"east": {"uv": [0, 24], "uv_size": [3, 4]},
+								"south": {"uv": [8, 24], "uv_size": [2, 4]},
+								"west": {"uv": [5, 24], "uv_size": [3, 4]},
+								"up": {"uv": [5, 24], "uv_size": [-2, -3]},
+								"down": {"uv": [7, 24], "uv_size": [-2, -3]}
+							}
+						},
+						{
+							"origin": [-7.75, 11.5, 5.5],
+							"size": [2, 4, 3],
+							"uv": {
+								"north": {"uv": [13, 24], "uv_size": [2, 4]},
+								"east": {"uv": [10, 24], "uv_size": [3, 4]},
+								"south": {"uv": [18, 24], "uv_size": [2, 4]},
+								"west": {"uv": [15, 24], "uv_size": [3, 4]},
+								"up": {"uv": [15, 24], "uv_size": [-2, -3]},
+								"down": {"uv": [17, 24], "uv_size": [-2, -3]}
+							}
+						}
+					]
+				},
+				{
+					"name": "item",
+					"parent": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0.75, 10],
+							"size": [16, 16, 0],
+							"inflate": -3,
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [32, 32], "material_instance": "item"}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

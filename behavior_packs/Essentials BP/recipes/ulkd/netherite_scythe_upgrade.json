@@ -1,0 +1,18 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_smithing_transform": {
+    "description": {
+      "identifier": "ulkd_ess:netherite_scythe_upgrade"
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "tags": [
+      "smithing_table"
+    ],
+    "template": "minecraft:netherite_upgrade_smithing_template",
+    "base": "ulkd_ess:scythe_diamond",
+    "addition": "minecraft:netherite_ingot",
+    "result": "ulkd_ess:scythe_netherite"
+  }
+}

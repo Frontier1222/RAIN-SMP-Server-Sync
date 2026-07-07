@@ -1,0 +1,28 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:berry_bundle"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "Bb"
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:bundle"
+      },
+      "b": {
+        "tag": "ftb:ore_berry"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:berry_bundle"
+    }
+  }
+}

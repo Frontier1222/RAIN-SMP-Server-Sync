@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:slab.terracotta.pink"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:pink_terracotta"
+      }
+    },
+    "pattern": [
+      "XXX"
+    ],
+    "result": {
+      "item": "ulkd_ess:slab.terracotta.pink",
+      "count": 6
+    },
+    "unlock": [
+      {
+        "item": "minecraft:pink_terracotta"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

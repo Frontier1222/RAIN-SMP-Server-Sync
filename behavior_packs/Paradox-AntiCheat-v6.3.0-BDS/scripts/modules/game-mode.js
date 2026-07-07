@@ -1,0 +1,47 @@
+import { GameMode } from "@minecraft/server";
+import { paradoxModulesDB } from "../event-listeners/world-initialize.js";
+import { EventCoordinator } from "../classes/event-coordinator.js";
+/**
+ * Handles game mode change events and enforces allowed game modes.
+ * @param event - The game mode change event.
+ */
+function handleGameModeChange(event) {
+    const player = event.player;
+    // Bypass for high-security users
+    if (player.getDynamicProperty("securityClearance") === 4)
+        return;
+    const settings = paradoxModulesDB.get("gamemodeCheck_b")?.settings ?? {
+        Adventure: true,
+        Creative: true,
+        Survival: true,
+        Spectator: true,
+    };
+    const to = event.toGameMode;
+    const from = event.fromGameMode;
+    const isAllowed = (gm) => settings[gm] ?? false;
+    if (isAllowed(to))
+        return;
+    if (isAllowed(from)) {
+        player.setGameMode(from);
+        return;
+    }
+    const fallback = [GameMode.Survival, GameMode.Adventure, GameMode.Creative, GameMode.Spectator].find((gm) => isAllowed(gm));
+    if (fallback) {
+        player.setGameMode(fallback);
+    }
+    else {
+        player.sendMessage("§c[Paradox] No game modes are currently allowed. Contact an admin.");
+    }
+}
+/**
+ * Subscribes to game mode changes and enforces restrictions.
+ */
+export function startGameModeCheck() {
+    EventCoordinator.subscribeAfter("playerGameModeChange", handleGameModeChange);
+}
+/**
+ * Unsubscribes from game mode change enforcement.
+ */
+export function stopGameModeCheck() {
+    EventCoordinator.unsubscribeAfter("playerGameModeChange", handleGameModeChange);
+}

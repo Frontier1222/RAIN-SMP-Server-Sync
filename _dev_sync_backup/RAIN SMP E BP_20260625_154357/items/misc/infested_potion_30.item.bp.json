@@ -1,0 +1,35 @@
+{
+    "format_version": "1.21.60",
+    "minecraft:item": {
+        "description": {
+            "identifier": "viberater:infested_potion_30",
+            "menu_category": {
+                "category": "equipment"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "Potion of Infestation (0:30)"
+            },
+            "minecraft:icon": {
+                "textures": {
+                    "default": "viberater.infested_potion_30"
+                }
+            },
+            "minecraft:max_stack_size": {
+                "value": 1
+            },
+            "minecraft:use_modifiers": {
+                "use_duration": 32,
+                "movement_modifier": 0.35
+            },
+            "minecraft:use_animation": "drink",
+            "minecraft:food": {
+                "nutrition": 0,
+                "saturation_modifier": 0,
+                "can_always_eat": true,
+                "using_converts_to": "minecraft:glass_bottle"
+            }
+        }
+    }
+}

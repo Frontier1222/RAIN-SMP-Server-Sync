@@ -1,0 +1,32 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "ftb_tc:modifier_worktable",
+			"materials": {
+				"default": "snowball"
+			},
+			"textures": {
+				"default": ""
+			},
+			"geometry": {
+				"default": "geometry.ftb_tc.modifier_worktable"
+			},
+			"animations": {
+				"stop_rotate": "animation.ftb_tc.stop_rotate",
+				"item_scale": "animation.ftb_tc.pedestal_display_item"
+			  },
+			  "animation_controllers": [
+				{
+				  "stop_rotate": "controller.animation.ftb_tc.stop_rotate"
+				},
+				{
+				  "item_scale": "controller.animation.ftb_tc.pedestal"
+				}
+			  ],
+			"render_controllers": [
+				"controller.render.ftb_tc.ftb_tc_projectile"
+			]
+		}
+	}
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:stencil_table_acacia"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["P", "X"],
+    "key": {
+      "P": {
+        "item": "ftb_tc:pattern_blank"
+      },
+      "X": {
+        "item": "minecraft:planks",
+        "data": 4
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:stencil_table_acacia"
+    }
+  }
+}

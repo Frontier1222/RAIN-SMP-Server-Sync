@@ -1,0 +1,21 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "viberater:orb_of_infinite_fuel"
+                },
+                {
+                    "type": "item",
+                    "name": "viberater:orb_of_agility"
+                },
+                {
+                    "type": "item",
+                    "name": "viberater:orb_of_nullification"
+                }
+            ]
+        }
+    ]
+}

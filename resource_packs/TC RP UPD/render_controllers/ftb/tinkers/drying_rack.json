@@ -1,0 +1,68 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.ftb_tc.drying_rack": {
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "part_visibility": [
+        {
+          "*": true
+        },
+        {
+          "item*": false
+        }
+      ],
+			"textures": [
+				"Texture.default"
+			]
+    },
+    "controller.render.ftb_tc.drying_rack_items": {
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "item*": true
+        }
+      ],
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.item_variant_0",
+            "Texture.item_variant_1",
+            "Texture.item_variant_2",
+            "Texture.item_variant_3",
+            "Texture.item_variant_4",
+            "Texture.item_variant_5",
+            "Texture.item_variant_6",
+            "Texture.item_variant_7",
+            "Texture.item_variant_8",
+            "Texture.item_variant_9",
+            "Texture.item_variant_10",
+            "Texture.item_variant_11",
+            "Texture.item_variant_12",
+            "Texture.item_variant_13",
+            "Texture.item_variant_14",
+            "Texture.item_variant_15",
+            "Texture.item_variant_16",
+            "Texture.item_variant_17",
+            "Texture.item_variant_18",
+            "Texture.item_variant_19",
+            "Texture.item_variant_20"
+          ]
+        }
+      },
+      "textures": ["array.skins[query.property('ftb_tc:is_food')]"]
+    }
+  }
+}

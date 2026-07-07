@@ -1,0 +1,43 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:remote"
+    },
+    "priority": 2,
+    "key": {
+      "Z": {
+        "item": "minecraft:echo_shard"
+      },
+      "X": {
+        "item": "minecraft:nether_star"
+      },
+      "Y": {
+        "item": "minecraft:nautilus_shell"
+      },
+      "Q": {
+        "item": "minecraft:redstone"
+      },
+      "O": {
+        "item": "minecraft:recovery_compass"
+      }
+    },
+    "pattern": [
+      "ZYZ",
+      "QXQ",
+      "QOQ"
+    ],
+    "result": {
+      "item": "ulkd_ess:remote",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:echo_shard"
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:sky_tall_grass"
+    },
+    "components": {
+      "tag:minecraft:is_shovel_item_destructible": {},
+      "minecraft:collision_box": false,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0
+      },
+      "minecraft:loot": "loot_tables/ftb/tinkers/blocks/grass/sky_tall_grass.json",
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0
+      },
+      "minecraft:selection_box": {
+        "origin": [
+          -6,
+          0,
+          -6
+        ],
+        "size": [
+          10,
+          10,
+          10
+        ]
+      },
+      "minecraft:geometry": "geometry.ftb_tc.ftb_tc_tall_grass",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "tall_grass_sky",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:light_dampening": 0,
+      "minecraft:map_color": "#32a852"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+    "format_version": 2,
+    "metadata": {
+        "generated_with": {
+            "blockbench_item_wizard": ["1.2.4"]
+        }
+    },
+    "header": {
+        "name": "RAIN SMP E RP",
+        "description": "Custom UI and Textures 65",
+        "min_engine_version": [1, 21, 0],
+        "uuid": "e1b873a8-1336-4ea0-ba78-3a56085796e9",
+        "version": [1, 0, 65]
+    },
+    "modules": [
+        {
+            "description": "resource",
+            "type": "resources",
+            "uuid": "086a4b73-dbcf-4f29-bc04-aa4d9db7d6c6",
+            "version": [1, 0, 65]
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "8e903fca-2c7d-4904-fe44-8f3891a0c35b",
+            "version": [1, 0, 0]
+        }
+    ]
+}

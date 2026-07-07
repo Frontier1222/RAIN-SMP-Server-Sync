@@ -1,0 +1,293 @@
+{
+    "format_version": "1.17.20",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "viberater:zombie",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "zombie_ability_inactive": {
+                "minecraft:entity_sensor": {
+                    "minimum_count": 1,
+                    "sensor_range": 24,
+                    "event": "zombie_ability_active",
+                    "event_filters": {
+                        "all_of": [
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "player"
+                            },
+                            {
+                                "none_of": {
+                                    "test": "has_ability",
+                                    "subject": "other",
+                                    "value": "instabuild"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "zombie_horde_active": {
+                "minecraft:timer": {
+                    "looping": false,
+                    "time": [
+                        5,
+                        10
+                    ],
+                    "time_down_event": {
+                        "event": "zombie_ability_reset"
+                    }
+                }
+            },
+            "zombie_speed_active": {
+                "minecraft:timer": {
+                    "looping": false,
+                    "time": [
+                        20,
+                        25
+                    ],
+                    "time_down_event": {
+                        "event": "zombie_ability_reset"
+                    }
+                }
+            },
+            "zombie_hunger_active": {
+                "minecraft:timer": {
+                    "looping": false,
+                    "time": [
+                        10,
+                        15
+                    ],
+                    "time_down_event": {
+                        "event": "zombie_ability_reset"
+                    }
+                }
+            }
+        },
+        "components": {
+            "minecraft:water_movement": {
+                "drag_factor": 1
+            },
+            "minecraft:boss": {
+                "should_darken_sky": true,
+                "name": "Ghoulmaster the Rotten",
+                "hud_range": 32
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.6
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "on_damage": {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_target",
+                                    "value": false
+                                },
+                                {
+                                    "test": "distance_to_nearest_player",
+                                    "operator": ">",
+                                    "value": 32
+                                }
+                            ]
+                        }
+                    },
+                    "deals_damage": false
+                }
+            },
+            "minecraft:equipment": {
+                "table": "loot_tables/bosses/zombie_boss_equipment.loot_table.json"
+            },
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:type_family": {
+                "family": [
+                    "zombie",
+                    "undead",
+                    "monster",
+                    "mob",
+                    "boss",
+                    "custom"
+                ]
+            },
+            "minecraft:equip_item": {},
+            "minecraft:collision_box": {
+                "width": 0.6,
+                "height": 1.9
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:movement": {
+                "value": 0.35
+            },
+            "minecraft:lava_movement": {
+                "value": 0.35
+            },
+            "minecraft:navigation.climb": {
+                "avoid_sun": false,
+                "avoid_water": false,
+                "avoid_damage_blocks": false,
+                "can_path_over_lava": true,
+                "can_path_over_water": true,
+                "can_walk_in_lava": true,
+                "can_sink": false
+            },
+            "minecraft:jump.static": {},
+            "minecraft:can_climb": {},
+            "minecraft:health": {
+                "value": 576,
+                "max": 5760
+            },
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "suffocate_time": 0,
+                "breathes_air": true,
+                "breathes_water": true
+            },
+            "minecraft:attack": {
+                "damage": 4,
+                "effect_name": "hunger",
+                "effect_duration": 20
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/bosses/zombie_boss_loot.loot_table.json"
+            },
+            "minecraft:despawn": {
+                "despawn_from_simulation_edge": true
+            },
+            "minecraft:behavior.equip_item": {
+                "priority": 2
+            },
+            "minecraft:behavior.melee_attack": {
+                "priority": 3
+            },
+            "minecraft:behavior.pickup_items": {
+                "priority": 6,
+                "max_dist": 3,
+                "goal_radius": 2,
+                "speed_multiplier": 1.0,
+                "pickup_based_on_chance": true,
+                "can_pickup_any_item": true,
+                "excluded_items": [
+                    "minecraft:glow_ink_sac"
+                ]
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 7,
+                "speed_multiplier": 1
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 8,
+                "look_distance": 6,
+                "probability": 0.02
+            },
+            "minecraft:behavior.random_look_around": {
+                "priority": 9
+            },
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 1
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 2,
+                "must_see": false,
+                "must_reach": false,
+                "within_radius": 32,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                }
+                            ]
+                        },
+                        "max_dist": 32
+                    }
+                ]
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "zombie_ability_inactive"
+                    ]
+                }
+            },
+            "zombie_ability_active": {
+                "randomize": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "zombie_horde_active"
+                            ]
+                        },
+                        "queue_command": {
+                            "command": "function \"boss/zombie_horde\""
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "zombie_ability_inactive"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "zombie_speed_active"
+                            ]
+                        },
+                        "queue_command": {
+                            "command": "function \"boss/zombie_speed\""
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "zombie_ability_inactive"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "zombie_hunger_active"
+                            ]
+                        },
+                        "queue_command": {
+                            "command": "function \"boss/zombie_hunger\""
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "zombie_ability_inactive"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "zombie_ability_reset": {
+                "add": {
+                    "component_groups": [
+                        "zombie_ability_inactive"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "zombie_horde_active",
+                        "zombie_speed_active",
+                        "zombie_hunger_active"
+                    ]
+                }
+            }
+        }
+    }
+}

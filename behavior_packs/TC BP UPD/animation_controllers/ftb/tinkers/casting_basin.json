@@ -1,0 +1,30 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.ftb_tc.casting_basin": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"lit": "query.is_sheared"
+						}
+					],
+					"on_entry": [
+						"/setblock ~ ~ ~ ftb_tc:barrier_block"
+					]
+				},
+				"lit": {
+					"transitions": [
+						{
+							"default": "!query.is_sheared"
+						}
+					],
+					"on_entry": [
+						"/execute at @s run function ftb/tinkers/light_block" 
+					]
+				}
+			}
+		}
+	}
+}

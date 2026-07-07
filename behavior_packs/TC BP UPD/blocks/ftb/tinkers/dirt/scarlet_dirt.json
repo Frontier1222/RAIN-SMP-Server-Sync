@@ -1,0 +1,30 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:scarlet_dirt",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "tag:dirt": {},
+      "tag:minecraft:is_shovel_item_destructible": {},
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 2
+      },
+      "minecraft:collision_box": true,
+      "minecraft:selection_box": true,
+      "minecraft:geometry": "geometry.ftb_tc.ftb_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "scarlet_dirt",
+          "render_method": "alpha_test"
+        }
+      }
+    }
+  }
+}

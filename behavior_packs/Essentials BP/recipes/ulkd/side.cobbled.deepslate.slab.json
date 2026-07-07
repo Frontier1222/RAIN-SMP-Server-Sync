@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:side.cobbled.deepslate.slab"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:cobbled_deepslate"
+      }
+    },
+    "pattern": [
+      "X",
+      "X",
+      "X"
+    ],
+    "result": {
+      "item": "ulkd_ess:side.cobbled.deepslate.slab",
+      "count": 6
+    },
+    "unlock": [
+      {
+        "item": "minecraft:cobbled_deepslate"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:copper_anvil"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["xxx", " s ", "sss"],
+    "key": {
+      "x": {
+        "item": "minecraft:copper_block"
+      },
+      "s": {
+        "item": "ftb_tc:seared_brick_block"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:tinkers_anvil_copper",
+      "count": 1
+    }
+  }
+}

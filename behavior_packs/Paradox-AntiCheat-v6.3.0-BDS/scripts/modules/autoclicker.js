@@ -1,0 +1,76 @@
+import { Player, system } from "@minecraft/server";
+import { getSecurityClearanceLevel4Players } from "../utility/level-4-security-tracker.js";
+import { EventCoordinator } from "../classes/event-coordinator.js";
+// CONFIGURATION
+const MAX_CPS = 5; // Maximum allowed clicks per second
+const TICKS_PER_SECOND = 20; // Number of ticks in one second
+const CLICK_HISTORY_SIZE = 100; // Maximum click history stored
+// PLAYER CLICK TRACKING
+/** Maps player IDs to an array of click timestamps (ticks) */
+const playerClickData = new Map();
+/**
+ * Calculate CPS for a player over the last second
+ */
+function calculateClicksPerSecond(clicks) {
+    const currentTick = system.currentTick;
+    return clicks.filter((tick) => currentTick - tick < TICKS_PER_SECOND).length;
+}
+/**
+ * Notify Level 4 staff of an autoclicker violation
+ */
+function alertStaff(attacker, cps) {
+    const staff = getSecurityClearanceLevel4Players();
+    for (const s of staff) {
+        if (s.id === attacker.id)
+            continue; // skip attacker if they are staff
+        s.sendMessage(`§2[§7Paradox§2]§o§7 §e[AutoClicker] §f${attacker.name} §7exceeded CPS limit: §e${cps} CPS`);
+    }
+}
+/**
+ * Handle the CPS check before damage is applied
+ */
+function handleHurtEvent(event) {
+    const { damageSource, hurtEntity: victim } = event;
+    if (!(damageSource.damagingEntity instanceof Player) || !(victim instanceof Player))
+        return;
+    const attacker = damageSource.damagingEntity;
+    // Exempt high-security staff
+    if (attacker.getDynamicProperty("securityClearance") === 4)
+        return;
+    // Update attacker's click history
+    const currentTick = system.currentTick;
+    if (!playerClickData.has(attacker.id)) {
+        playerClickData.set(attacker.id, []);
+    }
+    const clicks = playerClickData.get(attacker.id);
+    clicks.unshift(currentTick);
+    // Trim history
+    if (clicks.length > CLICK_HISTORY_SIZE)
+        clicks.pop();
+    // Calculate CPS
+    const cps = calculateClicksPerSecond(clicks);
+    if (cps >= MAX_CPS) {
+        // Cancel damage
+        event.damage = 0;
+        // Notify staff only
+        alertStaff(attacker, cps);
+    }
+}
+/**
+ * Cleans up stored click data when a player leaves the world.
+ */
+function handlePlayerLeave(event) {
+    playerClickData.delete(event.playerId);
+}
+/**
+ * START / STOP
+ */
+export function startAutoClicker() {
+    EventCoordinator.subscribeBefore("entityHurt", handleHurtEvent);
+    EventCoordinator.subscribeAfter("playerLeave", handlePlayerLeave);
+}
+export function stopAutoClicker() {
+    EventCoordinator.unsubscribeBefore("entityHurt", handleHurtEvent);
+    EventCoordinator.unsubscribeAfter("playerLeave", handlePlayerLeave);
+    playerClickData.clear();
+}

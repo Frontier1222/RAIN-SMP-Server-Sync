@@ -1,0 +1,34 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:world_anchor"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:diamond_block"
+      },
+      "Y": {
+        "item": "minecraft:heart_of_the_sea"
+      }
+    },
+    "pattern": [
+      " X ",
+      "XYX",
+      " X "
+    ],
+    "result": {
+      "item": "ulkd_ess:world.anchor",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:diamond_block"
+      }
+    ]
+  }
+}

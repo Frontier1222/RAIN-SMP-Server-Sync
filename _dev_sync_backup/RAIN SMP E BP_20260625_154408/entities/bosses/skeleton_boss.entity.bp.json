@@ -1,0 +1,283 @@
+{
+    "format_version": "1.18.20",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "viberater:skeleton",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "minecraft:ranged_attack": {
+                "minecraft:behavior.ranged_attack": {
+                    "priority": 0,
+                    "attack_interval_min": 0.3,
+                    "attack_interval_max": 0.75,
+                    "attack_radius": 20.0
+                },
+                "minecraft:shooter": {
+                    "def": "minecraft:arrow",
+                    "aux_val": 27
+                }
+            },
+            "skeleton_ability_inactive": {
+                "minecraft:entity_sensor": {
+                    "minimum_count": 1,
+                    "sensor_range": 24,
+                    "event": "skeleton_ability_active",
+                    "event_filters": {
+                        "all_of": [
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "player"
+                            },
+                            {
+                                "none_of": {
+                                    "test": "has_ability",
+                                    "subject": "other",
+                                    "value": "instabuild"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "skeleton_ranger_active": {
+                "minecraft:timer": {
+                    "looping": false,
+                    "time": [
+                        5,
+                        10
+                    ],
+                    "time_down_event": {
+                        "event": "skeleton_ability_reset"
+                    }
+                }
+            },
+            "skeleton_debilitate_active": {
+                "minecraft:timer": {
+                    "looping": false,
+                    "time": [
+                        20,
+                        25
+                    ],
+                    "time_down_event": {
+                        "event": "skeleton_ability_reset"
+                    }
+                }
+            },
+            "skeleton_iron_active": {
+                "minecraft:timer": {
+                    "looping": false,
+                    "time": [
+                        10,
+                        15
+                    ],
+                    "time_down_event": {
+                        "event": "skeleton_ability_reset"
+                    }
+                }
+            }
+        },
+        "components": {
+            "minecraft:water_movement": {
+                "drag_factor": 1
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.6
+            },
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:experience_reward": {
+                "on_death": 100
+            },
+            "minecraft:equip_item": {},
+            "minecraft:collision_box": {
+                "width": 0.6,
+                "height": 1.9
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "skeleton",
+                    "undead",
+                    "monster",
+                    "mob",
+                    "boss",
+                    "custom"
+                ]
+            },
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "suffocate_time": 0,
+                "breathes_water": true
+            },
+            "minecraft:health": {
+                "value": 864,
+                "max": 8640
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/bosses/skeleton_boss_loot.loot_table.json"
+            },
+            "minecraft:movement": {
+                "value": 0.25
+            },
+            "minecraft:lava_movement": {
+                "value": 0.25
+            },
+            "minecraft:navigation.climb": {
+                "avoid_sun": false,
+                "avoid_water": false,
+                "can_path_over_lava": true,
+                "can_path_over_water": true,
+                "can_walk_in_lava": true,
+                "can_sink": false
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:jump.static": {},
+            "minecraft:can_climb": {},
+            "minecraft:nameable": {},
+            "minecraft:equipment": {
+                "table": "loot_tables/bosses/skeleton_boss_gear.loot_table.json"
+            },
+            "minecraft:despawn": {
+                "despawn_from_simulation_edge": true
+            },
+            "minecraft:boss": {
+                "should_darken_sky": true,
+                "name": "Grimskull the Forgotten",
+                "hud_range": 32
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "on_damage": {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_target",
+                                    "value": false
+                                },
+                                {
+                                    "test": "distance_to_nearest_player",
+                                    "operator": ">",
+                                    "value": 32
+                                }
+                            ]
+                        }
+                    },
+                    "deals_damage": false
+                }
+            },
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 1
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 2,
+                "must_see": true,
+                "reselect_targets": true,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "player"
+                        },
+                        "max_dist": 32
+                    }
+                ]
+            },
+            "minecraft:behavior.equip_item": {
+                "priority": 3
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 6,
+                "debilitate_multiplier": 1
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 7,
+                "look_distance": 8
+            },
+            "minecraft:behavior.random_look_around": {
+                "priority": 8
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:ranged_attack",
+                        "skeleton_ability_inactive"
+                    ]
+                }
+            },
+            "skeleton_ability_active": {
+                "randomize": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "skeleton_ranger_active"
+                            ]
+                        },
+                        "queue_command": {
+                            "command": "function \"boss/skeleton_ranger\""
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "skeleton_ability_inactive"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "skeleton_debilitate_active"
+                            ]
+                        },
+                        "queue_command": {
+                            "command": "function \"boss/skeleton_debilitate\""
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "skeleton_ability_inactive"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "skeleton_iron_active"
+                            ]
+                        },
+                        "queue_command": {
+                            "command": "function \"boss/skeleton_iron\""
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "skeleton_ability_inactive"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "skeleton_ability_reset": {
+                "add": {
+                    "component_groups": [
+                        "skeleton_ability_inactive"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "skeleton_ranger_active",
+                        "skeleton_debilitate_active",
+                        "skeleton_iron_active"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "ulkd_ess:sleeping_bag",
+			"materials": {
+				"default": "zombie"
+			},
+			"textures": {
+				"default": "textures/unlinked/essentials/sleeping_bag"
+			},
+			"geometry": {
+				"default": "geometry.ulkd_ess.sleeping_bag"
+			},
+			"render_controllers": [
+				"controller.render.default"
+			],
+			"enable_attachables": false
+		}
+	}
+}

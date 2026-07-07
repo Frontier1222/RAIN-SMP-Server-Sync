@@ -1,0 +1,32 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ulkd_ess:wooden_paxel"
+    },
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "minecraft:wooden_pickaxe"
+      },
+      {
+        "item": "minecraft:wooden_axe"
+      },
+      {
+        "item": "minecraft:wooden_shovel"
+      }
+    ],
+    "result": {
+      "item": "ulkd_ess:paxel_wooden",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:wooden_pickaxe"
+      }
+    ]
+  }
+}

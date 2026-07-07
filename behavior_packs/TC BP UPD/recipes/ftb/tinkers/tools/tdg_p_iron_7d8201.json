@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:tdg_p_iron_7d8201"},"tags":["smelters_station"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:dagger_blade_pig_iron_crossguard_ardite"},"ingredients":[{"item":"ftb_tc:part_dagger_crossguard_ardite"},{"item":"ftb_tc:part_dagger_blade_pig_iron"}]}}

@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:ts_coba_70df71"},"tags":["smelters_anvil"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:sword_guard_netherite_blade_cobalt"},"ingredients":[{"item":"ftb_tc:part_sword_guard_netherite"},{"item":"ftb_tc:part_sword_blade_cobalt"}]}}

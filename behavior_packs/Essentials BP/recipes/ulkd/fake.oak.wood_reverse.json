@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ulkd_ess:fake.oak.wood_reverse"
+    },
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "ulkd_ess:fake.oak.wood",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "minecraft:oak_wood",
+      "count": 5
+    },
+    "unlock": [
+      {
+        "item": "ulkd_ess:fake.oak.wood"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

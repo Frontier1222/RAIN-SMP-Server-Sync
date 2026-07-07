@@ -1,0 +1,33 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:melter_proxy"
+     },
+    "components": {
+      "minecraft:custom_components": [
+        "ftb_tc:melter_proxy_logic"
+      ],
+      "tag:minecraft:is_pickaxe_item_destructible": {},
+      "minecraft:loot": "loot_tables/ftb/tinkers/melter.json",
+      "tag:ftb_tc:melter_proxy": {},
+      "minecraft:collision_box": true,
+      "minecraft:selection_box": true,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 15
+      },
+      "minecraft:geometry": {
+        "identifier": "geometry.ftb_tc.custom_block"
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "empty",
+          "render_method": "alpha_test"
+        }
+      }
+    }
+  }
+}

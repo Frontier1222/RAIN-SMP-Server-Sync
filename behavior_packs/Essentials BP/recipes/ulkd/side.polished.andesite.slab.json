@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:side.polished.andesite.slab"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:polished_andesite"
+      }
+    },
+    "pattern": [
+      "X",
+      "X",
+      "X"
+    ],
+    "result": {
+      "item": "ulkd_ess:side.polished.andesite.slab",
+      "count": 6
+    },
+    "unlock": [
+      {
+        "item": "minecraft:polished_andesite"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

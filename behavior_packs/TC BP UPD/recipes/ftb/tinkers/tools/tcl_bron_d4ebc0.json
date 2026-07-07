@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:tcl_bron_d4ebc0"},"tags":["smelters_anvil"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:cleaver_head_bronze_guard_bronze"},"ingredients":[{"item":"ftb_tc:part_cleaver_guard_bronze"},{"item":"ftb_tc:part_cleaver_head_bronze"}]}}

@@ -1,0 +1,181 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:glow",
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": [
+            "minecraft:facing_direction"
+          ]
+        }
+      }
+    },
+    "components": {
+      "minecraft:light_emission": 15,
+      "minecraft:loot": "loot_tables/empty.json",
+      "minecraft:geometry": "geometry.ftb_tc.glow_down",
+      "minecraft:collision_box": false,
+      "minecraft:selection_box": {
+        "origin": [
+          -8,
+          0,
+          -8
+        ],
+        "size": [
+          16,
+          1,
+          16
+        ]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.25
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 2
+      },
+      "minecraft:material_instances": {
+        "up": {
+          "texture": "glow",
+          "render_method": "blend"
+        },
+        "down": {
+          "texture": "glow",
+          "render_method": "blend"
+        },
+        "north": {
+          "texture": "glow",
+          "render_method": "blend"
+        },
+        "south": {
+          "texture": "glow",
+          "render_method": "blend"
+        },
+        "east": {
+          "texture": "glow",
+          "render_method": "blend"
+        },
+        "west": {
+          "texture": "glow",
+          "render_method": "blend"
+        }
+      }
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'down' || q.block_state('minecraft:facing_direction') == 'down'",
+        "components": {
+          "minecraft:collision_box": false,
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              1,
+              16
+            ]
+          },
+          "minecraft:geometry": "geometry.ftb_tc.glow_down"
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'up' || q.block_state('minecraft:facing_direction') == 'up'",
+        "components": {
+          "minecraft:collision_box": false,
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              15,
+              -8
+            ],
+            "size": [
+              16,
+              1,
+              16
+            ]
+          },
+          "minecraft:geometry": "geometry.ftb_tc.glow_up"
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'north' || q.block_state('minecraft:facing_direction') == 'north'",
+        "components": {
+          "minecraft:collision_box": false,
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -7
+            ],
+            "size": [
+              16,
+              16,
+              1
+            ]
+          },
+          "minecraft:geometry": "geometry.ftb_tc.glow_north"
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'east' || q.block_state('minecraft:facing_direction') == 'east'",
+        "components": {
+          "minecraft:collision_box": false,
+          "minecraft:selection_box": {
+            "origin": [
+              -7,
+              0,
+              -8
+            ],
+            "size": [
+              1,
+              16,
+              16
+            ]
+          },
+          "minecraft:geometry": "geometry.ftb_tc.glow_east"
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'south' || q.block_state('minecraft:facing_direction') == 'south'",
+        "components": {
+          "minecraft:collision_box": false,
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              7
+            ],
+            "size": [
+              16,
+              16,
+              1
+            ]
+          },
+          "minecraft:geometry": "geometry.ftb_tc.glow_south"
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'west' || q.block_state('minecraft:facing_direction') == 'west'",
+        "components": {
+          "minecraft:collision_box": false,
+          "minecraft:selection_box": {
+            "origin": [
+              7,
+              0,
+              -8
+            ],
+            "size": [
+              1,
+              16,
+              16
+            ]
+          },
+          "minecraft:geometry": "geometry.ftb_tc.glow_west"
+        }
+      }
+    ]
+  }
+}

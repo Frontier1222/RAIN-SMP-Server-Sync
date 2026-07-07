@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:tinkers_chest"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " P ",
+      "LCL",
+      "LWL"
+    ],
+    "key": {
+      "P": {
+        "item": "ftb_tc:pattern_blank"
+      },
+      "C": {
+        "item": "minecraft:chest"
+      },
+      "W": {
+        "tag": "minecraft:planks"
+      },
+      "L": {
+        "item": "minecraft:lapis_lazuli"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:tinkers_chest"
+    }
+  }
+}

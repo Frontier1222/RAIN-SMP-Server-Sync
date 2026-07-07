@@ -1,0 +1,20 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "viberater:event_coin",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/invisible"
+            },
+            "geometry": {
+                "default": "geometry.coin"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

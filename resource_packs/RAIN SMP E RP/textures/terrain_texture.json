@@ -1,0 +1,8 @@
+{
+    "texture_name": "atlas.terrain",
+    "texture_data": {
+        "ae_sg:gravestone": {
+            "textures": "textures/ae_sg/blocks/gravestone"
+        }
+    }
+}

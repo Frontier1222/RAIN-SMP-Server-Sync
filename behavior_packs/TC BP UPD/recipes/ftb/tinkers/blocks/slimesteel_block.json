@@ -1,0 +1,24 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:slimesteel_block"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["xxx", "xxx", "xxx"],
+    "key": {
+      "x": {
+        "item": "ftb_tc:slimesteel_ingot"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": [
+      {
+        "item": "ftb_tc:slimesteel_block",
+        "count": 1
+      }
+    ]
+  }
+}

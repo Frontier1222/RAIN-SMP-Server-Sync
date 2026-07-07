@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:cast_chest"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " X ",
+      "SCS",
+      "SBS"
+    ],
+    "key": {
+      "X": {
+        "tag": "ftb_tc:tinkers_cast"
+      },
+      "C": {
+        "item": "minecraft:chest"
+      },
+      "B": {
+        "item": "ftb_tc:seared_brick_block"
+      },
+      "S": {
+        "item": "ftb_tc:seared_brick"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:cast_chest"
+    }
+  }
+}

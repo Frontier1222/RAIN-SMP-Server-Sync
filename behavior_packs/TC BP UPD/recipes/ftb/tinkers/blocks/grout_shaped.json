@@ -1,0 +1,28 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:grout_shaped"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["ggg", "g#s", "sss"],
+    "key": {
+      "#": {
+        "item": "minecraft:clay"
+      },
+      "g": {
+        "item": "minecraft:gravel"
+      },
+      "s": {
+        "item": "minecraft:sand"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:grout",
+      "count": 8
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"format_version":"1.20.50","minecraft:recipe_shapeless":{"description":{"identifier":"ftb_tc:ts_r_gold_63798d"},"tags":["smelters_anvil"],"unlock":{"context":"AlwaysUnlocked"},"result":{"item":"ftb_tc:sword_guard_rock_stone_blade_rose_gold"},"ingredients":[{"item":"ftb_tc:part_sword_blade_rose_gold"},{"item":"ftb_tc:part_sword_guard_stone"}]}}

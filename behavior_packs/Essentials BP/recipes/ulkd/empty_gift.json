@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:empty_gift"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:paper"
+      },
+      "Y": {
+        "item": "minecraft:chest"
+      },
+      "Z": {
+        "item": "minecraft:red_dye"
+      }
+    },
+    "pattern": [
+      "ZXZ",
+      "XYX",
+      "ZXZ"
+    ],
+    "result": {
+      "item": "ulkd_ess:empty_gift",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:paper"
+      }
+    ]
+  }
+}

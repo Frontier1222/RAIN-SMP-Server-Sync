@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:slab.dirt"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:dirt"
+      }
+    },
+    "pattern": [
+      "XXX"
+    ],
+    "result": {
+      "item": "ulkd_ess:slab.dirt",
+      "count": 6
+    },
+    "unlock": [
+      {
+        "item": "minecraft:dirt"
+      }
+    ],
+    "tags": [
+      "crafting_table"
+    ]
+  }
+}

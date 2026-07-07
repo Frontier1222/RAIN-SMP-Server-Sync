@@ -1,0 +1,62 @@
+{
+    "format_version": "1.19.0",
+    "animation_controllers": {
+        "controller.animation.ftb_tc.modifier.use": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "on_entry": [
+                    ],
+                    "transitions": [
+                        {
+                            "use": "query.property('ftb_tc:used_modifier') == true"
+                        },
+                        {
+                            "add_tool": "query.property('ftb_tc:has_tool') == true"
+                        },
+                        {
+                            "remove_tool": "query.property('ftb_tc:has_tool') == false"
+                        }
+                    ]
+                },
+                "use": {
+                    "on_entry": [
+                        "/execute at @s run scriptevent ftb_tc:add_modifier @p[r=5]",
+                        "@s ftb_tc:remove_modifier"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.property('ftb_tc:used_modifier') == false"
+                        }
+                    ]
+                },
+                "add_tool": {
+                    "on_entry": [
+                        "/execute at @s run scriptevent ftb_tc:add_tool @p[r=5]"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.property('ftb_tc:has_tool') == false"
+                        },
+                        {
+                            "use": "query.property('ftb_tc:used_modifier') == true"
+                        }
+                    ]
+                },
+                "remove_tool": {
+                    "on_entry": [
+                        "/execute at @s run scriptevent ftb_tc:remove_tool @p[r=5]"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.property('ftb_tc:has_tool') == true"
+                        },
+                        {
+                            "use": "query.property('ftb_tc:used_modifier') == true"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

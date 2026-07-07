@@ -1,0 +1,18 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "ftb_tc:piglin_brute_head_item",
+          "weight": 1
+        },
+        {
+          "type": "empty",
+          "weight": 8
+        }
+      ]
+    }
+  ]
+}

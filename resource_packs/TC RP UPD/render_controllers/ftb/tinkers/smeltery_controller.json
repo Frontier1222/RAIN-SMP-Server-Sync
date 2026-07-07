@@ -1,0 +1,2236 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.ftb_tc.smeltery_controller": {
+      "geometry": "geometry.default",
+      "arrays": {
+        "materials": {
+          "Array.materials": [
+            "Material.not_built",
+            "Material.default"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.not_built",
+            "texture.built"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Array.materials[query.property('ftb_tc:built')]"
+        }
+      ],
+      "part_visibility": [
+        {
+          "controller*": true
+        },
+        {
+          "furnace*": false
+        },
+        {
+          "outline*": true
+        },
+        {
+          "ftb_liquid_glow*": false
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:built')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_controller_furnace_lava": {
+      "geometry": "geometry.default",
+      "textures": [
+        "Texture.lava"
+      ],
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "part_visibility": [
+        {
+          "controller*": false
+        },
+        {
+          "furnace*": "query.property('ftb_tc:has_fuel')"
+        },
+        {
+          "outline*": false
+        },
+        {
+          "ftb_liquid_glow*": false
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * 1.5), 16) / 16"
+        ],
+        "scale": [
+          1.0,
+          "1 / 49"
+        ]
+      }
+    },
+    "controller.render.ftb_tc.smeltery_controller_furnace_blaze": {
+      "geometry": "geometry.default",
+      "textures": [
+        "Texture.blaze"
+      ],
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "part_visibility": [
+        {
+          "controller*": false
+        },
+        {
+          "furnace*": "query.property('ftb_tc:has_fuel_blaze')"
+        },
+        {
+          "outline*": false
+        },
+        {
+          "ftb_liquid_glow*": false
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * 1.5), 16) / 16"
+        ],
+        "scale": [
+          1.0,
+          "1 / 49"
+        ]
+      }
+    },
+    "controller.render.ftb_tc.smeltery_amethyst_bronze_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_amethyst_bronze')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_ardite_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_ardite')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_cobalt_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_cobalt')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.cobalt"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_copper_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_copper')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_diamond_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_diamond')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_emerald_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_emerald')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_gold_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_gold')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_hepatizon_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_hepatizon')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_iron_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_iron')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_manyullyn_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_manyullyn')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_netherite_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_netherite')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_pig_iron_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_pig_iron')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_queens_slime_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_queens_slime')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_rose_gold_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_rose_gold')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_slimesteel_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_slimesteel')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_earth_slime_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_earth_slime')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_ender_slime_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_ender_slime')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_scarlet_slime_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_scarlet_slime')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_sky_slime_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_sky_slime')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_tin_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_tin')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    },
+    "controller.render.ftb_tc.smeltery_bronze_l": {
+      "geometry": "Array.geo[query.property('ftb_tc:molten_bronze')]",
+      "arrays": {
+        "geometries": {
+          "Array.geo": [
+            "Geometry.variant_0",
+            "Geometry.variant_1",
+            "Geometry.variant_2",
+            "Geometry.variant_3",
+            "Geometry.variant_4",
+            "Geometry.variant_5",
+            "Geometry.variant_6",
+            "Geometry.variant_7",
+            "Geometry.variant_8",
+            "Geometry.variant_9",
+            "Geometry.variant_10",
+            "Geometry.variant_11",
+            "Geometry.variant_12",
+            "Geometry.variant_13",
+            "Geometry.variant_14",
+            "Geometry.variant_15",
+            "Geometry.variant_16",
+            "Geometry.variant_17",
+            "Geometry.variant_18",
+            "Geometry.variant_19",
+            "Geometry.variant_20",
+            "Geometry.variant_21",
+            "Geometry.variant_22",
+            "Geometry.variant_23",
+            "Geometry.variant_24",
+            "Geometry.variant_25",
+            "Geometry.variant_26",
+            "Geometry.variant_27",
+            "Geometry.variant_28",
+            "Geometry.variant_29",
+            "Geometry.variant_30",
+            "Geometry.variant_31",
+            "Geometry.variant_32",
+            "Geometry.variant_33",
+            "Geometry.variant_34",
+            "Geometry.variant_35",
+            "Geometry.variant_36",
+            "Geometry.variant_37",
+            "Geometry.variant_38",
+            "Geometry.variant_39",
+            "Geometry.variant_40"
+          ]
+        },
+        "textures": {
+          "Array.skins": [
+            "texture.empty",
+            "texture.amethyst_bronze",
+            "texture.ardite",
+            "texture.cobalt",
+            "texture.copper",
+            "texture.diamond",
+            "texture.emerald",
+            "texture.gold",
+            "texture.hepatizon",
+            "texture.iron",
+            "texture.manyullyn",
+            "texture.netherite",
+            "texture.pig_iron",
+            "texture.queens_slime",
+            "texture.rose_gold",
+            "texture.slimesteel",
+            "texture.earth_slime",
+            "texture.ender_slime",
+            "texture.scarlet_slime",
+            "texture.sky_slime",
+            "texture.tin",
+            "texture.bronze"
+          ]
+        }
+      },
+      "materials": [
+        {
+          "*": "Material.liquid"
+        }
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "math.mod(math.floor(query.life_time * .5), 32) / 32"
+        ],
+        "scale": [
+          1.0,
+          "1 / 39"
+        ]
+      },
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "ftb_liquid_glow*": "(query.average_frame_time(25) <= 0.035 ? query.distance_from_camera <= 35 : query.distance_from_camera <= 15) && query.is_on_screen"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.property('ftb_tc:material_list')]"
+      ]
+    }
+
+
+  }
+}

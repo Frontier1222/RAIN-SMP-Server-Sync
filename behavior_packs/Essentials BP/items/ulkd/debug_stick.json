@@ -1,0 +1,23 @@
+{
+    "format_version": "1.21.70",
+    "minecraft:item": {
+        "description": {
+            "identifier": "ulkd_ess:debug_stick",
+			"menu_category": {
+				"category": "equipment",
+				"group": "ulkd_ess:itemGroup.name.admin"
+			}
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:icon": "stick",
+            "minecraft:glint": true,
+            "minecraft:custom_components": [
+                "ulkd_ess:debug_stick"
+            ],
+			"minecraft:fuel": {
+				"duration": 0.25
+			}
+        }
+    }
+}

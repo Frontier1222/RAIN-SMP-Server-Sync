@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:seared_tile"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "xxx",
+      "xXx",
+      "xxx"
+    ],
+    "key": {
+      "X": {
+        "item": "ftb_tc:seared_brick"
+      },
+      "x": {
+        "item": "minecraft:prismarine_shard"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:seared_tile"
+    }
+  }
+}

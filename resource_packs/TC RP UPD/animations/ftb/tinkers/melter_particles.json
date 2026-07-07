@@ -1,0 +1,27 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.ftb_tc.melter_particles": {
+			"loop": true,
+			"animation_length": 60.0,
+			"particle_effects": {
+				"1.5": {
+					"effect": "fire",
+					"locator": "fire"
+				},
+				"17.75": {
+					"effect": "fire",
+					"locator": "fire2"
+				},
+				"33.5": {
+					"effect": "fire",
+					"locator": "fire"
+				},
+				"48.25": {
+					"effect": "fire",
+					"locator": "fire2"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ftb_tc:ingot_tin_back"
+    },
+    "tags": ["crafting_table"],
+    "ingredients": [
+      {
+        "item": "ftb_tc:tin_block"
+      }
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": [
+      {
+        "item": "ftb_tc:tin_ingot",
+        "count": 9
+      }
+    ]
+  }
+}

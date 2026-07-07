@@ -1,0 +1,29 @@
+item.bd:gui.name=§r§d§lRAIN SMP GUI
+
+entity.npc:npc_humans.name=Human NPC
+entity.npc:npc_villagers.name=Villager NPC
+entity.npc:npc_animals.name=Animal NPC
+entity.npc:npc_monsters.name=Monster NPC
+entity.npc:npc_myentity.name=Bot NPC
+entity.npc:npc_custom.name=Custom NPC
+entity.npc:npc_custom2.name=Custom NPC II
+entity.npc:npc_custom3.name=Custom NPC III
+entity.npc:npc_custom_slim.name=Slim Custom NPC
+entity.npc:npc_custom_addtion_1.name=Custom NPC Expansion
+entity.npc:npc_custom_slim_addtion_1.name=Slim Custom NPC Expansion
+entity.npc:npc_custom_expansive.name=Custom NPC Expansive
+entity.npc:attacker.name=Attacker NPC
+entity.npc:follow.name=Follow NPC
+
+item.spawn_egg.entity.npc:npc_humans.name=Human NPC
+item.spawn_egg.entity.npc:npc_villagers.name=Villager NPC
+item.spawn_egg.entity.npc:npc_animals.name=Animal NPC
+item.spawn_egg.entity.npc:npc_monsters.name=Monster NPC
+item.spawn_egg.entity.npc:npc_myentity.name=Bot NPC
+item.spawn_egg.entity.npc:npc_custom.name=Custom NPC
+item.spawn_egg.entity.npc:npc_custom2.name=Custom NPC II
+item.spawn_egg.entity.npc:npc_custom3.name=Custom NPC III
+item.spawn_egg.entity.npc:npc_custom_slim.name=Slim Custom NPC
+item.spawn_egg.entity.npc:npc_custom_addtion_1.name=Custom NPC Expansion
+item.spawn_egg.entity.npc:npc_custom_slim_addtion_1.name=Slim Custom NPC Expansion
+item.spawn_egg.entity.npc:attacker.name=Attacker NPC

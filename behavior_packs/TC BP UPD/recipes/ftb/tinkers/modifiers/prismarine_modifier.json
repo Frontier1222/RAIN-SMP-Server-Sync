@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:prismarine_modifier"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "PSP",
+      "SES",
+      "PSP"
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:prismarine_crystals"
+      },
+      "S": {
+        "item": "minecraft:prismarine_shard"
+      },
+      "E": {
+        "item": "ftb_tc:empty_modifier"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:prismarine_modifier"
+    }
+  }
+}

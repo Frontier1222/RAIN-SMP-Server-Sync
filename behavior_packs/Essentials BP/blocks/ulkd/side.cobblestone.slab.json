@@ -1,0 +1,166 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ulkd_ess:side.cobblestone.slab",
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": [
+            "minecraft:facing_direction"
+          ],
+          "y_rotation_offset": 180
+        }
+      },
+      "menu_category": {
+        "category": "construction",
+        "group": "ulkd_ess:itemGroup.name.side_slabs",
+        "is_hidden_in_commands": false
+      }
+    },
+    "components": {
+      "minecraft:geometry": "geometry.ulkd_ess.side.slab",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "cobblestone",
+          "render_method": "alpha_test",
+          "face_dimming": true,
+          "ambient_occlusion": true
+        }
+      },
+      "minecraft:collision_box": {
+        "origin": [
+          0,
+          0,
+          -8
+        ],
+        "size": [
+          8,
+          16,
+          16
+        ]
+      },
+      "minecraft:selection_box": {
+        "origin": [
+          0,
+          0,
+          -8
+        ],
+        "size": [
+          8,
+          16,
+          16
+        ]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 2.0
+      },
+      "tag:minecraft:is_pickaxe_item_destructible": {
+      },
+      "minecraft:custom_components": [
+        "ulkd_ess:place_on_face"
+      ]
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'north'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              90,
+              180
+            ]
+          },
+          "minecraft:liquid_detection": {
+            "detection_rules": [
+              {
+                "can_contain_liquid": true,
+                "on_liquid_touches": "no_reaction",
+                "stops_liquid_flowing_from_direction": [
+                  "south",
+                  "east",
+                  "west"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              180,
+              180,
+              0
+            ]
+          },
+          "minecraft:liquid_detection": {
+            "detection_rules": [
+              {
+                "can_contain_liquid": true,
+                "on_liquid_touches": "no_reaction",
+                "stops_liquid_flowing_from_direction": [
+                  "south",
+                  "east",
+                  "north"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'south'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              -90,
+              180
+            ]
+          },
+          "minecraft:liquid_detection": {
+            "detection_rules": [
+              {
+                "can_contain_liquid": true,
+                "on_liquid_touches": "no_reaction",
+                "stops_liquid_flowing_from_direction": [
+                  "north",
+                  "east",
+                  "west"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              180,
+              0,
+              0
+            ]
+          },
+          "minecraft:liquid_detection": {
+            "detection_rules": [
+              {
+                "can_contain_liquid": true,
+                "on_liquid_touches": "no_reaction",
+                "stops_liquid_flowing_from_direction": [
+                  "south",
+                  "north",
+                  "west"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

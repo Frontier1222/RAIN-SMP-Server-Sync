@@ -1,0 +1,35 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.ftb_tc.ftb_head_wall_custom",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"item_display_transforms": {
+			  "gui": {
+				"translation": [0, 0, 0],
+				"rotation": [30, 225, 0],
+				"scale": [0.625, 0.625, 0.625],
+				"rotation_pivot": [0, 0, 0],
+				"scale_pivot": [0, 0, 0],
+				"fit_to_frame": true
+			  }
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 4, 4],
+					"cubes": [
+						{"origin": [-4, 4, 0], "size": [8, 8, 8], "uv": [0, 16]},
+						{"origin": [-4, 4, 0], "size": [8, 8, 8], "inflate": 0.4, "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

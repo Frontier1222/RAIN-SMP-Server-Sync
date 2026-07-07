@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:silky_jewel"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " x ",
+      "xGx",
+      " x "
+    ],
+    "key": {
+      "x": {
+        "item": "ftb_tc:silky_cloth"
+      },
+      "G": {
+        "item": "minecraft:emerald"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": [
+      {
+        "item": "ftb_tc:silky_jewel",
+        "count": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.ftb_tc.ftb_slime": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "jump": "!query.is_on_ground"
+            },
+            {
+              "land": "query.is_on_ground"
+            }
+          ]
+        },
+        "jump": {
+          "transitions": [
+            {
+              "default": "query.is_on_ground"
+            }
+          ],
+		  "animations": [
+			"jump"
+		  ]
+        },
+        "land": {
+          "transitions": [
+            {
+              "default": "!query.is_on_ground"
+            }
+          ],
+		  "animations": [
+			"land"
+		  ]
+        }
+      }
+    }
+  }
+}

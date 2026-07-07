@@ -1,0 +1,14 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "ulkd_ess:sleeping_bag",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

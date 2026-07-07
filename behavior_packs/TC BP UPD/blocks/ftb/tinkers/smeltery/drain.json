@@ -1,0 +1,92 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ftb_tc:seared_drain",
+      "menu_category": {
+        "category": "items"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"]
+        }
+      },
+      "states": {
+        "ftb_tc:is_built": [false, true]
+      }
+     },
+    "components": {
+      "minecraft:custom_components": [
+        "ftb_tc:seared_drain"
+      ],
+      "tag:minecraft:is_pickaxe_item_destructible": {},
+      "tag:ftb_tc:seared_drain": {},
+      "minecraft:collision_box": true,
+      "minecraft:selection_box": true,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 15
+      },
+      "minecraft:geometry": {
+        "identifier": "geometry.ftb_tc.ftb_drain"
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "seared_drain",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:map_color": "#5f4a2b",
+      "minecraft:tick": {
+        "interval_range": [20, 20]
+      }
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 270, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('ftb_tc:is_built') == true",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "seared_drain_built",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

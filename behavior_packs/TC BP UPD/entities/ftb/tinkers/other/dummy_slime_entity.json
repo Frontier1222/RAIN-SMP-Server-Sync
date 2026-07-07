@@ -1,0 +1,50 @@
+{
+	"format_version": "1.20.60",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "ftb_tc:dummy_slime_entity",
+			"is_summonable": true,
+			"is_spawnable": false
+		},
+		"component_groups": {
+			"ftb_tc:remove": {
+				"minecraft:projectile": {
+					"on_hit": {
+						"remove_on_hit": {}
+					}
+				},
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:scale": {
+				"value": 0.001
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.001,
+				"height": 0.001
+			},
+			"minecraft:physics": {
+				"has_gravity": true,
+				"has_collision": true
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": [
+						"ftb_tc:remove"
+					]
+				}
+			}
+		}
+	}
+}

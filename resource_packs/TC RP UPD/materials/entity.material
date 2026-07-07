@@ -1,0 +1,12 @@
+{
+  "materials": {
+    "version": "1.0.0",
+    "ftb_liquid:entity": {
+      "+defines": [ "USE_UV_ANIM" ],
+      "+states": [ "Blending" ]
+    },
+    "ftb_liquid_glow:entity_emissive_alpha": {
+            "+defines": [ "USE_UV_ANIM" ]
+    }
+  }
+}

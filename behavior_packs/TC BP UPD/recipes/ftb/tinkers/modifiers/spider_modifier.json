@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:spider_modifier"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "FSF",
+      "SES",
+      "FSF"
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:spider_eye"
+      },
+      "F": {
+        "item": "minecraft:fermented_spider_eye"
+      },
+      "E": {
+        "item": "ftb_tc:empty_modifier"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:spider_modifier"
+    }
+  }
+}

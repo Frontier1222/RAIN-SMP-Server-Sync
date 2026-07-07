@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:super_sponge2"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:sponge"
+      },
+      "Y": {
+        "item": "minecraft:blaze_powder"
+      },
+      "Z": {
+        "item": "minecraft:fire_charge"
+      }
+    },
+    "pattern": [
+      " Y ",
+      "ZXZ",
+      " Y "
+    ],
+    "result": {
+      "item": "ulkd_ess:sponge",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:sponge"
+      }
+    ]
+  }
+}

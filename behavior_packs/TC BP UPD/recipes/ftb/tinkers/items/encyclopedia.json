@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:encyclopedia"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "ggg",
+      "gMg",
+      "ggg"
+    ],
+    "key": {
+      "M": {
+        "item": "minecraft:book"
+      },
+      "g": {
+        "item": "minecraft:gold_nugget"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:encyclopedia",
+      "count": 1
+    }
+  }
+}

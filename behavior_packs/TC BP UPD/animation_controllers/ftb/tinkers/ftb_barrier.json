@@ -1,0 +1,46 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.ftb_tc.ftb_tc_barrier": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "add": "query.property('ftb_tc:is_solid') == true"
+            },
+            {
+              "remove": "query.property('ftb_tc:is_solid') == false"
+            }
+          ]
+        },
+        "add": {
+          "transitions": [
+            {
+              "remove": "query.property('ftb_tc:is_solid') == false"
+            },
+            {
+              "default": "query.property('ftb_tc:is_solid') == false"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s if block ~ ~ ~ air run setblock ~ ~ ~ ftb_tc:barrier_block"
+          ]
+        },
+        "remove": {
+          "transitions": [
+            {
+              "add": "query.property('ftb_tc:is_solid') == true"
+            },
+            {
+              "default": "query.property('ftb_tc:is_solid') == true"
+            }
+          ],
+          "on_entry": [
+            "/execute at @s if block ~ ~ ~ ftb_tc:barrier_block run setblock ~ ~ ~ air"
+          ]
+        }
+      }
+    }
+  }
+}

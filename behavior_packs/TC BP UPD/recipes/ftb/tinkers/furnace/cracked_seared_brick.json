@@ -1,0 +1,11 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "ftb_tc:seared_brick_cracked"
+    },
+    "tags": ["furnace", "blast_furnace"],
+    "input": "ftb_tc:seared_brick_block",
+    "output": "ftb_tc:seared_brick_cracked"
+  }
+}

@@ -1,0 +1,21 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "viberater:orb_of_aviation"
+                },
+                {
+                    "type": "item",
+                    "name": "viberater:orb_of_piglin_rapacity"
+                },
+                {
+                    "type": "item",
+                    "name": "viberater:orb_of_seclusion"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:bow_queens_slime"
+    },
+    "tags": ["smelters_station"],
+    "pattern": [" #X", "# X", " #X"],
+    "key": {
+      "#": {
+        "item": "ftb_tc:part_large_handle_queens_slime"
+      },
+      "X": {
+        "item": "minecraft:string"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:bow_queens_slime",
+      "count": 1
+    }
+  }
+}

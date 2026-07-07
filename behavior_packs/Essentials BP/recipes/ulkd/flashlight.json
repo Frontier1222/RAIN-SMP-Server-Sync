@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ulkd_ess:flashlight"
+    },
+    "priority": 2,
+    "key": {
+      "X": {
+        "item": "minecraft:glowstone"
+      },
+      "Y": {
+        "item": "minecraft:yellow_dye"
+      },
+      "Z": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "pattern": [
+      " X ",
+      "YZY",
+      "YZY"
+    ],
+    "result": {
+      "item": "ulkd_ess:torch",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:glowstone"
+      }
+    ]
+  }
+}

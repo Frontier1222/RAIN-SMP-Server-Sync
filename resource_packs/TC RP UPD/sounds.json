@@ -1,0 +1,453 @@
+{
+	"entity_sounds": {
+		"entities": {
+			"ftb_tc:terracube": {
+				"events": {
+					"ambient": "",
+					"attack": {
+						"pitch": [
+							0.80,
+							1.20
+						],
+						"sound": "mob.attack"
+					},
+					"death": "mob.magmacube.small",
+					"hurt": "mob.magmacube.small",
+					"squish.big": {
+						"pitch": [
+							0.640,
+							0.960
+						],
+						"sound": "mob.magmacube.big"
+					},
+					"squish.small": {
+						"pitch": [
+							0.640,
+							0.960
+						],
+						"sound": "mob.magmacube.small"
+					}
+				},
+				"pitch": [
+					0.80,
+					1.20
+				],
+				"volume": 1.0
+			},
+			"ftb_tc:sky_slime": {
+				"events": {
+					"ambient": "",
+					"attack": {
+						"pitch": [
+							0.80,
+							1.20
+						],
+						"sound": "mob.attack"
+					},
+					"death": "mob.slime.small",
+					"hurt": "mob.slime.small",
+					"squish.big": {
+						"pitch": [
+							0.640,
+							0.960
+						],
+						"sound": "mob.slime.big"
+					},
+					"squish.small": {
+						"pitch": [
+							0.640,
+							0.960
+						],
+						"sound": "mob.slime.small"
+					}
+				},
+				"pitch": [
+					0.80,
+					1.20
+				],
+				"volume": 1.0
+			},
+			"ftb_tc:scarlet_slime": {
+				"events": {
+					"ambient": "",
+					"attack": {
+						"pitch": [
+							0.80,
+							1.20
+						],
+						"sound": "mob.attack"
+					},
+					"death": "mob.slime.small",
+					"hurt": "mob.slime.small",
+					"squish.big": {
+						"pitch": [
+							0.640,
+							0.960
+						],
+						"sound": "mob.slime.big"
+					},
+					"squish.small": {
+						"pitch": [
+							0.640,
+							0.960
+						],
+						"sound": "mob.slime.small"
+					}
+				},
+				"pitch": [
+					0.80,
+					1.20
+				],
+				"volume": 1.0
+			},
+			"ftb_tc:ender_slime": {
+				"events": {
+					"ambient": "",
+					"attack": {
+						"pitch": [
+							0.80,
+							1.20
+						],
+						"sound": "mob.attack"
+					},
+					"death": "mob.slime.small",
+					"hurt": "mob.slime.small",
+					"squish.big": {
+						"pitch": [
+							0.640,
+							0.960
+						],
+						"sound": "mob.slime.big"
+					},
+					"squish.small": {
+						"pitch": [
+							0.640,
+							0.960
+						],
+						"sound": "mob.slime.small"
+					}
+				},
+				"pitch": [
+					0.80,
+					1.20
+				],
+				"volume": 1.0
+			},
+			"ftb_tc:glowball_entity": {
+				"volume": 0,
+				"events": {
+					"death": "",
+					"hurt": "",
+					"step": ""
+				}
+			},
+			"ftb_tc:quartz_shuriken_entity": {
+				"volume": 0,
+				"events": {
+					"death": "",
+					"hurt": "",
+					"step": ""
+				}
+			},
+			"ftb_tc:flint_shuriken_entity": {
+				"volume": 0,
+				"events": {
+					"death": "",
+					"hurt": "",
+					"step": ""
+				}
+			},
+			"ftb_tc:sky_slime_seed_entity": {
+				"volume": 0,
+				"events": {
+					"death": "",
+					"hurt": "",
+					"step": ""
+				}
+			},
+			"ftb_tc:ichor_slime_seed_entity": {
+				"volume": 0,
+				"events": {
+					"death": "",
+					"hurt": "",
+					"step": ""
+				}
+			},
+			"ftb_tc:scarlet_slime_seed_entity": {
+				"volume": 0,
+				"events": {
+					"death": "",
+					"hurt": "",
+					"step": ""
+				}
+			},
+			"ftb_tc:earth_slime_seed_entity": {
+				"volume": 1.0,
+				"events": {
+					"death": "",
+					"hurt": "",
+					"step": "",
+					"spawn": "ftb_tc.slime_sling"
+				}
+			},
+			"ftb_tc:ender_slime_seed_entity": {
+				"volume": 0,
+				"events": {
+					"death": "",
+					"hurt": "",
+					"step": ""
+				}
+			},
+			"ftb_tc:nether_ore_gen": {
+				"volume": 0,
+				"events": {
+					"death": "",
+					"hurt": "",
+					"step": ""
+				}
+			},
+			"ftb_tc:earth_slime_bean_entity": {
+				"events": {
+					"spawn": {
+						"pitch": 1,
+						"sound": "dig.grass",
+						"volume": 1.0
+					},
+					"hurt": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					},
+					"death": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					}
+				}
+			},
+			"ftb_tc:ender_slime_bean_entity": {
+				"events": {
+					"spawn": {
+						"pitch": 1,
+						"sound": "dig.grass",
+						"volume": 1.0
+					},
+					"hurt": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					},
+					"death": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					}
+				}
+			},
+			"ftb_tc:scarlet_slime_bean_entity": {
+				"events": {
+					"spawn": {
+						"pitch": 1,
+						"sound": "dig.grass",
+						"volume": 1.0
+					},
+					"hurt": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					},
+					"death": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					}
+				}
+			},
+			"ftb_tc:sky_slime_bean_entity": {
+				"events": {
+					"spawn": {
+						"pitch": 1,
+						"sound": "dig.grass",
+						"volume": 1.0
+					},
+					"hurt": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					},
+					"death": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					}
+				}
+			},
+			"ftb_tc:terracube_bean_entity": {
+				"events": {
+					"spawn": {
+						"pitch": 1,
+						"sound": "dig.grass",
+						"volume": 1.0
+					},
+					"hurt": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					},
+					"death": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					}
+				}
+			},
+			"ftb_tc:ardite_fireball": {
+				"events": {
+					"hurt": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					},
+					"death": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					}
+				}
+			},
+			"ftb_tc:melter": {
+				"events": {
+					"spawn": {
+						"pitch": 1,
+						"sound": "dig.stone",
+						"volume": 1.0
+					},
+					"hurt": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					},
+					"death": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					}
+				}
+			},
+			"ftb_tc:smeltery_controller": {
+				"events": {
+					"spawn": {
+						"pitch": 1,
+						"sound": "dig.stone",
+						"volume": 1.0
+					},
+					"hurt": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					},
+					"death": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					}
+				}
+			},
+			"ftb_tc:seared_drain": {
+				"events": {
+					"spawn": {
+						"pitch": 1,
+						"sound": "dig.stone",
+						"volume": 1.0
+					},
+					"hurt": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					},
+					"death": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					}
+				}
+			},
+			"ftb_tc:seared_tank": {
+				"events": {
+					"spawn": {
+						"pitch": 1,
+						"sound": "dig.stone",
+						"volume": 1.0
+					},
+					"hurt": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					},
+					"death": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					}
+				}
+			},
+			"ftb_tc:casting_basin": {
+				"events": {
+					"spawn": {
+						"pitch": 1,
+						"sound": "dig.stone",
+						"volume": 1.0
+					},
+					"hurt": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					},
+					"death": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					}
+				}
+			},
+			"ftb_tc:casting_table": {
+				"events": {
+					"spawn": {
+						"pitch": 1,
+						"sound": "dig.stone",
+						"volume": 1.0
+					},
+					"hurt": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					},
+					"death": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					}
+				}
+			},
+			"ftb_tc:dummy_slime_entity": {
+				"events": {
+					"spawn": {
+						"pitch": [0.8, 1.2],
+						"sound": "ftb_tc.slime_sling",
+						"volume": 0.8
+					},
+					"hurt": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					},
+					"death": {
+						"pitch": 1,
+						"sound": "",
+						"volume": 0.0
+					}
+				}
+			}
+		}
+	}
+}

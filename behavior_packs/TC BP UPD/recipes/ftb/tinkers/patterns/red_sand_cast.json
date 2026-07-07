@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ftb_tc:red_sand_cast"
+    },
+    "tags": ["crafting_table"],
+    "key": {
+      "S": {
+        "item": "minecraft:sand",
+        "data": 1
+      }
+    },
+    "pattern": ["S"],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "ftb_tc:red_sand_cast",
+      "count": 4
+    }
+  }
+}

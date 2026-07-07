@@ -1,0 +1,32 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "ulkd_ess:netherite_paxel"
+    },
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "minecraft:netherite_pickaxe"
+      },
+      {
+        "item": "minecraft:netherite_axe"
+      },
+      {
+        "item": "minecraft:netherite_shovel"
+      }
+    ],
+    "result": {
+      "item": "ulkd_ess:paxel_netherite",
+      "count": 1
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:netherite_pickaxe"
+      }
+    ]
+  }
+}
