@@ -10,14 +10,14 @@
         "description": "Behavior Pack #122",
         "min_engine_version": [1, 21, 130],
         "uuid": "5c3e8a44-12bc-4876-92a1-8d2b7e1f44c9",
-        "version": [1, 0, 7148]
+        "version": [1, 0, 7152]
     },
     "modules": [
         {
             "description": "behavior",
             "type": "script",
             "uuid": "e47a92b1-56df-41c3-8a9d-3f6e8b2a11d5",
-            "version": [1, 0, 7148],
+            "version": [1, 0, 7152],
             "entry": "scripts/main.js"
         }
     ],

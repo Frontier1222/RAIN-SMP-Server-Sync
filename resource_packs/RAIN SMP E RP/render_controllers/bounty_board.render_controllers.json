@@ -1,0 +1,38 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.bounty_board.base": {
+      "geometry": "Geometry.villager",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.base"
+      ]
+    },
+    "controller.render.bounty_board.biome": {
+      "geometry": "Geometry.villager",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.biome"
+      ]
+    },
+    "controller.render.bounty_board.profession": {
+      "geometry": "Geometry.villager",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.profession"
+      ]
+    }
+  }
+}

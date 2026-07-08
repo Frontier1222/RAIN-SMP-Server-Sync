@@ -1,6 +1,6 @@
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui';
 import { Command } from '../extensions/command.js';
-import { hasPermission, BUILTIN_RANKS, ROLE_PERMISSION_DEFS, UTILITY_ROLE_TAGS, PROTECTED_ROLE_IDS, invalidateCustomRolesCache, formatPlayerRoleSummary, getCustomRoles, getRankMeta, isOperatorPlayer, syncProtectedRoleTags, OPERATOR_ROLE_TAG } from '../systems/ranks.js';
+import { hasPermission, BUILTIN_RANKS, ROLE_PERMISSION_DEFS, UTILITY_ROLE_TAGS, PROTECTED_ROLE_IDS, invalidateCustomRolesCache, formatPlayerRoleSummary, getCustomRoles, getRankMeta, isOperatorPlayer, isStaffPlayer, syncProtectedRoleTags, OPERATOR_ROLE_TAG } from '../systems/ranks.js';
 import { syncRankChatTeam } from '../systems/rankChatRuntime.js';
 import { world, system, InputPermissionCategory, GameMode } from '@minecraft/server'; 
 import { seeInv, seeEnderChest } from '../systems/seeInv.js';
@@ -72,7 +72,7 @@ function saveCustomRoles(roles) {
 
 function isStaffRank(player) {
   syncProtectedRoleTags(player);
-  return isOperatorPlayer(player);
+  return isStaffPlayer(player);
 }
 
 function canManageRoles(player) {

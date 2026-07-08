@@ -1,6 +1,7 @@
 import { world, EquipmentSlot } from "@minecraft/server"
 import { toast, toastInfo } from "../utils/realmPerf.js"
 import { MURASAME_ID, isStaffAdmin, stripMurasameFromPlayer } from "../systems/combatRules.js"
+import { canUseBountyMurasame } from "../systems/bounty.js"
 
 function isValidEntity(entity) {
     try {
@@ -33,7 +34,7 @@ world.afterEvents.entityHurt.subscribe((data) => {
 
     if (!itemStack) return;
 
-    if (itemStack.typeId === MURASAME_ID && !isStaffAdmin(damager)) {
+    if (itemStack.typeId === MURASAME_ID && !isStaffAdmin(damager) && !canUseBountyMurasame(damager, itemStack)) {
         stripMurasameFromPlayer(damager);
         return;
     }
@@ -46,7 +47,7 @@ world.afterEvents.entityHurt.subscribe((data) => {
     }
 
     if (itemStack.typeId === MURASAME_ID) {
-        if (!isStaffAdmin(damager)) return;
+        if (!isStaffAdmin(damager) && !canUseBountyMurasame(damager, itemStack)) return;
         try {
             entity.addEffect("wither", 200, { amplifier: 1 });
         } catch (e) {}
@@ -72,7 +73,7 @@ world.afterEvents.itemUse.subscribe(data => {
     const player = data.source;
     const itemStack = data.itemStack;
 
-    if (itemStack.typeId === MURASAME_ID && !isStaffAdmin(player)) {
+    if (itemStack.typeId === MURASAME_ID && !isStaffAdmin(player) && !canUseBountyMurasame(player, itemStack)) {
         stripMurasameFromPlayer(player);
         return;
     }

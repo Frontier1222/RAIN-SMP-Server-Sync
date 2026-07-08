@@ -1,8 +1,8 @@
-import { ItemComponentTypes, ItemStack, system, world } from '@minecraft/server';
-import { notify, onRealmFrame } from '../realmPerf.js';
+import { ItemComponentTypes, system, world } from '@minecraft/server';
+import { onRealmFrame } from '../realmPerf.js';
 
-/** Infestation potions are disabled server-wide. */
-export const INFESTED_POTION_DURATION_TICKS = 1;
+/** Infestation potions are nerfed server-wide. */
+export const INFESTED_POTION_DURATION_TICKS = 40;
 
 export const INFESTED_POTION_30_ID = 'viberater:infested_potion_30';
 export const INFESTED_SPLASH_POTION_30_ID = 'viberater:infested_splash_potion_30';
@@ -13,36 +13,30 @@ const INFESTED_DISPLAY_MARKER = '§r§kINF30';
 const INFESTED_READY_KEY = 'rain:inf30_ready';
 const INFESTED_CAP_EVERY_LOOPS = 4;
 const INFESTED_SYNC_EVERY_LOOPS = 4;
-const INFESTED_STRIP_EVERY_LOOPS = 30;
 const INFESTED_PROJECTILE_CLEANUP_RADIUS = 5;
-const INFESTED_BLOCK_CONTAINER_TYPES = new Set([
-    'minecraft:dispenser',
-    'minecraft:dropper',
-    'minecraft:hopper',
-]);
+const INFESTED_SILVERFISH_BLOCK_RADIUS = 7;
+const INFESTED_SILVERFISH_BLOCK_TICKS = INFESTED_POTION_DURATION_TICKS + 40;
+const INFESTED_SILVERFISH_MAX_PER_BURST = 2;
 
 let infestedCapRot = 0;
 let infestedSyncRot = 0;
+const nerfedInfestedEffectBypass = new Set();
+const nerfedInfestedSilverfishBypass = new Set();
+const activeInfestedNerfZones = [];
 
 const CUSTOM_INFESTED_POTIONS = {
     [INFESTED_POTION_30_ID]: {
-        title: 'Potion of Infestation (0:30)',
+        title: 'Potion of Infestation (0:02)',
         textureKey: 'minecraft:infested_potion',
     },
     [INFESTED_SPLASH_POTION_30_ID]: {
-        title: 'Splash Potion of Infestation (0:30)',
+        title: 'Splash Potion of Infestation (0:02)',
         textureKey: 'minecraft:infested_splash_potion',
     },
     [INFESTED_LINGERING_POTION_30_ID]: {
-        title: 'Lingering Potion of Infestation (0:30)',
+        title: 'Lingering Potion of Infestation (0:02)',
         textureKey: 'minecraft:infested_lingering_potion',
     },
-};
-
-const VANILLA_INFESTED_POTION_TO_CUSTOM = {
-    'minecraft:potion': INFESTED_POTION_30_ID,
-    'minecraft:splash_potion': INFESTED_SPLASH_POTION_30_ID,
-    'minecraft:lingering_potion': INFESTED_LINGERING_POTION_30_ID,
 };
 
 const POTION_META = {
@@ -322,16 +316,6 @@ export function hasInfestedRole(player) {
     );
 }
 
-function blockInfestedPotionUse(player) {
-    notify(
-        player,
-        'infested_potion_blocked',
-        '§c[RESTRICTED]',
-        '§7Infestation potions are disabled.',
-        'note.bass'
-    );
-}
-
 function removeInfestedEffectFromEntity(entity) {
     if (!entity) return;
 
@@ -344,63 +328,22 @@ function removeInfestedEffectFromEntity(entity) {
     } catch (e) {}
 }
 
-function stripInfestedPotionsFromContainer(container) {
-    if (!container) return false;
-    let removed = false;
-
-    for (let i = 0; i < container.size; i++) {
-        try {
-            const stack = container.getItem(i);
-            if (!stack || !isInfestedPotionStack(stack)) continue;
-            container.setItem(i, undefined);
-            removed = true;
-        } catch (e) {}
-    }
-
-    return removed;
-}
-
-function stripInfestedPotionsFromPlayer(player, notifyPlayer = false) {
-    if (!player) return false;
-
-    let removed = false;
+function getInfestedEffectDuration(entity) {
+    if (!entity?.isValid) return 0;
 
     try {
-        const inv = player.getComponent('minecraft:inventory')?.container
-            ?? player.getComponent('inventory')?.container;
-        if (stripInfestedPotionsFromContainer(inv)) {
-            removed = true;
-        }
+        const effect = entity.getEffect('minecraft:infested');
+        if (effect) return effect.duration ?? effect.durationTicks ?? 0;
     } catch (e) {}
 
     try {
-        const equippable = player.getComponent('minecraft:equippable');
-        const offhand = equippable?.getEquipment('Offhand');
-        if (offhand && isInfestedPotionStack(offhand)) {
-            equippable.setEquipment('Offhand', undefined);
-            removed = true;
-        }
-    } catch (e) {}
-
-    if (removed && notifyPlayer) {
-        blockInfestedPotionUse(player);
-    }
-
-    return removed;
-}
-
-function stripInfestedPotionsFromBlock(block) {
-    if (!block) return false;
-    const typeId = String(block.typeId || '').toLowerCase();
-    if (!INFESTED_BLOCK_CONTAINER_TYPES.has(typeId)) return false;
-
-    try {
-        const inv = block.getComponent('minecraft:inventory')?.container
-            ?? block.getComponent('inventory')?.container;
-        return stripInfestedPotionsFromContainer(inv);
+        const effect = entity.getEffect('infested');
+        if (effect) return effect.duration ?? effect.durationTicks ?? 0;
     } catch (e) {
-        return false;
+        return 0;
     }
+
+    return 0;
 }
 
 function getInfestedEffectLoreLine() {
@@ -413,9 +356,9 @@ function getInfestedPotionTitle(stack) {
     }
 
     const kind = getPotionKind(stack.typeId);
-    if (kind === 'splash') return 'Splash Potion of Infestation (0:30)';
-    if (kind === 'lingering') return 'Lingering Potion of Infestation (0:30)';
-    return 'Potion of Infestation (0:30)';
+    if (kind === 'splash') return 'Splash Potion of Infestation (0:02)';
+    if (kind === 'lingering') return 'Lingering Potion of Infestation (0:02)';
+    return 'Potion of Infestation (0:02)';
 }
 
 function hasInfestedDisplayMarker(lore) {
@@ -432,20 +375,8 @@ function isInfestedDisplaySynced(stack) {
         && hasInfestedDisplayMarker(lore);
 }
 
-function createCustomInfestedStack(typeId, amount) {
-    const stack = new ItemStack(typeId, amount);
-    stack.nameTag = CUSTOM_INFESTED_POTIONS[typeId].title;
-    stack.setLore([getInfestedEffectLoreLine(), INFESTED_DISPLAY_MARKER]);
-    return stack;
-}
-
 function syncInfestedPotionStack(stack) {
     if (!stack || !isInfestedPotionStack(stack)) return stack;
-
-    const customTypeId = VANILLA_INFESTED_POTION_TO_CUSTOM[stack.typeId];
-    if (customTypeId) {
-        return createCustomInfestedStack(customTypeId, stack.amount);
-    }
 
     if (isInfestedDisplaySynced(stack)) return stack;
 
@@ -482,7 +413,6 @@ function containerHasUnsyncedInfestedPotions(container) {
     for (let i = 0; i < container.size; i++) {
         const stack = container.getItem(i);
         if (!stack || !isInfestedPotionStack(stack)) continue;
-        if (VANILLA_INFESTED_POTION_TO_CUSTOM[stack.typeId]) return true;
         if (!isInfestedDisplaySynced(stack)) return true;
     }
 
@@ -499,7 +429,6 @@ function playerHasUnsyncedInfestedPotions(player) {
     try {
         const offhand = player.getComponent('minecraft:equippable')?.getEquipment('Offhand');
         if (!offhand || !isInfestedPotionStack(offhand)) return false;
-        if (VANILLA_INFESTED_POTION_TO_CUSTOM[offhand.typeId]) return true;
         return !isInfestedDisplaySynced(offhand);
     } catch (e) {}
 
@@ -562,17 +491,14 @@ function syncPlayerInfestedPotions(player) {
     return changed;
 }
 
-/** Staggered realm tick — keep infestation disabled and clean up old stacks. */
+/** Staggered realm tick — keep infestation capped and clean up old effects. */
 export function tickInfestedPotionRealm(frame, players) {
     if (!players?.length) return;
 
     if (onRealmFrame(INFESTED_CAP_EVERY_LOOPS, frame)) {
         infestedCapRot = (infestedCapRot + 1) % players.length;
         const player = players[infestedCapRot];
-        removeInfestedEffectFromEntity(player);
-        if (onRealmFrame(INFESTED_STRIP_EVERY_LOOPS, frame)) {
-            stripInfestedPotionsFromPlayer(player, false);
-        }
+        capInfestedEffectOnEntity(player);
     }
 
     if (!onRealmFrame(INFESTED_SYNC_EVERY_LOOPS, frame)) return;
@@ -601,19 +527,181 @@ function maybeClearInfestedReadyOnPotionChange(player, item, beforeItem) {
     }
 }
 
-function sanitizeInfestedEffectNearby(source, radius = INFESTED_PROJECTILE_CLEANUP_RADIUS) {
-    if (!source?.dimension || !source.location) return;
+function getEntitySpace(source) {
+    if (!source) return null;
 
     try {
-        for (const entity of source.dimension.getEntities({ location: source.location, maxDistance: radius })) {
-            removeInfestedEffectFromEntity(entity);
+        if ('isValid' in source && !source.isValid) return null;
+        const dimension = source.dimension;
+        const location = source.location;
+        if (!dimension || !location) return null;
+        return {
+            dimension,
+            dimensionId: dimension.id,
+            location: { x: location.x, y: location.y, z: location.z },
+        };
+    } catch (e) {
+        return null;
+    }
+}
+
+function nerfInfestedEffectNearby(source, radius = INFESTED_PROJECTILE_CLEANUP_RADIUS) {
+    const space = getEntitySpace(source);
+    if (!space) return;
+
+    try {
+        for (const entity of space.dimension.getEntities({ location: space.location, maxDistance: radius })) {
+            capInfestedEffectOnEntity(entity);
         }
     } catch (e) {}
 }
 
 export function capInfestedEffectOnEntity(entity) {
     if (!entity) return;
+    const duration = getInfestedEffectDuration(entity);
+    if (duration <= INFESTED_POTION_DURATION_TICKS) return;
+    applyNerfedInfestedEffect(entity);
+}
+
+function getCurrentTick() {
+    try {
+        return system.currentTick ?? 0;
+    } catch (e) {
+        return 0;
+    }
+}
+
+function pruneInfestedNerfZones(nowTick = getCurrentTick()) {
+    for (let i = activeInfestedNerfZones.length - 1; i >= 0; i--) {
+        if (activeInfestedNerfZones[i].expiresAt <= nowTick) {
+            activeInfestedNerfZones.splice(i, 1);
+        }
+    }
+}
+
+function rememberInfestedNerfZone(entity) {
+    const space = getEntitySpace(entity);
+    if (!space) return null;
+
+    const nowTick = getCurrentTick();
+    pruneInfestedNerfZones(nowTick);
+
+    const existingZone = getInfestedNerfZoneForEntity(entity);
+    if (existingZone) {
+        existingZone.expiresAt = Math.max(existingZone.expiresAt, nowTick + INFESTED_SILVERFISH_BLOCK_TICKS);
+        return existingZone;
+    }
+
+    const zone = {
+        dimensionId: space.dimensionId,
+        location: space.location,
+        expiresAt: nowTick + INFESTED_SILVERFISH_BLOCK_TICKS,
+        silverfishAllowed: INFESTED_SILVERFISH_MAX_PER_BURST,
+    };
+    activeInfestedNerfZones.push(zone);
+    return zone;
+}
+
+function getInfestedNerfZoneForEntity(entity) {
+    const space = getEntitySpace(entity);
+    if (!space) return null;
+
+    const nowTick = getCurrentTick();
+    pruneInfestedNerfZones(nowTick);
+
+    const radiusSq = INFESTED_SILVERFISH_BLOCK_RADIUS * INFESTED_SILVERFISH_BLOCK_RADIUS;
+    for (const zone of activeInfestedNerfZones) {
+        if (zone.dimensionId !== space.dimensionId) continue;
+
+        const dx = space.location.x - zone.location.x;
+        const dy = space.location.y - zone.location.y;
+        const dz = space.location.z - zone.location.z;
+        if ((dx * dx) + (dy * dy) + (dz * dz) <= radiusSq) return zone;
+    }
+
+    return null;
+}
+
+function limitInfestedSilverfish(entity) {
+    if (!entity?.isValid || entity.typeId !== 'minecraft:silverfish') return false;
+    if (nerfedInfestedSilverfishBypass.has(entity.id)) return false;
+
+    const zone = getInfestedNerfZoneForEntity(entity);
+    if (!zone) return false;
+
+    if (zone.silverfishAllowed > 0) {
+        zone.silverfishAllowed -= 1;
+        return false;
+    }
+
+    try {
+        entity.remove();
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+function spawnNerfedInfestedSilverfish(entity) {
+    if (!entity?.isValid) return false;
+
+    const space = getEntitySpace(entity);
+    if (!space) return false;
+    const zone = getInfestedNerfZoneForEntity(entity) ?? rememberInfestedNerfZone(entity);
+    if (!zone || zone.silverfishAllowed <= 0) return false;
+
+    zone.silverfishAllowed -= 1;
+    try {
+        const loc = space.location;
+        const spawned = space.dimension.spawnEntity('minecraft:silverfish', {
+            x: loc.x + ((Math.random() * 1.4) - 0.7),
+            y: loc.y,
+            z: loc.z + ((Math.random() * 1.4) - 0.7),
+        });
+        if (spawned?.id) {
+            nerfedInfestedSilverfishBypass.add(spawned.id);
+            system.runTimeout(() => nerfedInfestedSilverfishBypass.delete(spawned.id), INFESTED_SILVERFISH_BLOCK_TICKS);
+        }
+        return true;
+    } catch (e) {
+        zone.silverfishAllowed += 1;
+        return false;
+    }
+}
+
+function getInfestedBypassKey(entity) {
+    return entity?.id ?? '';
+}
+
+function isNerfedInfestedBypass(entity) {
+    const key = getInfestedBypassKey(entity);
+    return !!key && nerfedInfestedEffectBypass.has(key);
+}
+
+function applyNerfedInfestedEffect(entity) {
+    if (!entity?.isValid) return;
+
+    const key = getInfestedBypassKey(entity);
+    rememberInfestedNerfZone(entity);
     removeInfestedEffectFromEntity(entity);
+    if (!key) return;
+
+    nerfedInfestedEffectBypass.add(key);
+    try {
+        entity.addEffect('infested', INFESTED_POTION_DURATION_TICKS, {
+            amplifier: 0,
+            showParticles: false,
+        });
+    } catch (e) {
+        try {
+            entity.addEffect('minecraft:infested', INFESTED_POTION_DURATION_TICKS, {
+                amplifier: 0,
+                showParticles: false,
+            });
+        } catch (ignored) {}
+    }
+    system.runTimeout(() => nerfedInfestedEffectBypass.delete(key), 1);
+    system.runTimeout(() => spawnNerfedInfestedSilverfish(entity), 2);
 }
 
 function consumeHeldStack(player, itemStack) {
@@ -638,9 +726,10 @@ export function startInfestedPotionRuntime() {
             const typeId = getEffectAddTypeId(event);
             if (!typeId) return;
             if (!isInfestedEffectType(typeId) && !typeId.toLowerCase().includes('infested')) return;
+            if (isNerfedInfestedBypass(event.entity)) return;
 
             event.cancel = true;
-            system.run(() => removeInfestedEffectFromEntity(event.entity));
+            system.run(() => applyNerfedInfestedEffect(event.entity));
         });
     }
 
@@ -650,8 +739,9 @@ export function startInfestedPotionRuntime() {
 
             const typeId = getEffectAddTypeId(event);
             if (!typeId || (!isInfestedEffectType(typeId) && !typeId.toLowerCase().includes('infested'))) return;
+            if (isNerfedInfestedBypass(event.entity)) return;
 
-            system.run(() => removeInfestedEffectFromEntity(event.entity));
+            system.run(() => applyNerfedInfestedEffect(event.entity));
         });
     }
 
@@ -661,27 +751,7 @@ export function startInfestedPotionRuntime() {
             const item = event.itemStack;
             if (!player || player.typeId !== 'minecraft:player' || !isInfestedPotionStack(item)) return;
 
-            system.run(() => {
-                removeInfestedEffectFromEntity(player);
-                stripInfestedPotionsFromPlayer(player, true);
-            });
-        });
-    }
-
-    if (world.beforeEvents?.itemUse) {
-        world.beforeEvents.itemUse.subscribe((event) => {
-            const player = event.source;
-            const item = event.itemStack;
-            if (!player || player.typeId !== 'minecraft:player' || !item) return;
-
-            if (isInfestedPotionStack(item)) {
-                event.cancel = true;
-                system.run(() => {
-                    stripInfestedPotionsFromPlayer(player, true);
-                    removeInfestedEffectFromEntity(player);
-                });
-                return;
-            }
+            system.run(() => applyNerfedInfestedEffect(player));
         });
     }
 
@@ -692,7 +762,7 @@ export function startInfestedPotionRuntime() {
             const beforeItem = event.beforeItemStack;
 
             if (isInfestedPotionStack(item) || isInfestedPotionStack(beforeItem)) {
-                system.run(() => stripInfestedPotionsFromPlayer(player, false));
+                maybeClearInfestedReadyOnPotionChange(player, item, beforeItem);
                 return;
             }
 
@@ -700,25 +770,13 @@ export function startInfestedPotionRuntime() {
         });
     }
 
-    if (world.beforeEvents?.playerInteractWithBlock) {
-        world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
-            const player = event.player;
-            const block = event.block;
-            if (!player || !block) return;
+    if (world.afterEvents?.entityHurt) {
+        world.afterEvents.entityHurt.subscribe((event) => {
+            const entity = event.hurtEntity;
+            if (!entity?.isValid || entity.typeId === 'minecraft:player') return;
+            if (getInfestedEffectDuration(entity) <= 0) return;
 
-            system.run(() => {
-                if (stripInfestedPotionsFromBlock(block)) {
-                    blockInfestedPotionUse(player);
-                }
-            });
-        });
-    }
-
-    if (world.afterEvents?.playerPlaceBlock) {
-        world.afterEvents.playerPlaceBlock.subscribe((event) => {
-            const block = event.block;
-            if (!block) return;
-            system.run(() => stripInfestedPotionsFromBlock(block));
+            system.run(() => spawnNerfedInfestedSilverfish(entity));
         });
     }
 
@@ -728,11 +786,18 @@ export function startInfestedPotionRuntime() {
             if (!entity?.isValid) return;
 
             const typeId = String(entity.typeId || '').toLowerCase();
+            if (typeId === 'minecraft:silverfish') {
+                system.run(() => limitInfestedSilverfish(entity));
+                return;
+            }
+
             if (!typeId.includes('potion') && typeId !== 'minecraft:area_effect_cloud') return;
 
-            system.run(() => sanitizeInfestedEffectNearby(entity));
-            system.runTimeout(() => sanitizeInfestedEffectNearby(entity), 2);
-            system.runTimeout(() => sanitizeInfestedEffectNearby(entity), 10);
+            const source = getEntitySpace(entity);
+            if (!source) return;
+            system.run(() => nerfInfestedEffectNearby(source));
+            system.runTimeout(() => nerfInfestedEffectNearby(source), 2);
+            system.runTimeout(() => nerfInfestedEffectNearby(source), 10);
         });
     }
 
@@ -740,8 +805,7 @@ export function startInfestedPotionRuntime() {
         world.afterEvents.playerSpawn.subscribe((event) => {
             if (!event.player) return;
             system.run(() => {
-                stripInfestedPotionsFromPlayer(event.player);
-                removeInfestedEffectFromEntity(event.player);
+                capInfestedEffectOnEntity(event.player);
             });
         });
     }

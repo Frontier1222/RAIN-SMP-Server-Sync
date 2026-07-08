@@ -2086,7 +2086,7 @@ function shouldBlockClaimPvp(victim, attacker) {
 
     const victimPlot = getPlotAtLocation(victim.location, victim.dimension.id);
     const attackerPlot = getPlotAtLocation(attacker.location, attacker.dimension.id);
-    const bountyOk = allowsBountyPvp(victim);
+    const bountyOk = allowsBountyPvp(victim, attacker);
     const lockdownOk = allowsClaimLockdownPvp(victim);
 
     if (bountyOk || lockdownOk) return false;

@@ -210,12 +210,9 @@ export function syncProtectedRoleTags(player) {
       changed = true;
     }
 
-    const shouldBeStaff = STAFF_RANK_TAGS.some((tag) => player.hasTag(tag));
+    const shouldBeStaff = player.hasTag("staff") || STAFF_RANK_TAGS.some((tag) => player.hasTag(tag));
     if (shouldBeStaff && !player.hasTag("staff")) {
       player.addTag("staff");
-      changed = true;
-    } else if (!shouldBeStaff && player.hasTag("staff")) {
-      player.removeTag("staff");
       changed = true;
     }
   } catch (e) {}
@@ -227,6 +224,10 @@ export function hasPermission(player, permKey) {
   syncProtectedRoleTags(player);
 
   if (isOperatorPlayer(player)) {
+    return true;
+  }
+
+  if (player.hasTag("staff") && permKey !== "manageRoles") {
     return true;
   }
 
@@ -273,6 +274,7 @@ export function setRainGuiDisabled(player, disabled) {
 
 export function isRainGuiBlocked(player) {
   if (!player) return false;
+  if (isStaffPlayer(player)) return false;
   return player.getDynamicProperty(RAIN_GUI_DISABLED_KEY) === true;
 }
 
@@ -391,18 +393,17 @@ export function formatNameTag(player) {
 }
 
 /**
- * Returns true for the hardcoded operator or a primary staff rank.
- * The flat "staff" tag is derived and never grants access by itself.
+ * Returns true for the hardcoded operator, a primary staff rank, or the flat staff tag.
  * @param {import('@minecraft/server').Player} player
  */
 export function isStaffPlayer(player) {
   if (!player) return false;
   syncProtectedRoleTags(player);
-  return isOperatorPlayer(player) || STAFF_RANK_TAGS.some((tag) => player.hasTag(tag));
+  return isOperatorPlayer(player) || player.hasTag("staff") || STAFF_RANK_TAGS.some((tag) => player.hasTag(tag));
 }
 
 /**
- * Ensures the flat "staff" tag on the player matches their current role tags.
+ * Ensures ranked staff have the flat "staff" tag without removing manually tagged staff.
  * Called on player spawn/respawn so the tag stays in sync.
  * @param {import('@minecraft/server').Player} player
  */
@@ -411,9 +412,9 @@ export function syncStaffTagsOnJoin(player) {
   syncProtectedRoleTags(player);
   const shouldBeStaff =
     isOperatorPlayer(player) ||
+    player.hasTag("staff") ||
     STAFF_RANK_TAGS.some((tag) => player.hasTag(tag));
   try {
     if (shouldBeStaff && !player.hasTag("staff")) player.addTag("staff");
-    if (!shouldBeStaff && player.hasTag("staff")) player.removeTag("staff");
   } catch (e) {}
 }

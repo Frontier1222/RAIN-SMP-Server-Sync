@@ -1,0 +1,42 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "npc:bounty_contracts",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "base": "textures/entity/villager2/villager",
+        "biome": "textures/entity/villager2/biomes/biome_plains",
+        "profession": "textures/entity/villager2/professions/weaponsmith"
+      },
+      "geometry": {
+        "villager": "geometry.villager_v2"
+      },
+      "scripts": {
+        "animate": [
+          "setup",
+          "look_at_target",
+          {
+            "move": "query.is_moving"
+          }
+        ]
+      },
+      "animations": {
+        "setup": "animation.villager.general",
+        "look_at_target": "animation.common.look_at_target",
+        "move": "animation.villager.move"
+      },
+      "render_controllers": [
+        "controller.render.bounty_board.base",
+        "controller.render.bounty_board.biome",
+        "controller.render.bounty_board.profession"
+      ],
+      "spawn_egg": {
+        "base_color": "#f6c744",
+        "overlay_color": "#7b2ff7"
+      }
+    }
+  }
+}

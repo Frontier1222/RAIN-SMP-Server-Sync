@@ -20,6 +20,7 @@ entity.npc:npc_custom_slim_addtion_1.name=Slim Custom NPC Expansion
 entity.npc:npc_custom_expansive.name=Custom NPC Expansive
 entity.npc:attacker.name=Attacker NPC
 entity.npc:follow.name=Follow NPC
+entity.npc:bounty_contracts.name=§eBounty Board
 
 item.spawn_egg.entity.npc:npc_humans.name=Human NPC
 item.spawn_egg.entity.npc:npc_villagers.name=Villager NPC
@@ -33,3 +34,4 @@ item.spawn_egg.entity.npc:npc_custom_slim.name=Slim Custom NPC
 item.spawn_egg.entity.npc:npc_custom_addtion_1.name=Custom NPC Expansion
 item.spawn_egg.entity.npc:npc_custom_slim_addtion_1.name=Slim Custom NPC Expansion
 item.spawn_egg.entity.npc:attacker.name=Attacker NPC
+item.spawn_egg.entity.npc:bounty_contracts.name=Bounty Board

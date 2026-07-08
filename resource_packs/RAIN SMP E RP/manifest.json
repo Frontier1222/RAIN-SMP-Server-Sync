@@ -10,14 +10,14 @@
         "description": "Custom UI and Textures 70",
         "min_engine_version": [1, 21, 0],
         "uuid": "e1b873a8-1336-4ea0-ba78-3a56085796e9",
-        "version": [1, 0, 80]
+        "version": [1, 0, 82]
     },
     "modules": [
         {
             "description": "resource",
             "type": "resources",
             "uuid": "086a4b73-dbcf-4f29-bc04-aa4d9db7d6c6",
-            "version": [1, 0, 80]
+            "version": [1, 0, 82]
         }
     ],
     "dependencies": [

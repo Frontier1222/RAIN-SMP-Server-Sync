@@ -1305,6 +1305,12 @@ function getEnterBlockKey(player) {
 }
 
 function tickPlotEnterDenyForPlayer(player, force = false) {
+    if (player?.hasTag?.('bounty_mode')) {
+        enterDenyActiveWatch.delete(player.id);
+        enterDenyCombatDeferred.delete(player.id);
+        return;
+    }
+
     const location = player.location;
     const dimensionId = player.dimension.id;
     const blockKey = getEnterBlockKey(player);
