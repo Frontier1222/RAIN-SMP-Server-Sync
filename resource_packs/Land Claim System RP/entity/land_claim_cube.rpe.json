@@ -1,0 +1,26 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "viberater:land_claim_cube",
+			"materials": {
+				"default": "warden"
+			},
+			"textures": {
+				"default": "textures/entity/land_claim_cube_inactive",
+				"active": "textures/entity/land_claim_cube_active"
+			},
+			"geometry": {
+				"default": "geometry.land_claim_cube"
+			},
+			"render_controllers": [
+				"controller.render.land_claim_cube"
+			],
+			"enable_attachables": true,
+			"spawn_egg": {
+				"base_color": "#454139",
+				"overlay_color": "#ff4800"
+			}
+		}
+	}
+}

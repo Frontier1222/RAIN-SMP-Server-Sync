@@ -1,0 +1,26 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Rain SMP Land Claim System RP v2",
+        "description": "V1beR8er",
+        "uuid": "04aca096-ef4a-419d-b9d3-e475ed74f390",
+        "version": [
+            1, 0, 2
+        ],
+        "min_engine_version": [
+            1,
+            20,
+            60
+        ]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "description": "",
+            "uuid": "77269abd-8213-4875-b32b-51e10500e934",
+            "version": [
+                1, 0, 2
+            ]
+        }
+    ]
+}
