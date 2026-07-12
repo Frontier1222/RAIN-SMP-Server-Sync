@@ -1,0 +1,94 @@
+{
+    "format_version": "1.26.20",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "viberater:land_claim_cube",
+            "properties": {
+                "viberater:active": {
+                    "type": "int",
+                    "default": 1,
+                    "range": [0, 1],
+                    "client_sync": true
+                }
+            },
+            "is_summonable": true,
+            "is_spawnable": true,
+            "runtime_identifier": "minecraft:warden"
+        },
+        "component_groups": {
+            "instant_despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:health": {
+                "value": 1,
+                "max": 1,
+                "min": 1
+            },
+            "minecraft:rideable": {
+                "controlling_seat": 0,
+                "crouching_skip_interact": true,
+                "family_types": [],
+                "seat_count": 0,
+                "pull_in_entities": true,
+                "passenger_max_width": 0.1
+            },
+            "minecraft:timer": {
+                "time": 0.05,
+                "looping": true,
+                "time_down_event": {
+                    "event": "tp",
+                    "target": "self"
+                }
+            },
+            "minecraft:renders_when_invisible": {},
+            "minecraft:interact": {
+                "interactions": [
+                    {}
+                ]
+            },
+            "minecraft:rotation_axis_aligned": {},
+            "minecraft:body_rotation_blocked": {},
+            "minecraft:type_family": {
+                "family": [
+                    "inanimate",
+                    "custom",
+                    "land_claim_cube"
+                ]
+            },
+            "minecraft:collision_box": {
+                "height": 1,
+                "width": 1
+            },
+            "minecraft:is_collidable": {},
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "all",
+                        "deals_damage": "no"
+                    }
+                ]
+            }
+        },
+        "events": {
+            "instant_despawn": {
+                "add": {
+                    "component_groups": [
+                        "instant_despawn"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned": {
+                "play_sound": {
+                    "sound": "land"
+                }
+            },
+            "tp": {
+                "queue_command": {
+                    "command": "tp @s ~~~"
+                }
+            }
+        }
+    }
+}
