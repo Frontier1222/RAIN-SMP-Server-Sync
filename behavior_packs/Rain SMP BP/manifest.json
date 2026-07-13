@@ -1,0 +1,54 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Rain SMP Land Claim System BP v4",
+        "description": "V1beR8er",
+        "uuid": "3aa6a8e0-bf3f-48f7-bfb7-11123c167a9a",
+        "version": [
+            1,
+            0,
+            4
+        ],
+        "min_engine_version": [
+            1,
+            21,
+            60
+        ]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "661bd2bc-fbdf-4d95-90fc-9627391bc048",
+            "version": [
+                1,
+                0,
+                4
+            ]
+        },
+        {
+            "description": "scripts",
+            "type": "script",
+            "uuid": "72d0f5a6-b0e1-4e87-bae6-cfff00a64c20",
+            "version": [
+                1,
+                0,
+                4
+            ],
+            "entry": "scripts/main.js"
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server",
+            "version": "2.9.0-beta"
+        },
+        {
+            "module_name": "@minecraft/server-ui",
+            "version": "2.2.0-beta"
+        },
+        {
+            "module_name": "@minecraft/debug-utilities",
+            "version": "1.0.0-beta"
+        }
+    ]
+}
