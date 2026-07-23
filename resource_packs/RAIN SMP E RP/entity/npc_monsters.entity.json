@@ -92,6 +92,7 @@
           "variable.wingRotZ = 16.0 * Math.sin((variable.runtimeid * 3 + query.life_time * 20.0) * 7.448454);",
           "variable.tailRotX = -5.0 * Math.sin((variable.runtimeid * 3 + query.life_time * 20.0) * 14.896908) - 5.0;",
 		  "variable.spike_shake = Math.sin(query.life_time * 2000)/50;",
+		  "variable.spike_animation_speed = 0.0;",
 		  "variable.spike_animation_speed = query.life_time < 0.1 ? 0.0 : (!query.is_in_water ? (Math.round(Math.sin(query.life_time * 2000)) == 0.0 ? (Math.random(0.0, 1.0)) : (variable.spike_animation_speed)) : (query.is_moving ? (variable.spike_animation_speed - variable.spike_animation_speed * 0.06) : (variable.spike_animation_speed + (1.0 - variable.spike_animation_speed) * 0.06)));",
 		  "variable.spike_extension = (1.0 - variable.spike_animation_speed) * 0.55;",
 		  "variable.tail_base_angle = Math.sin(variable.tail_swim*20.0);",

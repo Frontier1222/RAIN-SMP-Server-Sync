@@ -2,6 +2,7 @@ import { system, world, ItemStack } from '@minecraft/server';
 import { getCombatRemainingSeconds } from '../../utils/teleport.js';
 import { getGlobalPlotAtLocation } from './plotHelpers.js';
 import { toastDeny, registerRealmHook, REALM_STAGGER } from '../../utils/realmPerf.js';
+import { isBountyHunterActive } from '../../systems/bounty.js';
 import {
     isStorageContainerBlock,
     isClaimWorkstationBlock,
@@ -995,6 +996,7 @@ export const plotDoorProtection = {
         if (!player || !block) return;
 
         if (!isDoorBlock(block.typeId)) return;
+        if (isBountyHunterActive(player)) return;
 
         const location = block.location;
         const dimensionId = player.dimension.id;
@@ -1305,6 +1307,12 @@ function getEnterBlockKey(player) {
 }
 
 function tickPlotEnterDenyForPlayer(player, force = false) {
+    if (player?.hasTag?.('bounty_mode')) {
+        enterDenyActiveWatch.delete(player.id);
+        enterDenyCombatDeferred.delete(player.id);
+        return;
+    }
+
     const location = player.location;
     const dimensionId = player.dimension.id;
     const blockKey = getEnterBlockKey(player);

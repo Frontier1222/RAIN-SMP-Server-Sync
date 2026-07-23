@@ -1,5 +1,6 @@
 import { ItemStack, system, world } from "@minecraft/server";
 import { REALM_STAGGER, toastDeny, nextRealmPlayer, registerRealmHook } from "./realmPerf.js";
+import { isStaffPlayer } from "../systems/ranks.js";
 
 export const PRISON_BOUNDS = {
     MIN_X: 2320,
@@ -18,7 +19,9 @@ export const RAIN_GUI_ITEM_ID = "bd:gui";
 export const PRISON_BLOCK_MESSAGE = "§cOnly prison staff can use the Rain SMP GUI inside the prison.";
 export const PRISON_TPA_MESSAGE = "§cThat player is in prison — TPA rejected.";
 
-const EFFECT_TICKS = 20000000;
+// The realm loop refreshes prison effects every two seconds. Keeping these
+// short prevents a stale intruder effect surviving a tag change or restart.
+const EFFECT_TICKS = 600;
 
 const MOB_KILL = {
     minX: PRISON_BOUNDS.MIN_X - PRISON_BOUNDS.MOB_MARGIN,
@@ -32,6 +35,7 @@ const MOB_KILL = {
 const MOB_TYPES = [
     "minecraft:creeper",
     "minecraft:warden",
+    "minecraft:elder_guardian",
 ];
 
 const PROXIMITY_PADDING = 72;
@@ -42,9 +46,11 @@ const PRISON_EFFECT_IDS = [
     "strength",
     "weakness",
     "mining_fatigue",
+    "speed",
 ];
 
 const prisonInsideState = new Map();
+const prisonRoleState = new Map();
 let prisonRuntimeStarted = false;
 let prisonLoopFrame = 0;
 
@@ -88,11 +94,28 @@ export function isPlayerInPrison(player) {
 }
 
 export function isPrisonStaff(player) {
-    return !!(
-        player?.hasTag(PRISON_BOUNDS.STAFF_TAG) ||
-        player?.hasTag("prison_admin") ||
-        player?.hasTag("prisonadmin")
-    );
+    if (!player) return false;
+
+    try {
+        if (
+            player.hasTag(PRISON_BOUNDS.STAFF_TAG) ||
+            player.hasTag("prison_admin") ||
+            player.hasTag("prisonadmin")
+        ) return true;
+    } catch (e) {}
+
+    try {
+        if (player.getTags().some((tag) => {
+            const normalized = String(tag || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+            return normalized.includes("prisonstaff") || normalized.includes("prisonadmin");
+        })) return true;
+    } catch (e) {}
+
+    try {
+        return isStaffPlayer(player);
+    } catch (e) {}
+
+    return false;
 }
 
 export function isPrisonInmate(player) {
@@ -149,9 +172,44 @@ function safeAddEffect(player, effectId, amplifier) {
 }
 
 function safeRemoveEffect(player, effectId) {
+    const bareId = String(effectId || "").replace("minecraft:", "");
+    const ids = [bareId, `minecraft:${bareId}`];
+    let apiAccepted = false;
+
+    for (const id of ids) {
+        try {
+            player.removeEffect(id);
+            apiAccepted = true;
+        } catch (e) {}
+    }
+
+    if (apiAccepted) return;
+
     try {
-        player.removeEffect(effectId);
+        player.runCommand(`effect @s clear ${bareId}`);
     } catch (e) {}
+}
+
+function forceRemoveEffect(player, effectId) {
+    const bareId = String(effectId || "").replace("minecraft:", "");
+    safeRemoveEffect(player, bareId);
+    try {
+        player.runCommand(`effect @s clear ${bareId}`);
+    } catch (e) {
+        try {
+            player.runCommand(`effect @s clear minecraft:${bareId}`);
+        } catch (commandError) {}
+    }
+}
+
+function hasEffect(player, effectId) {
+    const bareId = String(effectId || "").replace("minecraft:", "");
+    for (const id of [bareId, `minecraft:${bareId}`]) {
+        try {
+            if (player.getEffect(id)) return true;
+        } catch (e) {}
+    }
+    return false;
 }
 
 function clearPrisonEffects(player) {
@@ -166,13 +224,11 @@ function applyPrisonStaffEffects(player) {
     safeAddEffect(player, "fire_resistance", 0);
     safeAddEffect(player, "strength", 0);
     safeAddEffect(player, "speed", 1);
-    safeRemoveEffect(player, "weakness");
-    safeRemoveEffect(player, "mining_fatigue");
 }
 
 function applyPrisonerEffects(player) {
     safeAddEffect(player, "weakness", 4);
-    safeRemoveEffect(player, "mining_fatigue");
+    forceRemoveEffect(player, "mining_fatigue");
     safeRemoveEffect(player, "resistance");
     safeRemoveEffect(player, "regeneration");
     safeRemoveEffect(player, "fire_resistance");
@@ -181,6 +237,19 @@ function applyPrisonerEffects(player) {
 }
 
 function applyIntruderEffects(player) {
+    // Re-check literal role tags at the only prison source of mining fatigue.
+    // This remains authoritative even if a shared rank lookup is unavailable.
+    if (isPrisonStaff(player)) {
+        forceRemoveEffect(player, "weakness");
+        forceRemoveEffect(player, "mining_fatigue");
+        applyPrisonStaffEffects(player);
+        return;
+    }
+    if (isPrisonInmate(player)) {
+        applyPrisonerEffects(player);
+        return;
+    }
+
     safeAddEffect(player, "weakness", 4);
     safeAddEffect(player, "mining_fatigue", 15);
     safeRemoveEffect(player, "resistance");
@@ -188,6 +257,12 @@ function applyIntruderEffects(player) {
     safeRemoveEffect(player, "fire_resistance");
     safeRemoveEffect(player, "strength");
     safeRemoveEffect(player, "speed");
+}
+
+function getPrisonRole(player) {
+    if (isPrisonStaff(player)) return "staff";
+    if (isPrisonInmate(player)) return "inmate";
+    return "intruder";
 }
 
 function applyPrisonEffectsForPlayer(player) {
@@ -207,10 +282,8 @@ function applyPrisonEffectsForPlayer(player) {
 }
 
 function schedulePrisonEffects(player) {
-    if (!player?.isValid || !isPlayerInPrison(player)) return;
-    system.run(() => applyPrisonEffectsForPlayer(player));
-    system.runTimeout(() => applyPrisonEffectsForPlayer(player), 1);
-    system.runTimeout(() => applyPrisonEffectsForPlayer(player), 5);
+    if (!player?.isValid) return;
+    system.runTimeout(() => tickPrisonPlayer(player, true), 1);
 }
 
 export function denyPrisonGuiUse(player) {
@@ -284,21 +357,34 @@ export function tickPrisonPlayer(player, refreshEffects = false) {
     if (!inPrison) {
         if (wasInPrison) {
             clearPrisonEffects(player);
+        } else if (
+            (isPrisonStaff(player) || isPrisonInmate(player)) &&
+            hasEffect(player, "mining_fatigue")
+        ) {
+            // Purge fatigue that existed before a protected role was assigned.
+            forceRemoveEffect(player, "mining_fatigue");
         }
         prisonInsideState.set(player.id, false);
+        prisonRoleState.delete(player.id);
         return;
     }
 
-    const intruder = isPrisonIntruder(player);
+    const role = getPrisonRole(player);
+    const previousRole = prisonRoleState.get(player.id);
     prisonInsideState.set(player.id, true);
+    prisonRoleState.set(player.id, role);
 
-    if (!wasInPrison) {
+    if (role === "staff" && (!wasInPrison || previousRole !== role)) {
+        forceRemoveEffect(player, "weakness");
+        forceRemoveEffect(player, "mining_fatigue");
+    }
+
+    if (!wasInPrison || previousRole !== role) {
         applyPrisonEffectsForPlayer(player);
-        schedulePrisonEffects(player);
         return;
     }
 
-    if (intruder || refreshEffects) {
+    if (refreshEffects) {
         applyPrisonEffectsForPlayer(player);
     }
 }
@@ -344,6 +430,44 @@ function tickPrisonRealmLoop(players, _now, frame) {
 export function startPrisonRuntime() {
     if (prisonRuntimeStarted) return;
     prisonRuntimeStarted = true;
+
+    if (world.beforeEvents?.effectAdd) {
+        world.beforeEvents.effectAdd.subscribe((event) => {
+            try {
+                const player = event.entity;
+                if (!player || player.typeId !== "minecraft:player" || !isPrisonStaff(player)) return;
+
+                const typeId = String(
+                    event.effect?.typeId ??
+                    event.effect?.type?.id ??
+                    event.effectType?.id ??
+                    event.effectType?.typeId ??
+                    event.effectType ??
+                    ""
+                ).toLowerCase().replace("minecraft:", "");
+
+                if (typeId === "mining_fatigue") event.cancel = true;
+            } catch (e) {}
+        });
+    }
+
+    // Engine-driven effects can bypass cancellable script events. Keep an
+    // exact-tag immunity check at tick speed, but only issue a clear when the
+    // effect is genuinely present.
+    system.runInterval(() => {
+        let staffPlayers = [];
+        try {
+            staffPlayers = world.getPlayers({ tags: [PRISON_BOUNDS.STAFF_TAG] });
+        } catch (e) {
+            return;
+        }
+
+        for (const player of staffPlayers) {
+            if (hasEffect(player, "mining_fatigue")) {
+                forceRemoveEffect(player, "mining_fatigue");
+            }
+        }
+    }, 1);
 
     if (world.beforeEvents?.itemUse) {
         world.beforeEvents.itemUse.subscribe((event) => {

@@ -1,5 +1,6 @@
 import { world, system, EquipmentSlot, ItemComponentTypes } from "@minecraft/server";
 import { isStaffPlayer } from "../systems/ranks.js";
+import { canUseBountyMurasame, isBountyKitItem } from "./bounty.js";
 import { notify, toastDeny } from "../utils/realmPerf.js";
 
 export const MURASAME_ID = "viberater:epic_wither_sword";
@@ -16,6 +17,7 @@ const HARMING_EFFECTS = new Set([
     "strong_harming",
 ]);
 const BANNED_HARMING_SWEEP_TICKS = 1;
+const MURASAME_GUARD_SWEEP_TICKS = 20;
 const BANNED_HARMING_CLEAR_COMMANDS = [
     "clear @s arrow 24 999",
     "clear @s arrow 25 999",
@@ -31,6 +33,7 @@ const BANNED_HARMING_CLEAR_COMMANDS = [
     "clear @s minecraft:lingering_potion 24 999",
 ];
 let bannedHarmingSweepStarted = false;
+let murasameGuardSweepStarted = false;
 
 function getPotionEffectTypeId(item) {
     if (!item) return "";
@@ -239,11 +242,11 @@ export function stripMurasameFromPlayer(player) {
 
     let removed = false;
     try {
-        const inv = player.getComponent("minecraft:inventory")?.container;
+        const inv = getInventoryContainer(player);
         if (inv) {
             for (let i = 0; i < inv.size; i++) {
                 const stack = inv.getItem(i);
-                if (stack?.typeId === MURASAME_ID) {
+                if (stack?.typeId === MURASAME_ID && !canUseBountyMurasame(player, stack)) {
                     inv.setItem(i, undefined);
                     removed = true;
                 }
@@ -261,7 +264,7 @@ export function stripMurasameFromPlayer(player) {
                 EquipmentSlot.Feet,
             ]) {
                 const stack = eq.getEquipment(slot);
-                if (stack?.typeId === MURASAME_ID) {
+                if (stack?.typeId === MURASAME_ID && !canUseBountyMurasame(player, stack)) {
                     eq.setEquipment(slot, undefined);
                     removed = true;
                 }
@@ -270,10 +273,92 @@ export function stripMurasameFromPlayer(player) {
     } catch (e) {}
 
     if (removed) {
+        removeMurasameEffects(player);
         notify(player, "murasame_inv_block", "§c§l[MURASAME]§r", "§cOnly admins may hold Murasame.", "", "note.bass");
     }
 
     return removed;
+}
+
+function getInventoryContainer(holder) {
+    try {
+        return holder?.getComponent("minecraft:inventory")?.container
+            ?? holder?.getComponent("inventory")?.container;
+    } catch (e) {
+        return undefined;
+    }
+}
+
+function getItemEntityStack(entity) {
+    try {
+        return entity?.getComponent("minecraft:item")?.itemStack
+            ?? entity?.getComponent("item")?.itemStack;
+    } catch (e) {
+        return undefined;
+    }
+}
+
+function containerHasMurasame(container) {
+    if (!container) return false;
+
+    try {
+        for (let i = 0; i < container.size; i++) {
+            const stack = container.getItem(i);
+            if (stack?.typeId === MURASAME_ID || isBountyKitItem(stack)) return true;
+        }
+    } catch (e) {}
+
+    return false;
+}
+
+function blockHasMurasame(block) {
+    try {
+        return containerHasMurasame(getInventoryContainer(block));
+    } catch (e) {
+        return false;
+    }
+}
+
+function entityHasMurasame(entity) {
+    if (!entity?.isValid) return false;
+
+    if (entity.typeId === "minecraft:item") {
+        const stack = getItemEntityStack(entity);
+        return stack?.typeId === MURASAME_ID || isBountyKitItem(stack);
+    }
+
+    if (containerHasMurasame(getInventoryContainer(entity))) return true;
+
+    try {
+        const eq = entity.getComponent("minecraft:equippable") ?? entity.getComponent("equippable");
+        if (!eq) return false;
+        for (const slot of [
+            EquipmentSlot.Mainhand,
+            EquipmentSlot.Offhand,
+            EquipmentSlot.Head,
+            EquipmentSlot.Chest,
+            EquipmentSlot.Legs,
+            EquipmentSlot.Feet,
+        ]) {
+            const stack = eq.getEquipment(slot);
+            if (stack?.typeId === MURASAME_ID || isBountyKitItem(stack)) return true;
+        }
+    } catch (e) {}
+
+    return false;
+}
+
+function removeMurasameEffects(player) {
+    for (const effect of ["speed", "strength", "invisibility", "fire_resistance", "regeneration"]) {
+        try {
+            player.removeEffect(effect);
+        } catch (e) {}
+    }
+}
+
+function denyMurasameTransfer(player, key = "murasame_transfer_block") {
+    if (!player?.isValid) return;
+    notify(player, key, "§c§l[MURASAME]§r", "§cOnly admins may receive or move Murasame.", "", "note.bass");
 }
 
 function blockCombatItemUse(event) {
@@ -329,6 +414,15 @@ function registerCombatRules() {
         }, BANNED_HARMING_SWEEP_TICKS);
     }
 
+    if (!murasameGuardSweepStarted) {
+        murasameGuardSweepStarted = true;
+        system.runInterval(() => {
+            for (const player of world.getPlayers()) {
+                stripMurasameFromPlayer(player);
+            }
+        }, MURASAME_GUARD_SWEEP_TICKS);
+    }
+
     if (world.beforeEvents?.effectAdd) {
         world.beforeEvents.effectAdd.subscribe((event) => {
             const entity = event.entity;
@@ -382,12 +476,39 @@ function registerCombatRules() {
         world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
             const player = event.player;
             const item = event.itemStack;
-            if (!player || !item || item.typeId !== MURASAME_ID) return;
+            if (!player) return;
             if (isStaffAdmin(player)) return;
 
-            if (event.target?.typeId === "minecraft:player") {
+            if ((item?.typeId === MURASAME_ID && !canUseBountyMurasame(player, item)) || isBountyKitItem(item)) {
                 event.cancel = true;
+                system.run(() => stripMurasameFromPlayer(player));
                 notify(player, "murasame_trade_block", "§c§l[MURASAME]§r", "§cThis weapon cannot be given or traded.", "", "note.bass");
+                return;
+            }
+
+            if (entityHasMurasame(event.target)) {
+                event.cancel = true;
+                denyMurasameTransfer(player, "murasame_entity_block");
+            }
+        });
+    }
+
+    if (world.beforeEvents?.playerInteractWithBlock) {
+        world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
+            const player = event.player;
+            if (!player || isStaffAdmin(player)) return;
+
+            const item = event.itemStack;
+            if ((item?.typeId === MURASAME_ID || isBountyKitItem(item)) && !canUseBountyMurasame(player, item)) {
+                event.cancel = true;
+                system.run(() => stripMurasameFromPlayer(player));
+                denyMurasameTransfer(player);
+                return;
+            }
+
+            if (blockHasMurasame(event.block)) {
+                event.cancel = true;
+                denyMurasameTransfer(player, "murasame_container_block");
             }
         });
     }
@@ -396,7 +517,7 @@ function registerCombatRules() {
         world.beforeEvents.playerDropItem.subscribe((event) => {
             const player = event.source;
             const item = event.itemStack;
-            if (!player || !item || item.typeId !== MURASAME_ID) return;
+            if (!player || !item || (item.typeId !== MURASAME_ID && !isBountyKitItem(item))) return;
             if (isStaffAdmin(player)) return;
             event.cancel = true;
             notify(player, "murasame_drop_block", "§c§l[MURASAME]§r", "§cYou cannot drop Murasame.", "", "note.bass");
@@ -411,8 +532,27 @@ function registerCombatRules() {
                 system.run(() => stripBannedHarmingItems(player));
                 return;
             }
-            if (!player || item?.typeId !== MURASAME_ID) return;
+            if (!player || (item?.typeId !== MURASAME_ID && !isBountyKitItem(item))) return;
             if (isStaffAdmin(player)) return;
+            if (canUseBountyMurasame(player, item)) return;
+            system.run(() => stripMurasameFromPlayer(player));
+        });
+    }
+
+    if (world.beforeEvents?.entityItemPickup) {
+        world.beforeEvents.entityItemPickup.subscribe((event) => {
+            const player = event.entity;
+            if (!player || player.typeId !== "minecraft:player") return;
+            if (isStaffAdmin(player)) return;
+
+            const stack = event.itemStack ?? getItemEntityStack(event.itemEntity);
+            if (stack?.typeId !== MURASAME_ID && !isBountyKitItem(stack)) return;
+
+            event.cancel = true;
+            denyMurasameTransfer(player, "murasame_pickup_block");
+            try {
+                if (event.itemEntity?.isValid) event.itemEntity.remove();
+            } catch (e) {}
             system.run(() => stripMurasameFromPlayer(player));
         });
     }
@@ -433,11 +573,11 @@ function registerCombatRules() {
             if (!entity.isValid) return;
             let stack;
             try {
-                stack = entity.getComponent("minecraft:item")?.itemStack;
+                stack = getItemEntityStack(entity);
             } catch (e) {
                 return;
             }
-            if (stack?.typeId !== MURASAME_ID) return;
+            if (stack?.typeId !== MURASAME_ID && !isBountyKitItem(stack)) return;
 
             system.run(() => {
                 try {

@@ -1,6 +1,6 @@
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui';
 import { Command } from '../extensions/command.js';
-import { hasPermission, BUILTIN_RANKS, ROLE_PERMISSION_DEFS, UTILITY_ROLE_TAGS, PROTECTED_ROLE_IDS, invalidateCustomRolesCache, formatPlayerRoleSummary, getCustomRoles, getRankMeta, isOperatorPlayer, syncProtectedRoleTags, OPERATOR_ROLE_TAG } from '../systems/ranks.js';
+import { hasPermission, BUILTIN_RANKS, ROLE_PERMISSION_DEFS, UTILITY_ROLE_TAGS, PROTECTED_ROLE_IDS, invalidateCustomRolesCache, formatPlayerRoleSummary, getCustomRoles, getRankMeta, isOperatorPlayer, isStaffPlayer, syncProtectedRoleTags, OPERATOR_ROLE_TAG } from '../systems/ranks.js';
 import { syncRankChatTeam } from '../systems/rankChatRuntime.js';
 import { world, system, InputPermissionCategory, GameMode } from '@minecraft/server'; 
 import { seeInv, seeEnderChest } from '../systems/seeInv.js';
@@ -12,6 +12,8 @@ import {
   setCreativeRoleTag,
   isCreativeBuilderTagged,
   isCreativeBuilderSessionActive,
+  isTester,
+  isWorldBuilderRole,
 } from '../utils/creativeRoleGuard.js';
 import {
   canUseVanish,
@@ -72,11 +74,15 @@ function saveCustomRoles(roles) {
 
 function isStaffRank(player) {
   syncProtectedRoleTags(player);
-  return isOperatorPlayer(player);
+  return isStaffPlayer(player);
 }
 
 function canManageRoles(player) {
-  return isOperatorPlayer(player);
+  if (isOperatorPlayer(player)) return true;
+  if (isCreativeBuilderTagged(player) || isWorldBuilderRole(player) || isTester(player)) {
+    return false;
+  }
+  return isStaffRank(player) || hasPermission(player, 'manageRoles');
 }
 
 function canUseMute(player) {
@@ -174,27 +180,45 @@ function setBanned(target, banned, staff, reason = '') {
 }
 
 async function kickPlayer(staff, target, reason) {
-  const safeReason = String(reason || 'Kicked by staff').replace(/"/g, "'");
-  const safeName = String(target.name || '').replace(/"/g, '\\"');
+  if (!target?.isValid) return false;
 
-  if (staff) {
-    try {
-      await staff.runCommandAsync(`kick "${safeName}" ${safeReason}`);
-      return true;
-    } catch (e) {}
+  const targetName = String(target.name || '').trim();
+  if (!targetName) return false;
+
+  const selectorName = targetName.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+  const quotedName = targetName.replace(/"/g, '\\"');
+  const safeReason = String(reason || 'Kicked by staff')
+    .replace(/[\r\n]+/g, ' ')
+    .replace(/"/g, "'")
+    .trim()
+    .slice(0, 160) || 'Kicked by staff';
+
+  let dimension;
+  try {
+    dimension = target.dimension;
+  } catch (e) {
+    dimension = world.getDimension('minecraft:overworld');
   }
 
-  try {
-    await target.runCommandAsync(`kick @s ${safeReason}`);
-    return true;
-  } catch (err) {
+  const commands = [
+    `kick @a[name="${selectorName}",c=1] ${safeReason}`,
+    `execute as @a[name="${selectorName}",c=1] run kick @s ${safeReason}`,
+    `kick "${quotedName}" ${safeReason}`,
+  ];
+
+  let lastError = '';
+  for (const command of commands) {
     try {
-      await target.dimension.runCommandAsync(`kick "${safeName}" ${safeReason}`);
-      return true;
-    } catch (e2) {
-      return false;
+      const result = await dimension.runCommandAsync(command);
+      if ((result?.successCount ?? 0) > 0) return true;
+      lastError = `successCount=${result?.successCount ?? 0}`;
+    } catch (e) {
+      lastError = String(e?.message || e);
     }
   }
+
+  console.warn(`[RAIN admin] Kick failed for ${targetName}: ${lastError || 'unknown command failure'}`);
+  return false;
 }
 
 async function pickPlayer(staff, title, hint = 'Tap a player name to continue.') {
@@ -401,7 +425,7 @@ async function openOnlineStaffList(caller) {
 
 async function openPrimaryRankPicker(caller, target) {
   if (!canManageRoles(caller)) {
-    notify(caller, 'admin_error', '§c§l[ROLES]§r', '§cOnly the operator can set primary ranks.', 'note.bass');
+    notify(caller, 'admin_error', '§c§l[ROLES]§r', '§cStaff role-management access is required.', 'note.bass');
     return;
   }
 
@@ -434,7 +458,7 @@ async function openPrimaryRankPicker(caller, target) {
 
 async function openUtilityTagsEditor(caller, target) {
   if (!canManageRoles(caller)) {
-    notify(caller, 'admin_error', '§c§l[ROLES]§r', '§cOnly the operator can edit role tags.', 'note.bass');
+    notify(caller, 'admin_error', '§c§l[ROLES]§r', '§cStaff role-management access is required.', 'note.bass');
     return;
   }
 
@@ -458,7 +482,7 @@ async function openUtilityTagsEditor(caller, target) {
 
 async function openRolePresetsMenu(caller, target) {
   if (!canManageRoles(caller)) {
-    notify(caller, 'admin_error', '§c§l[ROLES]§r', '§cOnly the operator can apply role presets.', 'note.bass');
+    notify(caller, 'admin_error', '§c§l[ROLES]§r', '§cStaff role-management access is required.', 'note.bass');
     return;
   }
 
@@ -528,7 +552,7 @@ async function openRolePresetsMenu(caller, target) {
 
 async function openAssignRolesMenu(caller, target = null) {
   if (!canManageRoles(caller)) {
-    notify(caller, 'admin_error', '§c§l[ERROR]§r', '§cOnly the operator can manage roles.', 'note.bass');
+    notify(caller, 'admin_error', '§c§l[ERROR]§r', '§cStaff role-management access is required.', 'note.bass');
     return;
   }
 
@@ -955,9 +979,10 @@ async function openVanishMenu(staff) {
       .title('bd.action:Vanish Mode')
       .body(
         `§7Status: ${statusLine}\n\n` +
-        `§8Spectator mode with hidden presence.\n` +
-        `§8Inventory is stored until vanish ends.\n\n` +
-        `§7Tip: §f/gamemode spectator §8restores loot and exits vanish.`
+        `§8Creative flight with hidden presence.\n` +
+        `§8Inventory is stored until vanish ends.\n` +
+        `§8Use flight to avoid ground footsteps.\n` +
+        `§8Use the hotbar item to disable vanish.`
       )
       .button(vanished ? '§cDisable Vanish' : '§aEnable Vanish')
       .button('§7Back');
@@ -985,7 +1010,7 @@ async function openPunishmentMenu(staff) {
 
 async function roleHubMenu(player, role, index) {
   if (!canManageRoles(player)) {
-    notify(player, 'admin_error', '§c§l[ROLES]§r', '§cOnly the operator can edit roles.', 'note.bass');
+    notify(player, 'admin_error', '§c§l[ROLES]§r', '§cStaff role-management access is required.', 'note.bass');
     return;
   }
 
@@ -1047,7 +1072,7 @@ async function roleHubMenu(player, role, index) {
 
 async function editRoleLabelMenu(player, role, index) {
   if (!canManageRoles(player)) {
-    notify(player, 'admin_error', '§c§l[ROLES]§r', '§cOnly the operator can rename roles.', 'note.bass');
+    notify(player, 'admin_error', '§c§l[ROLES]§r', '§cStaff role-management access is required.', 'note.bass');
     return;
   }
 
@@ -1076,7 +1101,7 @@ async function editRoleLabelMenu(player, role, index) {
 
 async function editRolePermissionsMenu(player, role, index) {
   if (!canManageRoles(player)) {
-    notify(player, 'admin_error', '§c§l[ROLES]§r', '§cOnly the operator can edit permissions.', 'note.bass');
+    notify(player, 'admin_error', '§c§l[ROLES]§r', '§cStaff role-management access is required.', 'note.bass');
     return;
   }
 
@@ -1107,7 +1132,7 @@ async function editRolePermissionsMenu(player, role, index) {
 
 async function confirmDeleteRole(player, role, index) {
   if (!canManageRoles(player)) {
-    notify(player, 'admin_error', '§c§l[ROLES]§r', '§cOnly the operator can delete roles.', 'note.bass');
+    notify(player, 'admin_error', '§c§l[ROLES]§r', '§cStaff role-management access is required.', 'note.bass');
     return;
   }
 
@@ -1153,13 +1178,13 @@ function hasBuilderHubAccess(player) {
 
 function hasTesterHubAccess(player) {
   return (
-    hasTagIgnoreCase(player, 'tester') ||
+    isTester(player) ||
     hasPermission(player, 'testerHub') ||
     HARDCODED_TESTER_NAMES.includes(String(player?.name || '').trim().toLowerCase())
   );
 }
 
-function canOpenAdminPanel(player) {
+export function canOpenAdminPanel(player) {
   syncProtectedRoleTags(player);
   return isOperatorPlayer(player) || hasPermission(player, 'openAdminPanel');
 }
@@ -1473,7 +1498,7 @@ async function openHubAccessMenu(caller) {
   }
 }
 
-async function openAdminPanel(caller) {
+export async function openAdminPanel(caller) {
   while (true) {
         const showBuilderHub = canOpenCreativeBuilderHub(caller);
         const showTesterHub = canOpenTesterHub(caller);
@@ -1481,7 +1506,7 @@ async function openAdminPanel(caller) {
         const main = new ActionFormData()
           .title('bd.action:§cAdmin Panel')
           .body(buildMainPanelBody(caller))
-          .button(canManageRoles(caller) ? '§dRoles' : '§7Roles (operator only)')
+          .button(canManageRoles(caller) ? '§dRoles' : '§7Roles (no perm)')
           .button(hasPermission(caller, 'invsee') ? '§bView Inventory' : '§7View Inventory (no perm)')
           .button(hasPermission(caller, 'manageShops') ? '§aShop Maker' : '§7Shop Maker (no perm)')
           .button(canUseAdminControls(caller) ? '§cAdmin Controls' : '§7Admin Controls (no perm)');
@@ -1510,7 +1535,7 @@ async function openAdminPanel(caller) {
             if (rm.canceled || rm.selection === 4) break;
 
             if (!canManageRoles(caller)) {
-              notify(caller, "admin_error", "§c§l[ERROR]§r", "§cOnly the operator can manage roles.", "note.bass");
+              notify(caller, "admin_error", "§c§l[ERROR]§r", "§cYou do not have permission to manage roles.", "note.bass");
               continue;
             }
 

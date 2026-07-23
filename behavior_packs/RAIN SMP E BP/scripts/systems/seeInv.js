@@ -5,6 +5,7 @@ import { toastError, toastSuccess, toastInfo } from "../utils/realmPerf.js";
 const MAX_BUTTON_NAME_LEN = 22;
 const MAX_DESC_LINE_LEN = 46;
 const MAX_LORE_LINES = 10;
+const CONSOLE_PAGE_SIZE = 7;
 
 function stripColorCodes(text) {
   return String(text ?? "").replace(/§./g, "");
@@ -127,6 +128,16 @@ function buildSlotPickerBody({ playerName, sectionName, itemCount, emptyText, ac
     `§7Items found: §f${itemCount}\n\n` +
     `§8Select a slot to view details.`
   );
+}
+
+function getPagedEntries(entries, page, pageSize = CONSOLE_PAGE_SIZE) {
+  const totalPages = Math.max(1, Math.ceil(entries.length / pageSize));
+  const safePage = Math.max(0, Math.min(totalPages - 1, Number(page) || 0));
+  return {
+    page: safePage,
+    totalPages,
+    visible: entries.slice(safePage * pageSize, safePage * pageSize + pageSize),
+  };
 }
 
 function buildItemDescriptionBody(item, displaySlot) {
@@ -293,60 +304,80 @@ export async function seeEnderChest(viewer, target) {
       });
     }
 
-    const entries = [...itemEntries];
-    entries.push({ slot: "CLEAR_ALL", label: "§cClear All" });
-    entries.push({ slot: "BACK", label: "§7Back" });
+    let page = 0;
 
-    const form = new ActionFormData()
-      .title(`bd.action:${target.name} Ender Chest`)
-      .body(buildSlotPickerBody({
-        playerName: target.name,
-        sectionName: "Ender Chest",
-        itemCount: itemEntries.length,
-        emptyText: itemEntries.length === 0 ? "Ender chest is empty." : undefined,
-        accentColor: "§5",
-      }));
+    while (true) {
+      const paged = getPagedEntries(itemEntries, page);
+      page = paged.page;
 
-    entries.forEach((e) => form.button(e.label));
+      const entries = [...paged.visible];
+      if (paged.totalPages > 1 && page > 0) entries.push({ slot: "PREV", label: "§ePrevious Page" });
+      if (paged.totalPages > 1 && page < paged.totalPages - 1) entries.push({ slot: "NEXT", label: "§eNext Page" });
+      entries.push({ slot: "CLEAR_ALL", label: "§cClear All" });
+      entries.push({ slot: "BACK", label: "§7Back" });
 
-    const resp = await form.show(viewer);
-    if (!resp || resp.canceled) return false;
+      const pageLine = paged.totalPages > 1 ? `\n§7Page: §f${page + 1}/${paged.totalPages}` : "";
+      const form = new ActionFormData()
+        .title(`bd.action:${target.name} Ender Chest`)
+        .body(buildSlotPickerBody({
+          playerName: target.name,
+          sectionName: "Ender Chest",
+          itemCount: itemEntries.length,
+          emptyText: itemEntries.length === 0 ? "Ender chest is empty." : undefined,
+          accentColor: "§5",
+        }) + pageLine);
 
-    const choice = entries[resp.selection];
-    if (!choice) continue;
+      entries.forEach((e) => form.button(e.label));
 
-    if (choice.slot === "BACK") return false;
+      const resp = await form.show(viewer);
+      if (!resp || resp.canceled) return false;
 
-    if (choice.slot === "CLEAR_ALL") {
-      const confirm = await new ActionFormData()
-        .title("bd.action:Clear Ender Chest?")
-        .body("§7Remove every item from this ender chest?\n\n§cThis cannot be undone.")
-        .button("§cClear All")
-        .button("§7Cancel")
-        .show(viewer);
+      const choice = entries[resp.selection];
+      if (!choice) continue;
 
-      if (!confirm || confirm.canceled || confirm.selection !== 0) continue;
-
-      for (let i = 0; i < Math.min(container.size, 27); i++) {
-        container.setItem(i, undefined);
+      if (choice.slot === "PREV") {
+        page--;
+        continue;
+      }
+      if (choice.slot === "NEXT") {
+        page++;
+        continue;
       }
 
-      toastInfo(viewer, "Ender chest cleared.", "seeechest_cleared_all");
-      continue;
+      if (choice.slot === "BACK") return false;
+
+      if (choice.slot === "CLEAR_ALL") {
+        const confirm = await new ActionFormData()
+          .title("bd.action:Clear Ender Chest?")
+          .body("§7Remove every item from this ender chest?\n\n§cThis cannot be undone.")
+          .button("§cClear All")
+          .button("§7Cancel")
+          .show(viewer);
+
+        if (!confirm || confirm.canceled || confirm.selection !== 0) continue;
+
+        for (let i = 0; i < Math.min(container.size, 27); i++) {
+          container.setItem(i, undefined);
+        }
+
+        toastInfo(viewer, "Ender chest cleared.", "seeechest_cleared_all");
+        break;
+      }
+
+      const contIndex = choice.slot;
+      const item = container.getItem(contIndex);
+
+      if (!item) {
+        toastError(viewer, "That slot is empty.", "seeechest_empty_slot");
+        break;
+      }
+
+      const action = await showItemActionMenu(viewer, item, contIndex + 1);
+      if (action === null) continue;
+
+      applyItemAction(viewer, container, contIndex, item, action);
+      break;
     }
-
-    const contIndex = choice.slot;
-    const item = container.getItem(contIndex);
-
-    if (!item) {
-      toastError(viewer, "That slot is empty.", "seeechest_empty_slot");
-      continue;
-    }
-
-    const action = await showItemActionMenu(viewer, item, contIndex + 1);
-    if (action === null) continue;
-
-    applyItemAction(viewer, container, contIndex, item, action);
   }
 }
 
@@ -396,37 +427,57 @@ export async function seeInv(viewer, target) {
       continue;
     }
 
-    const entries = [...itemEntries, { slot: "BACK", label: "§7Back" }];
+    let page = 0;
+    while (true) {
+      const paged = getPagedEntries(itemEntries, page);
+      page = paged.page;
 
-    const form = new ActionFormData()
-      .title(`bd.action:${target.name} ${sectionName}`)
-      .body(buildSlotPickerBody({
-        playerName: target.name,
-        sectionName,
-        itemCount: itemEntries.length,
-        accentColor: hotbar ? "§e" : "§2",
-      }));
+      const entries = [...paged.visible];
+      if (paged.totalPages > 1 && page > 0) entries.push({ slot: "PREV", label: "§ePrevious Page" });
+      if (paged.totalPages > 1 && page < paged.totalPages - 1) entries.push({ slot: "NEXT", label: "§eNext Page" });
+      entries.push({ slot: "BACK", label: "§7Back" });
 
-    entries.forEach((e) => form.button(e.label));
+      const pageLine = paged.totalPages > 1 ? `\n§7Page: §f${page + 1}/${paged.totalPages}` : "";
+      const form = new ActionFormData()
+        .title(`bd.action:${target.name} ${sectionName}`)
+        .body(buildSlotPickerBody({
+          playerName: target.name,
+          sectionName,
+          itemCount: itemEntries.length,
+          accentColor: hotbar ? "§e" : "§2",
+        }) + pageLine);
 
-    const resp = await form.show(viewer);
-    if (!resp || resp.canceled) return false;
+      entries.forEach((e) => form.button(e.label));
 
-    const choice = entries[resp.selection];
-    if (!choice || choice.slot === "BACK") continue;
+      const resp = await form.show(viewer);
+      if (!resp || resp.canceled) return false;
 
-    const contIndex = choice.slot;
-    const item = container.getItem(contIndex);
+      const choice = entries[resp.selection];
+      if (!choice) continue;
+      if (choice.slot === "PREV") {
+        page--;
+        continue;
+      }
+      if (choice.slot === "NEXT") {
+        page++;
+        continue;
+      }
+      if (choice.slot === "BACK") break;
 
-    if (!item) {
-      toastError(viewer, "That slot is empty.", "seeinv_empty_slot");
-      continue;
+      const contIndex = choice.slot;
+      const item = container.getItem(contIndex);
+
+      if (!item) {
+        toastError(viewer, "That slot is empty.", "seeinv_empty_slot");
+        break;
+      }
+
+      const displaySlot = hotbar ? contIndex + 1 : contIndex - 8;
+      const action = await showItemActionMenu(viewer, item, displaySlot);
+      if (action === null) continue;
+
+      applyItemAction(viewer, container, contIndex, item, action);
+      break;
     }
-
-    const displaySlot = hotbar ? contIndex + 1 : contIndex - 8;
-    const action = await showItemActionMenu(viewer, item, displaySlot);
-    if (action === null) continue;
-
-    applyItemAction(viewer, container, contIndex, item, action);
   }
 }

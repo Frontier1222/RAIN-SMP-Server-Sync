@@ -463,7 +463,39 @@
     "layer": 2,
             "controls": [
             {
-                "simple_select_buttons@bd_main.simple_select_buttons": {}
+                "simple_select_buttons@bd_main.simple_select_buttons": {
+                  "bindings": [
+                    {
+                      "binding_name": "#form_button_text",
+                      "binding_collection_name": "form_buttons",
+                      "binding_type": "collection"
+                    },
+                    {
+                      "binding_type": "view",
+                      "source_property_name": "((#form_button_text - '§0§0') = #form_button_text)",
+                      "target_property_name": "#visible"
+                    }
+                  ]
+                }
+            },
+            {
+                "admin_select_buttons@bd_main.simple_select_buttons": {
+                  "size": [216, "100% - 4px"],
+                  "anchor_from": "left_middle",
+                  "anchor_to": "left_middle",
+                  "bindings": [
+                    {
+                      "binding_name": "#form_button_text",
+                      "binding_collection_name": "form_buttons",
+                      "binding_type": "collection"
+                    },
+                    {
+                      "binding_type": "view",
+                      "source_property_name": "(not ((#form_button_text - '§0§0') = #form_button_text))",
+                      "target_property_name": "#visible"
+                    }
+                  ]
+                }
             }
         ],
     "bindings": [

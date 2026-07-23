@@ -96,33 +96,52 @@ export function showPlayerStats(player) {
 
   const isHidden = player.hasTag('hide_stats');
 
-  const body =
+  const pages = [
+    {
+      title: 'Overview',
+      body:
 `\u00A77IGN: \u00A7f${player.name}
 \u00A77Rank: \u00A7f${rank.label}
 \u00A77Faction: \u00A7f${factionDisplay}
-
-\u00A77Kills: \u00A7f${kills}
+\u00A77Playtime: \u00A7f${formatDHMS(playtimeMs)}`,
+    },
+    {
+      title: 'Combat',
+      body:
+`\u00A77Kills: \u00A7f${kills}
 \u00A77Deaths: \u00A7f${deaths}
 \u00A77K/D: \u00A7f${kd}
-
 \u00A77CPS: \u00A7f${cps}
-\u00A77Playtime: \u00A7f${formatDHMS(playtimeMs)}
-
-\u00A77Homes: \u00A7f${homesCount}
+\u00A77Combat: \u00A7f${combat}s`,
+    },
+    {
+      title: 'Utility',
+      body:
+`\u00A77Homes: \u00A7f${homesCount}
 \u00A77Plots: \u00A7f${plotsCount}
-
 \u00A77Teleport Cooldown: \u00A7f${tpCd}s
-\u00A77Combat: \u00A7f${combat}s
-
 \u00A77HUD Sidebar: ${isHidden ? '\u00A7cHidden' : '\u00A7aShown'}
-\u00A78Toggle: \u00A77/bd:hidesidebar`;
-
-  const form = new ActionFormData()
-    .title('bd.action:Stats')
-    .body(body)
-    .button('\u00A77Close');
+\u00A78Toggle: \u00A77/bd:hidesidebar`,
+    },
+  ];
 
   system.runTimeout(() => {
-    form.show(player).catch(() => {});
+    showStatsPage(player, pages, 0).catch(() => {});
   }, 2);
+}
+
+async function showStatsPage(player, pages, page) {
+  const index = Math.max(0, Math.min(pages.length - 1, Number(page) || 0));
+  const current = pages[index];
+  const form = new ActionFormData()
+    .title(`bd.action:Stats - ${current.title}`)
+    .body(`${current.body}\n\n\u00A78Page \u00A7f${index + 1}/${pages.length}`)
+    .button('\u00A7ePrevious')
+    .button('\u00A7eNext')
+    .button('\u00A77Close');
+
+  const result = await form.show(player);
+  if (!result || result.canceled || result.selection === 2) return;
+  if (result.selection === 0) return showStatsPage(player, pages, index <= 0 ? pages.length - 1 : index - 1);
+  if (result.selection === 1) return showStatsPage(player, pages, index >= pages.length - 1 ? 0 : index + 1);
 }

@@ -6,6 +6,8 @@ import { tc as Ot } from './ftb_bedrock_bedrock_utils_dist_bedrock_utils.js';
 
 const playerControllerMap = new Map();
 playerControllerMap.clear();
+const BOUNCE_VERTICAL_STRENGTH = 0.45;
+const BOUNCE_LANDING_TICKS = 6;
 const books = [
     "ftb_tc:materials_and_you",
     "ftb_tc:puny_smelting",
@@ -121,7 +123,7 @@ class PlayerController {
             if (this.jumpBoiIsOn) {
                 this.justJumped = true;
                 // const viewDirection = this.player.getViewDirection();
-                this.player.applyKnockback({ x: 0, z: 0 }, 1);
+                this.player.applyKnockback({ x: 0, z: 0 }, BOUNCE_VERTICAL_STRENGTH);
             }
             this.playerJumped();
         }
@@ -137,7 +139,7 @@ class PlayerController {
             };
             const block = this.player.dimension.getBlock(below);
             if (!block.isAir && !this.player.getEffect("slow_falling")) {
-                this.player.addEffect("slow_falling", 10, {
+                this.player.addEffect("slow_falling", BOUNCE_LANDING_TICKS, {
                     amplifier: 0,
                     showParticles: false,
                 });

@@ -15,6 +15,7 @@
         "deploy:hotbars": "node deploy.js --pack hotbars",
         "deploy:paradox": "node deploy.js --pack paradox",
         "deploy:tc": "node deploy.js --pack tc",
+        "deploy:tc:bp": "node deploy.js --pack tc-bp",
         "deploy:worldbuilder": "node deploy.js --pack worldbuilder",
         "download:packs": "node download-pack.js --pack all",
         "download:hotbars": "node download-pack.js --pack hotbars",

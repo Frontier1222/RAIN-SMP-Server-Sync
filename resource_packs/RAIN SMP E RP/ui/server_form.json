@@ -60,7 +60,7 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "((#title_text - $action - $gui - $sub - '§c§h§e§s§t' - $main - $main_legacy) = #title_text)",
+              "source_property_name": "((#title_text - $action - $gui - $sub - $main - $main_legacy) = #title_text)",
               "target_property_name": "#visible"
             }
           ]
@@ -77,20 +77,6 @@
       },
       {
         "main@bd_main.root_panel": {}
-      },
-      {
-        "chest_ui@container.main_panel": {
-          "bindings": [
-            {
-              "binding_name": "#title_text"
-            },
-            {
-              "binding_type": "view",
-              "source_property_name": "(not ((#title_text - '§c§h§e§s§t') = #title_text))",
-              "target_property_name": "#visible"
-            }
-          ]
-        }
       }
     ]
   },

@@ -266,9 +266,13 @@ function hepatizonEntityHit(entity, typeId) {
     if (!typeId.includes("hepatizon")) {
         return;
     }
-    const isSwordOrBow = typeId.includes("sword") || typeId.includes("bow");
-    entity.addEffect("levitation", isSwordOrBow ? 3 : 5, {
-        amplifier: isSwordOrBow ? 10 : 30,
+
+    const isBow = typeId.includes("bow");
+    const isSword = typeId.includes("sword");
+    const duration = isBow ? 3 : 4;
+    const amplifier = isBow ? 1 : (isSword ? 2 : 3);
+    entity.addEffect("levitation", duration, {
+        amplifier,
         showParticles: false,
     });
 }

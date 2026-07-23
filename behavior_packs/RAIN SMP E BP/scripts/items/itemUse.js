@@ -1,5 +1,6 @@
 import { Entity, world } from "@minecraft/server"
 import { toastError } from "../utils/realmPerf.js";
+import { isBundleItem } from "../utils/creativeRoleGuard.js";
 
 world.afterEvents.itemUse.subscribe( data => {
     const itemStack = data.itemStack ?? "hand"
@@ -149,14 +150,10 @@ world.afterEvents.itemUse.subscribe( data => {
             player.getComponent("equippable").getEquipmentSlot('Mainhand').setItem(itemStack)
         }
     }
-    if (itemStack.typeId == "viberater:bundle_8_totems") {
-        player.runCommand('give @s totem 8')
-        if (itemStack.amount == 1 ) {
-            player.getComponent("equippable").getEquipmentSlot('Mainhand').setItem(null)
-        } else {
-            itemStack.amount -= 1
-            player.getComponent("equippable").getEquipmentSlot('Mainhand').setItem(itemStack)
-        }
+    if (isBundleItem(itemStack.typeId)) {
+        player.getComponent("equippable")?.getEquipmentSlot('Mainhand')?.setItem(null)
+        toastError(player, "§cBundles are disabled on this server.", "bundle_disabled_use")
+        return
     }
     if (itemStack.typeId == "viberater:snowball") {
         if (itemStack.getComponent('cooldown').getCooldownTicksRemaining(player) > 0) return

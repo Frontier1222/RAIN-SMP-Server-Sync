@@ -8,7 +8,12 @@ import {
 } from "./blockTypes.js";
 import { isRainGuiItem } from "./rainGui.js";
 import { notify } from "./realmPerf.js";
-import { isStaffPlayer } from "../systems/ranks.js";
+import {
+    hasCreativeRoleDebugTag,
+    hasDebugCreativeBuilderTag,
+    hasDebugTesterTag,
+    isStaffPlayer,
+} from "../systems/ranks.js";
 
 const CREATIVE_ROLE_TAG = "rain_creative_role";
 const WORLD_BUILDER_ROLE_TAG = "world_builder";
@@ -69,7 +74,12 @@ export function forgetPlayerGamemode(playerId) {
 }
 
 export function isTester(player) {
-    return !!player && (player.hasTag("tester") || HARDCODED_TESTERS.includes(String(player.name || "").toLowerCase()));
+    if (!player || hasDebugCreativeBuilderTag(player)) return false;
+    return (
+        hasDebugTesterTag(player) ||
+        player.hasTag("tester") ||
+        HARDCODED_TESTERS.includes(String(player.name || "").toLowerCase())
+    );
 }
 
 function isTrueStaff(player) {
@@ -79,6 +89,7 @@ function isTrueStaff(player) {
 /** Staff bypass restrictions only when they are not an assigned builder/tester. */
 function shouldBypassCreativeRestrictions(player) {
     if (!player) return true;
+    if (hasCreativeRoleDebugTag(player)) return false;
     if (isWorldBuilderRole(player)) return true;
     if (isCreativeBuilderTagged(player)) return false;
     if (isTester(player)) return false;
@@ -111,7 +122,9 @@ export function syncCreativeBuilderAccessTag(player) {
 }
 
 export function isCreativeBuilderTagged(player) {
-    if (!player || isWorldBuilderRole(player)) return false;
+    if (!player || hasDebugTesterTag(player)) return false;
+    if (hasDebugCreativeBuilderTag(player)) return true;
+    if (isWorldBuilderRole(player)) return false;
     syncCreativeBuilderAccessTag(player);
 
     // Keep an old active vault session recognized until its inventory is restored.
@@ -119,10 +132,11 @@ export function isCreativeBuilderTagged(player) {
 }
 
 export function isWorldBuilderRole(player) {
-    return !!player?.hasTag(WORLD_BUILDER_ROLE_TAG);
+    return !!player?.hasTag(WORLD_BUILDER_ROLE_TAG) && !hasCreativeRoleDebugTag(player);
 }
 
 function hasBuilderOrTesterRole(player) {
+    if (hasCreativeRoleDebugTag(player)) return true;
     if (isWorldBuilderRole(player)) return false;
     return isTester(player) || isCreativeBuilderTagged(player);
 }
@@ -316,11 +330,21 @@ export function denyRestrictedCreative(player, key, message, hint = "") {
     notify(player, key, `§r§c§l[RESTRICTED]§r §c${message}`, hint, "note.bass");
 }
 
+export function isBundleItem(itemId) {
+    const id = String(itemId || "").toLowerCase();
+    return id === "minecraft:bundle" ||
+        id.endsWith("_bundle") ||
+        id.includes(":bundle_") ||
+        id.includes("_bundle_") ||
+        id.includes("bundle");
+}
+
 export function isRestrictedCreativeItem(itemId) {
     const id = String(itemId || "").toLowerCase();
     if (!id || isRainGuiItem({ typeId: id })) return false;
 
     return (
+        isBundleItem(id) ||
         id.includes("spawn_egg") ||
         id.includes("splash_potion") ||
         id.includes("lingering_potion") ||

@@ -2,22 +2,32 @@ import { world, EntityComponentTypes, EquipmentSlot } from '@minecraft/server';
 import { isEntityPlayer } from './utils.js';
 import { slimeToolEntityHit, manyullynEntityKill, arditeToolEntityHit, hepatizonEntityHit, cobaltEntityHit, experiencedEntityKill, boneToolEntityHit } from './tool_effects.js';
 
+function isValidEntity(entity) {
+    try {
+        return entity?.isValid === true;
+    } catch {
+        return false;
+    }
+}
+
 world.afterEvents.projectileHitEntity.subscribe((event) => {
-    if (!isEntityPlayer(event.source)) {
-        return;
-    }
-    if (event.projectile.typeId !== "minecraft:arrow") {
-        return;
-    }
-    const bowType = world.getDynamicProperty("ftb_tc:" + event.projectile.id);
-    const hitEntity = event.getEntityHit().entity;
-    const player = event.source;
-    const health = hitEntity.getComponent(EntityComponentTypes.Health);
-    if (!health) {
-        return;
-    }
-    const isDead = health.currentValue <= 0;
-    switch (bowType) {
+    try {
+        const projectile = event.projectile;
+        const player = event.source;
+        if (!isValidEntity(projectile) || !isValidEntity(player) || !isEntityPlayer(player)) return;
+        if (projectile.typeId !== "minecraft:arrow") return;
+
+        const propertyKey = "ftb_tc:" + projectile.id;
+        const bowType = world.getDynamicProperty(propertyKey);
+        world.setDynamicProperty(propertyKey, undefined);
+        const hitEntity = event.getEntityHit()?.entity;
+        if (!isValidEntity(hitEntity)) return;
+
+        const health = hitEntity.getComponent(EntityComponentTypes.Health);
+        if (!health) return;
+
+        const isDead = health.currentValue <= 0;
+        switch (bowType) {
         case "ftb_tc:bow_stone":
             if (!isDead) {
                 return;
@@ -62,27 +72,27 @@ world.afterEvents.projectileHitEntity.subscribe((event) => {
         case "ftb_tc:bow_slimesteel":
             slimeToolEntityHit(hitEntity, "ftb_tc:bow_slimesteel");
             break;
+        }
+    } catch (error) {
+        console.warn(`[Tinkers bows] Projectile hit processing failed: ${error}`);
     }
 });
 // Store the bow type that shoe the arrow, on the world dynamic properties. Can't use entity as it was error
 world.afterEvents.entitySpawn.subscribe((event) => {
-    if (event.entity.typeId !== "minecraft:arrow") {
-        return;
-    }
-    const component = event.entity.getComponent(EntityComponentTypes.Projectile);
-    if (!component) {
-        return;
-    }
-    const shooter = component.owner;
-    const equipment = shooter.getComponent(EntityComponentTypes.Equippable);
-    if (!equipment) {
-        return;
-    }
-    const mainHand = equipment.getEquipment(EquipmentSlot.Mainhand);
-    if (!mainHand) {
-        return;
-    }
-    if (mainHand.hasTag("ftb_tc:bow")) {
-        world.setDynamicProperty("ftb_tc:" + event.entity.id, mainHand.typeId);
+    try {
+        const arrow = event.entity;
+        if (!isValidEntity(arrow) || arrow.typeId !== "minecraft:arrow") return;
+
+        const component = arrow.getComponent(EntityComponentTypes.Projectile);
+        const shooter = component?.owner;
+        if (!isValidEntity(shooter) || !isEntityPlayer(shooter)) return;
+
+        const equipment = shooter.getComponent(EntityComponentTypes.Equippable);
+        const mainHand = equipment?.getEquipment(EquipmentSlot.Mainhand);
+        if (mainHand?.hasTag("ftb_tc:bow")) {
+            world.setDynamicProperty("ftb_tc:" + arrow.id, mainHand.typeId);
+        }
+    } catch (error) {
+        console.warn(`[Tinkers bows] Arrow spawn processing failed: ${error}`);
     }
 });

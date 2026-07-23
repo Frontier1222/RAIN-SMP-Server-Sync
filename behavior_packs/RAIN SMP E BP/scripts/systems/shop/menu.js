@@ -6,6 +6,7 @@ import { toastError, toastSuccess } from "../../utils/realmPerf.js";
 import { buildItemStackFromItemData, parseMcColorCodes } from '../auction/utils/itemDisplay.js';
 import { countItemsByType, takeItemsByType, giveItemToPlayer } from '../auction/utils/inventory.js';
 import { buildShopButtonTexture, resolveShopItemIcon } from './itemIcons.js';
+import { getEventShopDetails } from './eventDetails.js';
 
 import { openShopManager } from './gui/index.js';
 import { isStaffPlayer } from '../../systems/ranks.js';
@@ -20,9 +21,34 @@ function formatWantName(want) {
     return (want?.typeId || "unknown").split(':').pop().replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 }
 
-function formatPriceLine(wants) {
-    if (!wants?.length) return '§aFree';
-    return wants.map((w) => `§d${w.amount}x ${formatWantName(w)}`).join(' §7+ ');
+const PAYMENT_MARKERS = {
+    "viberater:rain_common_coin": "§0§1",
+    "viberater:rain_uncommon_coin": "§0§2",
+    "viberater:rain_rare_coin": "§0§3",
+    "viberater:rain_coin": "§0§4",
+    "viberater:rain_event_coin": "§0§5"
+};
+
+function formatCompactWant(want) {
+    const name = formatWantName(want).replace(/^Rain SMP /i, '');
+    return `${want.amount}x ${name}`;
+}
+
+function getShopItemName(item) {
+    let name = item?.customName || item?.sell?.nameTag;
+    if (!name) {
+        name = (item?.sell?.typeId || "unknown").split(':').pop().replace(/_/g, ' ');
+        name = name.replace(/\b\w/g, l => l.toUpperCase());
+    }
+    return name;
+}
+
+function getShopItemLore(item) {
+    const eventDetails = getEventShopDetails(item);
+    if (eventDetails.length) return eventDetails;
+    return Array.isArray(item?.sell?.lore)
+        ? item.sell.lore.map(line => parseMcColorCodes(String(line))).filter(Boolean)
+        : [];
 }
 
 // ==========================================
@@ -75,24 +101,23 @@ async function showShopTabs(player, shop, categories, categoryNames) {
 // 3. THE ITEMS MENU (WITH ICONS)
 // ==========================================
 async function showShopCategory(player, shop, categoryName, categoryItems) {
-    const form = new ActionFormData().title(formatShopActionTitle(`${shop.name} - ${categoryName}`));
+    const form = new ActionFormData().title(formatShopActionTitle(categoryName));
+    if (shop.name === "Event Shop") {
+        form.body("§7Select an item to view its full description, reward contents, and drop rates.");
+    }
 
     for (const item of categoryItems) {
         const wants = getShopWants(item);
-        
-        let displayName = item.customName || item.sell?.nameTag;
-        if (!displayName) {
-            displayName = (item.sell?.typeId || "unknown").split(':').pop().replace(/_/g, ' ');
-            displayName = displayName.replace(/\b\w/g, l => l.toUpperCase());
-        }
-        
+        const displayName = getShopItemName(item);
         const sellAmount = item.sell?.amount ?? 1;
-        const priceLine = `§5Cost: ${formatPriceLine(wants)}`;
-
         const sellIcon = item.icon || resolveShopItemIcon(item.sell?.typeId);
-        const buttonText = `§d${displayName} §7(x${sellAmount})\n${priceLine}`;
+        const payment = wants.length
+            ? wants.map(formatCompactWant).join(' §7+ §5')
+            : 'Free';
+        const paymentMarker = PAYMENT_MARKERS[wants[0]?.typeId] || "";
+        const buttonText = `${paymentMarker}§d${displayName} §7x${sellAmount}\n§5Cost: ${payment}`;
         const buttonIcon = buildShopButtonTexture(sellIcon);
-        
+
         if (buttonIcon) {
             form.button(buttonText, buttonIcon);
         } else {
@@ -111,6 +136,7 @@ async function showShopCategory(player, shop, categoryName, categoryItems) {
     }
 
     const pickedItem = categoryItems[res.selection];
+    if (!pickedItem) return showShopCategory(player, shop, categoryName, categoryItems);
     processPurchase(player, shop, categoryName, categoryItems, pickedItem);
 }
 
@@ -120,7 +146,11 @@ function isShopActionLabel(text) {
 }
 
 function buildShopPurchaseStack(picked) {
-    const sell = { ...(picked.sell || {}) };
+    const options = Array.isArray(picked.sellOptions) ? picked.sellOptions.filter(Boolean) : [];
+    const selected = options.length
+        ? options[Math.floor(Math.random() * options.length)]
+        : null;
+    const sell = { ...(picked.sell || {}), ...(selected || {}) };
 
     // customName is for the shop menu only — never rename the item from it.
     if (sell.nameTag && isShopActionLabel(sell.nameTag)) {
@@ -128,6 +158,9 @@ function buildShopPurchaseStack(picked) {
     } else if (sell.nameTag) {
         sell.nameTag = parseMcColorCodes(sell.nameTag);
     }
+
+    const details = getShopItemLore(picked);
+    if (details.length) sell.lore = details;
 
     return buildItemStackFromItemData(sell);
 }
@@ -139,32 +172,37 @@ async function processPurchase(player, shop, categoryName, categoryItems, picked
     const wants = getShopWants(picked);
     const inv = player.getComponent('minecraft:inventory')?.container;
 
-    if (wants.length && inv) {
-        for (const price of wants) {
-            const have = countItemsByType(inv, price.typeId);
-            if (have < price.amount) {
-                toastError(player, '§cYou don\'t have the required payment.', "shop_no_payment");
-                return showShopCategory(player, shop, categoryName, categoryItems);
-            }
-        }
+    const itemNameStr = getShopItemName(picked);
+    const lore = getShopItemLore(picked);
+    const paymentLines = wants.length
+        ? wants.map((price) => {
+            const have = inv ? countItemsByType(inv, price.typeId) : 0;
+            const enough = have >= price.amount;
+            return `${enough ? '§a' : '§c'}${price.amount}x ${formatWantName(price)} §7(You have ${have})`;
+        })
+        : ['§aFree'];
+    const detailLines = [
+        `§d§lRECEIVE§r\n§f${picked.sell?.amount ?? 1}x ${itemNameStr}`,
+        ...(lore.length ? [`\n§5§lINFORMATION§r\n${lore.join('\n')}`] : []),
+        `\n§d§lPAYMENT§r\n${paymentLines.join('\n')}`
+    ];
+    const sellIcon = buildShopButtonTexture(picked.icon || resolveShopItemIcon(picked.sell?.typeId));
+    const confirm = new ActionFormData()
+        .title(formatShopActionTitle(categoryName))
+        .body(detailLines.join('\n'));
 
-        let itemNameStr = picked.customName || picked.sell?.nameTag;
-        if (!itemNameStr) {
-            itemNameStr = (picked.sell?.typeId || "unknown").split(':').pop().replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-        }
+    if (sellIcon) confirm.button('§aPurchase Item', sellIcon);
+    else confirm.button('§aPurchase Item');
+    confirm.button('§wBack');
 
-        const priceStr = formatPriceLine(wants).replace(/§5Cost: /, '');
+    const confirmation = await confirm.show(player);
+    if (confirmation.canceled || confirmation.selection !== 0) {
+        return showShopCategory(player, shop, categoryName, categoryItems);
+    }
 
-        const bodyStr = `\nItem: §d${itemNameStr} §7x${picked.sell.amount}\n\n§8Cost: ${priceStr}`;
-
-        const confirm = await new ActionFormData()
-            .title('bd.action:§5Buy Item')
-            .body(bodyStr)
-            .button('§aBuy')
-            .button('§cCancel')
-            .show(player);
-        
-        if (confirm.canceled || confirm.selection !== 0) {
+    if (wants.length) {
+        if (!inv) {
+            toastError(player, '§cYour inventory could not be accessed.', "shop_inventory_error");
             return showShopCategory(player, shop, categoryName, categoryItems);
         }
 
@@ -186,7 +224,7 @@ async function processPurchase(player, shop, categoryName, categoryItems, picked
 
         giveItemToPlayer(player, buildShopPurchaseStack(picked));
         toastSuccess(player, '§aPurchase complete!', "shop_purchase_ok");
-        
+
         return showShopCategory(player, shop, categoryName, categoryItems);
     }
 

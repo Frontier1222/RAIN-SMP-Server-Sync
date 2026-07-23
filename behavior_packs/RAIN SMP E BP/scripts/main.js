@@ -17,13 +17,18 @@ import { initCombatRules, getPlayerDamageSource } from "./systems/combatRules.js
 import {
     initBountyRuntime,
     allowsBountyPvp,
+    blocksBountyHunterPvp,
+    isBountyHunterActive,
+    isBountyTarget,
     blocksBountyContainerAccess,
+    blocksBountyModeContainerAccess,
     denyBountyContainer,
 } from "./systems/bounty.js";
 import {
     initClaimLockdownRuntime,
     allowsClaimLockdownPvp,
 } from "./systems/claimLockdown.js";
+import { startVillagerJobsRuntime } from "./systems/villagerJobs.js";
 import { startAnvilColorCodeFixRuntime, startSignColorCodeFixRuntime } from "./systems/auction/utils/itemDisplay.js";
 import { startTinkersAnvilRenameRuntime } from "./utils/tinkersAnvilRename.js";
 import { formatNameTag, getRankMeta, isRainGuiBlocked, isStaffPlayer, syncStaffTagsOnJoin } from "./systems/ranks.js";
@@ -95,6 +100,7 @@ import {
     isRestrictedCreativeRole,
     shouldBlockCreativeRoleDrop,
     isRestrictedCreativeItem,
+    isBundleItem,
     isRestrictedDecorEntity,
     isRestrictedEntityContainer,
     denyRestrictedCreative,
@@ -381,7 +387,6 @@ export function cleanupPlayerCaches(playerId) {
     playerCombatStates.delete(playerId);
     borderWarningCooldown.delete(playerId);
     actionbarStatCache.delete(playerId);
-    totemLimiterDropUntil.delete(playerId);
     itemMaintScheduled.delete(playerId);
     playerLastPlotBlock.delete(playerId);
 }
@@ -937,6 +942,7 @@ initSoccerArena();
 initCombatRules();
 initBountyRuntime();
 initClaimLockdownRuntime();
+startVillagerJobsRuntime();
 startAnvilColorCodeFixRuntime();
 startTinkersAnvilRenameRuntime();
 startSignColorCodeFixRuntime();
@@ -1368,10 +1374,51 @@ if (world.afterEvents && world.afterEvents.playerSpawn) {
     });
 }
 
+const LAST_DEATH_COORDS_KEY = "rain:last_death_coordinates";
+
+function getDeathDimensionName(dimensionId) {
+    const id = String(dimensionId || "").replace("minecraft:", "");
+    if (id === "overworld") return "Overworld";
+    if (id === "nether") return "Nether";
+    if (id === "the_end") return "The End";
+    return id || "Unknown Dimension";
+}
+
+function saveDeathCoordinates(player) {
+    try {
+        const location = player.location;
+        player.setDynamicProperty(LAST_DEATH_COORDS_KEY, JSON.stringify({
+            x: Math.floor(location.x),
+            y: Math.floor(location.y),
+            z: Math.floor(location.z),
+            dimension: getDeathDimensionName(player.dimension?.id),
+        }));
+    } catch (e) {}
+}
+
+function sendPendingDeathCoordinates(player) {
+    let raw;
+    try {
+        raw = player.getDynamicProperty(LAST_DEATH_COORDS_KEY);
+        if (typeof raw !== "string" || !raw) return;
+        player.setDynamicProperty(LAST_DEATH_COORDS_KEY, undefined);
+    } catch (e) {
+        return;
+    }
+
+    try {
+        const data = JSON.parse(raw);
+        player.sendMessage(
+            `§r§c§l[DEATH]§r §7Death location: §f${data.x}, ${data.y}, ${data.z} §8(§f${data.dimension}§8)`
+        );
+    } catch (e) {}
+}
+
 if (world.afterEvents && world.afterEvents.entityDie) {
     world.afterEvents.entityDie.subscribe((e) => {
         const dead = e.deadEntity;
         if (dead?.typeId === 'minecraft:player') {
+            saveDeathCoordinates(dead);
             clearCombatLogOnDeath(dead);
             playerCombatStates.set(dead.id, 0);
 
@@ -1383,6 +1430,17 @@ if (world.afterEvents && world.afterEvents.entityDie) {
                 setCachedNumberStat(killer, KILLS_KEY, cachedKills, kills);
             }
         }
+    });
+}
+
+if (world.afterEvents?.playerSpawn) {
+    world.afterEvents.playerSpawn.subscribe((event) => {
+        system.runTimeout(() => {
+            try {
+                if (!event.player?.isValid) return;
+                sendPendingDeathCoordinates(event.player);
+            } catch (e) {}
+        }, 5);
     });
 }
 
@@ -1597,7 +1655,10 @@ function tickPlotEnterSafezone(player) {
         const plot = getPlotAtLocation(loc, player.dimension.id);
         const lastPlot = playerCurrentPlot.get(player.id);
 
-        if (plot && (plot.permissions?.default?.protectPvp === true || plot.permissions?.default?.protectPvp === undefined)) {
+        const bountySafezoneBypass = isBountyHunterActive(player) || isBountyTarget(player);
+        if (bountySafezoneBypass) {
+            if (player.hasTag("in_safezone")) player.removeTag("in_safezone");
+        } else if (plot && (plot.permissions?.default?.protectPvp === true || plot.permissions?.default?.protectPvp === undefined)) {
             if (!player.hasTag("in_safezone")) player.addTag("in_safezone");
         } else {
             if (player.hasTag("in_safezone")) player.removeTag("in_safezone");
@@ -1874,7 +1935,9 @@ function runPlayerItemMaintenance(player, { stripWorldBuilder = false } = {}) {
     const stripBanned = !isTester(player);
     const stripWb = (stripWorldBuilder || !canUseWorldBuilderTools(player)) && !canUseWorldBuilderTools(player);
     const stripDebug = !canUseDebugStick(player);
+    const stripBundles = true;
     let bannedRemoved = false;
+    let bundleRemoved = false;
     let totemCount = 0;
     let offhandTotems = 0;
     let dropTypeId = "minecraft:totem_of_undying";
@@ -1888,6 +1951,11 @@ function runPlayerItemMaintenance(player, { stripWorldBuilder = false } = {}) {
             if (stripBanned && typeId === BANNED_ITEM) {
                 equippable.setEquipment(slot, undefined);
                 bannedRemoved = true;
+                continue;
+            }
+            if (stripBundles && isBundleItem(typeId)) {
+                equippable.setEquipment(slot, undefined);
+                bundleRemoved = true;
                 continue;
             }
             if (stripWb && isWorldBuilderStaffOnlyItem(typeId)) {
@@ -1919,6 +1987,11 @@ function runPlayerItemMaintenance(player, { stripWorldBuilder = false } = {}) {
                 bannedRemoved = true;
                 continue;
             }
+            if (stripBundles && isBundleItem(typeId)) {
+                inventory.setItem(i, undefined);
+                bundleRemoved = true;
+                continue;
+            }
             if (stripWb && isWorldBuilderStaffOnlyItem(typeId)) {
                 inventory.setItem(i, undefined);
                 continue;
@@ -1936,6 +2009,9 @@ function runPlayerItemMaintenance(player, { stripWorldBuilder = false } = {}) {
 
     if (bannedRemoved) {
         notify(player, "tnt_modifier_inv_removed", "§cThe TNT Modifier is banned and has been removed from your inventory.", "", "note.bass");
+    }
+    if (bundleRemoved) {
+        notify(player, "anti_abuse_bundle_removed", "§r§c§l[RESTRICTED]§r §cBundles are disabled and were removed.", "", "note.bass");
     }
 
     trimExcessTotems(player, inventory, equippable, totemCount, offhandTotems, dropTypeId);
@@ -2047,10 +2123,12 @@ function buildActionbar(player, time) {
     }
 
     const base =
-        `§r\n§r  §b${player.name}\n§r\n` +
-        `§r§a Kills§7: §f${stats.kills}\n§r§c Deaths§7: §f${stats.deaths}\n` +
-        `§r§e K/D§7: §f${(stats.kills / Math.max(1, stats.deaths)).toFixed(2)}\n§r\n` +
-        `§r§b Rank§7: §d${stats.rank}\n§r§d CPS§7: §f${stats.cps}\n§r\n` +
+        `\n\n\n§r§b${player.name}\n\n` +
+        `§r§a Kills§7: §f${stats.kills}\n` +
+        `§r§c Deaths§7: §f${stats.deaths}\n` +
+        `§r§e K/D§7: §f${(stats.kills / Math.max(1, stats.deaths)).toFixed(2)}\n\n` +
+        `§r§b Rank§7: §d${stats.rank}\n` +
+        `§r§d CPS§7: §f${stats.cps}\n\n` +
         `§r §f${time}`;
 
     if (isSoccerPlayer(player)) {
@@ -2086,10 +2164,11 @@ function shouldBlockClaimPvp(victim, attacker) {
 
     const victimPlot = getPlotAtLocation(victim.location, victim.dimension.id);
     const attackerPlot = getPlotAtLocation(attacker.location, attacker.dimension.id);
-    const bountyOk = allowsBountyPvp(victim);
+    const bountyOk = allowsBountyPvp(victim, attacker);
     const lockdownOk = allowsClaimLockdownPvp(victim);
 
     if (bountyOk || lockdownOk) return false;
+    if (blocksBountyHunterPvp(victim, attacker)) return true;
 
     if (victimPlot && !isPvpAllowedInClaim(victimPlot, attacker)) return true;
     if (attackerPlot && !isPvpAllowedInClaim(attackerPlot, attacker)) return true;
@@ -2107,6 +2186,14 @@ if (world.beforeEvents?.entityHurt) {
             if (victim?.typeId === "minecraft:player" && attacker?.typeId === "minecraft:player") {
                 if (isSoccerPlayer(victim) || isSoccerPlayer(attacker)) {
                     event.cancel = true;
+                    return;
+                }
+
+                if (blocksBountyHunterPvp(victim, attacker)) {
+                    event.cancel = true;
+                    system.run(() => {
+                        notify(attacker, "bounty_wrong_target", "§r§c§l[BOUNTY]§r §cYou can only attack your accepted contract target.", "", "note.bass");
+                    });
                     return;
                 }
 
@@ -2154,19 +2241,9 @@ if (world.afterEvents?.entityHurt) {
 }
 
 
-const totemLimiterDropUntil = new Map();
-
 function isTotemItem(typeId) {
     const id = String(typeId || "").toLowerCase();
     return id === "minecraft:totem_of_undying" || id === "minecraft:totem" || id.includes("totem_of_undying");
-}
-
-function markTotemLimiterDrop(player, durationMs = 8000) {
-    totemLimiterDropUntil.set(player.id, Date.now() + durationMs);
-}
-
-function isInTotemLimiterDropGrace(player) {
-    return (totemLimiterDropUntil.get(player?.id) || 0) > Date.now();
 }
 
 if (world.beforeEvents && world.beforeEvents.playerBreakBlock) {
@@ -2365,6 +2442,15 @@ if (world.beforeEvents && world.beforeEvents.itemUse) {
                 if (target && tryBlockCaptureCubeUse(player, target, event)) return;
             }
 
+            if (isBundleItem(event.itemStack?.typeId)) {
+                event.cancel = true;
+                system.run(() => {
+                    runPlayerItemMaintenance(player, { stripWorldBuilder: true });
+                    notify(player, "anti_abuse_bundle_use", "§r§c§l[RESTRICTED]§r §cBundles are disabled.", "", "note.bass");
+                });
+                return;
+            }
+
             if (isRestrictedCreativeRole(player) && isRestrictedCreativeItem(event.itemStack?.typeId)) {
                 event.cancel = true;
                 system.run(() => {
@@ -2385,6 +2471,15 @@ if (world.beforeEvents && world.beforeEvents.itemUseOn) {
             if (!block || player?.typeId !== "minecraft:player") return;
 
             const blockId = block.typeId.toLowerCase();
+
+            if (item && isBundleItem(item.typeId)) {
+                ev.cancel = true;
+                system.run(() => {
+                    runPlayerItemMaintenance(player, { stripWorldBuilder: true });
+                    notify(player, "anti_abuse_bundle_use", "§r§c§l[RESTRICTED]§r §cBundles are disabled.", "", "note.bass");
+                });
+                return;
+            }
 
             if (isRestrictedCreativeRole(player)) {
                 if (isRestrictedUsableBlock(blockId)) {
@@ -2421,6 +2516,11 @@ if (world.beforeEvents && world.beforeEvents.itemUseOn) {
             const isContainer = isStorageContainerBlock(blockId);
 
             if (isContainer) {
+                if (blocksBountyModeContainerAccess(player)) {
+                    ev.cancel = true;
+                    system.run(() => denyBountyContainer(player));
+                    return;
+                }
                 if (
                     blockTesterCreativeShulkerPlaceOrOpen(player, item, block, "open") ||
                     blockTesterBoldShulkerPlaceOrOpen(player, item, block, "open")
@@ -2613,6 +2713,11 @@ if (world.beforeEvents && world.beforeEvents.playerInteractWithBlock) {
             const isContainer = isStorageContainerBlock(blockId);
 
             if (isContainer) {
+                if (blocksBountyModeContainerAccess(player)) {
+                    event.cancel = true;
+                    system.run(() => denyBountyContainer(player));
+                    return;
+                }
                 if (
                     blockTesterCreativeShulkerPlaceOrOpen(player, heldItem, block, "open") ||
                     blockTesterBoldShulkerPlaceOrOpen(player, heldItem, block, "open")
@@ -2650,61 +2755,251 @@ if (world.beforeEvents && world.beforeEvents.playerInteractWithBlock) {
     });
 }
 
-if (world.beforeEvents?.playerDropItem) {
-    world.beforeEvents.playerDropItem.subscribe((event) => {
-        const player = event.source;
-        if (!player || player.typeId !== "minecraft:player") return;
-        syncCreativeRoleTag(player);
-        if (!shouldBlockCreativeRoleDrop(player)) return;
-        if (isRainGuiItem(event.itemStack)) return;
+const recentDroppedItemSpawns = [];
+const pendingRestrictedDrops = [];
+const DROP_MATCH_TICKS = 5;
+const DROP_MATCH_DISTANCE_SQUARED = 16;
 
-        event.cancel = true;
-        system.run(() => {
-            if (event.itemStack) {
-                stashItemStackToBuilderVault(player, event.itemStack);
+function getDroppedItemValues(event) {
+    const items = event?.items;
+    if (!items) {
+        const single = event?.itemEntity ?? event?.itemStack ?? event?.item;
+        return single ? [single] : [];
+    }
+
+    if (Array.isArray(items)) return items;
+
+    try {
+        if (typeof items.forEach === "function") {
+            const normalized = [];
+            items.forEach((value) => {
+                if (value) normalized.push(value);
+            });
+            return normalized;
+        }
+    } catch (e) {}
+
+    try {
+        if (typeof items[Symbol.iterator] === "function") {
+            return Array.from(items);
+        }
+    } catch (e) {}
+
+    try {
+        const rawSize = typeof items.size === "function" ? items.size() : items.size;
+        const count = Number.isInteger(items.length) ? items.length : rawSize;
+        if (Number.isInteger(count) && count >= 0) {
+            const normalized = [];
+            for (let index = 0; index < count; index++) {
+                const value = typeof items.get === "function" ? items.get(index) : items[index];
+                if (value) normalized.push(value);
             }
-            denyRestrictedCreative(player, "anti_abuse_drop", "Dropped items are stored in your builder vault.");
-        });
+            return normalized;
+        }
+    } catch (e) {}
+
+    try {
+        if (typeof items.getComponent === "function") return [items];
+    } catch (e) {}
+
+    try {
+        const indexedKeys = Object.keys(items)
+            .filter((key) => /^\d+$/.test(key))
+            .sort((a, b) => Number(a) - Number(b));
+        if (indexedKeys.length) return indexedKeys.map((key) => items[key]).filter(Boolean);
+    } catch (e) {}
+
+    const single = event?.itemEntity ?? event?.itemStack ?? event?.item;
+    return single ? [single] : [];
+}
+
+function pruneDropTracking() {
+    const minimumTick = system.currentTick - DROP_MATCH_TICKS;
+    for (let index = recentDroppedItemSpawns.length - 1; index >= 0; index--) {
+        const record = recentDroppedItemSpawns[index];
+        if (record.tick < minimumTick || !record.entity?.isValid) {
+            recentDroppedItemSpawns.splice(index, 1);
+        }
+    }
+    for (let index = pendingRestrictedDrops.length - 1; index >= 0; index--) {
+        if (pendingRestrictedDrops[index].tick < minimumTick) {
+            pendingRestrictedDrops.splice(index, 1);
+        }
+    }
+}
+
+function getDropValueData(value) {
+    try {
+        if (!value) return null;
+        if (value.typeId === "minecraft:item") {
+            if (!value.isValid) return null;
+            const stack = value.getComponent("minecraft:item")?.itemStack;
+            return stack ? { entity: value, stack } : null;
+        }
+        if (typeof value.typeId === "string" && Number.isInteger(value.amount)) {
+            return { entity: null, stack: value };
+        }
+    } catch (e) {}
+    return null;
+}
+
+function dropRecordMatches(record, dimensionId, location, stack) {
+    if (!record || record.dimensionId !== dimensionId || record.typeId !== stack.typeId) return false;
+    if (record.amount !== stack.amount) return false;
+    const dx = record.location.x - location.x;
+    const dy = record.location.y - location.y;
+    const dz = record.location.z - location.z;
+    return (dx * dx) + (dy * dy) + (dz * dz) <= DROP_MATCH_DISTANCE_SQUARED;
+}
+
+function removeRecentSpawnForDrop(player, stack) {
+    pruneDropTracking();
+    const dimensionId = player.dimension.id;
+    const location = player.location;
+    let bestIndex = -1;
+    let bestDistance = Number.POSITIVE_INFINITY;
+
+    for (let index = 0; index < recentDroppedItemSpawns.length; index++) {
+        const record = recentDroppedItemSpawns[index];
+        if (!dropRecordMatches(record, dimensionId, location, stack)) continue;
+        const dx = record.location.x - location.x;
+        const dy = record.location.y - location.y;
+        const dz = record.location.z - location.z;
+        const distance = (dx * dx) + (dy * dy) + (dz * dz);
+        if (distance < bestDistance) {
+            bestDistance = distance;
+            bestIndex = index;
+        }
+    }
+
+    if (bestIndex < 0) return false;
+    const [record] = recentDroppedItemSpawns.splice(bestIndex, 1);
+    try {
+        if (record.entity?.isValid) record.entity.remove();
+    } catch (e) {}
+    return true;
+}
+
+function trackSpawnedItemEntity(entity, attempt = 0) {
+    try {
+        if (!entity?.isValid || entity.typeId !== "minecraft:item") return;
+        const stack = entity.getComponent("minecraft:item")?.itemStack;
+        if (!stack) {
+            if (attempt < 4) {
+                system.runTimeout(() => trackSpawnedItemEntity(entity, attempt + 1), 1);
+            }
+            return;
+        }
+
+        pruneDropTracking();
+        const record = {
+            entity,
+            tick: system.currentTick,
+            dimensionId: entity.dimension.id,
+            location: { ...entity.location },
+            typeId: stack.typeId,
+            amount: stack.amount,
+        };
+        const pendingIndex = pendingRestrictedDrops.findIndex((pending) =>
+            dropRecordMatches(record, pending.dimensionId, pending.location, pending.stack)
+        );
+        if (pendingIndex >= 0) {
+            pendingRestrictedDrops.splice(pendingIndex, 1);
+            entity.remove();
+            return;
+        }
+
+        recentDroppedItemSpawns.push(record);
+        if (recentDroppedItemSpawns.length > 128) recentDroppedItemSpawns.shift();
+    } catch (e) {}
+}
+
+if (world.afterEvents?.entityItemDrop) {
+    world.afterEvents.entityItemDrop.subscribe((event) => {
+        try {
+            const player = event.entity;
+            if (!player || player.typeId !== "minecraft:player") return;
+
+            syncCreativeRoleTag(player);
+            const restrictCreativeDrop = shouldBlockCreativeRoleDrop(player);
+            let removedBundle = false;
+            let removedRestrictedDrop = false;
+
+            const droppedValues = getDroppedItemValues(event);
+            for (let valueIndex = 0; valueIndex < droppedValues.length; valueIndex++) {
+                const value = droppedValues[valueIndex];
+                try {
+                    const data = getDropValueData(value);
+                    if (!data) continue;
+                    const { entity: itemEntity, stack } = data;
+
+                    if (isBundleItem(stack.typeId)) {
+                        if (itemEntity?.isValid) {
+                            itemEntity.remove();
+                        } else if (!removeRecentSpawnForDrop(player, stack)) {
+                            pendingRestrictedDrops.push({
+                                tick: system.currentTick,
+                                dimensionId: player.dimension.id,
+                                location: { ...player.location },
+                                stack: stack.clone(),
+                            });
+                        }
+                        removedBundle = true;
+                        continue;
+                    }
+
+                    if (!restrictCreativeDrop || isRainGuiItem(stack)) continue;
+                    if (itemEntity?.isValid) {
+                        itemEntity.remove();
+                    } else if (!removeRecentSpawnForDrop(player, stack)) {
+                        pendingRestrictedDrops.push({
+                            tick: system.currentTick,
+                            dimensionId: player.dimension.id,
+                            location: { ...player.location },
+                            stack: stack.clone(),
+                        });
+                    }
+                    removedRestrictedDrop = true;
+                } catch (e) {}
+            }
+
+            if (removedBundle) {
+                system.run(() => {
+                    runPlayerItemMaintenance(player, { stripWorldBuilder: true });
+                    notify(player, "anti_abuse_bundle_drop", "§r§c§l[RESTRICTED]§r §cBundles are disabled.", "", "note.bass");
+                });
+            }
+            if (removedRestrictedDrop) {
+                system.run(() => {
+                    denyRestrictedCreative(player, "anti_abuse_drop", "Dropped Creative items are removed.");
+                });
+            }
+        } catch (e) {
+            console.warn(`[RAIN drop restriction] Failed to process item drop: ${e}`);
+        }
     });
 }
 
-function vacuumCreativeBuilderDropEntity(ent, attempt = 0) {
-    if (!ent?.isValid || ent.typeId !== "minecraft:item") return;
+if (world.beforeEvents?.entityItemPickup) {
+    world.beforeEvents.entityItemPickup.subscribe((event) => {
+        try {
+            const player = event.entity;
+            if (!player || player.typeId !== "minecraft:player") return;
+            const stack = event.itemStack
+                ?? event.itemEntity?.getComponent("item")?.itemStack
+                ?? event.itemEntity?.getComponent("minecraft:item")?.itemStack;
+            if (!isBundleItem(stack?.typeId)) return;
 
-    const stack = ent.getComponent("item")?.itemStack ?? ent.getComponent("minecraft:item")?.itemStack;
-    if (!stack) {
-        if (attempt < 5) {
-            system.runTimeout(() => vacuumCreativeBuilderDropEntity(ent, attempt + 1), 2);
-        }
-        return;
-    }
-
-    if (isRainGuiItem(stack)) {
-        ent.kill();
-        return;
-    }
-
-    try {
-        const closePlayers = ent.dimension.getPlayers({ location: ent.location, maxDistance: 5 });
-        for (const player of closePlayers) {
-            syncCreativeRoleTag(player);
-            if (!shouldBlockCreativeRoleDrop(player)) continue;
-            if (isInTotemLimiterDropGrace(player)) continue;
-
-            const isBuilder = isCreativeBuilderTagged(player);
-            if (isBuilder) {
-                ent.kill();
-                system.run(() => {
-                    denyRestrictedCreative(
-                        player,
-                        "anti_abuse_drop_vault",
-                        "Dropped items are removed in Creative mode."
-                    );
-                });
-                return;
-            }
-        }
-    } catch (e) { }
+            event.cancel = true;
+            try {
+                if (event.itemEntity?.isValid) event.itemEntity.kill();
+            } catch (e) {}
+            system.run(() => {
+                runPlayerItemMaintenance(player, { stripWorldBuilder: true });
+                notify(player, "anti_abuse_bundle_pickup", "§r§c§l[RESTRICTED]§r §cBundles are disabled.", "", "note.bass");
+            });
+        } catch (e) {}
+    });
 }
 
 if (world.afterEvents?.entitySpawn) {
@@ -2713,8 +3008,7 @@ if (world.afterEvents?.entitySpawn) {
         if (!entity) return;
 
         if (entity.typeId === "minecraft:item") {
-            if (!restrictedCreativeOnline) return;
-            system.run(() => vacuumCreativeBuilderDropEntity(entity));
+            trackSpawnedItemEntity(entity);
             return;
         }
 
@@ -3774,8 +4068,6 @@ if (world.afterEvents && world.afterEvents.playerInteractWithBlock) {
 
 function dropItemsAtPlayer(player, typeId, amount) {
     if (!player || amount <= 0) return;
-
-    markTotemLimiterDrop(player);
 
     system.runTimeout(() => {
         if (!isPlayerOnline(player)) return;

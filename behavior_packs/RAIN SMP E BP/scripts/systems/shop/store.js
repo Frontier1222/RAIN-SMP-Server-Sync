@@ -14,7 +14,7 @@ const MAX_CHUNK_SIZE = 30000;
 
 let cachedRaw = null;
 let cachedShops = null;
-let eventShopIconsSynced = false;
+let shopContentSynced = false;
 
 /** Shop UI icons for Event Shop randomized reward loot bags (matches item BP icons). */
 export const EVENT_LOOT_BAG_ICONS = {
@@ -30,19 +30,71 @@ export const EVENT_LOOT_BAG_ICONS = {
   "viberater:loot_hmob_egg": "textures/items/lootbag_legendary_item_texture"
 };
 
-function applyEventShopIconSync(shops) {
+function applyShopContentSync(shops) {
   let changed = false;
 
   for (const shop of shops) {
-    if (shop.name !== "Event Shop") continue;
-
     for (const item of shop.items || []) {
       const typeId = item.sell?.typeId;
-      const icon = EVENT_LOOT_BAG_ICONS[typeId];
 
-      if (icon && item.icon !== icon) {
-        item.icon = icon;
-        changed = true;
+      if (shop.name === "Event Shop") {
+        const icon = EVENT_LOOT_BAG_ICONS[typeId];
+        if (icon && item.icon !== icon) {
+          item.icon = icon;
+          changed = true;
+        }
+      }
+
+      if (shop.name === "End Shop" && typeId === "minecraft:dragon_egg") {
+        const payments = [...(Array.isArray(item.wants) ? item.wants : []), item.want].filter(Boolean);
+        for (const payment of payments) {
+          if (payment.amount !== 100) {
+            payment.amount = 100;
+            changed = true;
+          }
+        }
+        const lore = ["§7Unique luxury item", "§8Price: 100 Rain SMP Coins"];
+        if (JSON.stringify(item.sell.lore || []) !== JSON.stringify(lore)) {
+          item.sell.lore = lore;
+          changed = true;
+        }
+      }
+
+      if (shop.name === "Banker") {
+        const rawType = typeId === "minecraft:iron_ingot"
+          ? "minecraft:raw_iron"
+          : typeId === "minecraft:gold_ingot"
+            ? "minecraft:raw_gold"
+            : null;
+        if (rawType) {
+          item.sell.typeId = rawType;
+          item.icon = rawType === "minecraft:raw_iron" ? "textures/items/raw_iron" : "textures/items/raw_gold";
+          item.customName = rawType === "minecraft:raw_iron"
+            ? "Sell Common Coin For Raw Iron"
+            : "Sell Uncommon Coin For Raw Gold";
+          changed = true;
+        }
+
+        const payments = [...(Array.isArray(item.wants) ? item.wants : []), item.want].filter(Boolean);
+        for (const payment of payments) {
+          if (payment.typeId === "minecraft:iron_ingot") {
+            payment.typeId = "minecraft:raw_iron";
+            payment.icon = "textures/items/raw_iron";
+            changed = true;
+          } else if (payment.typeId === "minecraft:gold_ingot") {
+            payment.typeId = "minecraft:raw_gold";
+            payment.icon = "textures/items/raw_gold";
+            changed = true;
+          }
+        }
+      }
+
+      if (shop.name === "Stone Shop" && typeId === "minecraft:prismarine") {
+        const icon = "textures/items/ocean_prismarine_bricks";
+        if (item.icon !== icon) {
+          item.icon = icon;
+          changed = true;
+        }
       }
     }
   }
@@ -139,10 +191,10 @@ function readShops() {
       const migrated = safeParse(oldRaw);
       saveShops(migrated);
 
-      if (!eventShopIconsSynced) {
-        eventShopIconsSynced = true;
+      if (!shopContentSynced) {
+        shopContentSynced = true;
 
-        if (applyEventShopIconSync(migrated)) {
+        if (applyShopContentSync(migrated)) {
           saveShops(migrated);
         }
       }
@@ -159,10 +211,10 @@ function readShops() {
 
   const parsed = safeParse(raw);
 
-  if (!eventShopIconsSynced) {
-    eventShopIconsSynced = true;
+  if (!shopContentSynced) {
+    shopContentSynced = true;
 
-    if (applyEventShopIconSync(parsed)) {
+    if (applyShopContentSync(parsed)) {
       saveShops(parsed);
       return parsed;
     }

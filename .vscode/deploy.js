@@ -296,6 +296,41 @@ async function main() {
         remote: "/behavior_packs/TC BP UPD",
         verify: "/behavior_packs/TC BP UPD/manifest.json",
       });
+    }
+
+    if (packName === "tc-bp") {
+      const tcRoot = path.join(ROOT, "behavior_packs", "TC BP UPD");
+      jobs.push({
+        type: "file",
+        label: "TC BP manifest",
+        local: path.join(tcRoot, "manifest.json"),
+        remote: "/behavior_packs/TC BP UPD",
+        verify: "/behavior_packs/TC BP UPD/manifest.json",
+      });
+      for (const scriptName of ["player_controller.js", "tool_effects.js", "bows.js", "vanilla_item_use.js", "main.js"]) {
+        jobs.push({
+          type: "file",
+          label: `TC BP ${scriptName}`,
+          local: path.join(tcRoot, "scripts", "ftb", "tinkers", scriptName),
+          remote: "/behavior_packs/TC BP UPD/scripts/ftb/tinkers",
+          verify: null,
+        });
+      }
+      for (const relativePath of [
+        "blocks/ftb/tinkers/tinkers_station/dark_oak.json",
+        "recipes/ftb/tinkers/tinkers_station/dark_oak.json",
+      ]) {
+        jobs.push({
+          type: "file",
+          label: `TC BP ${relativePath}`,
+          local: path.join(tcRoot, ...relativePath.split("/")),
+          remote: `/behavior_packs/TC BP UPD/${path.posix.dirname(relativePath)}`,
+          verify: null,
+        });
+      }
+    }
+
+    if (packName === "tc" || packName === "all") {
       jobs.push({
         type: "dir",
         label: "TC RP UPD",
@@ -303,6 +338,9 @@ async function main() {
         remote: "/resource_packs/TC RP UPD",
         verify: "/resource_packs/TC RP UPD/manifest.json",
       });
+    }
+
+    if (packName === "tc" || packName === "tc-bp" || packName === "all") {
       jobs.push({
         type: "file",
         label: "world_behavior_packs.json",
@@ -310,6 +348,9 @@ async function main() {
         remote: "/worlds/Bedrock level",
         verify: null,
       });
+    }
+
+    if (packName === "tc" || packName === "all") {
       jobs.push({
         type: "file",
         label: "world_resource_packs.json",
@@ -351,7 +392,7 @@ async function main() {
     }
 
     if (jobs.length === 0) {
-      throw new Error("Nothing to deploy. Use --manifests, --pack rain|rain-bp|rain-rp|essentials|hotbars|paradox|tc|worldbuilder|all");
+      throw new Error("Nothing to deploy. Use --manifests, --pack rain|rain-bp|rain-rp|essentials|hotbars|paradox|tc|tc-bp|worldbuilder|all");
     }
 
     for (const job of jobs) {

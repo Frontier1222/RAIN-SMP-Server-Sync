@@ -1,0 +1,42 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "npc:bounty_contracts",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "zombie"
+      },
+      "textures": {
+        "default": "textures/entity/zombie/husk"
+      },
+      "geometry": {
+        "default": "geometry.zombie.husk"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+        ],
+        "animate": [
+          "barehand_pose_setup",
+          "humanoid_bob",
+          {
+            "humanoid_move": "query.modified_move_speed > 0.0"
+          }
+        ]
+      },
+      "animations": {
+        "barehand_pose_setup": "animation.zombie.attack_bare_hand",
+        "humanoid_bob": "animation.humanoid.bob",
+        "humanoid_move": "animation.humanoid.move"
+      },
+      "render_controllers": [
+        "controller.render.zombie"
+      ],
+      "spawn_egg": {
+        "base_color": "#f6c744",
+        "overlay_color": "#7b2ff7"
+      }
+    }
+  }
+}
