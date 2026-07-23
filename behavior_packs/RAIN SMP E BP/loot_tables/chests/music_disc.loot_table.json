@@ -23,7 +23,8 @@
                 { "type": "item", "name": "minecraft:music_disc_precipice" },
                 { "type": "item", "name": "minecraft:music_disc_tears" },
                 { "type": "item", "name": "minecraft:music_disc_lava_chicken" },
-                { "type": "item", "name": "minecraft:music_disc_relic" }
+                { "type": "item", "name": "minecraft:music_disc_relic" },
+                { "type": "item", "name": "minecraft:music_disc_bounce" }
             ]
         }
     ]

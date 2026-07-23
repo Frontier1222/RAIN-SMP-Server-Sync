@@ -15,6 +15,7 @@ import {
   EVENT_LOOT_BAG_ICONS
 } from '../store.js';
 import { resolveShopItemIcon } from '../itemIcons.js';
+import { getEventShopDetails } from '../eventDetails.js';
 
 // Auction utils
 import { pickInventorySlot } from '../../auction/utils/inventoryPick.js';
@@ -557,21 +558,46 @@ function buildGeneratedShopTrade(t) {
     sell.nameTag = itemName;
   }
 
-  if (Array.isArray(t.lore) && t.lore.length > 0) {
-    sell.lore = t.lore.map((line) => parseMcColorCodes(String(line)));
+  const eventDetails = getEventShopDetails(t.name);
+  const lore = eventDetails.length ? eventDetails : t.lore;
+  if (Array.isArray(lore) && lore.length > 0) {
+    sell.lore = lore.map((line) => parseMcColorCodes(String(line)));
+  }
+
+  if (Array.isArray(t.enchantments) && t.enchantments.length > 0) {
+    sell.enchantments = t.enchantments.map(e => ({ id: e.id, level: e.level }));
+  }
+
+  if (t.book) {
+    sell.book = { ...t.book };
+  }
+
+  const wants = Array.isArray(t.wants)
+    ? t.wants.map(w => ({
+        typeId: w.typeId,
+        amount: w.amount,
+        nameTag: COIN_NAMES[w.typeId] || w.nameTag || "",
+        icon: resolveShopItemIcon(w.typeId, w.icon || "")
+      }))
+    : [];
+
+  if (!wants.length && t.wantId) {
+    wants.push({
+      typeId: t.wantId,
+      amount: t.cost,
+      nameTag: COIN_NAMES[t.wantId] || t.wantNameTag || "",
+      icon: resolveShopItemIcon(t.wantId, t.wantIcon || "")
+    });
   }
 
   return {
     id: `${Date.now()}_${Math.floor(Math.random() * 999999)}`,
     sell,
-    want: t.wantId
-      ? {
-          typeId: t.wantId,
-          amount: t.cost,
-          nameTag: COIN_NAMES[t.wantId] || t.wantNameTag || "",
-          icon: resolveShopItemIcon(t.wantId, t.wantIcon || "")
-        }
-      : null,
+    want: wants[0] || null,
+    wants,
+    sellOptions: Array.isArray(t.sellOptions)
+      ? t.sellOptions.map(option => ({ ...option }))
+      : undefined,
     category: t.tab || "Items",
     icon: t.icon || "",
     customName: menuLabel || itemName
@@ -579,25 +605,7 @@ function buildGeneratedShopTrade(t) {
 }
 
 function createGeneratedShop(player, shopName, suffix, trades, successMessage) {
-  try {
-    const shopId = Date.now().toString() + suffix;
-
-    const items = trades.map(t => buildGeneratedShopTrade(t));
-
-    addShop({
-      id: shopId,
-      name: shopName,
-      npc: null,
-      items,
-      useTabs: true
-    });
-
-    toastSuccess(player, successMessage || `${shopName} successfully generated with ${items.length} items!`, "custom_msg");
-    player.playSound("random.levelup");
-  } catch (e) {
-    toastError(player, `§cFailed to generate ${shopName}: ${e}`, "custom_msg");
-    player.playSound("note.bass");
-  }
+  return upsertGeneratedShop(player, shopName, suffix, trades, successMessage);
 }
 
 function upsertGeneratedShop(player, shopName, suffix, trades, successMessage) {
@@ -616,7 +624,7 @@ function upsertGeneratedShop(player, shopName, suffix, trades, successMessage) {
 
       toastSuccess(
         player,
-        `§a${shopName} updated with ${items.length} items (loot bag icons refreshed)!`,
+        `§a${shopName} updated with ${items.length} items. Its linked NPC was preserved.`,
         "custom_msg"
       );
     } else {
@@ -652,18 +660,18 @@ export function generateBankerShop(player) {
       id: COINS.common,
       amt: 1,
       cost: 20,
-      wantId: "minecraft:iron_ingot",
+      wantId: "minecraft:raw_iron",
       name: "Buy Common Coin",
-      icon: "textures/items/iron_ingot",
+      icon: "textures/items/rain_common_coin",
       tab: "Buy Coins"
     },
     {
       id: COINS.uncommon,
       amt: 1,
       cost: 48,
-      wantId: "minecraft:gold_ingot",
+      wantId: "minecraft:raw_gold",
       name: "Buy Uncommon Coin",
-      icon: "textures/items/gold_ingot",
+      icon: "textures/items/rain_uncommon_coin",
       tab: "Buy Coins"
     },
     {
@@ -672,7 +680,7 @@ export function generateBankerShop(player) {
       cost: 48,
       wantId: "minecraft:emerald",
       name: "Buy Uncommon Coin",
-      icon: "textures/items/emerald",
+      icon: "textures/items/rain_uncommon_coin",
       tab: "Buy Coins"
     },
     {
@@ -681,7 +689,7 @@ export function generateBankerShop(player) {
       cost: 4,
       wantId: "minecraft:diamond_block",
       name: "Buy Rare Coin",
-      icon: "textures/items/diamond",
+      icon: "textures/items/rain_rare_coin",
       tab: "Buy Coins"
     },
     {
@@ -690,27 +698,27 @@ export function generateBankerShop(player) {
       cost: 3,
       wantId: "minecraft:netherite_ingot",
       name: "Buy Rain SMP Coin",
-      icon: "textures/items/netherite_ingot",
+      icon: "textures/items/rain_coin",
       tab: "Buy Coins"
     },
 
     // Sell Coins
     {
-      id: "minecraft:iron_ingot",
+      id: "minecraft:raw_iron",
       amt: 8,
       cost: 1,
       wantId: COINS.common,
-      name: "Sell Common Coin For Iron Ingots",
-      icon: "textures/items/rain_common_coin",
+      name: "Sell Common Coin For Raw Iron",
+      icon: "textures/items/raw_iron",
       tab: "Sell Coins"
     },
     {
-      id: "minecraft:gold_ingot",
+      id: "minecraft:raw_gold",
       amt: 20,
       cost: 1,
       wantId: COINS.uncommon,
-      name: "Sell Uncommon Coin For Gold Ingots",
-      icon: "textures/items/rain_uncommon_coin",
+      name: "Sell Uncommon Coin For Raw Gold",
+      icon: "textures/items/raw_gold",
       tab: "Sell Coins"
     },
     {
@@ -719,7 +727,7 @@ export function generateBankerShop(player) {
       cost: 1,
       wantId: COINS.uncommon,
       name: "Sell Uncommon Coin For Emeralds",
-      icon: "textures/items/rain_uncommon_coin",
+      icon: "textures/items/emerald",
       tab: "Sell Coins"
     },
     {
@@ -728,7 +736,7 @@ export function generateBankerShop(player) {
       cost: 1,
       wantId: COINS.rare,
       name: "Sell Rare Coin For Diamond Blocks",
-      icon: "textures/items/rain_rare_coin",
+      icon: "textures/items/diamond_block",
       tab: "Sell Coins"
     },
     {
@@ -737,7 +745,7 @@ export function generateBankerShop(player) {
       cost: 1,
       wantId: COINS.rain,
       name: "Sell Rain SMP Coin For Netherite Ingots",
-      icon: "textures/items/rain_coin",
+      icon: "textures/items/netherite_ingot",
       tab: "Sell Coins"
     }
   ];
@@ -772,6 +780,24 @@ export function generateRedstoneShop(player) {
     { id: "minecraft:activator_rail", amt: 5, cost: 1, wantId: COINS.common, name: "Activator Rails", icon: "textures/blocks/rail_activator", tab: "Rails & Transportation" },
     { id: "minecraft:detector_rail", amt: 5, cost: 1, wantId: COINS.common, name: "Detector Rails", icon: "textures/blocks/rail_detector", tab: "Rails & Transportation" },
     { id: "minecraft:golden_rail", amt: 5, cost: 2, wantId: COINS.common, name: "Powered Rails", icon: "textures/blocks/rail_golden", tab: "Rails & Transportation" },
+
+    // Miscellaneous
+    { id: "minecraft:tripwire_hook", amt: 5, cost: 1, wantId: COINS.common, name: "Tripwire Hooks", icon: "textures/items/trip_wire_source", tab: "Miscellaneous" },
+    { id: "minecraft:string", amt: 10, cost: 1, wantId: COINS.common, name: "String", icon: "textures/items/string", tab: "Miscellaneous" },
+    { id: "minecraft:iron_door", amt: 3, cost: 1, wantId: COINS.common, name: "Iron Doors", icon: "textures/items/door_iron", tab: "Miscellaneous" },
+    { id: "minecraft:wooden_pressure_plate", amt: 10, cost: 1, wantId: COINS.common, name: "Oak Pressure Plates", icon: "textures/blocks/planks_oak", tab: "Pressure Plates" },
+    { id: "minecraft:spruce_pressure_plate", amt: 10, cost: 1, wantId: COINS.common, name: "Spruce Pressure Plates", icon: "textures/blocks/planks_spruce", tab: "Pressure Plates" },
+    { id: "minecraft:birch_pressure_plate", amt: 10, cost: 1, wantId: COINS.common, name: "Birch Pressure Plates", icon: "textures/blocks/planks_birch", tab: "Pressure Plates" },
+    { id: "minecraft:jungle_pressure_plate", amt: 10, cost: 1, wantId: COINS.common, name: "Jungle Pressure Plates", icon: "textures/blocks/planks_jungle", tab: "Pressure Plates" },
+    { id: "minecraft:acacia_pressure_plate", amt: 10, cost: 1, wantId: COINS.common, name: "Acacia Pressure Plates", icon: "textures/blocks/planks_acacia", tab: "Pressure Plates" },
+    { id: "minecraft:dark_oak_pressure_plate", amt: 10, cost: 1, wantId: COINS.common, name: "Dark Oak Pressure Plates", icon: "textures/blocks/planks_big_oak", tab: "Pressure Plates" },
+    { id: "minecraft:mangrove_pressure_plate", amt: 10, cost: 1, wantId: COINS.common, name: "Mangrove Pressure Plates", icon: "textures/blocks/mangrove_planks", tab: "Pressure Plates" },
+    { id: "minecraft:cherry_pressure_plate", amt: 10, cost: 1, wantId: COINS.common, name: "Cherry Pressure Plates", icon: "textures/blocks/cherry_planks", tab: "Pressure Plates" },
+    { id: "minecraft:pale_oak_pressure_plate", amt: 10, cost: 1, wantId: COINS.common, name: "Pale Oak Pressure Plates", icon: "textures/blocks/pale_oak_planks", tab: "Pressure Plates" },
+    { id: "minecraft:bamboo_pressure_plate", amt: 10, cost: 1, wantId: COINS.common, name: "Bamboo Pressure Plates", icon: "textures/blocks/bamboo_planks", tab: "Pressure Plates" },
+    { id: "minecraft:crimson_pressure_plate", amt: 10, cost: 1, wantId: COINS.common, name: "Crimson Pressure Plates", icon: "textures/blocks/huge_fungus/crimson_planks", tab: "Pressure Plates" },
+    { id: "minecraft:warped_pressure_plate", amt: 10, cost: 1, wantId: COINS.common, name: "Warped Pressure Plates", icon: "textures/blocks/huge_fungus/warped_planks", tab: "Pressure Plates" },
+    { id: "minecraft:tnt", amt: 4, cost: 1, wantId: COINS.uncommon, name: "TNT", icon: "textures/blocks/tnt_side", tab: "Miscellaneous" },
   ];
 
   createGeneratedShop(player, "Redstone Shop", "_redstone", trades, "§aRedstone Shop successfully generated!");
@@ -803,7 +829,7 @@ export function generateEndShop(player) {
     { id: "minecraft:elytra", amt: 1, cost: 20, wantId: COINS.rare, name: "Elytra", icon: "textures/items/elytra", tab: "Rare Items" },
 
     // Special Items
-    { id: "minecraft:dragon_egg", amt: 1, cost: 100, wantId: COINS.rain, name: "Dragon Egg", icon: "textures/blocks/dragon_egg", tab: "Special Items" }
+    { id: "minecraft:dragon_egg", amt: 1, cost: 100, wantId: COINS.rain, name: "Dragon Egg", icon: "textures/blocks/dragon_egg", tab: "Special Items", lore: ["§7Unique luxury item", "§8Price: 100 Rain SMP Coins"] }
   ];
 
   createGeneratedShop(player, "End Shop", "_end", trades, "§aEnd Shop successfully generated!");
@@ -928,7 +954,7 @@ export function generateStoneShop(player) {
     { id: "minecraft:tuff", amt: 48, cost: 1, wantId: COINS.common, name: "Tuff", icon: "textures/blocks/tuff", tab: "Stone Blocks" },
     { id: "minecraft:brick_block", amt: 48, cost: 1, wantId: COINS.common, name: "Brick Blocks", icon: "textures/blocks/brick", tab: "Stone Blocks" },
     { id: "minecraft:calcite", amt: 48, cost: 1, wantId: COINS.uncommon, name: "Calcite", icon: "textures/blocks/calcite", tab: "Stone Blocks" },
-    { id: "minecraft:prismarine", amt: 48, cost: 1, wantId: COINS.uncommon, name: "Prismarine Blocks", icon: "textures/blocks/prismarine_rough", tab: "Stone Blocks" }
+    { id: "minecraft:prismarine", amt: 48, cost: 1, wantId: COINS.uncommon, name: "Prismarine Blocks", icon: "textures/items/ocean_prismarine_bricks", tab: "Stone Blocks" }
   ];
 
   createGeneratedShop(player, "Stone Shop", "_stone", trades, "§aStone Shop successfully generated!");
@@ -953,7 +979,19 @@ export function generateSpecialistShop(player) {
     { id: "minecraft:bedrock", amt: 1, cost: 64, wantId: COINS.rare, name: "Bedrock", icon: "textures/blocks/bedrock", tab: "Unobtainable Blocks" },
 
     // Decay placeholders
-    { id: "minecraft:arrow", amt: 8, cost: 10, wantId: "minecraft:wither_rose", name: "Arrow of Decay", icon: "textures/items/arrow", tab: "Decay", sellNameTag: "§5Arrow of Decay" },
+    {
+      id: "minecraft:arrow",
+      amt: 8,
+      wants: [
+        { typeId: "minecraft:wither_rose", amount: 10 },
+        { typeId: "minecraft:arrow", amount: 8 }
+      ],
+      name: "Arrow of Decay",
+      icon: "textures/items/arrow",
+      tab: "Decay",
+      sellNameTag: "§5Arrow of Decay",
+      lore: ["§7Requires both Wither Roses and Arrows"]
+    },
     { id: "minecraft:splash_potion", amt: 1, cost: 32, wantId: "minecraft:wither_rose", name: "Splash Decay Potion", icon: "textures/items/potion_bottle_splash", tab: "Decay", sellNameTag: "§5Splash Decay Potion" },
     { id: "minecraft:lingering_potion", amt: 1, cost: 48, wantId: "minecraft:wither_rose", name: "Lingering Decay Potion", icon: "textures/items/potion_bottle_lingering", tab: "Decay", sellNameTag: "§5Lingering Decay Potion" }
   ];
@@ -993,13 +1031,13 @@ export function generateEventShop(player) {
     {
       id: "viberater:loot_common_trim",
       amt: 1,
-      cost: 8,
+      cost: 3,
       wantId: COINS.event,
       name: "Random Common Trim",
       icon: eventLootIcon("viberater:loot_common_trim"),
       tab: "Randomized Rewards",
       lore: [
-        "§7Sentry, Dune, Coast, Wild",
+        "§7Equal odds: Sentry, Dune, Coast, Wild",
         "§7Wayfinder, Raiser, Shaper",
         "§7Host, Bolt"
       ]
@@ -1007,12 +1045,12 @@ export function generateEventShop(player) {
     {
       id: "viberater:loot_rare_trim",
       amt: 1,
-      cost: 12,
+      cost: 5,
       wantId: COINS.event,
       name: "Random Rare Trim",
       icon: eventLootIcon("viberater:loot_rare_trim"),
       tab: "Randomized Rewards",
-      lore: ["§7Vex, Rib, Snout, Eye", "§7Ward, Tide, Flow"]
+      lore: ["§7Equal odds: Vex, Rib, Snout, Eye", "§7Ward, Tide, Flow"]
     },
     {
       id: "viberater:loot_random_dyes",
@@ -1074,7 +1112,27 @@ export function generateEventShop(player) {
       wantId: COINS.event,
       name: "Random Spawn Egg",
       icon: eventLootIcon("viberater:loot_hmob_egg"),
-      tab: "Randomized Rewards"
+      tab: "Randomized Rewards",
+      lore: [
+        "§7Random allowed hostile mob egg",
+        "§8Excludes Dragon, Wither, Iron Golem",
+        "§8Piglins, Evoker, Pillager, Shulker",
+        "§8Villager and Wither Skeleton"
+      ]
+    },
+    {
+      id: "minecraft:silence_armor_trim_smithing_template",
+      amt: 1,
+      cost: 30,
+      wantId: COINS.event,
+      name: "Random Legendary Trim",
+      icon: "textures/items/silence_armor_trim_smithing_template",
+      tab: "Randomized Rewards",
+      sellOptions: [
+        { typeId: "minecraft:silence_armor_trim_smithing_template" },
+        { typeId: "minecraft:spire_armor_trim_smithing_template" }
+      ],
+      lore: ["§7Silence: 50%", "§7Spire: 50%"]
     },
 
     // Utility & Rare Items
@@ -1083,11 +1141,25 @@ export function generateEventShop(player) {
     { id: "minecraft:wind_charge", amt: 32, cost: 15, wantId: COINS.event, name: "Breeze Bombs", icon: "textures/items/wind_charge", tab: "Utility & Rare Items" },
     { id: "minecraft:netherreactor", amt: 1, cost: 20, wantId: COINS.event, name: "Nether Reactor Core", icon: "textures/items/nether_reactor_core", tab: "Utility & Rare Items" },
     { id: "minecraft:netherite_upgrade_smithing_template", amt: 10, cost: 25, wantId: COINS.event, name: "Netherite Upgrade Templates", icon: "textures/items/netherite_upgrade_smithing_template", tab: "Utility & Rare Items" },
-    { id: "minecraft:elytra", amt: 1, cost: 30, wantId: COINS.event, name: "Enchanted Elytra", icon: "textures/items/elytra", tab: "Utility & Rare Items", sellNameTag: "§b§lEnchanted Elytra" },
+    {
+      id: "minecraft:elytra",
+      amt: 1,
+      cost: 30,
+      wantId: COINS.event,
+      name: "Enchanted Elytra",
+      icon: "textures/items/elytra",
+      tab: "Utility & Rare Items",
+      sellNameTag: "§b§lEnchanted Elytra",
+      enchantments: [
+        { id: "minecraft:unbreaking", level: 3 },
+        { id: "minecraft:mending", level: 1 }
+      ],
+      lore: ["§7Unbreaking III", "§7Mending I"]
+    },
     { id: "minecraft:heavy_core", amt: 1, cost: 40, wantId: COINS.event, name: "Heavy Core", icon: "textures/blocks/heavy_core", tab: "Utility & Rare Items" },
     { id: "minecraft:mob_spawner", amt: 1, cost: 50, wantId: COINS.event, name: "Mob Spawner", icon: "textures/blocks/mob_spawner", tab: "Utility & Rare Items" },
     { id: "minecraft:bedrock", amt: 1, cost: 64, wantId: COINS.event, name: "Bedrock", icon: "textures/blocks/bedrock", tab: "Utility & Rare Items" },
-    { id: "minecraft:cod", amt: 1, cost: 90, wantId: COINS.event, name: "Knockback XVI Fish", icon: "textures/items/fish_cod_cooked", tab: "Utility & Rare Items", sellNameTag: "§b§lKnockback XVI Fish" },
+    { id: "minecraft:cod", amt: 1, cost: 90, wantId: COINS.event, name: "Knockback XVI Fish", icon: "textures/items/fish_cod_raw", tab: "Utility & Rare Items", sellNameTag: "§b§lKnockback XVI Fish", lore: ["§7Knockback XVI event reward"] },
 
     // Permit Books
     {
@@ -1098,29 +1170,48 @@ export function generateEventShop(player) {
       name: "Raid Authorization Permit",
       icon: "textures/items/written_book",
       tab: "Permit Books",
-      sellNameTag: "§c§lRaid Authorization Permit"
+      sellNameTag: "§c§lRaid Authorization Permit",
+      lore: [
+        "§7One approved target and property",
+        "§7Present to server staff for activation",
+        "§8Temporarily bypasses Kill and Steal protection"
+      ],
+      book: {
+        signed: true,
+        title: "Raid Permit",
+        author: "RAIN SMP",
+        pages: [
+          "RAID AUTHORIZATION\n\nValid for one approved player or faction and one property only.",
+          "Present this permit to server staff for approval and activation before use."
+        ]
+      }
     },
     {
-      id: "minecraft:written_book",
+      id: "minecraft:writable_book",
       amt: 1,
       cost: 128,
       wantId: COINS.event,
       name: "The Death Note",
-      icon: "textures/items/written_book",
+      icon: "textures/items/writable_book",
       tab: "Permit Books",
-      sellNameTag: "§4§lThe Death Note"
+      sellNameTag: "§4§lThe Death Note",
+      lore: [
+        "§7Write one online player's name",
+        "§7Present the completed note to a moderator",
+        "§8Subject to server rules and staff approval"
+      ]
     },
 
     // Enchantment Books
-    { id: "minecraft:enchanted_book", amt: 1, cost: 3, wantId: COINS.event, name: "Book: Unbreaking III", icon: "textures/items/book_enchanted", tab: "Enchantment Books" },
-    { id: "minecraft:enchanted_book", amt: 1, cost: 6, wantId: COINS.event, name: "Book: Protection IV", icon: "textures/items/book_enchanted", tab: "Enchantment Books" },
-    { id: "minecraft:enchanted_book", amt: 1, cost: 10, wantId: COINS.event, name: "Book: Efficiency V", icon: "textures/items/book_enchanted", tab: "Enchantment Books" },
-    { id: "minecraft:enchanted_book", amt: 1, cost: 20, wantId: COINS.event, name: "Book: Sharpness V", icon: "textures/items/book_enchanted", tab: "Enchantment Books" },
-    { id: "minecraft:enchanted_book", amt: 1, cost: 30, wantId: COINS.event, name: "Book: Frost Walker II", icon: "textures/items/book_enchanted", tab: "Enchantment Books" },
-    { id: "minecraft:enchanted_book", amt: 1, cost: 40, wantId: COINS.event, name: "Book: Soul Speed III", icon: "textures/items/book_enchanted", tab: "Enchantment Books" },
-    { id: "minecraft:enchanted_book", amt: 1, cost: 50, wantId: COINS.event, name: "Book: Swift Sneak III", icon: "textures/items/book_enchanted", tab: "Enchantment Books" },
-    { id: "minecraft:enchanted_book", amt: 1, cost: 60, wantId: COINS.event, name: "Book: Protection V Placeholder", icon: "textures/items/book_enchanted", tab: "Enchantment Books" },
-    { id: "minecraft:enchanted_book", amt: 1, cost: 75, wantId: COINS.event, name: "Book: Sharpness VI Placeholder", icon: "textures/items/book_enchanted", tab: "Enchantment Books" }
+    { id: "minecraft:enchanted_book", amt: 1, cost: 3, wantId: COINS.event, name: "Book: Unbreaking III", icon: "textures/items/book_enchanted", tab: "Enchantment Books", enchantments: [{ id: "minecraft:unbreaking", level: 3 }], lore: ["§7Unbreaking III"] },
+    { id: "minecraft:enchanted_book", amt: 1, cost: 6, wantId: COINS.event, name: "Book: Protection IV", icon: "textures/items/book_enchanted", tab: "Enchantment Books", enchantments: [{ id: "minecraft:protection", level: 4 }], lore: ["§7Protection IV"] },
+    { id: "minecraft:enchanted_book", amt: 1, cost: 10, wantId: COINS.event, name: "Book: Efficiency V", icon: "textures/items/book_enchanted", tab: "Enchantment Books", enchantments: [{ id: "minecraft:efficiency", level: 5 }], lore: ["§7Efficiency V"] },
+    { id: "minecraft:enchanted_book", amt: 1, cost: 20, wantId: COINS.event, name: "Book: Sharpness V", icon: "textures/items/book_enchanted", tab: "Enchantment Books", enchantments: [{ id: "minecraft:sharpness", level: 5 }], lore: ["§7Sharpness V"] },
+    { id: "minecraft:enchanted_book", amt: 1, cost: 30, wantId: COINS.event, name: "Book: Frost Walker II", icon: "textures/items/book_enchanted", tab: "Enchantment Books", enchantments: [{ id: "minecraft:frost_walker", level: 2 }], lore: ["§7Frost Walker II"] },
+    { id: "minecraft:enchanted_book", amt: 1, cost: 40, wantId: COINS.event, name: "Book: Soul Speed III", icon: "textures/items/book_enchanted", tab: "Enchantment Books", enchantments: [{ id: "minecraft:soul_speed", level: 3 }], lore: ["§7Soul Speed III"] },
+    { id: "minecraft:enchanted_book", amt: 1, cost: 50, wantId: COINS.event, name: "Book: Swift Sneak III", icon: "textures/items/book_enchanted", tab: "Enchantment Books", enchantments: [{ id: "minecraft:swift_sneak", level: 3 }], lore: ["§7Swift Sneak III"] },
+    { id: "minecraft:enchanted_book", amt: 1, cost: 60, wantId: COINS.event, name: "Book: Protection V Placeholder", icon: "textures/items/book_enchanted", tab: "Enchantment Books", lore: ["§8Placeholder reward - not yet active"] },
+    { id: "minecraft:enchanted_book", amt: 1, cost: 75, wantId: COINS.event, name: "Book: Sharpness VI Placeholder", icon: "textures/items/book_enchanted", tab: "Enchantment Books", lore: ["§8Placeholder reward - not yet active"] }
   ];
 
   upsertGeneratedShop(player, "Event Shop", "_evt", trades, "§a✨ Event Shop successfully generated!");

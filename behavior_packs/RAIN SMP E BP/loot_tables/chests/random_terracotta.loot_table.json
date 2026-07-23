@@ -1,7 +1,7 @@
 {
     "pools": [
         {
-            "rolls": { "min": 2, "max": 4 },
+            "rolls": { "min": 10, "max": 12 },
             "entries": [
                 { "type": "item", "name": "minecraft:white_terracotta", "functions": [{ "function": "set_count", "count": { "min": 32, "max": 64 } }] },
                 { "type": "item", "name": "minecraft:orange_terracotta", "functions": [{ "function": "set_count", "count": { "min": 32, "max": 64 } }] },

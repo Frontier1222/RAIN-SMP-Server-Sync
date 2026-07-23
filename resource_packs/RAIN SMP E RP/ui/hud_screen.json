@@ -3,18 +3,21 @@
 
   "hud_actionbar_text": {
     "type": "panel",
-    "size": [ 120, 201 ],
+    "size": [ 135, 212 ],
     "anchor_from": "right_middle",
     "anchor_to": "right_middle",
-    "offset": [ 5, "-1.5%" ],
+    "offset": [ 2, "-4%" ],
     "controls": [
       {
         "sidebar_image": {
           "type": "image",
-          "size": [ "100%", "100%" ],
+          "size": [ 135, 185 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
           "texture": "textures/bd/sidebar",
+          "uv": [ 0, 0 ],
+          "uv_size": [ 784, 900 ],
           "alpha": 1,
-          "propagateAlpha": true,
           "bindings": [
             {
               "binding_type": "view",
@@ -32,9 +35,10 @@
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "color": "$tool_tip_text",
-          "offset": [ 21, 30 ],
+          "offset": [ 21, 35 ],
+          "size": [ 104, 145 ],
           "layer": 31,
-          "font_scale_factor": 0.8,
+          "font_scale_factor": 0.72,
           "shadow": true,
           "text": "$actionbar_text",
           "localize": false,
@@ -56,10 +60,11 @@
         "title": {
           "type": "image",
           "texture": "textures/bd/title",
-          "anchor_from": "bottom_middle",
-          "anchor_to": "bottom_middle",
-          "offset": [ 0, -20 ],
-          "size": [ 80, 80 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [ 0, 184 ],
+          "size": [ 112, 18 ],
+          "keep_ratio": true,
           "layer": 31,
           "bindings": [
             {

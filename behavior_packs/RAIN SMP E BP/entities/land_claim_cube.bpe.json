@@ -6,7 +6,7 @@
             "properties": {
                 "viberater:active": {
                     "type": "int",
-                    "default": 0,
+                    "default": 1,
                     "range": [0, 1],
                     "client_sync": true
                 }
@@ -33,14 +33,6 @@
                 "seat_count": 0,
                 "pull_in_entities": true,
                 "passenger_max_width": 0.1
-            },
-            "minecraft:timer": {
-                "time": 0.05,
-                "looping": true,
-                "time_down_event": {
-                    "event": "tp",
-                    "target": "self"
-                }
             },
             "minecraft:renders_when_invisible": {},
             "minecraft:interact": {
@@ -82,11 +74,6 @@
             "minecraft:entity_spawned": {
                 "play_sound": {
                     "sound": "land"
-                }
-            },
-            "tp": {
-                "queue_command": {
-                    "command": "tp @s ~~~"
                 }
             }
         }

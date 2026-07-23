@@ -2,6 +2,8 @@ import { world } from "@minecraft/server";
 
 export const OPERATOR_ROLE_TAG = "rank:operator";
 export const OPERATOR_NAMES = ["D3X3365"];
+export const DEBUG_TESTER_TAG = "debug_tester";
+export const DEBUG_CREATIVE_BUILDER_TAG = "debug_creative_builder";
 const OPERATOR_NAMES_LOWER = OPERATOR_NAMES.map((name) => name.toLowerCase());
 
 const RANKS = [
@@ -28,6 +30,7 @@ export const ROLE_PERMISSION_DEFS = [
   { key: "can_kick", label: "Kick Players" },
   { key: "can_ban", label: "Ban Players" },
   { key: "can_vanish", label: "Vanish Mode" },
+  { key: "rainGuiAccess", label: "RAIN GUI Access" },
   { key: "testerHub", label: "Tester Hub" },
 ];
 
@@ -178,12 +181,25 @@ export function isOperatorName(playerOrName) {
   return OPERATOR_NAMES_LOWER.includes(String(name || "").trim().toLowerCase());
 }
 
+export function hasDebugTesterTag(player) {
+  return !!player?.hasTag(DEBUG_TESTER_TAG);
+}
+
+export function hasDebugCreativeBuilderTag(player) {
+  return !!player?.hasTag(DEBUG_CREATIVE_BUILDER_TAG) && !hasDebugTesterTag(player);
+}
+
+export function hasCreativeRoleDebugTag(player) {
+  return hasDebugTesterTag(player) || hasDebugCreativeBuilderTag(player);
+}
+
 export function isOperatorPlayer(player) {
-  return !!player && isOperatorName(player);
+  return !!player && !hasCreativeRoleDebugTag(player) && isOperatorName(player);
 }
 
 export function syncProtectedRoleTags(player) {
   if (!player) return false;
+  if (hasCreativeRoleDebugTag(player)) return false;
 
   let changed = false;
   try {
@@ -221,13 +237,18 @@ export function syncProtectedRoleTags(player) {
 }
 
 export function hasPermission(player, permKey) {
+  if (hasCreativeRoleDebugTag(player)) return false;
   syncProtectedRoleTags(player);
 
   if (isOperatorPlayer(player)) {
     return true;
   }
 
-  if (player.hasTag("staff") && permKey !== "manageRoles") {
+  if (permKey === "manageRoles" && isRoleManagementRestrictedStaff(player)) {
+    return false;
+  }
+
+  if (player.hasTag("staff")) {
     return true;
   }
 
@@ -246,6 +267,21 @@ export function hasPermission(player, permKey) {
   }
 
   return false;
+}
+
+function isRoleManagementRestrictedStaff(player) {
+  if (!player) return false;
+  try {
+    return (
+      player.hasTag("tester") ||
+      player.hasTag(DEBUG_TESTER_TAG) ||
+      player.hasTag(DEBUG_CREATIVE_BUILDER_TAG) ||
+      player.hasTag("world_builder") ||
+      player.hasTag("creative_builder")
+    );
+  } catch (e) {
+    return false;
+  }
 }
 
 const RAIN_GUI_DISABLED_KEY = "rain_gui_disabled";
@@ -274,7 +310,7 @@ export function setRainGuiDisabled(player, disabled) {
 
 export function isRainGuiBlocked(player) {
   if (!player) return false;
-  if (isStaffPlayer(player)) return false;
+  if (isStaffPlayer(player) || hasPermission(player, "rainGuiAccess")) return false;
   return player.getDynamicProperty(RAIN_GUI_DISABLED_KEY) === true;
 }
 
@@ -304,6 +340,15 @@ export function formatPlayerRoleSummary(player) {
 }
 
 export function getRankMeta(player) {
+  if (hasCreativeRoleDebugTag(player)) {
+    return {
+      id: "member",
+      tag: "rank:member",
+      label: "MEMBER",
+      color: "§7"
+    };
+  }
+
   if (isOperatorPlayer(player)) {
     return RANKS[0];
   }
@@ -398,6 +443,7 @@ export function formatNameTag(player) {
  */
 export function isStaffPlayer(player) {
   if (!player) return false;
+  if (hasCreativeRoleDebugTag(player)) return false;
   syncProtectedRoleTags(player);
   return isOperatorPlayer(player) || player.hasTag("staff") || STAFF_RANK_TAGS.some((tag) => player.hasTag(tag));
 }
@@ -409,6 +455,7 @@ export function isStaffPlayer(player) {
  */
 export function syncStaffTagsOnJoin(player) {
   if (!player) return;
+  if (hasCreativeRoleDebugTag(player)) return;
   syncProtectedRoleTags(player);
   const shouldBeStaff =
     isOperatorPlayer(player) ||

@@ -6,8 +6,6 @@
         "ui/bd/action.json",
         "ui/bd/modal.json",
         "ui/bd/gui.json",
-        "ui/chest_ui/container.json",
-        "ui/chest_ui/inventory.json",
         "ui/bd/sub.json",
         "ui/bd/main.json",
 

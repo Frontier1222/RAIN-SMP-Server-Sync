@@ -45,8 +45,9 @@ function teleportPlayerToClaim(player, dim, x, y, z, onDone) {
     onDone?.();
 }
 import { isPrisonGuiBlocked, denyPrisonGuiUse } from '../utils/prison.js';
-import { isOperatorPlayer, isRainGuiBlocked, isStaffPlayer, syncProtectedRoleTags } from '../systems/ranks.js';
+import { hasPermission, isOperatorPlayer, isRainGuiBlocked, isStaffPlayer, syncProtectedRoleTags } from '../systems/ranks.js';
 import { syncPlayerRainGuiGlint, isRainGuiMinigamePlayer } from "../utils/rainGui.js";
+import { canOpenAdminPanel, openAdminPanel } from "../commands/admin.js";
 
 const DEFAULT_DAILY_REWARD_ITEMS = ['minecraft:diamond', 'minecraft:emerald', 'minecraft:gold_ingot', 'minecraft:iron_ingot'];
 const DAILY_REWARD_ITEMS_KEY = 'daily_reward_items';
@@ -86,8 +87,14 @@ function sendSuccess(player, message, key = "gui_success") {
     toastSuccess(player, message, key);
 }
 
+function canUseAdminClaimEditor(player) {
+    syncProtectedRoleTags(player);
+    return isOperatorPlayer(player) || (isStaffPlayer(player) && hasPermission(player, "manageRoles"));
+}
+
 const FORM_OPEN_DELAY_TICKS = 2;
 const MAX_FORM_BUSY_RETRIES = 5;
+const HOME_LIMIT = 30;
 const ADMIN_HOMES_INDEX_KEY = "admin_homes_index_v1";
 const MAX_DYNAMIC_PROPERTY_STRING_BYTES = 32767;
 const TARGET_DYNAMIC_PROPERTY_STRING_BYTES = 30000;
@@ -238,7 +245,14 @@ function getAdminHomeRows(search = "") {
         for (const home of homes) {
             const normalized = sanitizeHomeForAdminIndex(home);
             if (!normalized) continue;
-            const haystack = `${ownerName} ${normalized.name} ${normalized.dimension}`.toLowerCase();
+            const haystack = [
+                ownerName,
+                normalized.name,
+                normalized.dimension,
+                normalized.x,
+                normalized.y,
+                normalized.z,
+            ].join(" ").toLowerCase();
             if (needle && !haystack.includes(needle)) continue;
             rows.push({
                 ownerName,
@@ -711,9 +725,8 @@ function getAllSubclaimsSorted() {
 }
 
 function openAdminClaimEditor(player, plot, onDone) {
-    syncProtectedRoleTags(player);
-    if (!isOperatorPlayer(player)) {
-        sendError(player, "§cOperator only.");
+    if (!canUseAdminClaimEditor(player)) {
+        sendError(player, "§cStaff access required.");
         return onDone?.();
     }
 
@@ -819,10 +832,18 @@ export function openMainMenu(player) {
         { label: '§r§9Land Claim', icon: 'textures/bd/icons/land', action: () => openLandClaimMenu(player) },
         { label: '§r§dDaily Rewards', icon: 'textures/bd/icons/daily', action: () => openDailyRewardsMenu(player) },
         { label: '§r§bStats', icon: 'textures/bd/icons/info', action: () => showPlayerStats(player) },
-        { label: '§r§6Bounty', icon: 'textures/items/gold_ingot', action: () => openBountyMenu(player) },
+        { label: '§r§6Coin Flip', icon: 'textures/items/gold_ingot', action: () => openCoinFlipMenu(player) },
         { label: '§r§eCourt Case', icon: 'textures/bd/icons/courtcase', action: () => openCourtCaseMenu(player) },
         { label: '§r§cReport', icon: 'textures/items/paper', action: () => openReportMenu(player) },
     ];
+
+    if (canOpenAdminPanel(player)) {
+        menuEntries.push({
+            label: '§r§0§0§cAdmin GUI',
+            icon: 'textures/blocks/command_block_front_mipmap',
+            action: () => openAdminPanel(player),
+        });
+    }
 
     const mainForm = new ActionFormData()
         .title('bd.main:§r§d§lRAIN SMP GUI');
@@ -850,10 +871,10 @@ export function openMainMenu(player) {
     );
 }
 
-function openBountyMenu(player) {
+function openCoinFlipMenu(player) {
     const form = new ActionFormData()
-        .title('bd.action:§6Bounty')
-        .body('§7View active bounties and place rewards on players.\n§8Coming soon.')
+        .title('bd.action:§6Coin Flip')
+        .body('§7Heads or tails wagering.\n§8Coming soon.')
         .button('§7Back', 'textures/items/gold_ingot');
 
     showFormSafe(player, form, () => openMainMenu(player), () => openMainMenu(player));
@@ -1055,7 +1076,7 @@ export function openHomesMenu(player) {
         homes = [];
         saveHomesForPlayer(player, homes);
     }
-    homes = homes.map(sanitizeHomeForAdminIndex).filter(Boolean).slice(0, 15);
+    homes = homes.map(sanitizeHomeForAdminIndex).filter(Boolean).slice(0, HOME_LIMIT);
     syncAdminHomesIndexForPlayer(player, homes);
     const isStaff = isStaffPlayer(player);
     const homesForm = new ActionFormData().title('bd.action:Homes');
@@ -1080,8 +1101,8 @@ export function openHomesMenu(player) {
             if (adminHomesIdx >= 0 && res.selection === adminHomesIdx) return openAdminHomesMenu(player);
 
             if (res.selection === createIdx) {
-                if (homes.length >= 15) {
-                    notify(player, "home_err", "§c§l[LIMIT REACHED]§r", "§cYou can only have up to 15 homes.", "note.bass");
+                if (homes.length >= HOME_LIMIT) {
+                    notify(player, "home_err", "§c§l[LIMIT REACHED]§r", `§cYou can only have up to ${HOME_LIMIT} homes.`, "note.bass");
                     return openHomesMenu(player);
                 }
 
@@ -1249,7 +1270,7 @@ function openAdminHomesSearchModal(player, currentSearch = "") {
     );
 }
 
-function openAdminHomeActionsMenu(player, row, search = "") {
+function openAdminHomeActionsMenu(player, row, search = "", page = 0) {
     const homeDim = row.dimension || "minecraft:overworld";
     const form = new ActionFormData()
         .title(`bd.action:§9[Admin] ${row.name}`)
@@ -1273,29 +1294,29 @@ function openAdminHomeActionsMenu(player, row, search = "") {
                     dim = world.getDimension(homeDim);
                 } catch (e) {
                     sendError(player, "§cThat home's dimension is unavailable.");
-                    return openAdminHomesMenu(player, search);
+                    return openAdminHomesMenu(player, search, page);
                 }
                 player.teleport(
                     { x: Number(row.x) || 0, y: Number(row.y) || 0, z: Number(row.z) || 0 },
                     { dimension: dim }
                 );
                 sendSuccess(player, `§aTeleported to ${row.ownerName}'s home: §e${row.name}`);
-                return openAdminHomesMenu(player, search);
+                return openAdminHomesMenu(player, search, page);
             }
 
             if (res.selection === 1) {
                 refreshAdminHomesIndexFromOnlinePlayers();
                 sendSuccess(player, "§aHome index refreshed from online players.");
-                return openAdminHomesMenu(player, search);
+                return openAdminHomesMenu(player, search, page);
             }
 
-            openAdminHomesMenu(player, search);
+            openAdminHomesMenu(player, search, page);
         },
-        () => openAdminHomesMenu(player, search)
+        () => openAdminHomesMenu(player, search, page)
     );
 }
 
-function openAdminHomesMenu(player, search = "") {
+function openAdminHomesMenu(player, search = "", requestedPage = 0) {
     if (!isStaffPlayer(player)) {
         sendError(player, "§cStaff only.");
         return openHomesMenu(player);
@@ -1303,19 +1324,26 @@ function openAdminHomesMenu(player, search = "") {
 
     refreshAdminHomesIndexFromOnlinePlayers();
     const rows = getAdminHomeRows(search);
+    const pageSize = 12;
+    const pageCount = Math.max(1, Math.ceil(rows.length / pageSize));
+    const page = Math.max(0, Math.min(Number(requestedPage) || 0, pageCount - 1));
+    const pageRows = rows.slice(page * pageSize, (page + 1) * pageSize);
     const prettySearch = search ? `§f${search}` : "§7All homes";
     const form = new ActionFormData()
         .title("bd.action:§9[Admin] Home Browser")
         .body(
             rows.length > 0
-                ? `§7Total Indexed: §f${rows.length}\n§7Filter: ${prettySearch}\n§8Tip: Search by owner, home name, or dimension`
+                ? `§7Matches: §f${rows.length} §8| §7Page: §f${page + 1}/${pageCount}\n§7Search: ${prettySearch}\n§8Owner, home, dimension, or coordinates`
                 : `§7No homes indexed yet.\n§7Use refresh to scan online players.\n§7Filter: ${prettySearch}`
         )
         .button("§bSearch / Filter")
-        .button("§dClear Filter")
         .button("§aRefresh Online Cache");
 
-    rows.forEach((row) => {
+    if (search) form.button("§dClear Search");
+    if (page > 0) form.button("§ePrevious Page");
+    if (page < pageCount - 1) form.button("§eNext Page");
+
+    pageRows.forEach((row) => {
         const dim = String(row.dimension || "minecraft:overworld").replace("minecraft:", "");
         form.button(
             `§e${row.ownerName} §7- §f${row.name}\n§8${dim} §7· §f${Math.floor(row.x)}, ${Math.floor(row.z)}`
@@ -1328,32 +1356,34 @@ function openAdminHomesMenu(player, search = "") {
         player,
         form,
         (res) => {
-            if (res.selection === 0) {
-                return openAdminHomesSearchModal(player, search);
-            }
+            let idx = 0;
+            const searchIdx = idx++;
+            const refreshIdx = idx++;
+            const clearIdx = search ? idx++ : -1;
+            const previousIdx = page > 0 ? idx++ : -1;
+            const nextIdx = page < pageCount - 1 ? idx++ : -1;
+            const rowsStartIdx = idx;
+            const backIdx = rowsStartIdx + pageRows.length;
 
-            if (res.selection === 1) {
-                return openAdminHomesMenu(player, "");
-            }
+            if (res.selection === searchIdx) return openAdminHomesSearchModal(player, search);
 
-            if (res.selection === 2) {
+            if (res.selection === refreshIdx) {
                 refreshAdminHomesIndexFromOnlinePlayers();
                 sendSuccess(player, "§aHome index refreshed from online players.");
-                return openAdminHomesMenu(player, search);
+                return openAdminHomesMenu(player, search, page);
             }
 
-            const rowIndex = Number(res.selection) - 3;
-            const backIndex = rows.length + 3;
+            if (res.selection === clearIdx) return openAdminHomesMenu(player, "", 0);
+            if (res.selection === previousIdx) return openAdminHomesMenu(player, search, page - 1);
+            if (res.selection === nextIdx) return openAdminHomesMenu(player, search, page + 1);
 
-            if (res.selection === backIndex) {
-                return openHomesMenu(player);
-            }
+            if (res.selection === backIdx) return openHomesMenu(player);
 
-            const selected = rows[rowIndex];
+            const selected = pageRows[Number(res.selection) - rowsStartIdx];
             if (!selected) {
-                return openAdminHomesMenu(player, search);
+                return openAdminHomesMenu(player, search, page);
             }
-            openAdminHomeActionsMenu(player, selected, search);
+            openAdminHomeActionsMenu(player, selected, search, page);
         },
         () => openHomesMenu(player)
     );
@@ -1665,10 +1695,13 @@ function openSubclaimPermissionsMenu(player, parentClaim, subclaim, onBack = nul
     }, 2);
 }
 
-function openAdminClaimsFilterMenu(player) {
+function openAdminClaimsFilterMenu(player, search = "") {
     const form = new ActionFormData()
         .title("bd.action:§c[Admin] Claims")
-        .body("§7Choose which claims to view and manage.")
+        .body(
+            "§7Choose which claims to view and manage.\n" +
+            (search ? `§7Current Search: §f${search}` : "§8No text search active.")
+        )
         .button("§eAll Claims")
         .button("§6Faction Claims Only")
         .button("§aPersonal Claims")
@@ -1682,12 +1715,29 @@ function openAdminClaimsFilterMenu(player) {
             player.playSound("random.pop");
 
             const filters = ["all", "faction", "personal", "subclaim"];
-            openAdminClaimsMenu(player, filters[res.selection]);
+            openAdminClaimsMenu(player, filters[res.selection], search, 0);
         });
     }, 2);
 }
 
-function openAdminClaimsMenu(player, filter = "all") {
+function openAdminClaimsSearchModal(player, filter = "all", currentSearch = "") {
+    const modal = new ModalFormData()
+        .title("bd.modal:[Admin] Search Claims")
+        .textField(
+            "Search name, owner, dimension, type, or coordinates",
+            "e.g. spawn, ShadowWolf, nether, faction, 120",
+            { defaultValue: currentSearch }
+        );
+
+    showFormSafe(
+        player,
+        modal,
+        (res) => openAdminClaimsMenu(player, filter, String(res.formValues?.[0] || "").trim(), 0),
+        () => openAdminClaimsMenu(player, filter, currentSearch, 0)
+    );
+}
+
+function openAdminClaimsMenu(player, filter = "all", search = "", requestedPage = 0) {
     let allClaims = (getAllGlobalClaims() || []).slice();
 
     if (filter === "faction") {
@@ -1698,16 +1748,30 @@ function openAdminClaimsMenu(player, filter = "all") {
         allClaims = allClaims.filter((c) => c.isSubclaim);
     }
 
+    const needle = String(search || "").trim().toLowerCase();
+    if (needle) {
+        allClaims = allClaims.filter((claim) => {
+            const claimType = claim.isSubclaim ? "subclaim" : claim.factionClaim ? "faction" : "personal";
+            const haystack = [
+                claim.name,
+                claim.ownerName,
+                claim.dimension,
+                claim.parentName,
+                claimType,
+                claim.minX,
+                claim.minZ,
+                claim.maxX,
+                claim.maxZ,
+            ].map((value) => String(value ?? "")).join(" ").toLowerCase();
+            return haystack.includes(needle);
+        });
+    }
+
     allClaims.sort((a, b) => {
         if (a.isSubclaim && !b.isSubclaim) return -1;
         if (!a.isSubclaim && b.isSubclaim) return 1;
         return String(a.name || "").localeCompare(String(b.name || ""));
     });
-
-    if (allClaims.length === 0) {
-        sendError(player, "§cNo claims match this filter.");
-        return openAdminClaimsFilterMenu(player);
-    }
 
     const filterLabel =
         filter === "faction" ? "Faction Claims" :
@@ -1715,14 +1779,31 @@ function openAdminClaimsMenu(player, filter = "all") {
         filter === "subclaim" ? "Subclaims" :
         "All Claims";
 
-    const form = new ActionFormData().title(`bd.action:§c[Admin] ${filterLabel}`);
+    const pageSize = 12;
+    const pageCount = Math.max(1, Math.ceil(allClaims.length / pageSize));
+    const page = Math.max(0, Math.min(Number(requestedPage) || 0, pageCount - 1));
+    const pageClaims = allClaims.slice(page * pageSize, (page + 1) * pageSize);
 
-    allClaims.forEach((c) => {
+    const form = new ActionFormData()
+        .title(`bd.action:§c[Admin] ${filterLabel}`)
+        .body(
+            `§7Matches: §f${allClaims.length} §8| §7Page: §f${page + 1}/${pageCount}\n` +
+            `§7Search: ${needle ? `§f${search}` : "§8None"}\n` +
+            "§8Search names, owners, dimensions, types, or coordinates."
+        )
+        .button("§bSearch Claims")
+        .button("§eChange Claim Type");
+
+    if (needle) form.button("§dClear Search");
+    if (page > 0) form.button("§6Previous Page");
+    if (page < pageCount - 1) form.button("§6Next Page");
+
+    pageClaims.forEach((c) => {
         const typeTag = c.isSubclaim ? "§d[Subclaim] " : c.factionClaim ? "§6[Faction] " : "§e";
-        form.button(`${typeTag}${c.name}\n§7Owner: ${c.ownerName || "Server"}`);
+        const dim = String(c.dimension || "minecraft:overworld").replace("minecraft:", "");
+        form.button(`${typeTag}${c.name}\n§7${c.ownerName || "Server"} §8· ${dim} §8· §7${Math.floor(Number(c.minX) || 0)}, ${Math.floor(Number(c.minZ) || 0)}`);
     });
 
-    form.button("§7Change Filter");
     form.button("§7Back");
 
     system.runTimeout(() => {
@@ -1731,15 +1812,24 @@ function openAdminClaimsMenu(player, filter = "all") {
 
             player.playSound("random.pop");
 
-            if (res.selection === allClaims.length) {
-                return openAdminClaimsFilterMenu(player);
-            }
+            let idx = 0;
+            const searchIdx = idx++;
+            const filterIdx = idx++;
+            const clearIdx = needle ? idx++ : -1;
+            const previousIdx = page > 0 ? idx++ : -1;
+            const nextIdx = page < pageCount - 1 ? idx++ : -1;
+            const claimsStartIdx = idx;
+            const backIdx = claimsStartIdx + pageClaims.length;
 
-            if (res.selection === allClaims.length + 1) {
-                return openLandClaimMenu(player);
-            }
+            if (res.selection === searchIdx) return openAdminClaimsSearchModal(player, filter, search);
+            if (res.selection === filterIdx) return openAdminClaimsFilterMenu(player, search);
+            if (res.selection === clearIdx) return openAdminClaimsMenu(player, filter, "", 0);
+            if (res.selection === previousIdx) return openAdminClaimsMenu(player, filter, search, page - 1);
+            if (res.selection === nextIdx) return openAdminClaimsMenu(player, filter, search, page + 1);
+            if (res.selection === backIdx) return openLandClaimMenu(player);
 
-            const selected = allClaims[res.selection];
+            const selected = pageClaims[Number(res.selection) - claimsStartIdx];
+            if (!selected) return openAdminClaimsMenu(player, filter, search, page);
             const parentClaim = selected.isSubclaim ? getParentClaimForSubclaim(selected) : null;
 
             const manage = new ActionFormData()
@@ -1758,7 +1848,7 @@ function openAdminClaimsMenu(player, filter = "all") {
                 manage.button("§dSubclaims");
             }
 
-            if (isOperatorPlayer(player)) {
+            if (canUseAdminClaimEditor(player)) {
                 manage.button("§4Claim Editor");
             }
 
@@ -1768,7 +1858,7 @@ function openAdminClaimsMenu(player, filter = "all") {
 
             system.runTimeout(() => {
                 manage.show(player).then((mres) => {
-                    if (mres.canceled) return openAdminClaimsMenu(player, filter);
+                    if (mres.canceled) return openAdminClaimsMenu(player, filter, search, page);
 
                     player.playSound("random.pop");
 
@@ -1776,7 +1866,7 @@ function openAdminClaimsMenu(player, filter = "all") {
                     const tpIdx = actionIdx++;
                     const permsIdx = actionIdx++;
                     const subsIdx = !selected.isSubclaim ? actionIdx++ : -1;
-            const editorIdx = isOperatorPlayer(player) ? actionIdx++ : -1;
+            const editorIdx = canUseAdminClaimEditor(player) ? actionIdx++ : -1;
             const deleteIdx = actionIdx++;
                     const backIdx = actionIdx;
 
@@ -1804,13 +1894,13 @@ function openAdminClaimsMenu(player, filter = "all") {
                         };
 
                         if (selected.isSubclaim && parentClaim) {
-                            return openManageSubclaimMenu(player, parentClaim, selected, () => openAdminClaimsMenu(player, filter));
+                            return openManageSubclaimMenu(player, parentClaim, selected, () => openAdminClaimsMenu(player, filter, search, page));
                         }
 
                         return openClaimPermissionsHub(
                             player,
                             selected,
-                            () => openAdminClaimsMenu(player, filter),
+                            () => openAdminClaimsMenu(player, filter, search, page),
                             persist
                         );
                     }
@@ -1820,17 +1910,17 @@ function openAdminClaimsMenu(player, filter = "all") {
                     }
 
                     if (editorIdx >= 0 && mres.selection === editorIdx) {
-                        return openAdminClaimEditor(player, selected, () => openAdminClaimsMenu(player, filter));
+                        return openAdminClaimEditor(player, selected, () => openAdminClaimsMenu(player, filter, search, page));
                     }
 
                     if (mres.selection === deleteIdx) {
                         removeClaimFully(selected);
                         sendSuccess(player, "§aPlot deleted from the server successfully.");
-                        return openAdminClaimsMenu(player, filter);
+                        return openAdminClaimsMenu(player, filter, search, page);
                     }
 
                     if (mres.selection === backIdx) {
-                        openAdminClaimsMenu(player, filter);
+                        openAdminClaimsMenu(player, filter, search, page);
                     }
                 });
             }, 2);
@@ -2249,7 +2339,7 @@ function openLandClaimMenu(player) {
 
             syncProtectedRoleTags(player);
             const isAdmin = isStaffPlayer(player);
-            const canUseClaimEditor = isOperatorPlayer(player);
+            const canUseClaimEditor = canUseAdminClaimEditor(player);
 
             const manageForm = new ActionFormData()
                 .title(`bd.action:Plot: ${selectedPlot.name}`)
@@ -3023,7 +3113,7 @@ export default {
     name: 'itemUse',
     type: 1,
     run: async(data) => {
-        if(data.itemStack.typeId !== 'bd:gui') return;
+        if(data.itemStack?.typeId !== 'bd:gui') return;
 
         // Debounce: ignore rapid re-fires from form button right-clicks
         const playerId = data.source?.id;
@@ -3033,6 +3123,7 @@ export default {
         guiOpenCooldowns.set(playerId, now);
 
         if (isRainGuiMinigamePlayer(data.source)) return;
+        syncProtectedRoleTags(data.source);
 
         if (isInCombat(data.source)) {
             const secs = getCombatRemainingSeconds(data.source);

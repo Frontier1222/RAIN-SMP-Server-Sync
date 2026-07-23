@@ -499,7 +499,7 @@ function registerCombatRules() {
             if (!player || isStaffAdmin(player)) return;
 
             const item = event.itemStack;
-            if ((item?.typeId === MURASAME_ID && !canUseBountyMurasame(player, item)) || isBountyKitItem(item)) {
+            if ((item?.typeId === MURASAME_ID || isBountyKitItem(item)) && !canUseBountyMurasame(player, item)) {
                 event.cancel = true;
                 system.run(() => stripMurasameFromPlayer(player));
                 denyMurasameTransfer(player);

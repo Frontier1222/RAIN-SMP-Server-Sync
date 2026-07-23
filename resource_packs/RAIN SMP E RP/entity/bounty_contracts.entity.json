@@ -3,35 +3,35 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "npc:bounty_contracts",
+      "min_engine_version": "1.8.0",
       "materials": {
-        "default": "entity_alphatest"
+        "default": "zombie"
       },
       "textures": {
-        "base": "textures/entity/villager2/villager",
-        "biome": "textures/entity/villager2/biomes/biome_plains",
-        "profession": "textures/entity/villager2/professions/weaponsmith"
+        "default": "textures/entity/zombie/husk"
       },
       "geometry": {
-        "villager": "geometry.villager_v2"
+        "default": "geometry.zombie.husk"
       },
       "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+        ],
         "animate": [
-          "setup",
-          "look_at_target",
+          "barehand_pose_setup",
+          "humanoid_bob",
           {
-            "move": "query.is_moving"
+            "humanoid_move": "query.modified_move_speed > 0.0"
           }
         ]
       },
       "animations": {
-        "setup": "animation.villager.general",
-        "look_at_target": "animation.common.look_at_target",
-        "move": "animation.villager.move"
+        "barehand_pose_setup": "animation.zombie.attack_bare_hand",
+        "humanoid_bob": "animation.humanoid.bob",
+        "humanoid_move": "animation.humanoid.move"
       },
       "render_controllers": [
-        "controller.render.bounty_board.base",
-        "controller.render.bounty_board.biome",
-        "controller.render.bounty_board.profession"
+        "controller.render.zombie"
       ],
       "spawn_egg": {
         "base_color": "#f6c744",

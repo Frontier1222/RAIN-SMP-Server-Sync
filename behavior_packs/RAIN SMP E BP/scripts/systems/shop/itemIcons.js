@@ -8,6 +8,8 @@ const PAYMENT_ICON_OVERRIDES = {
   "viberater:rain_event_coin": "textures/items/rain_event_coin",
   "minecraft:iron_ingot": "textures/items/iron_ingot",
   "minecraft:gold_ingot": "textures/items/gold_ingot",
+  "minecraft:raw_iron": "textures/items/raw_iron",
+  "minecraft:raw_gold": "textures/items/raw_gold",
   "minecraft:emerald": "textures/items/emerald",
   "minecraft:diamond": "textures/items/diamond",
   "minecraft:diamond_block": "textures/items/diamond_block",

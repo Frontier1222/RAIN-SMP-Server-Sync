@@ -218,10 +218,10 @@
 
   "icon_circle_bg": {
     "type": "image",
-    "texture": "textures/ui/effect_background",
-    "color": [0.42, 0.24, 0.58],
-    "alpha": 0.88,
-    "size": [28, 28],
+    "texture": "textures/ui/Black",
+    "color": [0.24, 0.12, 0.31],
+    "alpha": 0.55,
+    "size": [27, 27],
     "anchor_from": "center",
     "anchor_to": "center",
     "layer": 2
@@ -292,6 +292,102 @@
     "controls": [
       {
         "icon_cluster@bd_action.icon_cluster": {}
+      }
+    ]
+  },
+
+  "payment_icon_bg": {
+    "type": "image",
+    "texture": "textures/ui/Black",
+    "alpha": 0.55,
+    "size": [14, 14],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 2
+  },
+
+  "payment_icon_cluster": {
+    "type": "panel",
+    "size": [18, 18],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      {
+        "payment_bg@bd_action.payment_icon_bg": {}
+      },
+      {
+        "common_coin@bd_action.payment_coin_icon": {
+          "$coin_texture": "textures/items/rain_common_coin",
+          "$coin_marker": "§0§1"
+        }
+      },
+      {
+        "uncommon_coin@bd_action.payment_coin_icon": {
+          "$coin_texture": "textures/items/rain_uncommon_coin",
+          "$coin_marker": "§0§2"
+        }
+      },
+      {
+        "rare_coin@bd_action.payment_coin_icon": {
+          "$coin_texture": "textures/items/rain_rare_coin",
+          "$coin_marker": "§0§3"
+        }
+      },
+      {
+        "rain_coin@bd_action.payment_coin_icon": {
+          "$coin_texture": "textures/items/rain_coin",
+          "$coin_marker": "§0§4"
+        }
+      },
+      {
+        "event_coin@bd_action.payment_coin_icon": {
+          "$coin_texture": "textures/items/rain_event_coin",
+          "$coin_marker": "§0§5"
+        }
+      }
+    ]
+  },
+
+  "payment_coin_icon": {
+    "type": "image",
+    "texture": "$coin_texture",
+    "size": [12, 12],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "keep_ratio": true,
+    "layer": 4,
+    "bindings": [
+      {
+        "binding_name": "#form_button_text",
+        "binding_type": "collection",
+        "binding_collection_name": "form_buttons"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#form_button_text - $coin_marker) = #form_button_text))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "payment_slot": {
+    "type": "panel",
+    "size": [18, 18],
+    "controls": [
+      {
+        "payment_cluster@bd_action.payment_icon_cluster": {}
+      }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#form_button_text",
+        "binding_type": "collection",
+        "binding_collection_name": "form_buttons"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#form_button_text - '§0§1') = #form_button_text) or not ((#form_button_text - '§0§2') = #form_button_text) or not ((#form_button_text - '§0§3') = #form_button_text) or not ((#form_button_text - '§0§4') = #form_button_text) or not ((#form_button_text - '§0§5') = #form_button_text))",
+        "target_property_name": "#visible"
       }
     ]
   },
@@ -414,6 +510,13 @@
                             }
                         }
                     ]
+                }
+            },
+            {
+                "payment_slot@bd_action.payment_slot": {
+                    "anchor_from": "right_middle",
+                    "anchor_to": "right_middle",
+                    "offset": [-50, 2]
                 }
             }
         ]

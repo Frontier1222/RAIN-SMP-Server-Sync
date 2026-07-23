@@ -22,8 +22,8 @@ import { SmelteryBlockComponent } from './blocks/smeltery_controller.js';
 import { SearedTankBlockComponent } from './blocks/seared_tank.js';
 import { SearedDrainBlockComponent } from './blocks/drain.js';
 import { FaucetBlockComponent } from './blocks/faucet.js';
-import { tc as Ot, PlayerUtils as R, ItemUtils as y } from './ftb_bedrock_bedrock_utils_dist_bedrock_utils.js';
-import { MinecraftEntityTypes, MinecraftBlockTypes, MinecraftItemTypes } from './minecraft_vanilla_data.js';
+import { tc as Ot } from './ftb_bedrock_bedrock_utils_dist_bedrock_utils.js';
+import { MinecraftEntityTypes, MinecraftBlockTypes } from './minecraft_vanilla_data.js';
 
 // Define the loot table command
 const lootTableCommand = 'loot spawn ~ ~ ~ loot "ftb/tinkers/wither"';
@@ -255,40 +255,6 @@ world.afterEvents.playerBreakBlock.subscribe(event => {
     if (block?.type.id === MinecraftBlockTypes.TallGrass || block?.type.id === MinecraftBlockTypes.ShortGrass) {
         if (Math.random() < 0.4) {
             event.block.dimension.spawnItem(new ItemStack(Ot("plant_fibre"), 1), event.block.location);
-        }
-    }
-});
-const mapping = new Map();
-mapping.set(Ot("earth_grass"), Ot("earth_tall_grass"));
-mapping.set(Ot("ender_grass"), Ot("ender_tall_grass"));
-mapping.set(Ot("sky_grass"), Ot("sky_tall_grass"));
-mapping.set(Ot("scarlet__grass"), Ot("scarlet_tall_grass"));
-const lastClickTimes = new Map();
-world.beforeEvents.playerInteractWithBlock.subscribe(event => {
-    const item = event.itemStack;
-    const block = event.block;
-    const playerId = event.player.id;
-    const currentTick = system.currentTick;
-    // For some reason interact with block keeps getting called
-    // And other events don't work for bonemeal
-    if (lastClickTimes.has(playerId)) {
-        const lastTick = lastClickTimes.get(playerId);
-        if (lastTick && (currentTick - lastTick) < 5) {
-            return;
-        }
-    }
-    lastClickTimes.set(playerId, currentTick);
-    if (item?.typeId === MinecraftItemTypes.BoneMeal) {
-        if (block && mapping.has(block.type.id)) {
-            const blockAbove = block.above(1);
-            if (!blockAbove || !blockAbove.isAir) {
-                return;
-            }
-            const blockToPlace = mapping.get(block.type.id);
-            system.runTimeout(() => {
-                blockAbove.setType(blockToPlace);
-                R.overrideHeldItem(event.player, y.shrinkItemStack(item));
-            }, 0);
         }
     }
 });

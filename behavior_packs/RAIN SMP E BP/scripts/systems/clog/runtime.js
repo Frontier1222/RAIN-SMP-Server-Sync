@@ -1,10 +1,10 @@
-import { EquipmentSlot, ItemStack, system, world } from "@minecraft/server";
+import { EquipmentSlot, ItemLockMode, ItemStack, system, world } from "@minecraft/server";
 import { migrateReceivedRainGui, isRainGuiItem } from "../../utils/rainGui.js";
-import { isSoulboundItem, prepareInventoryForGravestone, restoreSoulboundAfterRespawn } from "../../utils/soulboundGrave.js";
+import { isSoulboundItem } from "../../utils/soulboundGrave.js";
 import { notify } from "../../utils/realmPerf.js";
 import { COMBAT_UNTIL_KEY, clearCombat as clearCombatState } from "../../utils/teleport.js";
 
-const PENDING_CLEAR_KEY = "nf.clog.pending";
+const PENDING_CLEAR_KEY = "nf.clog.pending_death.v2";
 const PENDING_SNAPSHOTS_KEY = "nf.clog.snapshots";
 const COMBAT_SCORE_KEY = "nf.combat_score";
 const COMBAT_TIMER_OBJECTIVE = "combat_timer";
@@ -51,6 +51,7 @@ function savePendingSnapshot(name, snap) {
   pendingSnapshotsByName.set(name, snap);
   const store = readPendingSnapshotsStore();
   store[name] = {
+    playerId: snap.playerId,
     dimId: snap.dimId,
     location: snap.location,
     combatUntil: snap.combatUntil,
@@ -58,7 +59,7 @@ function savePendingSnapshot(name, snap) {
     items: (snap.items || []).map((entry) => ({
       kind: entry.kind,
       slot: entry.slot,
-      data: serializeSnapshotItem(entry),
+      data: entry.data || serializeSnapshotItem(entry),
     })).filter((entry) => entry.data),
   };
   writePendingSnapshotsStore(store);
@@ -72,6 +73,7 @@ function loadPendingSnapshot(name) {
   if (!raw?.location || !raw?.dimId) return null;
   return {
     name,
+    playerId: raw.playerId,
     dimId: raw.dimId,
     location: raw.location,
     combatUntil: Number(raw.combatUntil) || 0,
@@ -144,7 +146,20 @@ function cloneItem(item) {
 
 function cloneForDrop(item) {
   if (!item) return null;
-  return cloneItem(item);
+  const drop = cloneItem(item);
+  if (!drop) return null;
+  try {
+    drop.keepOnDeath = false;
+  } catch (e) {}
+  try {
+    drop.lockMode = ItemLockMode.none;
+  } catch (e) {}
+  return drop;
+}
+
+function getInventoryContainer(player) {
+  return player?.getComponent("minecraft:inventory")?.container
+    ?? player?.getComponent("inventory")?.container;
 }
 
 function serializeSnapshotItem(entry) {
@@ -182,31 +197,94 @@ function deserializeSnapshotItem(data) {
   }
 }
 
-function dropSnapshotItems(snap) {
-  if (!snap?.items?.length || !snap.location) return 0;
+function dropSnapshotItemsDetailed(snap) {
+  if (!snap?.items?.length || !snap.location) return { dropped: 0, remaining: [] };
 
   let dim;
   try {
     dim = world.getDimension(snap.dimId || "minecraft:overworld");
   } catch (e) {
-    return 0;
+    return { dropped: 0, remaining: snap.items };
   }
 
   let dropped = 0;
+  const remaining = [];
   for (const entry of snap.items) {
     const raw = entry?.data || serializeSnapshotItem(entry);
-    if (!raw?.typeId) continue;
-
-    const stack = deserializeSnapshotItem(raw);
+    const source = entry?.item || deserializeSnapshotItem(raw);
+    const stack = cloneForDrop(source);
     if (!stack || !shouldDropCombatLogItem(stack)) continue;
 
     try {
       dim.spawnItem(stack, spreadDropLocation(snap.location, dropped));
       dropped++;
-    } catch (e) {}
+    } catch (e) {
+      remaining.push(entry);
+    }
   }
 
-  return dropped;
+  return { dropped, remaining };
+}
+
+function dropSnapshotItems(snap) {
+  return dropSnapshotItemsDetailed(snap).dropped;
+}
+
+function snapshotDropCount(snap) {
+  return Array.isArray(snap?.items)
+    ? snap.items.filter((entry) => {
+        if (entry?.item) return shouldDropCombatLogItem(entry.item);
+        const raw = entry?.data || serializeSnapshotItem(entry);
+        if (!raw?.typeId) return false;
+        const stack = deserializeSnapshotItem(raw);
+        return !!stack && shouldDropCombatLogItem(stack);
+      }).length
+    : 0;
+}
+
+function getSnapshotDropTotals(snap) {
+  const totals = new Map()
+  for (const entry of snap?.items || []) {
+    const raw = entry?.data || serializeSnapshotItem(entry)
+    const stack = entry?.item ? entry.item : deserializeSnapshotItem(raw)
+    if (!stack || !shouldDropCombatLogItem(stack)) continue
+    const typeId = String(stack.typeId || "")
+    if (!typeId) continue
+    totals.set(typeId, (totals.get(typeId) || 0) + Math.max(1, Number(stack.amount) || 1))
+  }
+  return totals
+}
+
+function hasDroppedSnapshotItems(snap) {
+  const expected = getSnapshotDropTotals(snap)
+  if (!expected.size || !snap?.location) return false
+
+  let dimension
+  try {
+    dimension = world.getDimension(snap.dimId || "minecraft:overworld")
+  } catch (e) {
+    return false
+  }
+
+  const found = new Map()
+  try {
+    dimension.getEntities({
+      location: snap.location,
+      maxDistance: 8,
+      type: "minecraft:item",
+    }).forEach(entity => {
+      const stack = entity.getComponent("minecraft:item")?.itemStack
+      if (!stack?.typeId) return
+      found.set(stack.typeId, (found.get(stack.typeId) || 0) + Math.max(1, Number(stack.amount) || 1))
+    })
+  } catch (e) {
+    return false
+  }
+
+  for (const [typeId, amount] of expected) {
+    if ((found.get(typeId) || 0) < amount) return false
+  }
+  return true
 }
 
 function spreadDropLocation(base, index) {
@@ -260,13 +338,14 @@ function getAllItemsSnapshot(player) {
 function clearNonSoulboundInventory(player) {
   if (!player?.isValid) return;
 
-  const inv = player.getComponent("minecraft:inventory");
-  const container = inv?.container;
+  const container = getInventoryContainer(player);
   if (container) {
     for (let i = 0; i < container.size; i++) {
       const item = container.getItem(i);
       if (!item || isRainGuiItem(item) || isSoulboundItem(item)) continue;
-      container.setItem(i, undefined);
+      try {
+        container.setItem(i, undefined);
+      } catch (e) {}
     }
   }
 
@@ -282,13 +361,89 @@ function clearNonSoulboundInventory(player) {
     ];
     for (const slot of slots) {
       const item = eq.getEquipment(slot);
-      if (!item || isSoulboundItem(item)) continue;
-      eq.setEquipment(slot, undefined);
+      if (!item || isRainGuiItem(item) || isSoulboundItem(item)) continue;
+      try {
+        eq.setEquipment(slot, undefined);
+      } catch (e) {}
     }
   }
 }
 
-function dropPlayerInventoryAtLocation(player, dimId, location) {
+function schedulePendingInventoryWipe(player) {
+  clearNonSoulboundInventory(player);
+  for (const delay of [1, 2, 5, 10, 20, 40, 80]) {
+    system.runTimeout(() => {
+      if (!player?.isValid) return;
+      clearNonSoulboundInventory(player);
+    }, delay);
+  }
+}
+
+function snapshotEntryStack(entry) {
+  const raw = entry?.data || serializeSnapshotItem(entry)
+  return entry?.item || deserializeSnapshotItem(raw)
+}
+
+function snapshotStackMatches(current, expected) {
+  if (!current || !expected || current.typeId !== expected.typeId) return false
+  if ((current.nameTag || "") !== (expected.nameTag || "")) return false
+  try {
+    const currentLore = current.getLore?.() || []
+    const expectedLore = expected.getLore?.() || []
+    if (JSON.stringify(currentLore) !== JSON.stringify(expectedLore)) return false
+  } catch (e) {}
+  return true
+}
+
+function removeSnapshotAmount(container, slot, current, expected) {
+  const amount = Math.max(1, Number(expected.amount) || 1)
+  if ((Number(current.amount) || 1) <= amount) {
+    container.setItem(slot, undefined)
+    return
+  }
+  const remainder = cloneItem(current)
+  remainder.amount = current.amount - amount
+  container.setItem(slot, remainder)
+}
+
+function clearDroppedSnapshotItems(player, snap) {
+  if (!player?.isValid || !snap?.items?.length) return
+  const container = getInventoryContainer(player)
+  const equippable = player.getComponent("minecraft:equippable")
+
+  for (const entry of snap.items) {
+    const expected = snapshotEntryStack(entry)
+    if (!expected || !shouldDropCombatLogItem(expected)) continue
+
+    try {
+      if (entry.kind === "inv" && container) {
+        const current = container.getItem(entry.slot)
+        if (snapshotStackMatches(current, expected)) {
+          removeSnapshotAmount(container, entry.slot, current, expected)
+        }
+      } else if (entry.kind === "equip" && equippable) {
+        const current = equippable.getEquipment(entry.slot)
+        if (snapshotStackMatches(current, expected)) {
+          equippable.setEquipment(entry.slot, undefined)
+        }
+      }
+    } catch (e) {}
+  }
+}
+
+function scheduleVerifiedInventoryWipe(player, snap) {
+  let firstVerificationPassed = false
+  system.runTimeout(() => {
+    if (!player?.isValid) return
+    firstVerificationPassed = hasDroppedSnapshotItems(snap)
+  }, 10)
+  system.runTimeout(() => {
+    if (!player?.isValid || !firstVerificationPassed || !hasDroppedSnapshotItems(snap)) return
+    clearDroppedSnapshotItems(player, snap)
+  }, 40)
+}
+
+function dropAndClearPlayerInventoryAtLocation(player, dimId, location) {
   if (!player?.isValid || !location) return 0;
 
   let dim;
@@ -298,17 +453,91 @@ function dropPlayerInventoryAtLocation(player, dimId, location) {
     dim = player.dimension;
   }
 
-  const entries = getAllItemsSnapshot(player);
   let dropped = 0;
 
-  for (const entry of entries) {
-    if (!entry?.item || !shouldDropCombatLogItem(entry.item)) continue;
-    const dropItem = cloneForDrop(entry.item);
-    if (!dropItem) continue;
-    try {
-      dim.spawnItem(dropItem, spreadDropLocation(location, dropped));
-      dropped++;
-    } catch (e) {}
+  const container = getInventoryContainer(player);
+  if (container) {
+    for (let i = 0; i < container.size; i++) {
+      let item = container.getItem(i);
+      if (!item || !shouldDropCombatLogItem(item)) continue;
+
+      if (item.lockMode !== ItemLockMode.none) {
+        try {
+          const unlocked = cloneItem(item);
+          unlocked.lockMode = ItemLockMode.none;
+          container.setItem(i, unlocked);
+          item = unlocked;
+        } catch (e) {
+          continue;
+        }
+      }
+
+      const dropItem = cloneForDrop(item);
+      if (!dropItem) continue;
+      let itemEntity;
+      try {
+        itemEntity = dim.spawnItem(dropItem, spreadDropLocation(location, dropped));
+      } catch (e) {
+        continue;
+      }
+      try {
+        itemEntity?.addTag("rain_combat_log_drop");
+      } catch (e) {}
+      try {
+        container.setItem(i, undefined);
+        dropped++;
+      } catch (e) {
+        try {
+          itemEntity?.remove();
+        } catch (removeError) {}
+      }
+    }
+  }
+
+  const eq = player.getComponent("minecraft:equippable");
+  if (eq) {
+    const slots = [
+      EquipmentSlot.Head,
+      EquipmentSlot.Chest,
+      EquipmentSlot.Legs,
+      EquipmentSlot.Feet,
+      EquipmentSlot.Offhand,
+    ];
+    for (const slot of slots) {
+      let item = eq.getEquipment(slot);
+      if (!item || !shouldDropCombatLogItem(item)) continue;
+
+      if (item.lockMode !== ItemLockMode.none) {
+        try {
+          const unlocked = cloneItem(item);
+          unlocked.lockMode = ItemLockMode.none;
+          eq.setEquipment(slot, unlocked);
+          item = unlocked;
+        } catch (e) {
+          continue;
+        }
+      }
+
+      const dropItem = cloneForDrop(item);
+      if (!dropItem) continue;
+      let itemEntity;
+      try {
+        itemEntity = dim.spawnItem(dropItem, spreadDropLocation(location, dropped));
+      } catch (e) {
+        continue;
+      }
+      try {
+        itemEntity?.addTag("rain_combat_log_drop");
+      } catch (e) {}
+      try {
+        eq.setEquipment(slot, undefined);
+        dropped++;
+      } catch (e) {
+        try {
+          itemEntity?.remove();
+        } catch (removeError) {}
+      }
+    }
   }
 
   return dropped;
@@ -317,6 +546,7 @@ function dropPlayerInventoryAtLocation(player, dimId, location) {
 function buildCombatSnapshot(player, until) {
   return {
     name: player.name,
+    playerId: player.id,
     dimId: player.dimension.id,
     location: { x: player.location.x, y: player.location.y, z: player.location.z },
     items: getAllItemsSnapshot(player),
@@ -431,37 +661,73 @@ export function onPlayerDeath(player) {
 
 export function onPlayerLeave(ev) {
   const player = ev.player;
-  const name = String(player?.name ?? ev.playerName ?? "");
-  if (!name) return;
+  let eventPlayerId = String(ev.playerId ?? "");
+  let name = String(ev.playerName ?? "");
+  try {
+    if (!eventPlayerId) eventPlayerId = String(player?.id ?? "");
+    if (!name) name = String(player?.name ?? "");
+  } catch (e) {}
 
-  if (player?.isValid) {
-    const until = readCombatUntil(player);
-    if (until && until > Date.now()) {
-      snapshotsByName.set(name, buildCombatSnapshot(player, until));
+  let snap = name ? snapshotsByName.get(name) : null;
+  if (!snap && eventPlayerId) {
+    for (const [snapshotName, candidate] of snapshotsByName) {
+      if (String(candidate?.playerId ?? "") === eventPlayerId) {
+        name = snapshotName;
+        snap = candidate;
+        break;
+      }
     }
   }
+  if (!name || !snap) return;
 
-  const snap = snapshotsByName.get(name);
-  if (!snap) return;
+  const pending = getPendingSet();
+  if (pending.has(name)) return;
+
+  try {
+    if (player?.isValid) {
+      const until = readCombatUntil(player);
+      if (until && until > Date.now()) {
+        snap = buildCombatSnapshot(player, until);
+        snapshotsByName.set(name, snap);
+      }
+    }
+  } catch (e) {}
+
   const now = Date.now();
   if (!snap.combatUntil || now > snap.combatUntil) return;
 
-  dropSnapshotItems(snap);
-
-  if (player?.isValid) {
-    clearNonSoulboundInventory(player);
-  }
-
-  savePendingSnapshot(name, {
-    ...snap,
-    items: [],
-    droppedOnLeave: true,
-  });
   snapshotsByName.delete(name);
+  deletePendingSnapshot(name);
 
-  const pending = getPendingSet();
   pending.add(name);
   setPendingSet(pending);
+
+  // Kill while the leaving player entity still exists. Essentials handles the
+  // death inventory and vanilla item drops from this point.
+  let playerIsValid = false;
+  try {
+    playerIsValid = !!player?.isValid;
+  } catch (e) {}
+  if (!playerIsValid) return;
+
+  try {
+    if (player.kill() !== false) return;
+  } catch (e) {}
+
+  system.run(() => {
+    try {
+      if (!player?.isValid) return;
+    } catch (e) {
+      return;
+    }
+    try {
+      player.kill();
+    } catch (e) {
+      try {
+        player.runCommand("kill @s");
+      } catch (commandError) {}
+    }
+  });
 }
 
 export function onPlayerSpawn(ev) {
@@ -474,34 +740,27 @@ export function onPlayerSpawn(ev) {
   const pending = getPendingSet();
   if (!pending.has(player.name)) return;
 
-  const snap = loadPendingSnapshot(player.name);
-
   pending.delete(player.name);
   setPendingSet(pending);
   deletePendingSnapshot(player.name);
 
-  clearNonSoulboundInventory(player);
-
-  try {
-    prepareInventoryForGravestone(player);
-  } catch (e) {}
-
   notify(
     player,
-    "clog_drop",
+    "clog_death",
     "§r§c§l[COMBAT LOG]§r",
-    snap?.droppedOnLeave
-      ? "§cYou logged out during combat! Your items were dropped where you left."
-      : "§cYou logged out during combat! Non-soulbound items were removed.",
+    "§cYou logged out during combat and were killed.",
     "note.bass"
   );
 
   clearCombat(player);
-
   system.runTimeout(() => {
-    if (!player.isValid) return;
+    if (!player?.isValid) return;
     try {
-      restoreSoulboundAfterRespawn(player);
-    } catch (e) {}
-  }, 5);
+      player.kill();
+    } catch (e) {
+      try {
+        player.runCommand("kill @s");
+      } catch (commandError) {}
+    }
+  }, 1);
 }
